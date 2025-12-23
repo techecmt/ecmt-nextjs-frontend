@@ -173,9 +173,9 @@ export default function ContactForm() {
                     setActiveTab(tab);
                     setFormData({ ...formData, course: "" });
                   }}
-                  className={`relative flex-1 px-2 md:px-4 py-3 text-[10px] md:text-xs font-bold transition-all duration-300 ${
+                    className={`relative flex-1 px-2 md:px-4 py-3 text-[10px] md:text-xs font-bold transition-all duration-300 ${
                     activeTab === tab
-                      ? "text-white bg-[#1AB69D] shadow-lg scale-105 -mb-[1px]"
+                      ? "text-white bg-[#1AB69D] shadow-lg scale-105 -mb-px"
                       : "text-gray-600 hover:text-[#1AB69D] hover:bg-white hover:shadow-md transform hover:scale-102"
                   }`}
                 >
@@ -367,12 +367,12 @@ export default function ContactForm() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-[#1AB69D] to-[#16a890] text-white font-bold py-3.5 rounded-lg hover:from-[#16917f] hover:to-[#138f7d] hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-4 focus:ring-[#1AB69D]/40 transition-all duration-300 transform relative overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-linear-to-r from-[#1AB69D] to-[#16a890] text-white font-bold py-3.5 rounded-lg hover:from-[#16917f] hover:to-[#138f7d] hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-4 focus:ring-[#1AB69D]/40 transition-all duration-300 transform relative overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <span className="relative z-10">
                   {isSubmitting ? "Submitting..." : "Send Message"}
                 </span>
-                <span className="absolute inset-0 bg-white/10 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out"></span>
+                <span className="absolute inset-0 bg-white/10 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></span>
               </button>
             </div>
           </form>

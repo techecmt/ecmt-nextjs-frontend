@@ -5,7 +5,7 @@ import { FaUserNurse, FaHotel, FaTools, FaCode } from 'react-icons/fa';
 
 export default function Hero() {
   return (
-    <section className="min-h-screen bg-gradient-to-b from-gray-50 to-white pt-32 pb-16 px-8 relative overflow-hidden">
+    <section className="bg-linear-to-b from-gray-50 to-white pt-24 pb-12 px-8 relative overflow-hidden">
       {/* Animated background gradient blobs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-[#1AB69D]/10 rounded-full blur-3xl animate-pulse"></div>
@@ -48,11 +48,12 @@ export default function Hero() {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-gray-900">200+</div>
-                  <div className="text-sm text-gray-500">Students</div>
+                  <div className="text-2xl font-bold text-gray-900">2000+</div>
+                  <div className="text-sm text-gray-500">Students Enrolled</div>
                 </div>
               </div>
             </div>
+            
 
             <div className="group/stat cursor-pointer">
               <div className="flex items-center gap-3 p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
@@ -62,8 +63,23 @@ export default function Hero() {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-gray-900">6</div>
-                  <div className="text-sm text-gray-500">Schools</div>
+                  <div className="text-2xl font-bold text-gray-900">25+</div>
+                  <div className="text-sm text-gray-500">TOP INSTRUCTORS</div>
+                </div>
+              </div>
+            </div>
+
+            {/* New stat: Success Rate */}
+            <div className="group/stat cursor-pointer">
+              <div className="flex items-center gap-3 p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
+                <div className="w-12 h-12 bg-[#1AB69D]/10 rounded-full flex items-center justify-center group-hover/stat:bg-[#1AB69D] transition-colors">
+                  <svg className="w-6 h-6 text-[#1AB69D] group-hover/stat:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2a10 10 0 100 20 10 10 0 000-20zm-1 14l6-6-1.5-1.5L11 13.5 9.5 12 8 13.5 11 16z" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-gray-900">100%</div>
+                  <div className="text-sm text-gray-500">Success Rate</div>
                 </div>
               </div>
             </div>
@@ -83,40 +99,27 @@ export default function Hero() {
           <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-[#EE4A62] rounded-full opacity-20 group-hover/image:scale-150 transition-transform duration-700 ease-out" style={{ transitionDelay: '100ms' }}></div>
 
           {/* Main Image Container */}
-          <div className="relative w-full max-w-sm mx-auto lg:max-w-sm">
-            <div className="relative overflow-hidden rounded-3xl bg-white shadow-lg">
-              <div className="aspect-[3/4] sm:aspect-[4/5] md:aspect-[3/4] relative">
+          <div className="relative z-10">
+            <div className="relative w-full max-w-md mx-auto mt-10 lg:mt-16">
+              <div className="aspect-3/4 sm:aspect-4/5 md:aspect-3/4 relative">
                 <Image
                   src="/homepage/homepageherosectionimage.webp"
                   alt="Student with books and backpack"
                   fill
-                  className="object-cover object-top group-hover/image:scale-105 transition-transform duration-500"
+                  className="object-contain object-center"
                   priority
                   sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 400px"
                 />
               </div>
             </div>
 
-            {/* Floating badge */}
-            <div className="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-xl p-4 group-hover/image:translate-y-[-8px] transition-transform duration-300 cursor-pointer hover:scale-110">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-[#1AB69D] to-[#16a890] rounded-lg flex items-center justify-center">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-lg font-bold text-gray-900">100%</div>
-                  <div className="text-xs text-gray-500">Success Rate</div>
-                </div>
-              </div>
-            </div>
+            {/* Floating badge removed */}
           </div>
         </div>
       </div>
 
       {/* Industries Section (Compact) */}
-      <div className="bg-gradient-to-br from-[#1AB69D] to-[#16a085] py-8 mt-12 -mx-8 relative overflow-hidden">
+      <div className="relative z-20 -mt-4 bg-linear-to-br from-[#1AB69D] to-[#16a085] py-8 px-8">
         {/* Subtle background circles */}
         <div className="absolute top-0 right-0 w-40 h-40 bg-white opacity-4 rounded-full -translate-y-1/2 translate-x-1/2"></div>
         <div className="absolute bottom-0 left-0 w-60 h-60 bg-white opacity-4 rounded-full translate-y-1/2 -translate-x-1/2"></div>

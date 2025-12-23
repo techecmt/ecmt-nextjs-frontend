@@ -32,18 +32,6 @@ export default function DiplomaInCaregiving() {
               {/* Quick Stats */}
               <div className="flex flex-wrap gap-6 pt-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-[#1AB69D]/10 rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-[#1AB69D]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-gray-900">8 Months</div>
-                    <div className="text-sm text-gray-500">Duration</div>
-                  </div>
-                </div>
-                
-                <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-[#EE4A62]/10 rounded-lg flex items-center justify-center">
                     <svg className="w-6 h-6 text-[#EE4A62]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -53,6 +41,15 @@ export default function DiplomaInCaregiving() {
                     <div className="text-2xl font-bold text-gray-900">500+</div>
                     <div className="text-sm text-gray-500">Graduates</div>
                   </div>
+                    <div className="flex items-center">
+                    <Image
+                      src="/brand/google-review.png"
+                      alt="Google rating badge"
+                      width={240}
+                      height={80}
+                      className="w-44 md:w-60 h-auto drop-shadow-lg"
+                    />
+                    </div>
                 </div>
               </div>
               
@@ -103,12 +100,8 @@ export default function DiplomaInCaregiving() {
           </div>
           
           <div className="mb-8">
-            <p className="text-gray-900 leading-relaxed mb-6 text-center max-w-4xl mx-auto">
-              The <span className="text-gray-900 font-semibold">Diploma in caregiving</span> is designed to <span className="text-gray-900 font-semibold">equip</span> the <span className="text-gray-900 font-semibold">students</span> with <span className="text-gray-900 font-semibold">appropriate skills</span> and <span className="text-gray-900 font-semibold">knowledge</span> in <span className="text-gray-900 font-semibold">looking after</span> the <span className="text-gray-900 font-semibold">Elderly, Infants</span> and <span className="text-gray-900 font-semibold">disabled</span> with <span className="text-gray-900 font-semibold">utmost care</span> and <span className="text-gray-900 font-semibold">professionalism</span>.
-            </p>
-            
-            <p className="text-gray-900 leading-relaxed text-center max-w-4xl mx-auto">
-              Upon <span className="text-gray-900 font-semibold">successful completion</span> of this course our students shall be able to will provide <span className="text-gray-900 font-semibold">effective community care</span> through the introduction of <span className="text-gray-900 font-semibold">appropriate exercises</span> and <span className="text-gray-900 font-semibold">healthy behaviours</span> for seniors to enhance their <span className="text-gray-900 font-semibold">physical health, emotional</span> and <span className="text-gray-900 font-semibold">mental resilience</span>, and <span className="text-gray-900 font-semibold">socially activeness</span> and demonstrate <span className="text-gray-900 font-semibold">professional handling</span> of New born or Infant especially with the <span className="text-gray-900 font-semibold">special needs</span>.
+            <p className="text-gray-900 leading-relaxed text-justify max-w-4xl mx-auto">
+              The <span className="text-gray-900 font-semibold">Diploma in caregiving</span> is designed to <span className="text-gray-900 font-semibold">equip</span> the <span className="text-gray-900 font-semibold">students</span> with <span className="text-gray-900 font-semibold">appropriate skills</span> and <span className="text-gray-900 font-semibold">knowledge</span> in <span className="text-gray-900 font-semibold">looking after</span> the <span className="text-gray-900 font-semibold">Elderly, Infants</span> and <span className="text-gray-900 font-semibold">disabled</span> with <span className="text-gray-900 font-semibold">utmost care</span> and <span className="text-gray-900 font-semibold">professionalism</span>. Upon <span className="text-gray-900 font-semibold">successful completion</span> of this course our students shall be able to will provide <span className="text-gray-900 font-semibold">effective community care</span> through the introduction of <span className="text-gray-900 font-semibold">appropriate exercises</span> and <span className="text-gray-900 font-semibold">healthy behaviours</span> for seniors to enhance their <span className="text-gray-900 font-semibold">physical health, emotional</span> and <span className="text-gray-900 font-semibold">mental resilience</span>, and <span className="text-gray-900 font-semibold">socially activeness</span> and demonstrate <span className="text-gray-900 font-semibold">professional handling</span> of New born or Infant especially with the <span className="text-gray-900 font-semibold">special needs</span>.
             </p>
           </div>
 

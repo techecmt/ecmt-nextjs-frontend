@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
 import { 
   FaHeartbeat, 
@@ -68,7 +69,7 @@ export default function Header() {
               onMouseEnter={() => item.hasDropdown && setOpenMenu(item.name)}
               onMouseLeave={() => setOpenMenu(null)}
             >
-              <a
+              <Link
                 href={item.href}
                 className={`font-poppins transition-colors flex items-center gap-1 ${
                   item.name === 'Home'
@@ -78,7 +79,7 @@ export default function Header() {
               >
                 {item.name}
                 {item.hasDropdown && <FaChevronDown className="w-3 h-3" />}
-              </a>
+              </Link>
 
               {item.name === 'Courses' && openMenu === 'Courses' && (
                 <MegaMenu
@@ -97,13 +98,13 @@ export default function Header() {
               {menuItems.map((item) => (
                 <div key={item.name}>
                   {!item.hasDropdown ? (
-                    <a
+                    <Link
                       href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
                       className="block px-4 py-3 rounded-lg hover:bg-gray-50"
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   ) : (
                     <>
                       <button
@@ -233,17 +234,18 @@ function CourseSection({
   );
 }
 
-function CourseCard({ title, elearning }: any) {
+function CourseCard({ title, elearning, url }: any) {
+  const href = url || '/contact';
   return (
-    <a
-      href="#"
+    <Link
+      href={href}
       className="group flex items-start gap-2 py-2 px-1 hover:bg-gray-50 rounded transition-colors"
     >
       <span className="text-[#1AB69D] mt-0.5">›</span>
       <span className="text-sm text-gray-700 group-hover:text-[#1AB69D] transition-colors leading-snug">
         {title}
       </span>
-    </a>
+    </Link>
   );
 }
 
@@ -296,16 +298,16 @@ function MobileCoursesSection() {
               <div className="px-3 pb-3 pt-1 border-t border-gray-100 bg-gray-50/50">
                 <div className="space-y-1">
                   {school.courses.map((course: any, i: number) => (
-                    <a
+                    <Link
                       key={i}
-                      href="#"
+                      href={course.url || '/contact'}
                       className="flex items-start gap-2 py-2 px-2 hover:bg-white rounded transition-colors"
                     >
                       <span className="text-[#1AB69D] mt-0.5 text-sm">›</span>
                       <span className="text-xs text-gray-700 leading-snug">
                         {course.title}
                       </span>
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>

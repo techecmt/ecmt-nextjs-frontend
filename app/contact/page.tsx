@@ -1,6 +1,6 @@
 import Image from "next/image";
 import ContactForm from "../components/contactform";
-import GoogleReviews from "../components/GoogleReviews";
+import GoogleCarousel from "../components/GoogleCarousel";
 import { FiMapPin, FiMail, FiPhone, FiNavigation, FiExternalLink } from "react-icons/fi";
 import { FcGoogle } from "react-icons/fc";
 
@@ -165,7 +165,7 @@ export default function ContactPage() {
 
 						{/* Reviews card */}
 						<div>
-							<GoogleReviews />
+							<GoogleCarousel />
 						</div>
 					</div>
 				</div>
