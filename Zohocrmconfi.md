@@ -1,4 +1,4 @@
-https://accounts.zoho.com/oauth/v2/auth?scope=ZohoCRM.modules.leads.ALL&client_id=1000.JO4RDZU5MC4DLUH4O64CN7UV7DUCKB&response_type=code&access_type=online&redirect_uri=http://google.com/
+https://accounts.zoho.com/oauth/v2/auth?scope=ZohoCRM.modules.leads.ALL&client_id=1000.JO4RDZU5MC4DLUH4O64CN7UV7DUCKB&response_type=code&access_type=offline&redirect_uri=http://google.com/
 
 
 {

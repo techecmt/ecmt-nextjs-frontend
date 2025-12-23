@@ -1,3 +1,4 @@
+import { getAccessToken } from "@/lib/zoho";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
@@ -23,34 +24,27 @@ export async function POST(req: NextRequest) {
   }
 
   const zohoApiUrl = "https://www.zohoapis.com/crm/v8/Leads";
-  const accessToken = process.env.ZOHO_ACCESS_TOKEN;
-
-  if (!accessToken) {
-    console.error("Zoho access token is not configured.");
-    return NextResponse.json(
-      { error: "Internal server error: Zoho integration not configured." },
-      { status: 500 }
-    );
-  }
-
-  const leadData = {
-    data: [
-      {
-        Last_Name: name,
-        Email: email,
-        Mobile: `${countryCode}${phone}`,
-        Lead_Source: "Website",
-        Interested_Course: course,
-        Lead_Received_Date: new Date().toISOString().split("T")[0],
-        Lead_Status: "1. Inquiry Received",
-        Assignee: "-None-",
-        nationality: nationality,
-        Description: `Course Type: ${courseType}\nSelected Course: ${course}\nIntended Start Date: ${startDate}\nMessage: ${message}`,
-      },
-    ],
-  };
 
   try {
+    const accessToken = await getAccessToken();
+
+    const leadData = {
+      data: [
+        {
+          Last_Name: name,
+          Email: email,
+          Mobile: `${countryCode}${phone}`,
+          Lead_Source: "Website",
+          Interested_Course: course,
+          Lead_Received_Date: new Date().toISOString().split("T")[0],
+          Lead_Status: "1. Inquiry Received",
+          Assignee: "-None-",
+          nationality: nationality,
+          Description: `Course Type: ${courseType}\nSelected Course: ${course}\nIntended Start Date: ${startDate}\nMessage: ${message}`,
+        },
+      ],
+    };
+
     const response = await fetch(zohoApiUrl, {
       method: "POST",
       headers: {
