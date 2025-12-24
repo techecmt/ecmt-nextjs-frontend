@@ -48,20 +48,27 @@ export async function GET() {
     const detailsRes = await fetch(detailsUrl.toString());
     const detailsData = await detailsRes.json();
 
-    if (detailsData.status !== "OK" || !detailsData.result) {
-      return NextResponse.json({ error: "Details not available", meta: detailsData }, { status: 502 });
+    if (detailsData.status !== "OK") {
+      // Forward the error from Google API for better debugging
+      return NextResponse.json(
+        {
+          error: `Google API Error: ${detailsData.status}`,
+          details: detailsData.error_message || "No additional details provided.",
+        },
+        { status: 400 }
+      );
     }
 
-    const r = detailsData.result;
+    const { name, rating, user_ratings_total, reviews = [] } = detailsData.result;
     const payload = {
-      name: r.name,
-      address: r.formatted_address,
-      location: r.geometry?.location ?? null,
-      rating: r.rating ?? null,
-      userRatingsTotal: r.user_ratings_total ?? 0,
-      mapUrl: r.url ?? null,
+      name,
+      address: detailsData.result.formatted_address,
+      location: detailsData.result.geometry?.location ?? null,
+      rating: rating ?? null,
+      userRatingsTotal: user_ratings_total ?? 0,
+      mapUrl: detailsData.result.url ?? null,
       // Trim and normalize reviews to a compact shape
-      reviews: (r.reviews || []).slice(0, 5).map((rev: any) => ({
+      reviews: reviews.slice(0, 5).map((rev: any) => ({
         authorName: rev.author_name,
         profilePhotoUrl: rev.profile_photo_url,
         rating: rev.rating,

@@ -1,3 +1,4 @@
+import ContactForm from "../components/contactform";
 import Image from "next/image";
 
 export default function DiplomaInCaregiving() {
@@ -333,31 +334,7 @@ export default function DiplomaInCaregiving() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section id="register" className="py-12 md:py-16 bg-gradient-to-r from-[#1AB69D] to-[#16a890] text-white">
-        <div className="container mx-auto px-4 md:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Start Your Caregiving Journey?
-          </h2>
-          <p className="text-xl mb-8 text-white/90">
-            Join our community of passionate caregivers making a difference
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <a
-              href="/#contact"
-              className="bg-white text-[#1AB69D] px-10 py-4 rounded-lg font-bold hover:bg-gray-100 transition-all hover:shadow-xl hover:scale-105 active:scale-95 text-lg"
-            >
-              Enroll Now
-            </a>
-            <a
-              href="#brochure"
-              className="bg-[#EE4A62] text-white px-10 py-4 rounded-lg font-bold hover:bg-[#d63e52] transition-all hover:shadow-xl hover:scale-105 active:scale-95 text-lg"
-            >
-              Download Brochure
-            </a>
-          </div>
-        </div>
-      </section>
+      <ContactForm />
     </main>
   );
 }

@@ -153,8 +153,8 @@ export default function ContactForm() {
           <p className="text-xs md:text-sm uppercase tracking-[0.25em] text-[#1AB69D] font-semibold mb-2">
             Get in Touch
           </p>
-          <h2 className="text-2xl md:text-3xl font-semibold text-[#1AB69D] font-poppins mb-3">
-            Enroll Now
+          <h2 className="text-2xl md:text-3xl font-semibold text-[#1AB69D] font-spartan mb-3">
+            Let's start the registration process!
           </h2>
           <p className="text-sm md:text-base text-gray-700 max-w-2xl mx-auto">
             Fill in the form below and we'll get back to you as soon as
