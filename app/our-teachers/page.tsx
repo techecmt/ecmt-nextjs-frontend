@@ -265,7 +265,7 @@ const teachersData: Teacher[] = [
   },
   {
     name: "Haji Noor Mohamed Mursidha",
-    qualifications: [],
+    qualifications: ["Bachelor of Science in Management", "University of London, UK"],
     deployedMode: "Part Time",
     courses: [
       {

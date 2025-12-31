@@ -16,11 +16,12 @@ import { courseData } from '../data/courses';
 
 const menuItems = [
   { name: 'Home', hasDropdown: false, href: '/' },
-  { name: 'Courses', hasDropdown: true, href: '#' },
-  { name: 'Student Corner', hasDropdown: true, href: '#' },
-  { name: 'Policies', hasDropdown: true, href: '#' },
-  { name: 'Careers', hasDropdown: true, href: '#' },
-  { name: 'About Us', hasDropdown: true, href: '#' },
+  { name: 'Diploma Courses', hasDropdown: true, href: '#' },
+  { name: 'WSQ Courses', hasDropdown: true, href: '#' },
+  { name: 'SFARC Courses', hasDropdown: true, href: '#' },
+  { name: 'Certificate Courses', hasDropdown: true, href: '#' },
+  { name: 'About Us', hasDropdown: false, href: '/about' },
+  { name: 'Students Affair', hasDropdown: true, href: '#' },
 ];
 
 export default function Header() {
@@ -81,10 +82,12 @@ export default function Header() {
                 {item.hasDropdown && <FaChevronDown className="w-3 h-3" />}
               </Link>
 
-              {item.name === 'Courses' && openMenu === 'Courses' && (
+              {/* Show MegaMenu for Diploma Courses, WSQ Courses, SFARC Courses, Certificate Courses */}
+              {['Diploma Courses', 'WSQ Courses', 'SFARC Courses', 'Certificate Courses'].includes(item.name) && openMenu === item.name && (
                 <MegaMenu
-                  onMouseEnter={() => setOpenMenu('Courses')}
+                  onMouseEnter={() => setOpenMenu(item.name)}
                   onMouseLeave={() => setOpenMenu(null)}
+                  menuType={item.name}
                 />
               )}
             </div>
@@ -123,9 +126,10 @@ export default function Header() {
                         />
                       </button>
 
-                      {item.name === 'Courses' &&
-                        mobileAccordion === 'Courses' && (
-                          <MobileCoursesSection />
+                      {/* Show MobileCoursesSection for Diploma Courses, WSQ Courses, SFARC Courses, Certificate Courses */}
+                      {['Diploma Courses', 'WSQ Courses', 'SFARC Courses', 'Certificate Courses'].includes(item.name) &&
+                        mobileAccordion === item.name && (
+                          <MobileCoursesSection menuType={item.name} />
                         )}
                     </>
                   )}
@@ -144,9 +148,11 @@ export default function Header() {
 function MegaMenu({
   onMouseEnter,
   onMouseLeave,
+  menuType,
 }: {
   onMouseEnter: () => void;
   onMouseLeave: () => void;
+  menuType: string;
 }) {
   const schoolIcons: { [key: string]: React.ReactNode } = {
     'School of Caregiving': <FaHeartbeat className="w-5 h-5" />,
@@ -157,6 +163,24 @@ function MegaMenu({
     'E-Learning Courses': <FaGraduationCap className="w-5 h-5" />,
   };
 
+  // Filter courseData based on menuType
+    let filteredSchools: typeof courseData = [];
+  if (menuType === 'Diploma Courses') {
+    filteredSchools = courseData.filter(
+      school => school.title.includes('Caregiving') ||
+        school.title.includes('Hospitality') ||
+        school.title.includes('IT') ||
+        school.title.includes('Engineering') ||
+        school.title.includes('E-Learning')
+    );
+  } else if (menuType === 'WSQ Courses') {
+    filteredSchools = courseData.filter(school => school.title.includes('WSQ'));
+  } else if (menuType === 'SFARC Courses') {
+    filteredSchools = courseData.filter(school => school.title.includes('SFARC'));
+  } else if (menuType === 'Certificate Courses') {
+    filteredSchools = courseData.filter(school => school.title.includes('Certificate'));
+  }
+
   return (
     <div
       className="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-[95vw] max-w-[1100px]"
@@ -165,39 +189,17 @@ function MegaMenu({
     >
       <div className="bg-white shadow-lg rounded-lg border border-gray-100 max-h-[80vh] overflow-y-auto">
         <div className="grid grid-cols-3 gap-6 p-6 lg:gap-8 lg:p-8">
-          {/* First 4 schools - single column each */}
-          {courseData.slice(0, 4).map((school, idx) => (
-            <CourseSection
-              key={idx}
-              school={school}
-              icon={schoolIcons[school.title]}
-            />
-          ))}
-
-          {/* Business school */}
-          <CourseSection
-            school={courseData[4]}
-            icon={schoolIcons[courseData[4].title]}
-          />
-
-          {/* E-Learning - spans 2 columns */}
-          <div className="col-span-2">
-            <div className="mb-4 pb-3 border-b-2 border-[#EE4A62]">
-              <div className="flex items-center gap-3">
-                <div className="text-[#EE4A62]">
-                  {schoolIcons[courseData[5].title]}
-                </div>
-                <h3 className="text-sm font-bold uppercase tracking-wider text-[#EE4A62]">
-                  {courseData[5].title}
-                </h3>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-x-6 gap-y-2">
-              {courseData[5].courses.map((course, idx) => (
-                <CourseCard key={idx} {...course} elearning={true} />
-              ))}
-            </div>
-          </div>
+          {filteredSchools.length > 0 ? (
+            filteredSchools.map((school, idx) => (
+              <CourseSection
+                key={idx}
+                school={school}
+                icon={schoolIcons[school.title]}
+              />
+            ))
+          ) : (
+            <div className="col-span-3 text-center text-gray-500">No courses found.</div>
+          )}
         </div>
       </div>
     </div>
@@ -251,7 +253,7 @@ function CourseCard({ title, elearning, url }: any) {
 
 /* ================= MOBILE COURSES ================= */
 
-function MobileCoursesSection() {
+function MobileCoursesSection({ menuType }: { menuType: string }) {
   const [expandedSchool, setExpandedSchool] = React.useState<string | null>(null);
 
   const schoolIcons: { [key: string]: React.ReactNode } = {
@@ -263,58 +265,75 @@ function MobileCoursesSection() {
     'E-Learning Courses': <FaGraduationCap className="w-4 h-4" />,
   };
 
-  const toggleSchool = (schoolTitle: string) => {
-    setExpandedSchool(expandedSchool === schoolTitle ? null : schoolTitle);
-  };
+  // Filter courseData based on menuType
+    let filteredSchools: typeof courseData = [];
+  if (menuType === 'Diploma Courses') {
+    filteredSchools = courseData.filter(
+      school => school.title.includes('Caregiving') ||
+        school.title.includes('Hospitality') ||
+        school.title.includes('IT') ||
+        school.title.includes('Engineering') ||
+        school.title.includes('E-Learning')
+    );
+  } else if (menuType === 'WSQ Courses') {
+    filteredSchools = courseData.filter(school => school.title.includes('WSQ'));
+  } else if (menuType === 'SFARC Courses') {
+    filteredSchools = courseData.filter(school => school.title.includes('SFARC'));
+  } else if (menuType === 'Certificate Courses') {
+    filteredSchools = courseData.filter(school => school.title.includes('Certificate'));
+  }
 
   return (
     <div className="mt-3 space-y-2">
-      {courseData.map((school, idx) => {
-        const isExpanded = expandedSchool === school.title;
-        return (
-          <div key={idx} className="border border-gray-100 rounded-lg overflow-hidden">
-            <button
-              onClick={() => toggleSchool(school.title)}
-              className="w-full flex items-center justify-between gap-2 p-3 hover:bg-gray-50 transition-colors"
-            >
-              <div className="flex items-center gap-2">
-                <div style={{ color: school.color }}>
-                  {schoolIcons[school.title]}
+      {filteredSchools.length > 0 ? (
+        filteredSchools.map((school, idx) => {
+          const isExpanded = expandedSchool === school.title;
+          return (
+            <div key={idx} className="border border-gray-100 rounded-lg overflow-hidden">
+              <button
+                onClick={() => setExpandedSchool(isExpanded ? null : school.title)}
+                className="w-full flex items-center justify-between gap-2 p-3 hover:bg-gray-50 transition-colors"
+              >
+                <div className="flex items-center gap-2">
+                  <div style={{ color: school.color }}>
+                    {schoolIcons[school.title]}
+                  </div>
+                  <h3
+                    className="text-xs font-bold uppercase tracking-wider text-left"
+                    style={{ color: school.color }}
+                  >
+                    {school.title.replace('School of ', '')}
+                  </h3>
                 </div>
-                <h3
-                  className="text-xs font-bold uppercase tracking-wider text-left"
+                <FaChevronDown
+                  className={`w-3 h-3 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
                   style={{ color: school.color }}
-                >
-                  {school.title.replace('School of ', '')}
-                </h3>
-              </div>
-              <FaChevronDown
-                className={`w-3 h-3 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
-                style={{ color: school.color }}
-              />
-            </button>
-            
-            {isExpanded && (
-              <div className="px-3 pb-3 pt-1 border-t border-gray-100 bg-gray-50/50">
-                <div className="space-y-1">
-                  {school.courses.map((course: any, i: number) => (
-                    <Link
-                      key={i}
-                      href={course.url || '/contact'}
-                      className="flex items-start gap-2 py-2 px-2 hover:bg-white rounded transition-colors"
-                    >
-                      <span className="text-[#1AB69D] mt-0.5 text-sm">›</span>
-                      <span className="text-xs text-gray-700 leading-snug">
-                        {course.title}
-                      </span>
-                    </Link>
-                  ))}
+                />
+              </button>
+              {isExpanded && (
+                <div className="px-3 pb-3 pt-1 border-t border-gray-100 bg-gray-50/50">
+                  <div className="space-y-1">
+                    {school.courses.map((course: any, i: number) => (
+                      <Link
+                        key={i}
+                        href={course.url || '/contact'}
+                        className="flex items-start gap-2 py-2 px-2 hover:bg-white rounded transition-colors"
+                      >
+                        <span className="text-[#1AB69D] mt-0.5 text-sm">›</span>
+                        <span className="text-xs text-gray-700 leading-snug">
+                          {course.title}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
-          </div>
-        );
-      })}
+              )}
+            </div>
+          );
+        })
+      ) : (
+        <div className="col-span-3 text-center text-gray-500">No courses found.</div>
+      )}
     </div>
   );
 }
