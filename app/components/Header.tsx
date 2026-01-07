@@ -13,6 +13,7 @@ import {
   FaGraduationCap 
 } from 'react-icons/fa';
 import { courseData } from '../data/courses';
+import { wsqCourses } from '../data/wsq-courses';
 
 const menuItems = [
   { name: 'Home', hasDropdown: false, href: '/' },
@@ -22,6 +23,14 @@ const menuItems = [
   { name: 'Certificate Courses', hasDropdown: true, href: '#' },
   { name: 'About Us', hasDropdown: false, href: '/about' },
   { name: 'Students Affair', hasDropdown: true, href: '#' },
+];
+
+const studentAffairsLinks = [
+  { label: 'Campus and Facilities', href: '/campus-and-facilities' },
+  { label: 'Contact', href: '/contact' },
+  { label: 'FAQ', href: '/faq' },
+  { label: 'Our Teachers', href: '/our-teachers' },
+  { label: 'Essential Resources and Support for Students', href: '/essential-resources-and-support-for-students' },
 ];
 
 export default function Header() {
@@ -81,13 +90,24 @@ export default function Header() {
                 {item.name}
                 {item.hasDropdown && <FaChevronDown className="w-3 h-3" />}
               </Link>
-
-              {/* Show MegaMenu for Diploma Courses, WSQ Courses, SFARC Courses, Certificate Courses */}
-              {['Diploma Courses', 'WSQ Courses', 'SFARC Courses', 'Certificate Courses'].includes(item.name) && openMenu === item.name && (
+              {/* Show MegaMenu for Diploma, SFARC, Certificate; dedicated dropdown for WSQ */}
+              {['Diploma Courses', 'SFARC Courses', 'Certificate Courses'].includes(item.name) && openMenu === item.name && (
                 <MegaMenu
                   onMouseEnter={() => setOpenMenu(item.name)}
                   onMouseLeave={() => setOpenMenu(null)}
                   menuType={item.name}
+                />
+              )}
+              {item.name === 'WSQ Courses' && openMenu === 'WSQ Courses' && (
+                <WsqDropdown
+                  onMouseEnter={() => setOpenMenu('WSQ Courses')}
+                  onMouseLeave={() => setOpenMenu(null)}
+                />
+              )}
+              {item.name === 'Students Affair' && openMenu === 'Students Affair' && (
+                <StudentAffairsDropdown
+                  onMouseEnter={() => setOpenMenu('Students Affair')}
+                  onMouseLeave={() => setOpenMenu(null)}
                 />
               )}
             </div>
@@ -131,6 +151,9 @@ export default function Header() {
                         mobileAccordion === item.name && (
                           <MobileCoursesSection menuType={item.name} />
                         )}
+                      {item.name === 'Students Affair' && mobileAccordion === 'Students Affair' && (
+                        <StudentAffairsMobileList />
+                      )}
                     </>
                   )}
                 </div>
@@ -194,7 +217,7 @@ function MegaMenu({
               <CourseSection
                 key={idx}
                 school={school}
-                icon={schoolIcons[school.title]}
+                icon={schoolIcons[school.title] ?? null}
               />
             ))
           ) : (
@@ -213,7 +236,7 @@ function CourseSection({
   icon,
 }: {
   school: any;
-  icon: React.ReactNode;
+  icon: React.ReactNode | null;
 }) {
   return (
     <div>
@@ -251,6 +274,110 @@ function CourseCard({ title, elearning, url }: any) {
   );
 }
 
+/* ================= WSQ DROPDOWN (DESKTOP) ================= */
+
+function WsqDropdown({
+  onMouseEnter,
+  onMouseLeave,
+}: {
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
+}) {
+  const wsqList = wsqCourses;
+
+  return (
+    <div
+      className="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-[360px]"
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      <div className="bg-white shadow-lg rounded-lg border border-gray-100 max-h-[70vh] overflow-y-auto">
+        <div className="p-4">
+          <h3 className="text-base font-bold mb-2 text-[#1AB69D]">WSQ Courses</h3>
+          <div className="flex flex-col gap-2">
+            {wsqList.length > 0 ? (
+              wsqList.map((course, idx) => (
+                <Link
+                  key={idx}
+                  href={course.href || '/contact'}
+                  className="flex items-center gap-2 py-2 px-2 hover:bg-gray-50 rounded transition-colors"
+                >
+                  <span className="text-[#1AB69D]">›</span>
+                  <span className="text-sm text-gray-700 transition-colors leading-snug hover:text-[#1AB69D]">
+                    {course.title}
+                  </span>
+                </Link>
+              ))
+            ) : (
+              <div className="text-sm text-gray-500">No WSQ courses found.</div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ================= STUDENT AFFAIRS DROPDOWN (DESKTOP) ================= */
+
+function StudentAffairsDropdown({
+  onMouseEnter,
+  onMouseLeave,
+}: {
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
+}) {
+  return (
+    <div
+      className="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-[320px]"
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      <div className="bg-white shadow-lg rounded-lg border border-gray-100 overflow-hidden">
+        <div className="p-4 flex flex-col gap-2">
+          {studentAffairsLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="flex items-center gap-2 py-2 px-2 hover:bg-gray-50 rounded transition-colors"
+            >
+              <span className="text-[#1AB69D]">›</span>
+              <span className="text-sm text-gray-700 leading-snug hover:text-[#1AB69D]">
+                {link.label}
+              </span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ================= STUDENT AFFAIRS (MOBILE) ================= */
+
+function StudentAffairsMobileList() {
+  return (
+    <div className="mt-3 space-y-2">
+      <div className="border border-gray-100 rounded-lg overflow-hidden">
+        <div className="px-3 pb-3 pt-3 bg-gray-50/50">
+          <div className="space-y-1">
+            {studentAffairsLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="flex items-start gap-2 py-2 px-2 hover:bg-white rounded transition-colors"
+              >
+                <span className="text-[#1AB69D] mt-0.5 text-sm">›</span>
+                <span className="text-xs text-gray-700 leading-snug">{link.label}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ================= MOBILE COURSES ================= */
 
 function MobileCoursesSection({ menuType }: { menuType: string }) {
@@ -265,8 +392,39 @@ function MobileCoursesSection({ menuType }: { menuType: string }) {
     'E-Learning Courses': <FaGraduationCap className="w-4 h-4" />,
   };
 
+  // WSQ uses flat list; others use grouped courseData
+  if (menuType === 'WSQ Courses') {
+    const wsqList = wsqCourses;
+    return (
+      <div className="mt-3 space-y-2">
+        <div className="border border-gray-100 rounded-lg overflow-hidden">
+          <div className="px-3 pb-3 pt-3 bg-gray-50/50">
+            <div className="space-y-1">
+              {wsqList.length > 0 ? (
+                wsqList.map((course) => (
+                  <Link
+                    key={course.id}
+                    href={course.href || '/contact'}
+                    className="flex items-start gap-2 py-2 px-2 hover:bg-white rounded transition-colors"
+                  >
+                    <span className="text-[#1AB69D] mt-0.5 text-sm">›</span>
+                    <span className="text-xs text-gray-700 leading-snug">
+                      {course.title}
+                    </span>
+                  </Link>
+                ))
+              ) : (
+                <div className="text-xs text-gray-500">No WSQ courses found.</div>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   // Filter courseData based on menuType
-    let filteredSchools: typeof courseData = [];
+  let filteredSchools: typeof courseData = [];
   if (menuType === 'Diploma Courses') {
     filteredSchools = courseData.filter(
       school => school.title.includes('Caregiving') ||
@@ -275,8 +433,6 @@ function MobileCoursesSection({ menuType }: { menuType: string }) {
         school.title.includes('Engineering') ||
         school.title.includes('E-Learning')
     );
-  } else if (menuType === 'WSQ Courses') {
-    filteredSchools = courseData.filter(school => school.title.includes('WSQ'));
   } else if (menuType === 'SFARC Courses') {
     filteredSchools = courseData.filter(school => school.title.includes('SFARC'));
   } else if (menuType === 'Certificate Courses') {

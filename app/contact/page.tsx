@@ -111,12 +111,7 @@ export default function ContactPage() {
 						{/* Right: Contact form */}
 						<div className="lg:col-span-7">
 							<div className="bg-white rounded-2xl border border-gray-100 shadow-sm">
-								<div className="px-4 md:px-6 pt-6">
-									<h2 className="text-lg md:text-xl font-semibold text-gray-900">Get In Touch</h2>
-									<p className="text-sm text-gray-600 mt-1 mb-4">
-										Fill out this form to book a consultant advising session.
-									</p>
-								</div>
+								
 								<ContactForm />
 							</div>
 						</div>

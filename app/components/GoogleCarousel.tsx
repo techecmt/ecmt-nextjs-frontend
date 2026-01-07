@@ -107,7 +107,7 @@ function ReviewCard({ review }: { review: Review }) {
         <FaQuoteLeft className="absolute -top-4 -left-2 text-[#1AB69D]/20 text-xl" />
         {review.text || (
           <span className="italic text-slate-400">
-            This reviewer left a rating without additional comments.
+            .
           </span>
         )}
       </p>
