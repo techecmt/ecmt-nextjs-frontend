@@ -30,7 +30,7 @@ export const courseData: School[] = [
         mode: "Part Time",
         duration: "10 Months",
         image: "/homepage/addipcaregiving.webp",
-        url: "/advanced-diploma-in-nursing-aide",
+        url: "/advanced-diploma-nursing-aide",
       },
       {
         title: "International Certificate in Nursing Aid",

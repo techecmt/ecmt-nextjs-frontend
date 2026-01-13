@@ -1,7 +1,7 @@
 import ContactForm from "../components/contactform";
 import Image from "next/image";
 
-export default function DiplomaInCaregiving() {
+export default function AdvancedDiplomaNursingAide() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
@@ -23,11 +23,11 @@ export default function DiplomaInCaregiving() {
               </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900">
-                Diploma in <span className="text-[#EE4A62]">Caregiving</span>
+                Advanced Diploma in <span className="text-[#EE4A62]">Nursing Aide</span>
               </h1>
               
               <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-                Equip yourself with professional skills and knowledge in elderly care, infant care, and disability support with utmost compassion and excellence.
+                Equip yourself with professional skills and knowledge in healthcare nursing with utmost compassion and excellence.
               </p>
               
               {/* Quick Stats */}
@@ -39,8 +39,8 @@ export default function DiplomaInCaregiving() {
                     </svg>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-gray-900">500+</div>
-                    <div className="text-sm text-gray-500">Graduates</div>
+                    <div className="text-2xl font-bold text-gray-900">200+</div>
+                    <div className="text-sm text-gray-500">Students</div>
                   </div>
                     <div className="flex items-center">
                     <Image
@@ -80,7 +80,7 @@ export default function DiplomaInCaregiving() {
             <div className="relative h-[450px] md:h-[550px]">
               <Image
                 src="/homepage/diplomaincaregiving.webp"
-                alt="Diploma in Caregiving"
+                alt="Advanced Diploma in Nursing Aide"
                 fill
                 className="object-contain"
                 priority
@@ -102,7 +102,7 @@ export default function DiplomaInCaregiving() {
           
           <div className="mb-8">
             <p className="text-gray-900 leading-relaxed text-justify max-w-4xl mx-auto">
-              The <span className="text-gray-900 font-semibold">Diploma in caregiving</span> is designed to <span className="text-gray-900 font-semibold">equip</span> the <span className="text-gray-900 font-semibold">students</span> with <span className="text-gray-900 font-semibold">appropriate skills</span> and <span className="text-gray-900 font-semibold">knowledge</span> in <span className="text-gray-900 font-semibold">looking after</span> the <span className="text-gray-900 font-semibold">Elderly, Infants</span> and <span className="text-gray-900 font-semibold">disabled</span> with <span className="text-gray-900 font-semibold">utmost care</span> and <span className="text-gray-900 font-semibold">professionalism</span>. Upon <span className="text-gray-900 font-semibold">successful completion</span> of this course our students shall be able to will provide <span className="text-gray-900 font-semibold">effective community care</span> through the introduction of <span className="text-gray-900 font-semibold">appropriate exercises</span> and <span className="text-gray-900 font-semibold">healthy behaviours</span> for seniors to enhance their <span className="text-gray-900 font-semibold">physical health, emotional</span> and <span className="text-gray-900 font-semibold">mental resilience</span>, and <span className="text-gray-900 font-semibold">socially activeness</span> and demonstrate <span className="text-gray-900 font-semibold">professional handling</span> of New born or Infant especially with the <span className="text-gray-900 font-semibold">special needs</span>.
+              This course is developed for those who are currently working or intend to work in Health Nursing Aide in healthcare sectors. Each module is designed to facilitate and enhance the knowledge of future Healthcare professionals with giving them a kick-start into their career pathway in health and social care. As this profession requires higher level of communication and patience, students will be taught the fundamentals of Counselling and Communication. Throughout the course, the students will also learn how to assist clients with day-to-day activities, health and safety and to promote professionalism when encountered special situations.
             </p>
           </div>
 
@@ -114,11 +114,59 @@ export default function DiplomaInCaregiving() {
             </div>
             <div className="bg-white rounded-xl shadow-sm border-2 border-[#1AB69D] p-6 text-center hover:shadow-lg transition-shadow">
               <h3 className="text-sm font-semibold text-gray-600 mb-2">Course Duration</h3>
-              <p className="text-2xl font-bold text-[#1AB69D]">08 Months</p>
+              <p className="text-2xl font-bold text-[#1AB69D]">10 Months</p>
             </div>
             <div className="bg-white rounded-xl shadow-sm border-2 border-[#1AB69D] p-6 text-center hover:shadow-lg transition-shadow">
               <h3 className="text-sm font-semibold text-gray-600 mb-2">Total Contact Hours</h3>
-              <p className="text-2xl font-bold text-[#1AB69D]">144 Hours</p>
+              <p className="text-2xl font-bold text-[#1AB69D]">168 Hours</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Schedule Section */}
+      <section className="py-12 md:py-16 bg-gray-50">
+        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-3 text-gray-900">
+            Schedule
+          </h2>
+          <div className="flex justify-center mb-8">
+            <div className="w-20 h-1 bg-[#1AB69D] rounded-full"></div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Weekend Schedule */}
+            <div className="bg-white rounded-lg shadow-sm p-6 border-l-4 border-[#EE4A62]">
+              <h3 className="text-xl font-bold text-[#1AB69D] mb-4">
+                Weekend
+              </h3>
+              <p className="text-gray-700 font-semibold mb-3">(4 Hours per week)</p>
+              <ul className="space-y-2 text-gray-700 text-sm">
+                <li className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-[#EE4A62] rounded-full"></span>
+                  Sat or Sunday (10AM to 2PM)
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-[#EE4A62] rounded-full"></span>
+                  Sat or Sunday (2PM to 6PM)
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-[#EE4A62] rounded-full"></span>
+                  Sat or Sunday (6PM to 10PM)
+                </li>
+              </ul>
+            </div>
+
+            {/* Weekday Schedule */}
+            <div className="bg-white rounded-lg shadow-sm p-6 border-l-4 border-[#1AB69D]">
+              <h3 className="text-xl font-bold text-[#1AB69D] mb-4">
+                Weekday
+              </h3>
+              <p className="text-gray-700 font-semibold mb-3">WED & FRI</p>
+              <p className="text-gray-700 text-sm flex items-center gap-2">
+                <span className="w-2 h-2 bg-[#1AB69D] rounded-full"></span>
+                7PM to 9PM
+              </p>
             </div>
           </div>
         </div>
@@ -138,19 +186,19 @@ export default function DiplomaInCaregiving() {
                   <svg className="w-5 h-5 text-[#EE4A62] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                   </svg>
-                  <span>With minimum 3 GCE 'O' level or International Secondary including English</span>
+                  <span>At least 2 "A" Levels pass or Diploma or equivalent foreign qualifications</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <svg className="w-5 h-5 text-[#EE4A62] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                   </svg>
-                  <span>English language proficiency: GCE 'O' level or equivalent</span>
+                  <span>English language proficiency: Pass in GCE 'O' level English or its equivalent</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <svg className="w-5 h-5 text-[#EE4A62] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                   </svg>
-                  <span>Working Experience: Matured candidate (i.e. minimum 30 years old with 8 years of working experience) with another relevant certificate qualification.</span>
+                  <span>Working Experience: Matured candidate (i.e. minimum 30 years old with 8 years of working experience) with other relevant certificate qualification. Working Experience: Matured candidate (i.e. minimum 30 years old with 8 years of working experience) with another relevant certificate qualification.</span>
                 </li>
               </ul>
             </div>
@@ -161,7 +209,7 @@ export default function DiplomaInCaregiving() {
                 Teaching Mode:
               </h3>
               <p className="text-gray-700 text-sm">
-                Classroom – Face to Face & Practical classes
+                Blended Learning – (Face to Face & E-learning)
               </p>
             </div>
 
@@ -171,7 +219,7 @@ export default function DiplomaInCaregiving() {
                 Teacher-to-Student Ratio:
               </h3>
               <p className="text-gray-700 text-sm">
-                The Teacher-to-student ratio is 1:30 (Lecture / Practical)
+                The Teacher-to-student ratio is 1:40 (Lecture / Practical)
               </p>
             </div>
 
@@ -181,7 +229,7 @@ export default function DiplomaInCaregiving() {
                 Certification:
               </h3>
               <p className="text-gray-700 text-sm">
-                'Diploma in Caregiving' will be awarded by Edusphere College of Management and Technology Pte Ltd
+                'Advanced Diploma in Nursing Aide' will be awarded by Edusphere College of Management and Technology Pte Ltd
               </p>
             </div>
           </div>
@@ -211,18 +259,19 @@ export default function DiplomaInCaregiving() {
                 </thead>
                 <tbody className="divide-y divide-gray-200 text-gray-900">
                   {[
-                    { code: 'DC01', title: 'Introduction to health care & role of Caregiver', hours: 24 },
-                    { code: 'DC02', title: 'Effective Communication and Interpersonal Skills', hours: 24 },
-                    { code: 'DC03', title: 'Psychosocial Health and Nutrition', hours: 24 },
-                    { code: 'DC04', title: 'New Born & Infant Care', hours: 24 },
-                    { code: 'DC05', title: 'Ageing Process & Promotion of Physical Health', hours: 24 },
-                    { code: 'DC06', title: 'Prevention and Management of Falls', hours: 24 },
+                    { code: 'ADNA01', title: 'Healthcare Operations Management', hours: 24 },
+                    { code: 'ADNA02', title: 'Introduction to Counselling and Communication', hours: 24 },
+                    { code: 'ADNA03', title: 'Exercise Programming and Assessment', hours: 24 },
+                    { code: 'ADNA04', title: 'Dementia and Mental Health', hours: 24 },
+                    { code: 'ADNA05', title: 'Integrated Care', hours: 24 },
+                    { code: 'ADNA06', title: 'Early Intervention for Children with Special Needs', hours: 24 },
+                    { code: 'ADNA07', title: 'Project - Case Management', hours: 24, assessment: 'Project Work 100%' },
                   ].map((module, idx) => (
                     <tr key={idx} className="hover:bg-gray-50 transition-colors">
                       <td className="px-4 py-4 font-semibold text-[#1AB69D]">{module.code}</td>
                       <td className="px-4 py-4 text-gray-700">{module.title}</td>
                       <td className="px-4 py-4 text-center font-medium">{module.hours}</td>
-                      <td className="px-4 py-4 text-center text-gray-700">Written Exam 100%</td>
+                      <td className="px-4 py-4 text-center text-gray-700">{module.assessment || 'Written Exam 100%'}</td>
                     </tr>
                   ))}
                 </tbody>
