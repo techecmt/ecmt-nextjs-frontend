@@ -241,49 +241,34 @@ export default function DiplomaInCaregiving() {
               <h2 className="text-2xl font-bold text-[#1AB69D] mb-6">
                 Programme Fees (Part-time):
               </h2>
-              
-              <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-[#EE4A62] text-white flex items-center justify-center shrink-0 font-bold">
-                    1
-                  </div>
-                  <div className="flex-1 flex justify-between items-center">
-                    <span className="text-gray-700 text-sm">Registration Fee (Non-Refundable)</span>
-                    <span className="font-bold text-gray-900">S$100.00</span>
-                  </div>
+
+              <div className="space-y-2 text-sm text-gray-700 max-w-xl">
+                <div className="flex items-start justify-between gap-4">
+                  <span>Registration Fee (With GST)</span>
+                  <span className="font-bold text-gray-900">:&nbsp;&nbsp;S$ 109.00</span>
                 </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-[#EE4A62] text-white flex items-center justify-center shrink-0 font-bold">
-                    2
-                  </div>
-                  <div className="flex-1 flex justify-between items-center">
-                    <span className="text-gray-700 text-sm">Course Fee</span>
-                    <span className="font-bold text-gray-900">S$3000.00</span>
-                  </div>
+                <div className="italic text-gray-500 mb-1">Non-Refundable</div>
+                <div className="border-t border-gray-800 my-2"></div>
+
+                <div className="flex items-start justify-between gap-4">
+                  <span>Course Fee</span>
+                  <span className="font-bold text-gray-900">:&nbsp;&nbsp;S$ 3000.00</span>
                 </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-[#EE4A62] text-white flex items-center justify-center shrink-0 font-bold">
-                    3
-                  </div>
-                  <div className="flex-1 flex justify-between items-center">
-                    <span className="text-gray-700 text-sm">Discount</span>
-                    <span className="font-bold text-gray-900">S$600.00</span>
-                  </div>
+                <div className="flex items-start justify-between gap-4">
+                  <span>Discount</span>
+                  <span className="font-bold text-[#EE4A62]">:&nbsp;&nbsp;(S$ 600.00)</span>
                 </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-[#EE4A62] text-white flex items-center justify-center shrink-0 font-bold">
-                    4
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-700 text-sm font-semibold">Total Fees</span>
-                      <span className="font-bold text-gray-900">S$2400.00</span>
-                    </div>
-                    <span className="text-xs text-gray-500">(excluding registration fee)</span>
-                  </div>
+                <div className="flex items-start justify-between gap-4">
+                  <span>Fee After Discount</span>
+                  <span className="font-bold text-gray-900">:&nbsp;&nbsp;S$ 2400.00</span>
+                </div>
+                <div className="flex items-start justify-between gap-4">
+                  <span>GST (9%)</span>
+                  <span className="font-bold text-gray-900">:&nbsp;&nbsp;S$ 216.00</span>
+                </div>
+                <div className="flex items-start justify-between gap-4 font-semibold mt-2">
+                  <span>Net Course Fee Payable</span>
+                  <span className="font-bold text-gray-900">:&nbsp;&nbsp;S$ 2616.00</span>
                 </div>
               </div>
             </div>

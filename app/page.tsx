@@ -1,7 +1,6 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import AboutCollegeReg from "./components/aboutcollege_reg";
-import Schools from "./components/schools";
 import CourseList from "./components/course";
 import ContactForm from "./components/contactform";
 import GoogleCarousel from "./components/GoogleCarousel";
@@ -26,8 +25,9 @@ export default function Home() {
         </div>
       </section>
       <AboutCollegeReg />
-      <Schools />
-      <CourseList />
+      <section id="courses">
+        <CourseList />
+      </section>
       
       <ContactForm />
       

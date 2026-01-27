@@ -677,12 +677,13 @@ export default function OurTeachersPage() {
             Join Edusphere College and experience world-class education from our dedicated faculty members.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <button className="px-8 py-4 bg-gradient-to-r from-[#1AB69D] to-[#16a890] text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
-              Enroll Now →
-            </button>
-            <button className="px-8 py-4 bg-white text-[#1AB69D] font-semibold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 border-2 border-[#1AB69D]">
+            <a href="/" className="px-8 py-4 bg-[#1AB69D] text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+              Go to Homepage
+            </a>
+            <a href="/#courses" className="px-8 py-4 bg-white text-[#1AB69D] font-semibold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 border-2 border-[#1AB69D]">
               View All Courses
-            </button>
+            </a>
+            
           </div>
         </div>
       </section>
