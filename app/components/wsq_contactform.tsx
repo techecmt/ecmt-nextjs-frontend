@@ -36,7 +36,7 @@ export default function WsqContactForm() {
 					GET IN TOUCH
 				</div>
 				<h2 className="mt-1 text-2xl md:text-3xl font-extrabold" style={{ color: TEXT }}>
-					Enroll Now
+				Let's Connect and Elevate Your Skills Together
 				</h2>
 				<p className="mt-1 text-sm md:text-base text-gray-600">
 					Fill in the form below and we’ll get back to you as soon as possible

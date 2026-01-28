@@ -111,7 +111,7 @@ export const courseData: School[] = [
         mode: "Part Time",
         duration: "08 Months",
         image: "/homepage/admech.webp",
-        url: "/advanced-diploma-in-me-engineering",
+        url: "/advanced-diploma-in-mechanical-and-electrical-engineering",
       },
       {
         title: "Advanced Diploma in Healthcare Facilities Management",

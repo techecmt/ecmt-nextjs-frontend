@@ -22,7 +22,7 @@ export const wsqCourses: WsqCourse[] = [
     id: "stakeholder-management",
     title: "Master Executive Presence in Stakeholder Management",
     imageSrc: "/wsq-images/Stakeholder-Management.png",
-    href: "#",
+    href: "/wsq-courses/master-executive-presence-in-stakeholder-management/",
     featured: true,
     ctaLabel: "View Course Details",
   },
