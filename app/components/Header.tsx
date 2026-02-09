@@ -21,7 +21,7 @@ const menuItems = [
   { name: 'WSQ Courses', hasDropdown: true, href: '#' },
   { name: 'SFARC Courses', hasDropdown: true, href: '#' },
   { name: 'Certificate Courses', hasDropdown: true, href: '#' },
-  { name: 'About Us', hasDropdown: false, href: '/about' },
+  { name: 'About Us', hasDropdown: false, href: '/about-us' },
   { name: 'Students Affair', hasDropdown: true, href: '#' },
 ];
 
