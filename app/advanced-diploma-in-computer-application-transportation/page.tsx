@@ -1,9 +1,76 @@
+import type { Metadata } from "next";
 import ContactForm from "../components/contactform";
 import Image from "next/image";
 
+export const metadata: Metadata = {
+    title: "Advanced Diploma in Computer Application & Transportation | Edusphere Singapore",
+    description: "Advanced Diploma combining IT & Transportation at Edusphere College. 8-month blended learning covering Fleet Management, Cybersecurity, AI. S$600 discount.",
+    keywords: "transportation management diploma singapore, fleet management course, logistics technology singapore, supply chain IT",
+    openGraph: {
+        title: "Advanced Diploma in Computer Application & Transportation | Edusphere Singapore",
+        description: "Blended learning diploma merging IT & Transportation. Fleet Management, Cybersecurity & AI. 8 months, 144 hours.",
+        url: "https://www.edusphere.edu.sg/advanced-diploma-in-computer-application-transportation",
+        siteName: "Edusphere College of Management and Technology",
+        locale: "en_SG",
+        type: "website",
+    },
+    alternates: {
+        canonical: "https://www.edusphere.edu.sg/advanced-diploma-in-computer-application-transportation",
+    },
+};
+
 export default function AdvancedDiplomaInComputerApplicationTransportation() {
+    const courseSchema = {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Advanced Diploma in Computer Application & Transportation",
+        "description": "Advanced diploma merging computer applications with transportation management, covering fleet management, cybersecurity, artificial intelligence, and logistics technology.",
+        "provider": {
+            "@type": "EducationalOrganization",
+            "name": "Edusphere College of Management and Technology Pte Ltd",
+            "url": "https://www.edusphere.edu.sg",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "7500A Beach Road, #05-312 THE PLAZA",
+                "addressLocality": "Singapore",
+                "postalCode": "199591",
+                "addressCountry": "SG"
+            }
+        },
+        "courseCode": "ADCA",
+        "educationalLevel": "Advanced Diploma",
+        "teaches": [
+            "Fleet Management",
+            "Transportation Management & Technology",
+            "Shipping, Freight & Transportation Management",
+            "Cyber Security",
+            "Artificial Intelligence",
+            "Project"
+        ],
+        "educationalCredentialAwarded": "Advanced Diploma in Computer Application & Transportation",
+        "timeToComplete": "P8M",
+        "totalTime": "PT144H",
+        "courseMode": "Blended",
+        "inLanguage": "en",
+        "isAccessibleForFree": false,
+        "offers": {
+            "@type": "Offer",
+            "category": "Paid",
+            "price": "2616.00",
+            "priceCurrency": "SGD",
+            "availability": "https://schema.org/InStock"
+        },
+        "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": ["Blended", "Onsite"],
+            "courseWorkload": "PT144H"
+        },
+        "numberOfCredits": 6
+    };
+
 	return (
 		<main className="min-h-screen">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }} />
 			{/* Hero Section */}
 			<section className="relative bg-linear-to-br from-white via-gray-50 to-[#1AB69D]/5 py-16 md:py-24 overflow-hidden">
 				<div className="absolute inset-0 bg-grid-pattern opacity-5" aria-hidden="true"></div>

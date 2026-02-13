@@ -1,9 +1,76 @@
+import type { Metadata } from "next";
 import ContactForm from "../components/contactform";
 import Image from "next/image";
 
+export const metadata: Metadata = {
+	title: "Diploma in Logistics and Supply Chain Management | Edusphere Singapore",
+	description: "Logistics & Supply Chain Diploma at Edusphere College. 12-month part-time course covering Procurement, Inventory, Warehouse Management. S$600 discount available.",
+	keywords: "logistics diploma singapore, supply chain management course, SCM certification singapore, warehouse management course",
+	openGraph: {
+		title: "Diploma in Logistics and Supply Chain Management | Edusphere Singapore",
+		description: "Part-time logistics diploma covering Procurement, Inventory & Supply Chain Technology. 12 months, S$600 discount.",
+		url: "https://www.edusphere.edu.sg/diploma-in-logistics-and-supply-chain-management",
+		siteName: "Edusphere College of Management and Technology",
+		locale: "en_SG",
+		type: "website",
+	},
+	alternates: {
+		canonical: "https://www.edusphere.edu.sg/diploma-in-logistics-and-supply-chain-management",
+	},
+};
+
 export default function DiplomaInLogisticsAndSupplyChainManagement() {
+	const courseSchema = {
+		"@context": "https://schema.org",
+		"@type": "Course",
+		"name": "Diploma in Logistics and Supply Chain Management",
+		"description": "Comprehensive logistics and supply chain diploma covering procurement, inventory management, warehouse operations, and supply chain technology systems.",
+		"provider": {
+			"@type": "EducationalOrganization",
+			"name": "Edusphere College of Management and Technology Pte Ltd",
+			"url": "https://www.edusphere.edu.sg",
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "7500A Beach Road, #05-312 THE PLAZA",
+				"addressLocality": "Singapore",
+				"postalCode": "199591",
+				"addressCountry": "SG"
+			}
+		},
+		"courseCode": "DLSM",
+		"educationalLevel": "Diploma",
+		"teaches": [
+			"Introduction to Logistics and Supply Chain Management",
+			"Procurement and Sourcing",
+			"Inventory Management",
+			"Warehouse and Distribution Management",
+			"Supply Chain Technology and Information Systems",
+			"Financial Management for Supply Chains"
+		],
+		"educationalCredentialAwarded": "Diploma in Logistics and Supply Chain Management",
+		"timeToComplete": "P12M",
+		"totalTime": "PT144H",
+		"courseMode": "Part Time",
+		"inLanguage": "en",
+		"isAccessibleForFree": false,
+		"offers": {
+			"@type": "Offer",
+			"category": "Paid",
+			"price": "2616.00",
+			"priceCurrency": "SGD",
+			"availability": "https://schema.org/InStock"
+		},
+		"hasCourseInstance": {
+			"@type": "CourseInstance",
+			"courseMode": ["Onsite", "Classroom"],
+			"courseWorkload": "PT144H"
+		},
+		"numberOfCredits": 6
+	};
+
 	return (
 		<main className="min-h-screen">
+			<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }} />
 			{/* Hero Section */}
 			<section className="relative bg-linear-to-br from-white via-gray-50 to-[#1AB69D]/5 py-16 md:py-24 overflow-hidden">
 				<div className="absolute inset-0">

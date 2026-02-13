@@ -1,9 +1,77 @@
+import type { Metadata } from "next";
 import ContactForm from "../components/contactform";
 import Image from "next/image";
 
+export const metadata: Metadata = {
+    title: "Advanced Diploma in Hospitality Management | Edusphere Singapore",
+    description: "Advanced Diploma in Hospitality Management at Edusphere College. 10-month course covering HR, Digital Marketing, Culinary Arts, Events Planning. S$600 discount.",
+    keywords: "advanced hospitality diploma singapore, hospitality management course, culinary arts singapore, events planning course",
+    openGraph: {
+        title: "Advanced Diploma in Hospitality Management | Edusphere Singapore",
+        description: "Advanced hospitality diploma covering HR, Digital Marketing, Culinary Arts & Events Planning. 10 months, 168 hours.",
+        url: "https://www.edusphere.edu.sg/advanced-diploma-in-hospitality-management",
+        siteName: "Edusphere College of Management and Technology",
+        locale: "en_SG",
+        type: "website",
+    },
+    alternates: {
+        canonical: "https://www.edusphere.edu.sg/advanced-diploma-in-hospitality-management",
+    },
+};
+
 export default function AdvancedDiplomaInHospitalityManagement() {
+    const courseSchema = {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Advanced Diploma in Hospitality Management",
+        "description": "Advanced hospitality diploma covering human resources management, digital marketing, culinary arts, events planning, facilities management, and finance in the hospitality industry.",
+        "provider": {
+            "@type": "EducationalOrganization",
+            "name": "Edusphere College of Management and Technology Pte Ltd",
+            "url": "https://www.edusphere.edu.sg",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "7500A Beach Road, #05-312 THE PLAZA",
+                "addressLocality": "Singapore",
+                "postalCode": "199591",
+                "addressCountry": "SG"
+            }
+        },
+        "courseCode": "ADHM",
+        "educationalLevel": "Advanced Diploma",
+        "teaches": [
+            "Human Resources Management in Hospitality",
+            "Digital & Social Media Marketing in Hospitality",
+            "Culinary Arts & Management",
+            "Events Planning & Management",
+            "Facilities Management & Operations",
+            "Finance & Accounting in Hospitality",
+            "Project - Case Management"
+        ],
+        "educationalCredentialAwarded": "Advanced Diploma in Hospitality Management",
+        "timeToComplete": "P10M",
+        "totalTime": "PT168H",
+        "courseMode": "Part Time",
+        "inLanguage": "en",
+        "isAccessibleForFree": false,
+        "offers": {
+            "@type": "Offer",
+            "category": "Paid",
+            "price": "2616.00",
+            "priceCurrency": "SGD",
+            "availability": "https://schema.org/InStock"
+        },
+        "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": ["Onsite", "Classroom"],
+            "courseWorkload": "PT168H"
+        },
+        "numberOfCredits": 7
+    };
+
     return (
         <main className="min-h-screen">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }} />
             {/* Hero Section */}
             <section className="relative bg-linear-to-br from-white via-gray-50 to-[#1AB69D]/5 py-16 md:py-24 overflow-hidden">
                 <div className="absolute inset-0 bg-grid-pattern opacity-5" aria-hidden="true"></div>

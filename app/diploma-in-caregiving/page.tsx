@@ -1,9 +1,76 @@
+import type { Metadata } from "next";
 import ContactForm from "../components/contactform";
 import Image from "next/image";
 
+export const metadata: Metadata = {
+  title: "Diploma in Caregiving | Edusphere Singapore",
+  description: "Diploma in Caregiving at Edusphere College. 8-month part-time course covering Healthcare, Infant Care, Elderly Care, Fall Prevention. S$600 discount available.",
+  keywords: "caregiving diploma singapore, caregiver course singapore, elderly care course, infant care certification singapore",
+  openGraph: {
+    title: "Diploma in Caregiving | Edusphere Singapore",
+    description: "Part-time caregiving diploma covering Healthcare, Newborn Care, Ageing Process & Fall Prevention. 8 months, S$600 discount.",
+    url: "https://www.edusphere.edu.sg/diploma-in-caregiving",
+    siteName: "Edusphere College of Management and Technology",
+    locale: "en_SG",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://www.edusphere.edu.sg/diploma-in-caregiving",
+  },
+};
+
 export default function DiplomaInCaregiving() {
+  const courseSchema = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Diploma in Caregiving",
+    "description": "Comprehensive caregiving diploma covering healthcare fundamentals, newborn and infant care, ageing process, physical health promotion, and fall prevention management.",
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "Edusphere College of Management and Technology Pte Ltd",
+      "url": "https://www.edusphere.edu.sg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "7500A Beach Road, #05-312 THE PLAZA",
+        "addressLocality": "Singapore",
+        "postalCode": "199591",
+        "addressCountry": "SG"
+      }
+    },
+    "courseCode": "DC",
+    "educationalLevel": "Diploma",
+    "teaches": [
+      "Introduction to health care & role of Caregiver",
+      "Effective Communication and Interpersonal Skills",
+      "Psychosocial Health and Nutrition",
+      "New Born & Infant Care",
+      "Ageing Process & Promotion of Physical Health",
+      "Prevention and Management of Falls"
+    ],
+    "educationalCredentialAwarded": "Diploma in Caregiving",
+    "timeToComplete": "P8M",
+    "totalTime": "PT144H",
+    "courseMode": "Part Time",
+    "inLanguage": "en",
+    "isAccessibleForFree": false,
+    "offers": {
+      "@type": "Offer",
+      "category": "Paid",
+      "price": "2616.00",
+      "priceCurrency": "SGD",
+      "availability": "https://schema.org/InStock"
+    },
+    "hasCourseInstance": {
+      "@type": "CourseInstance",
+      "courseMode": ["Onsite", "Classroom"],
+      "courseWorkload": "PT144H"
+    },
+    "numberOfCredits": 6
+  };
+
   return (
     <main className="min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }} />
       {/* Hero Section */}
       <section className="relative bg-linear-to-br from-white via-gray-50 to-[#1AB69D]/5 py-16 md:py-24 overflow-hidden">
         {/* Subtle background gradient */}

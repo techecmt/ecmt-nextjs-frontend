@@ -1,9 +1,76 @@
+import type { Metadata } from "next";
 import ContactForm from "../components/contactform";
 import Image from "next/image";
 
+export const metadata: Metadata = {
+    title: "Diploma in Retail & E-Commerce Management (E-Learning) | Edusphere Singapore",
+    description: "Online Retail & E-Commerce Diploma at Edusphere College. 100% e-learning covering Digital Marketing, E-commerce Platforms, Inventory Management. 12-month flexible learning.",
+    keywords: "retail management diploma online, e-commerce course online, digital marketing diploma, online retail course singapore",
+    openGraph: {
+        title: "Diploma in Retail & E-Commerce Management (E-Learning) | Edusphere Singapore",
+        description: "100% online retail & e-commerce diploma covering Digital Marketing, E-commerce Platforms & Entrepreneurship. Flexible e-learning, 12 months.",
+        url: "https://www.edusphere.edu.sg/diploma-in-retail-e-commerce-management-e-learning",
+        siteName: "Edusphere College of Management and Technology",
+        locale: "en_SG",
+        type: "website",
+    },
+    alternates: {
+        canonical: "https://www.edusphere.edu.sg/diploma-in-retail-e-commerce-management-e-learning",
+    },
+};
+
 export default function DiplomaInRetailECommerceManagementELearning() {
+    const courseSchema = {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Diploma in Retail & E-Commerce Management (E-Learning)",
+        "description": "Comprehensive online retail and e-commerce diploma covering digital marketing, e-commerce platforms, inventory management, and online retail entrepreneurship.",
+        "provider": {
+            "@type": "EducationalOrganization",
+            "name": "Edusphere College of Management and Technology Pte Ltd",
+            "url": "https://www.edusphere.edu.sg",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "7500A Beach Road, #05-312 THE PLAZA",
+                "addressLocality": "Singapore",
+                "postalCode": "199591",
+                "addressCountry": "SG"
+            }
+        },
+        "courseCode": "DREM",
+        "educationalLevel": "Diploma",
+        "teaches": [
+            "Introduction to Retail and E-commerce Management",
+            "E-commerce Platforms and Technologies",
+            "Digital Marketing and Customer Engagement",
+            "Inventory and Supply Chain Management",
+            "Retail Finance and Budgeting",
+            "Retail and E-commerce Entrepreneurship"
+        ],
+        "educationalCredentialAwarded": "Diploma in Retail & E-Commerce Management",
+        "timeToComplete": "P12M",
+        "totalTime": "PT144H",
+        "courseMode": "Online",
+        "inLanguage": "en",
+        "isAccessibleForFree": false,
+        "offers": {
+            "@type": "Offer",
+            "category": "Paid",
+            "price": "1800.00",
+            "priceCurrency": "SGD",
+            "availability": "https://schema.org/InStock"
+        },
+        "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": ["Online", "E-Learning"],
+            "courseWorkload": "PT144H"
+        },
+        "numberOfCredits": 6
+    };
+
     return (
         <main className="min-h-screen">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }} />
             {/* Hero Section */}
             <section className="relative bg-linear-to-br from-white via-gray-50 to-[#1AB69D]/5 py-16 md:py-24 overflow-hidden">
                 <div className="absolute inset-0 bg-grid-pattern opacity-5" aria-hidden="true"></div>

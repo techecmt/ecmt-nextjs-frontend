@@ -1,9 +1,68 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import ContactForm from "../components/contactform";
 
+export const metadata: Metadata = {
+    title: "20+ Hotel Management Interview Questions & Answers 2025",
+    description: "Prepare for hotel management interviews with 20+ expert questions and answers. Covers front desk operations, guest services, F&B management, and hospitality skills.",
+    keywords: "hotel management interview questions, hospitality interview guide, hotel operations interview, front desk interview questions, F&B management interview",
+    openGraph: {
+        title: "20+ Hotel Management Interview Questions & Answers 2025",
+        description: "Expert guide to hotel management interview questions covering operations, guest services, and hospitality management skills.",
+        url: "https://www.edusphere.edu.sg/hotel-management-interview-questions-answers",
+        siteName: "Edusphere College of Management and Technology",
+        locale: "en_SG",
+        type: "article",
+        publishedTime: "2025-11-13T00:00:00Z",
+        modifiedTime: "2026-02-13T00:00:00Z",
+        images: [{
+            url: "https://www.edusphere.edu.sg/homepage/elearnhotelmangeS.webp",
+            width: 1200,
+            height: 630,
+            alt: "Hotel management interview guide"
+        }],
+    },
+    alternates: {
+        canonical: "https://www.edusphere.edu.sg/hotel-management-interview-questions-answers",
+    },
+    authors: [{ name: "Edusphere College Editorial Team" }],
+};
+
 export default function HotelManagementInterviewGuide() {
+    const articleSchema = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "20+ Hotel Management Interview Questions and Answers - 2025",
+        "description": "Comprehensive guide to hotel management interview questions covering front desk operations, guest services, food and beverage management, and essential hospitality skills for aspiring hotel professionals.",
+        "image": "https://www.edusphere.edu.sg/homepage/elearnhotelmangeS.webp",
+        "author": {
+            "@type": "Organization",
+            "name": "Edusphere College Editorial Team",
+            "url": "https://www.edusphere.edu.sg"
+        },
+        "publisher": {
+            "@type": "EducationalOrganization",
+            "name": "Edusphere College of Management and Technology Pte Ltd",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.edusphere.edu.sg/brand/edusphere-logo.png"
+            },
+            "url": "https://www.edusphere.edu.sg"
+        },
+        "datePublished": "2025-11-13",
+        "dateModified": "2026-02-13",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.edusphere.edu.sg/hotel-management-interview-questions-answers"
+        },
+        "articleSection": "Career Preparation",
+        "keywords": "hotel management interview, hospitality interview questions, hotel operations, guest services, F&B management",
+        "inLanguage": "en-SG"
+    };
+
 	return (
 		<main className="min-h-screen bg-white">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
 			{/* Hero */}
 			<section className="bg-white">
 				<div className="container mx-auto px-4 md:px-8 py-12 md:py-16">

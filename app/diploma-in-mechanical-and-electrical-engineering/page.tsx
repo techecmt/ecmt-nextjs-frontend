@@ -1,9 +1,76 @@
+import type { Metadata } from "next";
 import ContactForm from "../components/contactform";
 import Image from "next/image";
 
+export const metadata: Metadata = {
+	title: "Diploma in Mechanical and Electrical (M&E) Engineering | Edusphere Singapore",
+	description: "M&E Engineering Diploma at Edusphere College. 8-month part-time course covering M&E Equipment, CAD, Building Facilities, Workplace Safety. S$600 discount available.",
+	keywords: "M&E engineering diploma singapore, mechanical electrical course, CAD course singapore, building facilities management",
+	openGraph: {
+		title: "Diploma in Mechanical and Electrical (M&E) Engineering | Edusphere Singapore",
+		description: "Part-time M&E engineering diploma covering CAD, M&E Equipment & Building Facilities. 8 months, S$600 discount.",
+		url: "https://www.edusphere.edu.sg/diploma-in-mechanical-and-electrical-engineering",
+		siteName: "Edusphere College of Management and Technology",
+		locale: "en_SG",
+		type: "website",
+	},
+	alternates: {
+		canonical: "https://www.edusphere.edu.sg/diploma-in-mechanical-and-electrical-engineering",
+	},
+};
+
 export default function DiplomaInMechanicalAndElectricalEngineering() {
+	const courseSchema = {
+		"@context": "https://schema.org",
+		"@type": "Course",
+		"name": "Diploma in Mechanical and Electrical (M&E) Engineering",
+		"description": "Comprehensive M&E engineering diploma covering engineering mathematics, science, CAD, M&E equipment, mechanical and electrical services for buildings, and workplace safety.",
+		"provider": {
+			"@type": "EducationalOrganization",
+			"name": "Edusphere College of Management and Technology Pte Ltd",
+			"url": "https://www.edusphere.edu.sg",
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "7500A Beach Road, #05-312 THE PLAZA",
+				"addressLocality": "Singapore",
+				"postalCode": "199591",
+				"addressCountry": "SG"
+			}
+		},
+		"courseCode": "ME",
+		"educationalLevel": "Diploma",
+		"teaches": [
+			"Engineering Mathematics",
+			"Engineering Science",
+			"Computer-aided design",
+			"M & E Equipment",
+			"Mechanical & Electrical Services for Building Facilities",
+			"Work Place Safety and Health"
+		],
+		"educationalCredentialAwarded": "Diploma in Mechanical and Electrical (M&E) Engineering",
+		"timeToComplete": "P8M",
+		"totalTime": "PT144H",
+		"courseMode": "Part Time",
+		"inLanguage": "en",
+		"isAccessibleForFree": false,
+		"offers": {
+			"@type": "Offer",
+			"category": "Paid",
+			"price": "2616.00",
+			"priceCurrency": "SGD",
+			"availability": "https://schema.org/InStock"
+		},
+		"hasCourseInstance": {
+			"@type": "CourseInstance",
+			"courseMode": ["Onsite", "Classroom"],
+			"courseWorkload": "PT144H"
+		},
+		"numberOfCredits": 6
+	};
+
 	return (
 		<main className="min-h-screen">
+			<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }} />
 			{/* Hero Section */}
 			<section className="relative bg-linear-to-br from-white via-gray-50 to-[#1AB69D]/5 py-16 md:py-24 overflow-hidden">
 				<div className="absolute inset-0 bg-grid-pattern opacity-5" aria-hidden="true"></div>

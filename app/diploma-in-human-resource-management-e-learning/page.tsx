@@ -1,9 +1,76 @@
+import type { Metadata } from "next";
 import ContactForm from "../components/contactform";
 import Image from "next/image";
 
+export const metadata: Metadata = {
+    title: "Diploma in Human Resource Management (E-Learning) | Edusphere Singapore",
+    description: "Online Diploma in HR Management at Edusphere College. 100% e-learning, 8-month course covering HR principles, Employment Law, Training & Development. Flexible online learning.",
+    keywords: "HR diploma online, human resource management e-learning, online HR course singapore, human resources certification online",
+    openGraph: {
+        title: "Diploma in Human Resource Management (E-Learning) | Edusphere Singapore",
+        description: "100% online HR diploma covering HRM principles, Psychology, Employment Law & Training. Flexible e-learning, 8 months.",
+        url: "https://www.edusphere.edu.sg/diploma-in-human-resource-management-e-learning",
+        siteName: "Edusphere College of Management and Technology",
+        locale: "en_SG",
+        type: "website",
+    },
+    alternates: {
+        canonical: "https://www.edusphere.edu.sg/diploma-in-human-resource-management-e-learning",
+    },
+};
+
 export default function DiplomaInHumanResourceManagementELearning() {
+    const courseSchema = {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Diploma in Human Resource Management (E-Learning)",
+        "description": "Comprehensive online HR management diploma covering principles of HRM, organizational psychology, employment law, and training & development.",
+        "provider": {
+            "@type": "EducationalOrganization",
+            "name": "Edusphere College of Management and Technology Pte Ltd",
+            "url": "https://www.edusphere.edu.sg",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "7500A Beach Road, #05-312 THE PLAZA",
+                "addressLocality": "Singapore",
+                "postalCode": "199591",
+                "addressCountry": "SG"
+            }
+        },
+        "courseCode": "DHRM",
+        "educationalLevel": "Diploma",
+        "teaches": [
+            "Principles of Human Resource Management",
+            "Effective Business Communication",
+            "Accounting for Managers",
+            "Organisation Psychology",
+            "Employment Law & Contracts",
+            "Training & Development"
+        ],
+        "educationalCredentialAwarded": "Diploma in Human Resource Management",
+        "timeToComplete": "P8M",
+        "totalTime": "PT144H",
+        "courseMode": "Online",
+        "inLanguage": "en",
+        "isAccessibleForFree": false,
+        "offers": {
+            "@type": "Offer",
+            "category": "Paid",
+            "price": "2180.00",
+            "priceCurrency": "SGD",
+            "availability": "https://schema.org/InStock"
+        },
+        "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": ["Online", "E-Learning"],
+            "courseWorkload": "PT144H"
+        },
+        "numberOfCredits": 6
+    };
+
     return (
         <main className="min-h-screen">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }} />
             {/* Hero Section */}
             <section className="relative bg-linear-to-br from-white via-gray-50 to-[#1AB69D]/5 py-16 md:py-24 overflow-hidden">
                 <div className="absolute inset-0 bg-grid-pattern opacity-5" aria-hidden="true"></div>

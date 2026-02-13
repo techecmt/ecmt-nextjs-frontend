@@ -1,9 +1,94 @@
+import type { Metadata } from "next";
 import ContactForm from "../components/contactform";
 import Image from "next/image";
 
+export const metadata: Metadata = {
+    title: "Diploma in Business Administration (E-Learning) | Edusphere Singapore",
+    description: "Online Diploma in Business Administration at Edusphere College. 100% e-learning, 8-month part-time course covering Management, Finance, Marketing & HR. Flexible online learning.",
+    keywords: "business administration diploma online, business management e-learning, online business diploma singapore, MBA preparation online",
+    openGraph: {
+        title: "Diploma in Business Administration (E-Learning) | Edusphere Singapore",
+        description: "100% online business diploma covering Management, Finance, Marketing & HR. Flexible e-learning, 8 months part-time.",
+        url: "https://www.edusphere.edu.sg/diploma-in-business-administration-e-learning",
+        siteName: "Edusphere College of Management and Technology",
+        locale: "en_SG",
+        type: "website",
+    },
+    alternates: {
+        canonical: "https://www.edusphere.edu.sg/diploma-in-business-administration-e-learning",
+    },
+};
+
 export default function DiplomaInBusinessAdministrationELearning() {
+    // Course Schema (JSON-LD)
+    const courseSchema = {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Diploma in Business Administration (E-Learning)",
+        "description": "Diploma in Business Administration is designed to help students gain multi-disciplinary business acumen and real-world working knowledge. Learn accounting, economics, management, marketing, and local legislation through flexible online learning.",
+        "provider": {
+            "@type": "EducationalOrganization",
+            "name": "Edusphere College of Management and Technology Pte Ltd",
+            "url": "https://www.edusphere.edu.sg",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "7500A Beach Road, #05-312 THE PLAZA",
+                "addressLocality": "Singapore",
+                "postalCode": "199591",
+                "addressCountry": "SG"
+            }
+        },
+        "courseCode": "DBA",
+        "educationalLevel": "Diploma",
+        "teaches": [
+            "Principles of Management",
+            "Effective Business Communication",
+            "Principles of Economics",
+            "Principles of Finance & Accounting",
+            "Sales & Marketing",
+            "Human Resource Management"
+        ],
+        "coursePrerequisites": "Minimum 3 GCE 'O' level or International Secondary including English, or matured candidate (minimum 30 years old with 8 years of working experience) with relevant certificate qualification",
+        "educationalCredentialAwarded": "Diploma in Business Administration",
+        "timeToComplete": "P8M",
+        "totalTime": "PT144H",
+        "courseMode": "Online",
+        "inLanguage": "en",
+        "availableLanguage": "English",
+        "isAccessibleForFree": false,
+        "offers": {
+            "@type": "Offer",
+            "category": "Paid",
+            "price": "2180.00",
+            "priceCurrency": "SGD",
+            "availability": "https://schema.org/InStock",
+            "validFrom": "2024-01-01"
+        },
+        "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": ["Online", "E-Learning"],
+            "courseWorkload": "PT144H",
+            "instructor": {
+                "@type": "Organization",
+                "name": "Edusphere College Faculty"
+            }
+        },
+        "numberOfCredits": 6,
+        "occupationalCredentialAwarded": {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "Diploma"
+        }
+    };
+
     return (
         <main className="min-h-screen">
+            {/* JSON-LD Structured Data */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(courseSchema),
+                }}
+            />
             {/* Hero Section */}
             <section className="relative bg-linear-to-br from-white via-gray-50 to-[#1AB69D]/5 py-16 md:py-24 overflow-hidden">
                 <div className="absolute inset-0 bg-grid-pattern opacity-5" aria-hidden="true"></div>

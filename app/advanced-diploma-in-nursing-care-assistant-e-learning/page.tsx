@@ -1,9 +1,76 @@
+import type { Metadata } from "next";
 import ContactForm from "../components/contactform";
 import Image from "next/image";
 
+export const metadata: Metadata = {
+    title: "Advanced Diploma in Nursing Care Assistant (E-Learning) | Edusphere Singapore",
+    description: "Online Advanced Nursing Care Diploma at Edusphere College. 100% e-learning covering Nursing Principles, Medical Terminology, Anatomy & Ward Management. 8 months.",
+    keywords: "nursing diploma online singapore, nursing care assistant e-learning, medical terminology course online, community health nursing",
+    openGraph: {
+        title: "Advanced Diploma in Nursing Care Assistant (E-Learning) | Edusphere Singapore",
+        description: "100% online advanced nursing diploma. Flexible e-learning covering Nursing Principles, Anatomy & Ward Management. 8 months.",
+        url: "https://www.edusphere.edu.sg/advanced-diploma-in-nursing-care-assistant-e-learning",
+        siteName: "Edusphere College of Management and Technology",
+        locale: "en_SG",
+        type: "website",
+    },
+    alternates: {
+        canonical: "https://www.edusphere.edu.sg/advanced-diploma-in-nursing-care-assistant-e-learning",
+    },
+};
+
 export default function AdvancedDiplomaInNursingCareAssistantELearning() {
+    const courseSchema = {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Advanced Diploma in Nursing Care Assistant (E-Learning)",
+        "description": "Online advanced nursing diploma covering principles of nursing aide, medical terminology, human anatomy and physiology, ward management, and community health nursing.",
+        "provider": {
+            "@type": "EducationalOrganization",
+            "name": "Edusphere College of Management and Technology Pte Ltd",
+            "url": "https://www.edusphere.edu.sg",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "7500A Beach Road, #05-312 THE PLAZA",
+                "addressLocality": "Singapore",
+                "postalCode": "199591",
+                "addressCountry": "SG"
+            }
+        },
+        "courseCode": "ADNCA",
+        "educationalLevel": "Advanced Diploma",
+        "teaches": [
+            "Principles of Nursing Aide",
+            "Medical Terminology",
+            "Basic Human Sciences- Anatomy, Physiology, Pathology",
+            "Ward Management",
+            "Community Health Nursing",
+            "Principle of Medical Transcription"
+        ],
+        "educationalCredentialAwarded": "Advanced Diploma in Nursing Care Assistant",
+        "timeToComplete": "P8M",
+        "totalTime": "PT144H",
+        "courseMode": "Online",
+        "inLanguage": "en",
+        "isAccessibleForFree": false,
+        "offers": {
+            "@type": "Offer",
+            "category": "Paid",
+            "price": "2616.00",
+            "priceCurrency": "SGD",
+            "availability": "https://schema.org/InStock"
+        },
+        "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": ["Online", "E-Learning"],
+            "courseWorkload": "PT144H"
+        },
+        "numberOfCredits": 6
+    };
+
     return (
         <main className="min-h-screen">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }} />
             {/* Hero Section */}
             <section className="relative bg-linear-to-br from-white via-gray-50 to-[#1AB69D]/5 py-16 md:py-24 overflow-hidden">
                 <div className="absolute inset-0 bg-grid-pattern opacity-5" aria-hidden="true"></div>

@@ -1,9 +1,77 @@
+import type { Metadata } from "next";
 import ContactForm from "../components/contactform";
 import Image from "next/image";
 
+export const metadata: Metadata = {
+    title: "Advanced Diploma in Nursing Aide | Edusphere Singapore",
+    description: "Advanced Nursing Aide Diploma at Edusphere College. 10-month blended learning covering Basic Nursing, Medical Terminology, Geriatric Care. S$600 discount available.",
+    keywords: "advanced nursing aide singapore, geriatric nursing course, nursing diploma singapore, healthcare assistant course",
+    openGraph: {
+        title: "Advanced Diploma in Nursing Aide | Edusphere Singapore",
+        description: "Blended learning advanced nursing aide diploma. Covers Basic Nursing, Geriatric Care & Emergency Care. 10 months, 168 hours.",
+        url: "https://www.edusphere.edu.sg/advanced-diploma-nursing-aide",
+        siteName: "Edusphere College of Management and Technology",
+        locale: "en_SG",
+        type: "website",
+    },
+    alternates: {
+        canonical: "https://www.edusphere.edu.sg/advanced-diploma-nursing-aide",
+    },
+};
+
 export default function AdvancedDiplomaNursingAide() {
-  return (
-    <main className="min-h-screen">
+    const courseSchema = {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Advanced Diploma in Nursing Aide",
+        "description": "Advanced nursing aide diploma covering basic nursing principles, medical terminology, human anatomy, geriatric nursing, and emergency care procedures.",
+        "provider": {
+            "@type": "EducationalOrganization",
+            "name": "Edusphere College of Management and Technology Pte Ltd",
+            "url": "https://www.edusphere.edu.sg",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "7500A Beach Road, #05-312 THE PLAZA",
+                "addressLocality": "Singapore",
+                "postalCode": "199591",
+                "addressCountry": "SG"
+            }
+        },
+        "courseCode": "ADNA",
+        "educationalLevel": "Advanced Diploma",
+        "teaches": [
+            "Basic Nursing",
+            "Medical Terminology",
+            "Basic Human Sciences - Anatomy and Physiology",
+            "Nursing Management",
+            "Geriatric Nursing and Care",
+            "Principles of Emergency Care",
+            "Project"
+        ],
+        "educationalCredentialAwarded": "Advanced Diploma in Nursing Aide",
+        "timeToComplete": "P10M",
+        "totalTime": "PT168H",
+        "courseMode": "Blended",
+        "inLanguage": "en",
+        "isAccessibleForFree": false,
+        "offers": {
+            "@type": "Offer",
+            "category": "Paid",
+            "price": "2400.00",
+            "priceCurrency": "SGD",
+            "availability": "https://schema.org/InStock"
+        },
+        "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": ["Blended", "Onsite"],
+            "courseWorkload": "PT168H"
+        },
+        "numberOfCredits": 7
+    };
+
+    return (
+        <main className="min-h-screen">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }} />
       {/* Hero Section */}
       <section className="relative bg-linear-to-br from-white via-gray-50 to-[#1AB69D]/5 py-16 md:py-24 overflow-hidden">
         {/* Subtle background gradient */}

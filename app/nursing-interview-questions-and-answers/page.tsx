@@ -1,9 +1,68 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import ContactForm from "../components/contactform";
 
+export const metadata: Metadata = {
+    title: "35+ Essential Nursing Interview Questions & Answers 2025",
+    description: "Master nursing interviews with 35+ expert questions and answers. Covers clinical skills, patient care, emergency procedures, and professional nursing competencies.",
+    keywords: "nursing interview questions, nursing aide interview, healthcare interview guide, clinical nursing questions, patient care interview",
+    openGraph: {
+        title: "35+ Essential Nursing Interview Questions & Answers 2025",
+        description: "Complete nursing interview guide with 35+ questions covering clinical skills, patient care, and nursing best practices.",
+        url: "https://www.edusphere.edu.sg/nursing-interview-questions-and-answers",
+        siteName: "Edusphere College of Management and Technology",
+        locale: "en_SG",
+        type: "article",
+        publishedTime: "2025-09-30T00:00:00Z",
+        modifiedTime: "2026-02-13T00:00:00Z",
+        images: [{
+            url: "https://www.edusphere.edu.sg/homepage/elearnnursing.webp",
+            width: 1200,
+            height: 630,
+            alt: "Nursing interview guide"
+        }],
+    },
+    alternates: {
+        canonical: "https://www.edusphere.edu.sg/nursing-interview-questions-and-answers",
+    },
+    authors: [{ name: "Edusphere College Editorial Team" }],
+};
+
 export default function NursingInterviewQuestionsAnswers() {
+    const articleSchema = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "35+ Essential Nursing Interview Questions and Answers (2025)",
+        "description": "Comprehensive nursing interview preparation guide with 35+ essential questions covering clinical skills, patient care, emergency procedures, medical terminology, and professional nursing competencies.",
+        "image": "https://www.edusphere.edu.sg/homepage/elearnnursing.webp",
+        "author": {
+            "@type": "Organization",
+            "name": "Edusphere College Editorial Team",
+            "url": "https://www.edusphere.edu.sg"
+        },
+        "publisher": {
+            "@type": "EducationalOrganization",
+            "name": "Edusphere College of Management and Technology Pte Ltd",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.edusphere.edu.sg/brand/edusphere-logo.png"
+            },
+            "url": "https://www.edusphere.edu.sg"
+        },
+        "datePublished": "2025-09-30",
+        "dateModified": "2026-02-13",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.edusphere.edu.sg/nursing-interview-questions-and-answers"
+        },
+        "articleSection": "Career Preparation",
+        "keywords": "nursing interview, healthcare careers, clinical skills, patient care, nursing aide, medical interview",
+        "inLanguage": "en-SG"
+    };
+
 	return (
 		<main className="min-h-screen bg-white">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
 			{/* Hero */}
 			<section className="bg-white">
 				<div className="container mx-auto px-4 md:px-8 py-12 md:py-16">

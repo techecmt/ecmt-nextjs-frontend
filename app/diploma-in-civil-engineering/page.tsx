@@ -1,9 +1,76 @@
+import type { Metadata } from "next";
 import ContactForm from "../components/contactform";
 import Image from "next/image";
 
+export const metadata: Metadata = {
+    title: "Diploma in Civil Engineering | Edusphere Singapore",
+    description: "Diploma in Civil Engineering at Edusphere College. 8-month part-time course covering BIM, Structural Design, Soil Investigation, Engineering Math. S$600 discount available.",
+    keywords: "civil engineering diploma singapore, BIM course singapore, structural design course, engineering diploma singapore",
+    openGraph: {
+        title: "Diploma in Civil Engineering | Edusphere Singapore",
+        description: "Part-time civil engineering diploma covering BIM, Structural Design & Geotechnical Engineering. 8 months, S$600 discount.",
+        url: "https://www.edusphere.edu.sg/diploma-in-civil-engineering",
+        siteName: "Edusphere College of Management and Technology",
+        locale: "en_SG",
+        type: "website",
+    },
+    alternates: {
+        canonical: "https://www.edusphere.edu.sg/diploma-in-civil-engineering",
+    },
+};
+
 export default function DiplomaInCivilEngineering() {
+    const courseSchema = {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Diploma in Civil Engineering",
+        "description": "Comprehensive civil engineering diploma covering engineering mathematics, 3D BIM modeling, soil investigation, structural design, and strength of materials.",
+        "provider": {
+            "@type": "EducationalOrganization",
+            "name": "Edusphere College of Management and Technology Pte Ltd",
+            "url": "https://www.edusphere.edu.sg",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "7500A Beach Road, #05-312 THE PLAZA",
+                "addressLocality": "Singapore",
+                "postalCode": "199591",
+                "addressCountry": "SG"
+            }
+        },
+        "courseCode": "DCE",
+        "educationalLevel": "Diploma",
+        "teaches": [
+            "Engineering Mathematics",
+            "Engineering English & Communication",
+            "Engineering Drawing and 3D Building Information Modelling",
+            "Soil Investigation & Geotechnical Instrumentation",
+            "Structural Design & Engineering",
+            "Strength of Materials"
+        ],
+        "educationalCredentialAwarded": "Diploma in Civil Engineering",
+        "timeToComplete": "P8M",
+        "totalTime": "PT144H",
+        "courseMode": "Part Time",
+        "inLanguage": "en",
+        "isAccessibleForFree": false,
+        "offers": {
+            "@type": "Offer",
+            "category": "Paid",
+            "price": "2616.00",
+            "priceCurrency": "SGD",
+            "availability": "https://schema.org/InStock"
+        },
+        "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": ["Onsite", "Classroom"],
+            "courseWorkload": "PT144H"
+        },
+        "numberOfCredits": 6
+    };
+
     return (
         <main className="min-h-screen">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }} />
             {/* Hero Section */}
             <section className="relative bg-linear-to-br from-white via-gray-50 to-[#1AB69D]/5 py-16 md:py-24 overflow-hidden">
                 <div className="absolute inset-0 bg-grid-pattern opacity-5" aria-hidden="true"></div>
