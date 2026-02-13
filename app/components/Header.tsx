@@ -194,6 +194,7 @@ function MegaMenu({
         school.title.includes('Hospitality') ||
         school.title.includes('IT') ||
         school.title.includes('Engineering') ||
+        school.title.includes('Business') ||
         school.title.includes('E-Learning')
     );
   } else if (menuType === 'WSQ Courses') {

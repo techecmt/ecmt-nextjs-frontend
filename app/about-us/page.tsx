@@ -17,12 +17,12 @@ const teamCategories = [
             },
             {
                 name: "Mr. Syed Mustafa",
-                role: "Chief Executive Officer",
+                role: "Board Member",
                 image: "/about-contact-other/mustafa.webp",
             },
             {
                 name: "Mr. Mohamed Tahir",
-                role: "Director / PEI Manager",
+                role: "Director / CEO",
                 image: "/about-contact-other/Tahirdp.webp",
             },
             {
@@ -37,7 +37,7 @@ const teamCategories = [
         label: "Quality Assurance and Compliance",
         members: [{
                 name: "Mr. Syed Mustafa",
-                role: "Chief Executive Officer",
+                role: "Board Member",
                 image: "/about-contact-other/mustafa.webp",
             }],
     },
@@ -46,7 +46,7 @@ const teamCategories = [
         label: "Human Resources",
         members: [{
                 name: "Mr. Syed Mustafa",
-                role: "Chief Executive Officer",
+                role: "Board Member",
                 image: "/about-contact-other/mustafa.webp",
             }],
     },
@@ -55,7 +55,7 @@ const teamCategories = [
         label: "Learning Support Management",
         members: [{
                 name: "Mr. Syed Mustafa",
-                role: "Chief Executive Officer",
+                role: "Board Member",
                 image: "/about-contact-other/mustafa.webp   ",
             }],
     },
@@ -73,7 +73,7 @@ const teamCategories = [
         label: "Academic & Curriculum Management",
         members: [{
                 name: "Mr. Syed Mustafa",
-                role: "Chief Executive Officer",
+                role: "Board Member",
                 image: "/about-contact-other/mustafa.webp",
             }],
     },
@@ -82,7 +82,7 @@ const teamCategories = [
         label: "IT Management",
         members: [{
                 name: "Mr. Riyas Al Mohamed",
-                role: "Chief Technology Officer",
+                role: "IT Management Lead",
                 image: "/about-contact-other/riyas.png",
             }],
     },
@@ -131,16 +131,7 @@ export default function AboutUs() {
               </p>
             </div>
             <div className="relative">
-              <div className="relative z-10 rounded-2xl overflow-hidden shadow-xl">
-                 {/* Placeholder for "edusphere wsq courses" or main about image */}
-                 <Image 
-                    src="/wsq-images/WsqCoursePageHero.png" 
-                    alt="Edusphere Campus" 
-                    width={600} 
-                    height={400}
-                    className="w-full h-auto object-cover"
-                 />
-              </div>
+              
               {/* Decorative shapes */}
                <div className="absolute -bottom-10 -left-10 z-0 opacity-30">
                  <Image src="/brand/shape-02.png" alt="" width={150} height={150} />

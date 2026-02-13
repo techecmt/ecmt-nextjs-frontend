@@ -37,14 +37,14 @@ export const courseData: School[] = [
         mode: "Part Time",
         duration: "12 Weeks",
         image: "/homepage/dipcaregiving.webp",
-        url: "/international-certificate-in-nursing-aid",
+        url: "/certificate-in-nursing-aid-in-singapore",
       },
       {
         title: "CPR + AED Training",
         mode: "Classroom",
         duration: "4 Hours",
         image: "/homepage/cprAEDwebHero.jpg.jpeg",
-        url: "/cpr-aed-training",
+        url: "/cpr-and-aed-training",
       },
     ],
   },
@@ -53,11 +53,11 @@ export const courseData: School[] = [
     color: "#1AB69D",
     courses: [
       {
-        title: "Diploma in Hotel and Tourism Management",
+        title: "Diploma in Hospital Management",
         mode: "Part Time",
         duration: "08 Months",
         image: "/homepage/diphospital.webp",
-        url: "/diploma-in-hotel-and-tourism-management",
+        url: "/diploma-in-hospital-management",
       },
       {
         title: "Advanced Diploma in Hospitality Management",
@@ -72,6 +72,13 @@ export const courseData: School[] = [
     title: "School of IT",
     color: "#1AB69D",
     courses: [
+      {
+        title: "Diploma in Information Technology",
+        mode: "Part Time",
+        duration: "08 Months",
+        image: "/homepage/dit-el.png",
+        url: "/diploma-in-information-technology",
+      },
       {
         title: "Advanced Diploma in Computer Application (Transportation)",
         mode: "Part Time",
@@ -104,7 +111,7 @@ export const courseData: School[] = [
         mode: "Part Time",
         duration: "08 Months",
         image: "/homepage/dipmech.webp",
-        url: "/diploma-in-me-engineering",
+        url: "/diploma-in-mechanical-and-electrical-engineering",
       },
       {
         title: "Advanced Diploma in M&E Engineering",
@@ -145,14 +152,14 @@ export const courseData: School[] = [
         mode: "Part Time",
         duration: "12 Months",
         image: "/homepage/retail_commercehomePage_nav.webp",
-        url: "/diploma-in-retail-and-e-commerce",
+        url: "/diploma-in-retail-e-commerce-management",
       },
       {
         title: "Diploma in Logistics & Supply Chain",
         mode: "Part Time",
         duration: "12 Months",
         image: "/homepage/logisticshomePage_nav.webp",
-        url: "/diploma-in-logistics-and-supply-chain",
+        url: "/diploma-in-logistics-and-supply-chain-management",
       },
     ],
   },
@@ -166,7 +173,7 @@ export const courseData: School[] = [
         duration: "12 Months",
         elearning: true,
         image: "/homepage/logisticsElearnhomePage_nav.webp",
-        url: "/diploma-in-logistics-and-supply-chain-e-learning",
+        url: "/diploma-in-logistics-and-supply-chain-management-e-learning",
       },
       {
         title: "Diploma in Retail & E-Commerce (E-Learning)",
@@ -174,7 +181,7 @@ export const courseData: School[] = [
         duration: "12 Months",
         elearning: true,
         image: "/homepage/retail_commercehomePage_nav.webp",
-        url: "/diploma-in-retail-and-e-commerce-e-learning",
+        url: "/diploma-in-retail-e-commerce-management-e-learning",
       },
       {
         title: "Diploma in Business Administration (E-Learning)",
@@ -185,12 +192,12 @@ export const courseData: School[] = [
         url: "/diploma-in-business-administration-e-learning",
       },
       {
-        title: "Diploma in Hotel & Tourism (E-Learning)",
+        title: "Diploma in Hospitality Management (E-Learning)",
         mode: "Part Time",
         duration: "08 Months",
         elearning: true,
         image: "/homepage/elearnhotelmangeS.webp",
-        url: "/diploma-in-hotel-and-tourism-e-learning",
+        url: "/diploma-in-hospitality-management-e-learning",
       },
       {
         title: "Advanced Diploma in Nursing Care (E-Learning)",
@@ -198,7 +205,7 @@ export const courseData: School[] = [
         duration: "08 Months",
         elearning: true,
         image: "/homepage/elearnnursing.webp",
-        url: "/advanced-diploma-in-nursing-care-e-learning",
+        url: "/advanced-diploma-in-nursing-care-assistant-e-learning",
       },
       {
         title: "Diploma in Human Resource (E-Learning)",
@@ -206,7 +213,7 @@ export const courseData: School[] = [
         duration: "08 Months",
         elearning: true,
         image: "/homepage/dipHR.webp",
-        url: "/diploma-in-human-resource-e-learning",
+        url: "/diploma-in-human-resource-management-e-learning",
       },
       {
         title: "Diploma in Information Technology (E-Learning)",
@@ -218,4 +225,17 @@ export const courseData: School[] = [
       },
     ],
   },
+  {
+  title: "SFARC Courses",  // Must include "SFARC" for the menu filter to work
+  color: "#1AB69D",  // Or choose a different color, e.g., "#FF5733"
+  courses: [
+    {
+      title: "CPR + AED Training",  
+      duration: "08 Months",  
+      image: "/homepage/cpraed-m.jpeg",  
+      url: "/cpr-and-aed-training",  
+    },
+    // Add more courses here as needed
+  ],
+},
 ];
