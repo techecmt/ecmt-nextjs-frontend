@@ -220,11 +220,16 @@ export default function OurAcademicAndExaminationBoard() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-dashed border-gray-300 bg-gray-50 p-8 flex flex-col items-center justify-center text-center gap-3">
-            <p className="text-sm md:text-base text-gray-600 max-w-xl">
-              Image Need to be added 
-            </p>
-          </div>
+            <div className="rounded-2xl border border-dashed border-gray-300 bg-gray-50 p-8 flex items-center justify-center">
+            <Image
+              src="/homepage/orgchart.webp"
+              alt="Organisation Chart"
+              width={800}
+              height={600}
+              className="w-full h-auto max-w-4xl"
+              priority
+            />
+            </div>
         </div>
       </section>
     </main>

@@ -1,9 +1,94 @@
+import type { Metadata } from "next";
 import ContactForm from "../components/contactform";
 import Image from "next/image";
 
+export const metadata: Metadata = {
+	title: "Diploma in Hotel and Tourism Management (E-Learning) | Edusphere Singapore",
+	description: "Online Diploma in Hotel and Tourism Management at Edusphere College. 100% e-learning, 8-month part-time course covering F&B, Room Division, and Hospitality Management.",
+	keywords: "hotel management diploma singapore, tourism management course online, hospitality diploma e-learning, hotel management online, hospitality course singapore",
+	openGraph: {
+		title: "Diploma in Hotel and Tourism Management (E-Learning) | Edusphere Singapore",
+		description: "100% online hospitality and tourism diploma. Flexible e-learning covering F&B Management, Room Division, and Entrepreneurship. 8 months part-time.",
+		url: "https://www.edusphere.edu.sg/diploma-in-hospitality-management-e-learning",
+		siteName: "Edusphere College of Management and Technology",
+		locale: "en_SG",
+		type: "website",
+	},
+	alternates: {
+		canonical: "https://www.edusphere.edu.sg/diploma-in-hospitality-management-e-learning",
+	},
+};
+
 export default function DiplomaInHotelAndTourismManagementELearning() {
+	// Course Schema (JSON-LD)
+	const courseSchema = {
+		"@context": "https://schema.org",
+		"@type": "Course",
+		"name": "Diploma in Hotel and Tourism Management (E-Learning)",
+		"description": "This course grooms future leaders for the hospitality and tourism industry. Build adaptability, resourcefulness, and knowledge across core business subjects and specialised areas like Room Division Management, F&B Services, Waste Management for Hotels and Restaurants, plus entrepreneurial skills.",
+		"provider": {
+			"@type": "EducationalOrganization",
+			"name": "Edusphere College of Management and Technology Pte Ltd",
+			"url": "https://www.edusphere.edu.sg",
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "7500A Beach Road, #05-312 THE PLAZA",
+				"addressLocality": "Singapore",
+				"postalCode": "199591",
+				"addressCountry": "SG"
+			}
+		},
+		"courseCode": "DHTM",
+		"educationalLevel": "Diploma",
+		"teaches": [
+			"Customer Relationship Management",
+			"Room Division Management",
+			"Food and Beverage Management",
+			"Effective Business Communication",
+			"Entrepreneurship in Hospitality",
+			"Waste Management for Hotels and Restaurants"
+		],
+		"coursePrerequisites": "Minimum 3 GCE 'O' level or International Secondary including English, or matured candidate (minimum 30 years old with 8 years of working experience) with relevant certificate qualification",
+		"educationalCredentialAwarded": "Diploma in Hotel and Tourism Management",
+		"timeToComplete": "P8M",
+		"totalTime": "PT144H",
+		"courseMode": "Online",
+		"inLanguage": "en",
+		"availableLanguage": "English",
+		"isAccessibleForFree": false,
+		"offers": {
+			"@type": "Offer",
+			"category": "Paid",
+			"price": "2180.00",
+			"priceCurrency": "SGD",
+			"availability": "https://schema.org/InStock",
+			"validFrom": "2024-01-01"
+		},
+		"hasCourseInstance": {
+			"@type": "CourseInstance",
+			"courseMode": ["Online", "E-Learning"],
+			"courseWorkload": "PT144H",
+			"instructor": {
+				"@type": "Organization",
+				"name": "Edusphere College Faculty"
+			}
+		},
+		"numberOfCredits": 6,
+		"occupationalCredentialAwarded": {
+			"@type": "EducationalOccupationalCredential",
+			"credentialCategory": "Diploma"
+		}
+	};
+
 	return (
 		<main className="min-h-screen">
+			{/* JSON-LD Structured Data */}
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify(courseSchema),
+				}}
+			/>
 			{/* Hero Section */}
 			<section className="relative bg-linear-to-br from-white via-gray-50 to-[#1AB69D]/5 py-16 md:py-24 overflow-hidden">
 				<div className="absolute inset-0 bg-grid-pattern opacity-5" aria-hidden="true"></div>

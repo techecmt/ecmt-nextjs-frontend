@@ -1,9 +1,94 @@
+import type { Metadata } from "next";
 import ContactForm from "../components/contactform";
 import Image from "next/image";
 
+export const metadata: Metadata = {
+	title: "Diploma in Business Administration | Edusphere Singapore",
+	description: "Enroll in Diploma in Business Administration at Edusphere College. 8-month part-time course covering Management, Marketing, Finance, HR & Economics. S$600 discount available.",
+	keywords: "business administration diploma singapore, business management course, MBA preparation, business diploma, management course singapore",
+	openGraph: {
+		title: "Diploma in Business Administration | Edusphere Singapore",
+		description: "Multi-disciplinary business diploma covering Management, Marketing, Finance, HR & Economics. 8 months part-time, S$600 discount.",
+		url: "https://www.edusphere.edu.sg/diploma-in-business-administration",
+		siteName: "Edusphere College of Management and Technology",
+		locale: "en_SG",
+		type: "website",
+	},
+	alternates: {
+		canonical: "https://www.edusphere.edu.sg/diploma-in-business-administration",
+	},
+};
+
 export default function DiplomaInBusinessAdministration() {
+	// Course Schema (JSON-LD)
+	const courseSchema = {
+		"@context": "https://schema.org",
+		"@type": "Course",
+		"name": "Diploma in Business Administration",
+		"description": "The Diploma in Business Administration helps students build multi-disciplinary business acumen and real-world working knowledge. Learn to apply accounting, economics, management, marketing, and local legislation to meet professional demands or start your own business.",
+		"provider": {
+			"@type": "EducationalOrganization",
+			"name": "Edusphere College of Management and Technology Pte Ltd",
+			"url": "https://www.edusphere.edu.sg",
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "7500A Beach Road, #05-312 THE PLAZA",
+				"addressLocality": "Singapore",
+				"postalCode": "199591",
+				"addressCountry": "SG"
+			}
+		},
+		"courseCode": "DBA",
+		"educationalLevel": "Diploma",
+		"teaches": [
+			"Principles of Management",
+			"Effective Business Communication",
+			"Principles of Economics",
+			"Principles of Finance & Accounting",
+			"Sales & Marketing",
+			"Human Resource Management"
+		],
+		"coursePrerequisites": "Minimum 3 GCE 'O' level or International Secondary including English, or matured candidate (minimum 30 years old with 8 years of working experience) with relevant certificate qualification",
+		"educationalCredentialAwarded": "Diploma in Business Administration",
+		"timeToComplete": "P8M",
+		"totalTime": "PT144H",
+		"courseMode": "Part Time",
+		"inLanguage": "en",
+		"availableLanguage": "English",
+		"isAccessibleForFree": false,
+		"offers": {
+			"@type": "Offer",
+			"category": "Paid",
+			"price": "2400.00",
+			"priceCurrency": "SGD",
+			"availability": "https://schema.org/InStock",
+			"validFrom": "2024-01-01"
+		},
+		"hasCourseInstance": {
+			"@type": "CourseInstance",
+			"courseMode": ["Onsite", "Classroom"],
+			"courseWorkload": "PT144H",
+			"instructor": {
+				"@type": "Organization",
+				"name": "Edusphere College Faculty"
+			}
+		},
+		"numberOfCredits": 6,
+		"occupationalCredentialAwarded": {
+			"@type": "EducationalOccupationalCredential",
+			"credentialCategory": "Diploma"
+		}
+	};
+
 	return (
 		<main className="min-h-screen">
+			{/* JSON-LD Structured Data */}
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify(courseSchema),
+				}}
+			/>
 			{/* Hero Section */}
 			<section className="relative bg-linear-to-br from-white via-gray-50 to-[#1AB69D]/5 py-16 md:py-24 overflow-hidden">
 				<div className="absolute inset-0 bg-grid-pattern opacity-5" aria-hidden="true"></div>

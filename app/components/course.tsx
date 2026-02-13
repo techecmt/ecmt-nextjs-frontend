@@ -36,9 +36,9 @@ export default function CourseList() {
 						<p className="text-xs md:text-sm uppercase tracking-[0.25em] text-[#1AB69D] font-semibold mb-2">
 							Our Courses
 						</p>
-						<h1 className="text-2xl md:text-3xl font-semibold uppercase text-[#202020] font-spartan">
+						<h2 className="text-2xl md:text-3xl font-semibold uppercase text-[#202020] font-spartan">
 							Browse Courses by School
-						</h1>
+						</h2>
 						<p className="text-sm md:text-base text-gray-600 mt-2 max-w-xl">
 							Select a school to view its programmes, or browse all courses in
 							alphabetical order.

@@ -1,9 +1,94 @@
+import type { Metadata } from "next";
 import ContactForm from "../components/contactform";
 import Image from "next/image";
 
+export const metadata: Metadata = {
+    title: "Advanced Diploma in Civil Engineering | Edusphere Singapore",
+    description: "Enroll in Advanced Diploma in Civil Engineering at Edusphere College. 8-month part-time course covering Green Building, Project Management, and Sustainable Construction. S$600 discount available.",
+    keywords: "civil engineering diploma singapore, advanced diploma civil engineering, green building course, construction management singapore, civil engineering certification",
+    openGraph: {
+        title: "Advanced Diploma in Civil Engineering | Edusphere Singapore",
+        description: "Future-ready civil engineering course with focus on Green Building and Sustainability. 8 months, part-time, S$600 discount available.",
+        url: "https://www.edusphere.edu.sg/advanced-diploma-in-civil-engineering",
+        siteName: "Edusphere College of Management and Technology",
+        locale: "en_SG",
+        type: "website",
+    },
+    alternates: {
+        canonical: "https://www.edusphere.edu.sg/advanced-diploma-in-civil-engineering",
+    },
+};
+
 export default function AdvancedDiplomaInCivilEngineering() {
+    // Course Schema (JSON-LD)
+    const courseSchema = {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Advanced Diploma in Civil Engineering",
+        "description": "This course will develop a new breed of future-ready human talents who can meet the demand for the growing multi-disciplinary applications in the built environment. They will have sound knowledge in Green Building, and are also adept at the use of technologies for sustainable built environment challenges and solutions.",
+        "provider": {
+            "@type": "EducationalOrganization",
+            "name": "Edusphere College of Management and Technology Pte Ltd",
+            "url": "https://www.edusphere.edu.sg",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "7500A Beach Road, #05-312 THE PLAZA",
+                "addressLocality": "Singapore",
+                "postalCode": "199591",
+                "addressCountry": "SG"
+            }
+        },
+        "courseCode": "ADCE",
+        "educationalLevel": "Advanced Diploma",
+        "teaches": [
+            "Construction Materials and Testing",
+            "Advanced Foundation Engineering",
+            "Project Management in Planning & Scheduling",
+            "Building Management System",
+            "Facade Engineering",
+            "Green Building & Sustainability"
+        ],
+        "coursePrerequisites": "Minimum 3 GCE 'A' level or International Secondary including English, or matured candidate (minimum 30 years old with 8 years of working experience) with relevant certificate qualification",
+        "educationalCredentialAwarded": "Advanced Diploma in Civil Engineering",
+        "timeToComplete": "P8M",
+        "totalTime": "PT144H",
+        "courseMode": "Part Time",
+        "inLanguage": "en",
+        "availableLanguage": "English",
+        "isAccessibleForFree": false,
+        "offers": {
+            "@type": "Offer",
+            "category": "Paid",
+            "price": "2616.00",
+            "priceCurrency": "SGD",
+            "availability": "https://schema.org/InStock",
+            "validFrom": "2024-01-01"
+        },
+        "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": ["Blended", "Onsite"],
+            "courseWorkload": "PT144H",
+            "instructor": {
+                "@type": "Organization",
+                "name": "Edusphere College Faculty"
+            }
+        },
+        "numberOfCredits": 6,
+        "occupationalCredentialAwarded": {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "Advanced Diploma"
+        }
+    };
+
     return (
         <main className="min-h-screen">
+            {/* JSON-LD Structured Data */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(courseSchema),
+                }}
+            />
             {/* Hero Section */}
             <section className="relative bg-linear-to-br from-white via-gray-50 to-[#1AB69D]/5 py-16 md:py-24 overflow-hidden">
                 <div className="absolute inset-0 bg-grid-pattern opacity-5" aria-hidden="true"></div>
