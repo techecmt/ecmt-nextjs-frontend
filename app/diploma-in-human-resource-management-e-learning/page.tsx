@@ -129,6 +129,8 @@ export default function DiplomaInHumanResourceManagementELearning() {
                             <div className="flex flex-wrap gap-4 pt-4">
                                 <a
                                     href="https://onlineportal.edusphere.edu.sg/ecmt-registration-form"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="group bg-[#1AB69D] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#16917f] transition-all hover:shadow-lg hover:scale-105 active:scale-95 flex items-center gap-2"
                                 >
                                     Register Now
