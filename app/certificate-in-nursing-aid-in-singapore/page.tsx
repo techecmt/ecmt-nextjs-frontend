@@ -83,7 +83,7 @@ export default function CertificateInNursingAidInSingapore() {
                         {/* Right Image */}
                         <div className="relative h-[450px] md:h-[550px] rounded-tl-3xl rounded-br-3xl overflow-hidden">
                             <Image
-                                src="/homepage/nursing-aide-certificate.webp"
+                                src="/homepage/icna.webp"
                                 alt="International Certificate in Nursing Aide"
                                 fill
                                 className="object-contain rounded-tl-3xl rounded-br-3xl"

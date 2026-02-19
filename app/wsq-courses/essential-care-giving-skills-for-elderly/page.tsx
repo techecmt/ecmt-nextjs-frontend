@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import WsqContactForm from '../../components/wsq_contactform';
+import { FaWhatsapp } from 'react-icons/fa';
 
 // Brand Colors:
 // Primary: #1AB69D
@@ -292,7 +293,7 @@ export default function EssentialCareGivingPage() {
 							<h3 className="text-2xl font-bold mb-6">Talk to us directly</h3>
 							<div className="space-y-6">
 								<a href="https://wa.me/6582215143" target="_blank" className="flex items-center gap-4 hover:opacity-90 transition-opacity">
-									<span className="text-2xl">💬</span>
+								<FaWhatsapp className="text-2xl" />
 									<div>
 										<div className="font-semibold">Whatsapp Us</div>
 										<div className="text-sm opacity-90">Get instant answers</div>

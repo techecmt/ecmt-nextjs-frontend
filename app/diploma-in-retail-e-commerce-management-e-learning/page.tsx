@@ -153,7 +153,7 @@ export default function DiplomaInRetailECommerceManagementELearning() {
                         {/* Right Image */}
                         <div className="relative h-[450px] md:h-[550px] rounded-tl-3xl rounded-br-3xl overflow-hidden">
                             <Image
-                                src="/homepage/retail-ecommerce-elearning.webp"
+                                src="/homepage/drem.jpg"
                                 alt="Diploma in Retail & E-Commerce Management E-Learning"
                                 fill
                                 className="object-contain rounded-tl-3xl rounded-br-3xl"

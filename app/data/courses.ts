@@ -53,7 +53,7 @@ export const courseData: School[] = [
     color: "#1AB69D",
     courses: [
       {
-        title: "Diploma in Hospital Management",
+        title: "Diploma in Hotel & Tourism Management",
         mode: "Part Time",
         duration: "08 Months",
         image: "/homepage/diphospital.webp",
@@ -192,7 +192,7 @@ export const courseData: School[] = [
         url: "/diploma-in-business-administration-e-learning",
       },
       {
-        title: "Diploma in Hospitality Management (E-Learning)",
+        title: "Diploma in Hotel & Tourism Management (E-Learning)",
         mode: "Part Time",
         duration: "08 Months",
         elearning: true,
@@ -231,7 +231,7 @@ export const courseData: School[] = [
   courses: [
     {
       title: "CPR + AED Training",  
-      duration: "08 Months",  
+      duration: "04 Hours",  
       image: "/homepage/cpraed-m.jpeg",  
       url: "/cpr-and-aed-training",  
     },

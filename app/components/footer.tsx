@@ -31,6 +31,7 @@ export default function Footer() {
             </p>
             <p className="text-sm text-gray-700"><span className="font-semibold text-gray-900">CPE Reg No:</span> 201940174R</p>
             <p className="text-sm text-gray-700 mt-1"><span className="font-semibold text-gray-900">Validity date:</span> From 28 August 2022 To 27 August 2026</p>
+            <p className="text-sm text-gray-700 mt-1"><span className="font-semibold text-gray-900">Our Timing:</span> Mondays – Fridays | 8.30am – 6.00pm </p>
 
             <div className="mt-4 flex items-center gap-2.5">
               <a aria-label="facebook" target="_blank" rel="noopener noreferrer" className="h-10 px-3.5 rounded-full border border-gray-300 bg-white hover:bg-gray-100 inline-flex items-center gap-2 text-[#4267B2] transition-colors" href="https://www.facebook.com/profile.php?id=100057478838505"><FaFacebookF /><span className="hidden sm:inline text-xs font-medium text-gray-700">Facebook</span></a>

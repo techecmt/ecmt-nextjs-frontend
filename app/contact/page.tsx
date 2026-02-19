@@ -39,7 +39,7 @@ export default function ContactPage() {
 		"url": "https://www.edusphere.edu.sg",
 		"logo": "https://www.edusphere.edu.sg/homepage/logoimage.png",
 		"description": "Private educational institution in Singapore offering diploma programs and WSQ courses.",
-		"foundingDate": "2011",
+		"foundingDate": "2019",
 		"address": {
 			"@type": "PostalAddress",
 			"streetAddress": "7500A Beach Road, #05-312 THE PLAZA",
@@ -139,8 +139,9 @@ export default function ContactPage() {
 										<div>
 											<h3 className="font-semibold text-gray-900">Phone</h3>
 											<div className="mt-1 space-y-1">
-													<a href="tel:+6582200095" className="block hover:underline">+65-8220-0095 <span className="text-xs text-gray-500">(Customer Service)</span></a>
+													<a href="tel:+6582200095" className="block hover:underline">+65-8220-0095 <span className="text-xs text-gray-500">(Management)</span></a>
 													<a href="tel:+6591254523" className="block hover:underline">+65-9125-4523 <span className="text-xs text-gray-500">(Admissions)</span></a>
+													<a href="tel:+6591254523" className="block hover:underline">+65-9125-4523 <span className="text-xs text-gray-500">(Fianance Support)</span></a>
 											</div>
 										</div>
 									</div>

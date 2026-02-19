@@ -152,7 +152,7 @@ export default function AdvancedDiplomaInMechanicalAndElectricalEngineering() {
                         {/* Right Image */}
                         <div className="relative h-[450px] md:h-[550px] rounded-tl-3xl rounded-br-3xl overflow-hidden">
                             <Image
-                                src="/homepage/advanced-me-engineering.webp"
+                                src="/homepage/admech.webp"
                                 alt="Advanced Diploma in Mechanical and Electrical Engineering"
                                 fill
                                 className="object-cover rounded-tl-3xl rounded-br-3xl"

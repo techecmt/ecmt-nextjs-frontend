@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ContactForm from "../components/contactform";
+import { FaWhatsapp } from "react-icons/fa";
 
 const BRAND_PRIMARY = "#1AB69D";
 const BRAND_TEXT = "#202020";
@@ -176,7 +177,7 @@ export default function CprAedTrainingPage() {
 							</p>
 							<div className="mt-5 space-y-3 text-sm">
 								<a href="https://wa.me/6582215143" target="_blank" className="flex items-center gap-3 hover:opacity-90">
-									<span className="text-xl">💬</span>Whatsapp +65 8221 5143
+								<FaWhatsapp className="text-xl" /> Whatsapp +65 8221 5143
 								</a>
 								<a href="tel:+6582215143" className="flex items-center gap-3 hover:opacity-90">
 									<span className="text-xl">📞</span>Call +65 8221 5143

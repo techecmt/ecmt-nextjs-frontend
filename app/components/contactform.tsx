@@ -65,12 +65,30 @@ const courseOptions: {
 
 const countryCodes = [
   { code: "+65", country: "Singapore" },
-  { code: "+1", country: "USA" },
-  { code: "+44", country: "UK" },
-  { code: "+91", country: "India" },
   { code: "+60", country: "Malaysia" },
+  { code: "+62", country: "Indonesia" },
+  { code: "+63", country: "Philippines" },
+  { code: "+66", country: "Thailand" },
+  { code: "+84", country: "Vietnam" },
+  { code: "+82", country: "South Korea" },
   { code: "+86", country: "China" },
   { code: "+81", country: "Japan" },
+  { code: "+91", country: "India" },
+  { code: "+92", country: "Pakistan" },
+  { code: "+94", country: "Sri Lanka" },
+  { code: "+880", country: "Bangladesh" },
+  { code: "+971", country: "UAE" },
+  { code: "+966", country: "Saudi Arabia" },
+  { code: "+974", country: "Qatar" },
+  { code: "+965", country: "Kuwait" },
+  { code: "+973", country: "Bahrain" },
+  { code: "+968", country: "Oman" },
+  { code: "+962", country: "Jordan" },
+  { code: "+961", country: "Lebanon" },
+  { code: "+972", country: "Israel" },
+  { code: "+1", country: "USA" },
+  { code: "+44", country: "UK" },
+  { code: "other", country: "Other" },
 ];
 
 export default function ContactForm() {
@@ -85,6 +103,8 @@ export default function ContactForm() {
     startDate: "",
     message: "",
   });
+  const [isCustomCode, setIsCustomCode] = useState(false);
+  const [customCountryCode, setCustomCountryCode] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(
     null
@@ -98,12 +118,18 @@ export default function ContactForm() {
     setSubmitMessage("");
 
     try {
+      const finalCountryCode = isCustomCode ? customCountryCode : formData.countryCode;
+      
       const response = await fetch("/api/zoho", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ ...formData, courseType: activeTab }),
+        body: JSON.stringify({ 
+          ...formData, 
+          countryCode: finalCountryCode,
+          courseType: activeTab 
+        }),
       });
 
       const result = await response.json();
@@ -121,6 +147,8 @@ export default function ContactForm() {
           startDate: "",
           message: "",
         });
+        setIsCustomCode(false);
+        setCustomCountryCode("");
       } else {
         setSubmitStatus("error");
         setSubmitMessage(
@@ -140,10 +168,29 @@ export default function ContactForm() {
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
     >
   ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+    
+    if (name === "countryCode") {
+      if (value === "other") {
+        setIsCustomCode(true);
+        setFormData({
+          ...formData,
+          countryCode: "",
+        });
+      } else {
+        setIsCustomCode(false);
+        setCustomCountryCode("");
+        setFormData({
+          ...formData,
+          countryCode: value,
+        });
+      }
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+    }
   };
 
   return (
@@ -232,18 +279,56 @@ export default function ContactForm() {
                   Phone Number <span className="text-red-500">*</span>
                 </label>
                 <div className="flex gap-2">
-                  <select
-                    name="countryCode"
-                    value={formData.countryCode}
-                    onChange={handleChange}
-                    className="w-24 px-2 py-2.5 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1AB69D]/30 focus:border-[#1AB69D] outline-none transition-all duration-300 text-gray-600 hover:border-gray-400 hover:shadow-sm font-semibold"
-                  >
-                    {countryCodes.map((item) => (
-                      <option key={item.code} value={item.code}>
-                        {item.code}
-                      </option>
-                    ))}
-                  </select>
+                  {isCustomCode ? (
+                    <input
+                      type="text"
+                      value={customCountryCode}
+                      onChange={(e) => {
+                        const value = e.target.value;
+                        // Only allow + and numbers
+                        if (value === "" || /^\+?\d*$/.test(value)) {
+                          setCustomCountryCode(value);
+                          setFormData({
+                            ...formData,
+                            countryCode: value,
+                          });
+                        }
+                      }}
+                      required
+                      placeholder="+XXX"
+                      className="w-24 px-2 py-2.5 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1AB69D]/30 focus:border-[#1AB69D] outline-none transition-all duration-300 text-gray-600 hover:border-gray-400 hover:shadow-sm font-semibold"
+                    />
+                  ) : (
+                    <select
+                      name="countryCode"
+                      value={formData.countryCode}
+                      onChange={handleChange}
+                      className="w-32 px-2 py-2.5 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1AB69D]/30 focus:border-[#1AB69D] outline-none transition-all duration-300 text-gray-600 hover:border-gray-400 hover:shadow-sm font-semibold"
+                    >
+                      {countryCodes.map((item) => (
+                        <option key={item.code} value={item.code}>
+                          {item.code === "other" ? "Other" : `${item.code} ${item.country}`}
+                        </option>
+                      ))}
+                    </select>
+                  )}
+                  {isCustomCode && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIsCustomCode(false);
+                        setCustomCountryCode("");
+                        setFormData({
+                          ...formData,
+                          countryCode: "+65",
+                        });
+                      }}
+                      className="px-3 py-2.5 border-2 border-gray-300 rounded-lg text-sm font-semibold text-gray-600 hover:bg-gray-50 hover:border-gray-400 transition-all duration-300"
+                      title="Back to list"
+                    >
+                      ✕
+                    </button>
+                  )}
                   <input
                     type="tel"
                     name="phone"
@@ -329,8 +414,17 @@ export default function ContactForm() {
                   type="month"
                   name="startDate"
                   required
+                  min="2026-02"
+                  max="2026-05"
                   value={formData.startDate}
                   onChange={handleChange}
+                  onClick={(e) => {
+                    try {
+                      (e.target as HTMLInputElement).showPicker();
+                    } catch (error) {
+                      // showPicker not supported in this browser
+                    }
+                  }}
                   className="w-full px-4 py-2.5 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1AB69D]/30 focus:border-[#1AB69D] outline-none transition-all duration-300 text-gray-600 hover:border-gray-400 hover:shadow-sm cursor-pointer font-medium"
                 />
               </div>

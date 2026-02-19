@@ -6,10 +6,10 @@ import AboutUsClient from "./AboutUsClient";
 
 export const metadata: Metadata = {
   title: "About Us | Edusphere College of Management and Technology",
-  description: "Learn about Edusphere College, established in 2011, offering quality private diploma and WSQ courses in Singapore. Meet our team and discover our commitment to education excellence.",
+  description: "Learn about Edusphere College, established in 2019, offering quality private diploma and WSQ courses in Singapore. Meet our team and discover our commitment to education excellence.",
   openGraph: {
     title: "About Us | Edusphere College of Management and Technology",
-    description: "Established in 2011, Edusphere College offers quality private diploma and WSQ courses in Singapore with experienced industry professionals.",
+    description: "Established in 2019, Edusphere College offers quality private diploma and WSQ courses in Singapore with experienced industry professionals.",
     url: "https://www.edusphere.edu.sg/about-us",
     siteName: "Edusphere College of Management and Technology",
     locale: "en_SG",
@@ -30,7 +30,7 @@ export default function AboutUs() {
     "url": "https://www.edusphere.edu.sg",
     "logo": "https://www.edusphere.edu.sg/homepage/logoimage.png",
     "description": "Private educational institution in Singapore offering diploma programs and WSQ courses in Engineering, IT, Business, Hospitality, and Caregiving.",
-    "foundingDate": "2011",
+    "foundingDate": "2019",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "7500A Beach Road, #05-312 THE PLAZA",
@@ -87,7 +87,7 @@ export default function AboutUs() {
                 ABOUT US
               </h1>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                <strong>Edusphere College of Management and Technology Pte Ltd</strong>, established in <strong>2011</strong>, was founded on the
+                <strong>Edusphere College of Management and Technology Pte Ltd</strong>, established in <strong>2019</strong>, was founded on the
                 principle that education can change the world. It is our goal to
                 give every student that chooses Edusphere College the chance to
                 change their world and master their future.
@@ -158,9 +158,9 @@ export default function AboutUs() {
                     <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 text-purple-600">
                         <Building2 size={32} />
                     </div>
-                    <h4 className="text-3xl font-bold mb-2 text-[#d81f26]">2011</h4>
+                    <h4 className="text-3xl font-bold mb-2 text-[#d81f26]">2019</h4>
                     <p className="text-gray-500 text-sm font-semibold">Established</p>
-                    <p className="text-gray-400 text-xs mt-1">Over a decade of excellence</p>
+                    
                 </div>
                 {/* Feature 2 */}
                 <div className="bg-white p-8 rounded-xl shadow-md text-center hover:-translate-y-1 transition-transform duration-300">

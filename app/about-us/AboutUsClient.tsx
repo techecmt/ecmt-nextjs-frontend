@@ -11,13 +11,8 @@ const teamCategories = [
     members: [
       {
         name: "Mr. Aziz Aboobacker",
-        role: "Director",
-        image: "/about-contact-other/sithiq.webp",
-      },
-      {
-        name: "Mr. Syed Mustafa",
         role: "Board Member",
-        image: "/about-contact-other/mustafa.webp",
+        image: "/about-contact-other/sithiq.webp",
       },
       {
         name: "Mr. Mohamed Tahir",
@@ -25,10 +20,12 @@ const teamCategories = [
         image: "/about-contact-other/Tahirdp.webp",
       },
       {
-        name: "Ms. Aiza",
-        role: "Marketing Manager",
-        image: "/about-contact-other/aiza.webp",
+        name: "Mr. Syed Mustafa",
+        role: "Board Member",
+        image: "/about-contact-other/mustafa.webp",
       },
+      
+      
     ],
   },
   {
@@ -80,9 +77,9 @@ const teamCategories = [
     label: "Academic & Curriculum Management",
     members: [
       {
-        name: "Mr. Syed Mustafa",
-        role: "Board Member",
-        image: "/about-contact-other/mustafa.webp",
+        name: "Ms. Rajeswarry A/P Gunasundram",
+        role: "Academic Manager",
+        image: "/about-contact-other/rajes.png",
       },
     ],
   },

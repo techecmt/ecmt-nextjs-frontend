@@ -5,6 +5,8 @@ import AboutCollegeReg from "./components/aboutcollege_reg";
 import CourseList from "./components/course";
 import ContactForm from "./components/contactform";
 import GoogleCarousel from "./components/GoogleCarousel";
+import BatchSchedule from "./components/batchschedule";
+import ScoreCard from "./components/scorecard";
 
 export const metadata: Metadata = {
   title: "Edusphere College of Management and Technology | Singapore",
@@ -112,7 +114,10 @@ export default function Home() {
       <section id="courses">
         <CourseList />
       </section>
-      
+      <section id="scedule">
+        <BatchSchedule />
+      </section>
+      <ScoreCard />
       <ContactForm />
       
     </div>

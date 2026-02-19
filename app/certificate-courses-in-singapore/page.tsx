@@ -4,6 +4,7 @@ type CertificateCourse = {
 	title: string;
 	subtitle?: string;
 	cta: string;
+	ctaurl: string;
 	image: string;
 };
 
@@ -11,36 +12,43 @@ const CERTIFICATE_COURSES: CertificateCourse[] = [
     {
         title: "Certificate in NG (Nasogastric) Tube Feeding",
         cta: "Register Now",
+		ctaurl: "https://form.jotform.com/253087866785072",
         image: "/certificate_courses/Certificate in NG (NASOGASTRIC) tube feeding.png",
     },
     {
         title: "Certificate in Physical and Massage Therapy",
         cta: "Register Now",
+		ctaurl: "https://form.jotform.com/253087866785072",
         image: "/certificate_courses/Certificate in Physical and Massage Therapy.png",
     },
      {
         title: "Certificate in Autocad",
         cta: "Register Now",
+		ctaurl: "https://form.jotform.com/253087866785072",	
         image: "/certificate_courses/Certificate in Autocad.png",
     },
     {
         title: "Certificate in Air Conditioning",
         cta: "Register Now",
+		ctaurl: "https://form.jotform.com/253087866785072",
         image: "/certificate_courses/Certificate in Air Conditioning.png",
     },
     {
         title: "Certificate in Cafe & Restaurant Management",
         cta: "Register Now",
+		ctaurl: "https://form.jotform.com/253087866785072",
         image: "/certificate_courses/Certificate in Cafe _Restaurant Management.png",
     },
     {
         title: "Certificate in Foundation Skills",
-        cta: "Learn Now",
+        cta: "Register Now",
+		ctaurl: "https://form.jotform.com/253087866785072",
         image: "/certificate_courses/Certificate-in-Foundation-Skills.png",
     },
     {
         title: "Professional Certificate in Mechanical and Electrical Engg",
-        cta: "Learn Now",
+        cta: "Register Now",	
+		ctaurl: "https://form.jotform.com/253087866785072",
         image: "/certificate_courses/Certificate-in-Foundation-Skills.png",
     },
 ];
@@ -114,7 +122,7 @@ export default function CertificateCoursesInSingapore() {
 
 									<div className="pt-1">
 										<a
-											href="/contact"
+											href={course.ctaurl}
 											className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#1AB69D] px-4 py-2 text-xs md:text-sm font-semibold text-white shadow-sm hover:bg-[#16917f] hover:shadow-md active:scale-95 transition-all"
 										>
 											{course.cta}
