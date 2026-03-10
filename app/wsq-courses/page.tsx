@@ -1,5 +1,12 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import { getWsqCourses } from '../data/wsq-courses';
+
+export const metadata: Metadata = {
+  title: 'WSQ Courses in Singapore | Edusphere College',
+  description:
+    'Explore WSQ courses in Singapore at Edusphere College, including caregiving, service excellence, communication, and workplace skills.',
+};
 
 export default function WSQCoursesPage() {
   const courses = getWsqCourses();

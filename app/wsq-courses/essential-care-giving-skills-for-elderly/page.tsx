@@ -1,6 +1,13 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import WsqContactForm from '../../components/wsq_contactform';
 import { FaWhatsapp } from 'react-icons/fa';
+
+export const metadata: Metadata = {
+	title: 'Essential Care Giving Skills for Elderly | WSQ Course | Edusphere',
+	description:
+		'Learn practical eldercare techniques in this WSQ course, including safety, communication, and day-to-day caregiving support skills.',
+};
 
 // Brand Colors:
 // Primary: #1AB69D

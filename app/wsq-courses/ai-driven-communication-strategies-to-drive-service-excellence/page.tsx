@@ -1,5 +1,13 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
-import WsqContactForm from '../../components/wsq_contactform';import { FaWhatsapp } from "react-icons/fa";
+import WsqContactForm from '../../components/wsq_contactform';
+import { FaWhatsapp } from "react-icons/fa";
+
+export const metadata: Metadata = {
+	title: "AI-Driven Communication Strategies to Drive Service Excellence | WSQ Course | Edusphere",
+	description:
+		"Take the WSQ course on AI-driven communication strategies to improve service excellence, customer engagement, and team performance.",
+};
 // Brand Colors:
 // Primary: #1AB69D
 // Secondary: #EE4A62

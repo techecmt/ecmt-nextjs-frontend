@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import ContactForm from "../components/contactform";
+
+export const metadata: Metadata = {
+	title: "Civil Engineering Interview Questions and Answers | Edusphere",
+	description:
+		"Prepare for civil engineering interviews with practical questions and sample answers covering technical concepts, site work, and problem-solving.",
+};
 
 export default function CivilEngineeringInterviewGuide() {
 	return (

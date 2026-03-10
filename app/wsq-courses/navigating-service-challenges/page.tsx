@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import Image from "next/image";
-import WsqContactForm from "../../components/wsq_contactform";import { FaWhatsapp } from 'react-icons/fa';
+import WsqContactForm from "../../components/wsq_contactform";
+import { FaWhatsapp } from 'react-icons/fa';
+
+export const metadata: Metadata = {
+  title: 'Navigating Service Challenges | WSQ Course | Edusphere',
+  description:
+    'Develop practical skills to resolve service challenges, manage customer expectations, and improve service recovery outcomes.',
+};
 // Brand Colors:
 // Primary: #1AB69D
 // Secondary: #EE4A62

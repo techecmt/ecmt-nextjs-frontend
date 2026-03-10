@@ -27,7 +27,7 @@ const menuItems = [
 
 const studentAffairsLinks = [
   { label: 'Campus and Facilities', href: '/campus-and-facilities' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Contact', href: '/contact-us' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Our Teachers', href: '/our-teachers' },
   { label: 'Essential Resources and Support for Students', href: '/essential-resources-and-support-for-students' },

@@ -4,6 +4,8 @@ import Image from "next/image";
 
 export const metadata: Metadata = {
     title: "Diploma in Information Technology in Singapore | Edusphere",
+    description:
+        "Study Diploma in Information Technology in Singapore at Edusphere with modules in programming, databases, AI, blockchain, and cybersecurity.",
 };
 
 export default function DiplomaInInformationTechnology() {

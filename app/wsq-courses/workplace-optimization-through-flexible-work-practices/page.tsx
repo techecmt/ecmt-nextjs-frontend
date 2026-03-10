@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import Image from "next/image";
-import WsqContactForm from "../../components/wsq_contactform";import { FaWhatsapp } from 'react-icons/fa';
+import WsqContactForm from "../../components/wsq_contactform";
+import { FaWhatsapp } from 'react-icons/fa';
+
+export const metadata: Metadata = {
+  title: 'Workplace Optimization Through Flexible Work Practices | WSQ Course | Edusphere',
+  description:
+    'Learn how to optimize productivity and collaboration through flexible work practices in this WSQ-aligned professional course.',
+};
 // Brand Colors:
 // Primary: #1AB69D
 // Secondary: #EE4A62

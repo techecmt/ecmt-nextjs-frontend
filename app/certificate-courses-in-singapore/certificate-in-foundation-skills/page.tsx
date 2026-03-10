@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import ContactForm from "../../components/contactform";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+    title: "Certificate in Foundation Skills in Singapore | Edusphere",
+    description:
+        "Join the Certificate in Foundation Skills in Singapore at Edusphere College to build practical, work-ready communication and core competencies.",
+};
 
 export default function CertificateInFoundationSkills() {
     return (

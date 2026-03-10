@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Our Academic and Examination Board | Edusphere",
+  description:
+    "Meet Edusphere College's Academic and Examination Board overseeing programme quality, standards, and assessment integrity.",
+};
 
 export default function OurAcademicAndExaminationBoard() {
   return (

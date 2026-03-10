@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import WsqContactForm from "../../components/wsq_contactform";
 import { FaWhatsapp } from "react-icons/fa";
+
+export const metadata: Metadata = {
+  title: 'Support Service to Persons with Disabilities | WSQ Course | Edusphere',
+  description:
+    'Gain inclusive service and support skills for persons with disabilities through this WSQ course with practical workplace application.',
+};
 
 // Brand Colors:
 // Primary: #1AB69D

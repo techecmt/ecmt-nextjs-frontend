@@ -5,6 +5,8 @@ import { FaWhatsapp } from "react-icons/fa";
 
 export const metadata: Metadata = {
 	title: "CPR and AED Training in Singapore | Edusphere",
+	description:
+		"Join CPR and AED training in Singapore with hands-on practice, SRFAC-aligned curriculum, and certification at Edusphere College.",
 };
 
 const BRAND_PRIMARY = "#1AB69D";

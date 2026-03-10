@@ -3,6 +3,8 @@ import Image from "next/image";
 
 export const metadata: Metadata = {
 	title: "Certificate Courses in Singapore | Edusphere",
+	description:
+		"Explore industry-focused certificate courses in Singapore at Edusphere College, including healthcare, engineering, F&B, and practical skills training.",
 };
 
 type CertificateCourse = {

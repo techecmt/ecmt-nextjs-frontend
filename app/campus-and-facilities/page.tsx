@@ -1,4 +1,5 @@
 
+import type { Metadata } from "next";
 
 import Image from "next/image";
 import {
@@ -12,6 +13,12 @@ import {
   FaCoffee,
   FaHeartbeat,
 } from "react-icons/fa";
+
+export const metadata: Metadata = {
+  title: "Campus and Facilities | Edusphere College Singapore",
+  description:
+    "Explore Edusphere College campus and learning facilities in Singapore, designed to support practical, career-focused education.",
+};
 
 const facilities = [
   { name: "White board", icon: <FaChalkboard /> },

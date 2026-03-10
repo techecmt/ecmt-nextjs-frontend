@@ -1,5 +1,12 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import WsqContactForm from '../../components/wsq_contactform';
+
+export const metadata: Metadata = {
+	title: 'GenAI for Effective Presentations | WSQ Course | Edusphere',
+	description:
+		'Build presentation confidence with this WSQ GenAI course covering content planning, storytelling, and AI-assisted delivery techniques.',
+};
 
 // Brand Colors:
 // Primary: #1AB69D

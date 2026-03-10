@@ -1,4 +1,11 @@
+import type { Metadata } from 'next';
 import React from 'react';
+
+export const metadata: Metadata = {
+    title: 'Terms and Conditions | Edusphere College',
+    description:
+        'Read the terms and conditions for using the Edusphere College website, services, content, and communication channels.',
+};
 
 const TermsAndConditions = () => {
     return (

@@ -309,7 +309,7 @@ export default function BatchSchedule() {
                 </p>
               </div>
               <a
-                href="/contact"
+                href="/contact-us"
                 className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#1AB69D] px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-[#16917f] hover:shadow-md active:scale-95 transition-all whitespace-nowrap"
               >
                 Let's Get Started

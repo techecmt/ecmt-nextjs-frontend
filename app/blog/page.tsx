@@ -1,4 +1,11 @@
+import type { Metadata } from 'next';
 import React from 'react';
+
+export const metadata: Metadata = {
+  title: 'Education Blog | Edusphere College Singapore',
+  description:
+    'Read Edusphere insights on diploma programmes, career guidance, interview preparation, and practical learning tips in Singapore.',
+};
 
 export default function BlogPage() {
   return (

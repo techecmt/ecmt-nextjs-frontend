@@ -82,7 +82,7 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             <div className="bg-white/90 border border-gray-200 rounded-2xl p-6 shadow-sm">
               <h5 className="font-semibold text-gray-900 mb-3 text-lg">Reach Out for Diploma Courses</h5>
-              <a className="flex items-center gap-2 text-gray-900 mb-3" href="tel:+6591254523">
+              <a className="flex items-center gap-2 text-gray-900 mb-3" href="https://wa.me/6591254523" target="_blank" rel="noopener noreferrer">
                 <FaWhatsapp className="text-xl" /> (+65) 9125 4523
               </a>
               <a className="flex items-center gap-2 text-gray-900" href="mailto:admin@edusphere.edu.sg">
@@ -92,7 +92,7 @@ export default function Footer() {
 
             <div className="bg-white/90 border border-gray-200 rounded-2xl p-6 shadow-sm">
               <h5 className="font-semibold text-gray-900 mb-3 text-lg">Reach Out for WSQ Courses</h5>
-              <a className="flex items-center gap-2 text-gray-900 mb-3" href="tel:+6582215143">
+              <a className="flex items-center gap-2 text-gray-900 mb-3" href="https://wa.me/6582215143" target="_blank" rel="noopener noreferrer">
                 <FaWhatsapp className="text-xl" /> (+65) 8221 5143
               </a>
               <a className="flex items-center gap-2 text-gray-900" href="mailto:training@edusphere.edu.sg">
@@ -102,7 +102,7 @@ export default function Footer() {
 
             <div className="bg-white/90 border border-gray-200 rounded-2xl p-6 shadow-sm">
               <h5 className="font-semibold text-gray-900 mb-3 text-lg">Management Contact</h5>
-              <a className="flex items-center gap-2 text-gray-900 mb-3" href="tel:+6582200095">
+              <a className="flex items-center gap-2 text-gray-900 mb-3" href="https://wa.me/6582200095" target="_blank" rel="noopener noreferrer">
                 <FaWhatsapp className="text-xl" /> (+65) 8220 0095
               </a>
               <a className="flex items-center gap-2 text-gray-900" href="mailto:info@edusphere.edu.sg">

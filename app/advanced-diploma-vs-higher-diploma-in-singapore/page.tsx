@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import ContactForm from "../components/contactform";
+
+export const metadata: Metadata = {
+    title: "Advanced Diploma vs Higher Diploma in Singapore | Edusphere",
+    description:
+        "Understand the differences between advanced diploma and higher diploma in Singapore, including career outcomes, eligibility, and progression pathways.",
+};
 
 export default function AdvancedDiplomaVsHigherDiploma() {
     return (

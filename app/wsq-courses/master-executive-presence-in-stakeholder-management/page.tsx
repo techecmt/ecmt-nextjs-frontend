@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import WSQContactForm from "../../components/wsq_contactform";
 import Image from "next/image";
 import { FaWhatsapp } from "react-icons/fa";
+
+export const metadata: Metadata = {
+    title: "Master Executive Presence in Stakeholder Management | WSQ Course | Edusphere",
+    description:
+        "Strengthen executive presence and stakeholder communication in this WSQ course focused on influence, clarity, and professional impact.",
+};
 
 export default function MasterExecutivePresenceInStakeholderManagement() {
     return (

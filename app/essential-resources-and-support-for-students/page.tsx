@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+	title: "Essential Resources and Support for Students | Edusphere",
+	description:
+		"Discover student resources and support services at Edusphere College, including academic guidance and learning support.",
+};
 
 export default function Page() {
 	return (
