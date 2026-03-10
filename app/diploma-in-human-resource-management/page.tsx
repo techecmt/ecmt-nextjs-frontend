@@ -9,13 +9,13 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Diploma in Human Resource Management | Edusphere Singapore",
         description: "Part-time HR diploma covering HRM principles, Psychology, Employment Law & Training. 8 months, S$600 discount.",
-        url: "https://www.edusphere.edu.sg/diploma-in-human-resource-management",
+        url: "https://edusphere.edu.sg/diploma-in-human-resource-management",
         siteName: "Edusphere College of Management and Technology",
         locale: "en_SG",
         type: "website",
     },
     alternates: {
-        canonical: "https://www.edusphere.edu.sg/diploma-in-human-resource-management",
+        canonical: "https://edusphere.edu.sg/diploma-in-human-resource-management",
     },
 };
 
@@ -28,7 +28,7 @@ export default function DiplomaInHumanResourceManagement() {
         "provider": {
             "@type": "EducationalOrganization",
             "name": "Edusphere College of Management and Technology Pte Ltd",
-            "url": "https://www.edusphere.edu.sg",
+            "url": "https://edusphere.edu.sg",
             "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "7500A Beach Road, #05-312 THE PLAZA",

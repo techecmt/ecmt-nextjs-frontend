@@ -9,13 +9,13 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Diploma in Information Technology (E-Learning) | Edusphere Singapore",
         description: "100% online IT diploma covering AI, Blockchain, Cybersecurity & Programming. Flexible e-learning, 8 months.",
-        url: "https://www.edusphere.edu.sg/diploma-in-information-technology-e-learning",
+        url: "https://edusphere.edu.sg/diploma-in-information-technology-e-learning",
         siteName: "Edusphere College of Management and Technology",
         locale: "en_SG",
         type: "website",
     },
     alternates: {
-        canonical: "https://www.edusphere.edu.sg/diploma-in-information-technology-e-learning",
+        canonical: "https://edusphere.edu.sg/diploma-in-information-technology-e-learning",
     },
 };
 
@@ -28,7 +28,7 @@ export default function DiplomaInInformationTechnologyELearning() {
         "provider": {
             "@type": "EducationalOrganization",
             "name": "Edusphere College of Management and Technology Pte Ltd",
-            "url": "https://www.edusphere.edu.sg",
+            "url": "https://edusphere.edu.sg",
             "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "7500A Beach Road, #05-312 THE PLAZA",

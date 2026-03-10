@@ -10,7 +10,7 @@ export default function PrivacyPolicyPage() {
 					</h1>
 					<p className="mt-2 text-gray-600">Last updated: 29/05/2025</p>
 					<p className="mt-4 text-gray-700 max-w-4xl leading-7">
-						Edusphere (“we”, “our”, or “us”) is committed to protecting your personal data in accordance with the Personal Data Protection Act 2012 (PDPA) of Singapore. This Privacy Policy outlines how we collect, use, disclose, and safeguard your personal data when you visit our website (www.edusphere.edu.sg) or interact with us through our services.
+						Edusphere (“we”, “our”, or “us”) is committed to protecting your personal data in accordance with the Personal Data Protection Act 2012 (PDPA) of Singapore. This Privacy Policy outlines how we collect, use, disclose, and safeguard your personal data when you visit our website (edusphere.edu.sg) or interact with us through our services.
 					</p>
 				</div>
 			</section>

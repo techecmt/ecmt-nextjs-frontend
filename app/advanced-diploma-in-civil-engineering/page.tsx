@@ -9,13 +9,13 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Advanced Diploma in Civil Engineering | Edusphere Singapore",
         description: "Future-ready civil engineering course with focus on Green Building and Sustainability. 8 months, part-time, S$600 discount available.",
-        url: "https://www.edusphere.edu.sg/advanced-diploma-in-civil-engineering",
+        url: "https://edusphere.edu.sg/advanced-diploma-in-civil-engineering",
         siteName: "Edusphere College of Management and Technology",
         locale: "en_SG",
         type: "website",
     },
     alternates: {
-        canonical: "https://www.edusphere.edu.sg/advanced-diploma-in-civil-engineering",
+        canonical: "https://edusphere.edu.sg/advanced-diploma-in-civil-engineering",
     },
 };
 
@@ -29,7 +29,7 @@ export default function AdvancedDiplomaInCivilEngineering() {
         "provider": {
             "@type": "EducationalOrganization",
             "name": "Edusphere College of Management and Technology Pte Ltd",
-            "url": "https://www.edusphere.edu.sg",
+            "url": "https://edusphere.edu.sg",
             "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "7500A Beach Road, #05-312 THE PLAZA",

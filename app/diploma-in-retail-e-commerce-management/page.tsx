@@ -9,13 +9,13 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: "Diploma in Retail & E-Commerce Management | Edusphere Singapore",
 		description: "Part-time retail & e-commerce diploma covering Digital Marketing, E-commerce Platforms & Entrepreneurship. 12 months, S$600 discount.",
-		url: "https://www.edusphere.edu.sg/diploma-in-retail-e-commerce-management",
+		url: "https://edusphere.edu.sg/diploma-in-retail-e-commerce-management",
 		siteName: "Edusphere College of Management and Technology",
 		locale: "en_SG",
 		type: "website",
 	},
 	alternates: {
-		canonical: "https://www.edusphere.edu.sg/diploma-in-retail-e-commerce-management",
+		canonical: "https://edusphere.edu.sg/diploma-in-retail-e-commerce-management",
 	},
 };
 
@@ -28,7 +28,7 @@ export default function DiplomaInRetailECommerceManagement() {
 		"provider": {
 			"@type": "EducationalOrganization",
 			"name": "Edusphere College of Management and Technology Pte Ltd",
-			"url": "https://www.edusphere.edu.sg",
+			"url": "https://edusphere.edu.sg",
 			"address": {
 				"@type": "PostalAddress",
 				"streetAddress": "7500A Beach Road, #05-312 THE PLAZA",

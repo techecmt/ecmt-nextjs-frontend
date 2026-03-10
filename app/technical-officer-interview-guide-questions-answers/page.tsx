@@ -9,21 +9,21 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Technical Officer Interview Guide: Questions & Answers 2026",
         description: "Comprehensive technical officer interview guide covering M&E systems, building automation, and facilities management.",
-        url: "https://www.edusphere.edu.sg/technical-officer-interview-guide-questions-answers",
+        url: "https://edusphere.edu.sg/technical-officer-interview-guide-questions-answers",
         siteName: "Edusphere College of Management and Technology",
         locale: "en_SG",
         type: "article",
         publishedTime: "2025-11-21T00:00:00Z",
         modifiedTime: "2026-02-13T00:00:00Z",
         images: [{
-            url: "https://www.edusphere.edu.sg/blogimages/technicalofficerinterviewquestions.jpg",
+            url: "https://edusphere.edu.sg/blogimages/technicalofficerinterviewquestions.jpg",
             width: 1200,
             height: 630,
             alt: "Technical officer interview guide"
         }],
     },
     alternates: {
-        canonical: "https://www.edusphere.edu.sg/technical-officer-interview-guide-questions-answers",
+        canonical: "https://edusphere.edu.sg/technical-officer-interview-guide-questions-answers",
     },
     authors: [{ name: "Edusphere College Editorial Team" }],
 };
@@ -34,26 +34,26 @@ export default function TechnicalOfficerInterviewGuide() {
         "@type": "Article",
         "headline": "Technical Officer Interview Guide: Questions & Answers 2026",
         "description": "Expert guide for technical officer interviews covering mechanical and electrical systems, building automation, maintenance procedures, safety protocols, and technical competencies required for facilities management roles.",
-        "image": "https://www.edusphere.edu.sg/blogimages/technicalofficerinterviewquestions.jpg",
+        "image": "https://edusphere.edu.sg/blogimages/technicalofficerinterviewquestions.jpg",
         "author": {
             "@type": "Organization",
             "name": "Edusphere College Editorial Team",
-            "url": "https://www.edusphere.edu.sg"
+            "url": "https://edusphere.edu.sg"
         },
         "publisher": {
             "@type": "EducationalOrganization",
             "name": "Edusphere College of Management and Technology Pte Ltd",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://www.edusphere.edu.sg/brand/edusphere-logo.png"
+                "url": "https://edusphere.edu.sg/brand/edusphere-logo.png"
             },
-            "url": "https://www.edusphere.edu.sg"
+            "url": "https://edusphere.edu.sg"
         },
         "datePublished": "2025-11-21",
         "dateModified": "2026-02-13",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https://www.edusphere.edu.sg/technical-officer-interview-guide-questions-answers"
+            "@id": "https://edusphere.edu.sg/technical-officer-interview-guide-questions-answers"
         },
         "articleSection": "Career Preparation",
         "keywords": "technical officer interview, M&E systems, building automation, facilities management, technical competency, safety protocols",

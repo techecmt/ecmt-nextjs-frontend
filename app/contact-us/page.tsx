@@ -11,13 +11,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact Us | Edusphere College of Management and Technology",
     description: "Contact Edusphere College for inquiries about diploma programs, WSQ courses, and admissions. Located in Singapore.",
-    url: "https://www.edusphere.edu.sg/contact",
+    url: "https://edusphere.edu.sg/contact",
     siteName: "Edusphere College of Management and Technology",
     locale: "en_SG",
     type: "website",
   },
   alternates: {
-    canonical: "https://www.edusphere.edu.sg/contact",
+    canonical: "https://edusphere.edu.sg/contact",
   },
 };
 
@@ -36,8 +36,8 @@ export default function ContactPage() {
 		"@type": ["EducationalOrganization", "CollegeOrUniversity"],
 		"name": BUSINESS_NAME,
 		"alternateName": "Edusphere College",
-		"url": "https://www.edusphere.edu.sg",
-		"logo": "https://www.edusphere.edu.sg/homepage/logoimage.png",
+		"url": "https://edusphere.edu.sg",
+		"logo": "https://edusphere.edu.sg/homepage/logoimage.png",
 		"description": "Private educational institution in Singapore offering diploma programs and WSQ courses.",
 		"foundingDate": "2019",
 		"address": {

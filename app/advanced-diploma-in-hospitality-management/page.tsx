@@ -9,13 +9,13 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Advanced Diploma in Hospitality Management | Edusphere Singapore",
         description: "Advanced hospitality diploma covering HR, Digital Marketing, Culinary Arts & Events Planning. 10 months, 168 hours.",
-        url: "https://www.edusphere.edu.sg/advanced-diploma-in-hospitality-management",
+        url: "https://edusphere.edu.sg/advanced-diploma-in-hospitality-management",
         siteName: "Edusphere College of Management and Technology",
         locale: "en_SG",
         type: "website",
     },
     alternates: {
-        canonical: "https://www.edusphere.edu.sg/advanced-diploma-in-hospitality-management",
+        canonical: "https://edusphere.edu.sg/advanced-diploma-in-hospitality-management",
     },
 };
 
@@ -28,7 +28,7 @@ export default function AdvancedDiplomaInHospitalityManagement() {
         "provider": {
             "@type": "EducationalOrganization",
             "name": "Edusphere College of Management and Technology Pte Ltd",
-            "url": "https://www.edusphere.edu.sg",
+            "url": "https://edusphere.edu.sg",
             "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "7500A Beach Road, #05-312 THE PLAZA",

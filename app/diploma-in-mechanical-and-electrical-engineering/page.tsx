@@ -9,13 +9,13 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: "Diploma in Mechanical and Electrical (M&E) Engineering | Edusphere Singapore",
 		description: "Part-time M&E engineering diploma covering CAD, M&E Equipment & Building Facilities. 8 months, S$600 discount.",
-		url: "https://www.edusphere.edu.sg/diploma-in-mechanical-and-electrical-engineering",
+		url: "https://edusphere.edu.sg/diploma-in-mechanical-and-electrical-engineering",
 		siteName: "Edusphere College of Management and Technology",
 		locale: "en_SG",
 		type: "website",
 	},
 	alternates: {
-		canonical: "https://www.edusphere.edu.sg/diploma-in-mechanical-and-electrical-engineering",
+		canonical: "https://edusphere.edu.sg/diploma-in-mechanical-and-electrical-engineering",
 	},
 };
 
@@ -28,7 +28,7 @@ export default function DiplomaInMechanicalAndElectricalEngineering() {
 		"provider": {
 			"@type": "EducationalOrganization",
 			"name": "Edusphere College of Management and Technology Pte Ltd",
-			"url": "https://www.edusphere.edu.sg",
+			"url": "https://edusphere.edu.sg",
 			"address": {
 				"@type": "PostalAddress",
 				"streetAddress": "7500A Beach Road, #05-312 THE PLAZA",

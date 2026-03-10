@@ -9,13 +9,13 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Advanced Diploma in Computer Application & Transportation | Edusphere Singapore",
         description: "Blended learning diploma merging IT & Transportation. Fleet Management, Cybersecurity & AI. 8 months, 144 hours.",
-        url: "https://www.edusphere.edu.sg/advanced-diploma-in-computer-application-transportation",
+        url: "https://edusphere.edu.sg/advanced-diploma-in-computer-application-transportation",
         siteName: "Edusphere College of Management and Technology",
         locale: "en_SG",
         type: "website",
     },
     alternates: {
-        canonical: "https://www.edusphere.edu.sg/advanced-diploma-in-computer-application-transportation",
+        canonical: "https://edusphere.edu.sg/advanced-diploma-in-computer-application-transportation",
     },
 };
 
@@ -28,7 +28,7 @@ export default function AdvancedDiplomaInComputerApplicationTransportation() {
         "provider": {
             "@type": "EducationalOrganization",
             "name": "Edusphere College of Management and Technology Pte Ltd",
-            "url": "https://www.edusphere.edu.sg",
+            "url": "https://edusphere.edu.sg",
             "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "7500A Beach Road, #05-312 THE PLAZA",

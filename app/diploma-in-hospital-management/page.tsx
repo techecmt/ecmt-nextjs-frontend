@@ -9,13 +9,13 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: "Diploma in Hotel and Tourism Management | Edusphere Singapore",
 		description: "Part-time hospitality diploma covering F&B, Room Division & Entrepreneurship. 8 months, S$600 discount.",
-		url: "https://www.edusphere.edu.sg/diploma-in-hospital-management",
+		url: "https://edusphere.edu.sg/diploma-in-hospital-management",
 		siteName: "Edusphere College of Management and Technology",
 		locale: "en_SG",
 		type: "website",
 	},
 	alternates: {
-		canonical: "https://www.edusphere.edu.sg/diploma-in-hospital-management",
+		canonical: "https://edusphere.edu.sg/diploma-in-hospital-management",
 	},
 };
 
@@ -28,7 +28,7 @@ export default function DiplomaInHotelAndTourismManagement() {
 		"provider": {
 			"@type": "EducationalOrganization",
 			"name": "Edusphere College of Management and Technology Pte Ltd",
-			"url": "https://www.edusphere.edu.sg",
+			"url": "https://edusphere.edu.sg",
 			"address": {
 				"@type": "PostalAddress",
 				"streetAddress": "7500A Beach Road, #05-312 THE PLAZA",

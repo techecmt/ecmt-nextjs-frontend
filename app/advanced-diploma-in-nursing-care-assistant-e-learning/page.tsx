@@ -9,13 +9,13 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Advanced Diploma in Nursing Care Assistant (E-Learning) | Edusphere Singapore",
         description: "100% online advanced nursing diploma. Flexible e-learning covering Nursing Principles, Anatomy & Ward Management. 8 months.",
-        url: "https://www.edusphere.edu.sg/advanced-diploma-in-nursing-care-assistant-e-learning",
+        url: "https://edusphere.edu.sg/advanced-diploma-in-nursing-care-assistant-e-learning",
         siteName: "Edusphere College of Management and Technology",
         locale: "en_SG",
         type: "website",
     },
     alternates: {
-        canonical: "https://www.edusphere.edu.sg/advanced-diploma-in-nursing-care-assistant-e-learning",
+        canonical: "https://edusphere.edu.sg/advanced-diploma-in-nursing-care-assistant-e-learning",
     },
 };
 
@@ -28,7 +28,7 @@ export default function AdvancedDiplomaInNursingCareAssistantELearning() {
         "provider": {
             "@type": "EducationalOrganization",
             "name": "Edusphere College of Management and Technology Pte Ltd",
-            "url": "https://www.edusphere.edu.sg",
+            "url": "https://edusphere.edu.sg",
             "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "7500A Beach Road, #05-312 THE PLAZA",

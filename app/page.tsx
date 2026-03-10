@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Edusphere College of Management and Technology | Singapore",
     description: "Enroll in private diploma programs and WSQ courses at Edusphere College. We offer part-time diplomas in Engineering, IT, Business, Hospitality, Caregiving & more.",
-    url: "https://www.edusphere.edu.sg",
+    url: "https://edusphere.edu.sg",
     siteName: "Edusphere College of Management and Technology",
     locale: "en_SG",
     type: "website",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://www.edusphere.edu.sg",
+    canonical: "https://edusphere.edu.sg",
   },
 };
 
@@ -47,8 +47,8 @@ export default function Home() {
     "@type": ["EducationalOrganization", "CollegeOrUniversity"],
     "name": "Edusphere College of Management and Technology Pte Ltd",
     "alternateName": "Edusphere College",
-    "url": "https://www.edusphere.edu.sg",
-    "logo": "https://www.edusphere.edu.sg/homepage/logoimage.png",
+    "url": "https://edusphere.edu.sg",
+    "logo": "https://edusphere.edu.sg/homepage/logoimage.png",
     "description": "Private educational institution in Singapore offering diploma programs and WSQ courses in Engineering, IT, Business, Hospitality, and Caregiving.",
     "address": {
       "@type": "PostalAddress",

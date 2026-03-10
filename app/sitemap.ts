@@ -3,7 +3,7 @@ import { readdirSync, statSync } from "node:fs";
 import { join, relative, sep } from "node:path";
 
 const APP_DIR = join(process.cwd(), "app");
-const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.edusphere.edu.sg").replace(/\/+$/, "");
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://edusphere.edu.sg").replace(/\/+$/, "");
 const PAGE_FILE_PATTERN = /^page\.(tsx|ts|jsx|js|mdx)$/;
 
 function collectPageFiles(dir: string, pages: string[] = []): string[] {

@@ -9,21 +9,21 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Why Earning a Diploma from Edusphere College Is a Wise Professional Choice",
         description: "Learn why professionals choose Edusphere College for diploma programs - affordable, flexible, and industry-recognized.",
-        url: "https://www.edusphere.edu.sg/why-earning-diploma-from-edusphere-college",
+        url: "https://edusphere.edu.sg/why-earning-diploma-from-edusphere-college",
         siteName: "Edusphere College of Management and Technology",
         locale: "en_SG",
         type: "article",
         publishedTime: "2025-07-05T00:00:00Z",
         modifiedTime: "2026-02-13T00:00:00Z",
         images: [{
-            url: "https://www.edusphere.edu.sg/homepage/Registration.webp",
+            url: "https://edusphere.edu.sg/homepage/Registration.webp",
             width: 1200,
             height: 630,
             alt: "Students enrolling at Edusphere"
         }],
     },
     alternates: {
-        canonical: "https://www.edusphere.edu.sg/why-earning-diploma-from-edusphere-college",
+        canonical: "https://edusphere.edu.sg/why-earning-diploma-from-edusphere-college",
     },
     authors: [{ name: "Edusphere College Editorial Team" }],
 };
@@ -34,26 +34,26 @@ export default function WhyDiplomaEdusphere() {
         "@type": "Article",
         "headline": "Why Earning a Diploma from Edusphere College Is a Wise Professional Choice in Singapore",
         "description": "Comprehensive guide explaining why Edusphere College is an excellent choice for professional education in Singapore. Covers affordable fees, flexible learning options, industry-recognized diplomas, experienced faculty, and comprehensive career support.",
-        "image": "https://www.edusphere.edu.sg/homepage/Registration.webp",
+        "image": "https://edusphere.edu.sg/homepage/Registration.webp",
         "author": {
             "@type": "Organization",
             "name": "Edusphere College Editorial Team",
-            "url": "https://www.edusphere.edu.sg"
+            "url": "https://edusphere.edu.sg"
         },
         "publisher": {
             "@type": "EducationalOrganization",
             "name": "Edusphere College of Management and Technology Pte Ltd",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://www.edusphere.edu.sg/brand/edusphere-logo.png"
+                "url": "https://edusphere.edu.sg/brand/edusphere-logo.png"
             },
-            "url": "https://www.edusphere.edu.sg"
+            "url": "https://edusphere.edu.sg"
         },
         "datePublished": "2025-07-05",
         "dateModified": "2026-02-13",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https://www.edusphere.edu.sg/why-earning-diploma-from-edusphere-college"
+            "@id": "https://edusphere.edu.sg/why-earning-diploma-from-edusphere-college"
         },
         "articleSection": "Education",
         "keywords": "edusphere college, diploma programs singapore, career education, flexible learning, affordable education",

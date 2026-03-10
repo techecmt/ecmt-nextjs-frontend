@@ -9,21 +9,21 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Part-Time Diplomas at Edusphere College: Balancing Work and Study",
         description: "Discover flexible part-time diploma programs at Edusphere College designed for working professionals in Singapore.",
-        url: "https://www.edusphere.edu.sg/part-time-diplomas-at-edusphere-college",
+        url: "https://edusphere.edu.sg/part-time-diplomas-at-edusphere-college",
         siteName: "Edusphere College of Management and Technology",
         locale: "en_SG",
         type: "article",
         publishedTime: "2025-07-08T00:00:00Z",
         modifiedTime: "2026-02-13T00:00:00Z",
         images: [{
-            url: "https://www.edusphere.edu.sg/homepage/Registration-1111x1536.webp",
+            url: "https://edusphere.edu.sg/homepage/Registration-1111x1536.webp",
             width: 1200,
             height: 630,
             alt: "Part-time diploma students at Edusphere"
         }],
     },
     alternates: {
-        canonical: "https://www.edusphere.edu.sg/part-time-diplomas-at-edusphere-college",
+        canonical: "https://edusphere.edu.sg/part-time-diplomas-at-edusphere-college",
     },
     authors: [{ name: "Edusphere College Editorial Team" }],
 };
@@ -34,26 +34,26 @@ export default function PartTimeDiplomasEdusphere() {
         "@type": "Article",
         "headline": "Part-Time Diplomas at Edusphere College: Balancing Work and Study",
         "description": "Explore flexible part-time diploma programs at Edusphere College designed for working adults in Singapore. Learn about evening classes, online learning options, and career-focused programs that allow you to advance your education while maintaining your career.",
-        "image": "https://www.edusphere.edu.sg/homepage/Registration-1111x1536.webp",
+        "image": "https://edusphere.edu.sg/homepage/Registration-1111x1536.webp",
         "author": {
             "@type": "Organization",
             "name": "Edusphere College Editorial Team",
-            "url": "https://www.edusphere.edu.sg"
+            "url": "https://edusphere.edu.sg"
         },
         "publisher": {
             "@type": "EducationalOrganization",
             "name": "Edusphere College of Management and Technology Pte Ltd",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://www.edusphere.edu.sg/brand/edusphere-logo.png"
+                "url": "https://edusphere.edu.sg/brand/edusphere-logo.png"
             },
-            "url": "https://www.edusphere.edu.sg"
+            "url": "https://edusphere.edu.sg"
         },
         "datePublished": "2025-07-08",
         "dateModified": "2026-02-13",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https://www.edusphere.edu.sg/part-time-diplomas-at-edusphere-college"
+            "@id": "https://edusphere.edu.sg/part-time-diplomas-at-edusphere-college"
         },
         "articleSection": "Education",
         "keywords": "part-time diploma, flexible learning, working adults education, evening classes, online diploma, career advancement",

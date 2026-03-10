@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Diploma in Caregiving | Edusphere Singapore",
     description: "Part-time caregiving diploma covering Healthcare, Newborn Care, Ageing Process & Fall Prevention. 8 months, S$600 discount.",
-    url: "https://www.edusphere.edu.sg/diploma-in-caregiving",
+    url: "https://edusphere.edu.sg/diploma-in-caregiving",
     siteName: "Edusphere College of Management and Technology",
     locale: "en_SG",
     type: "website",
   },
   alternates: {
-    canonical: "https://www.edusphere.edu.sg/diploma-in-caregiving",
+    canonical: "https://edusphere.edu.sg/diploma-in-caregiving",
   },
 };
 
@@ -28,7 +28,7 @@ export default function DiplomaInCaregiving() {
     "provider": {
       "@type": "EducationalOrganization",
       "name": "Edusphere College of Management and Technology Pte Ltd",
-      "url": "https://www.edusphere.edu.sg",
+      "url": "https://edusphere.edu.sg",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "7500A Beach Road, #05-312 THE PLAZA",

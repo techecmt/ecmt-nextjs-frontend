@@ -9,13 +9,13 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Diploma in Logistics and Supply Chain Management (E-Learning) | Edusphere Singapore",
         description: "100% online logistics diploma covering Procurement, Inventory Management & Supply Chain Technology. Flexible e-learning, 12 months.",
-        url: "https://www.edusphere.edu.sg/diploma-in-logistics-and-supply-chain-management-e-learning",
+        url: "https://edusphere.edu.sg/diploma-in-logistics-and-supply-chain-management-e-learning",
         siteName: "Edusphere College of Management and Technology",
         locale: "en_SG",
         type: "website",
     },
     alternates: {
-        canonical: "https://www.edusphere.edu.sg/diploma-in-logistics-and-supply-chain-management-e-learning",
+        canonical: "https://edusphere.edu.sg/diploma-in-logistics-and-supply-chain-management-e-learning",
     },
 };
 
@@ -28,7 +28,7 @@ export default function DiplomaInLogisticsAndSupplyChainManagementELearning() {
         "provider": {
             "@type": "EducationalOrganization",
             "name": "Edusphere College of Management and Technology Pte Ltd",
-            "url": "https://www.edusphere.edu.sg",
+            "url": "https://edusphere.edu.sg",
             "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "7500A Beach Road, #05-312 THE PLAZA",

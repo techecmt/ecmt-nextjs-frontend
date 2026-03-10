@@ -9,13 +9,13 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Advanced Diploma in Healthcare Facilities Management | Edusphere Singapore",
         description: "Blended learning diploma in healthcare facilities management. Hospital Operations, Safety & Quality Management. 8 months.",
-        url: "https://www.edusphere.edu.sg/advanced-diploma-in-healthcare-facilities-management",
+        url: "https://edusphere.edu.sg/advanced-diploma-in-healthcare-facilities-management",
         siteName: "Edusphere College of Management and Technology",
         locale: "en_SG",
         type: "website",
     },
     alternates: {
-        canonical: "https://www.edusphere.edu.sg/advanced-diploma-in-healthcare-facilities-management",
+        canonical: "https://edusphere.edu.sg/advanced-diploma-in-healthcare-facilities-management",
     },
 };
 
@@ -28,7 +28,7 @@ export default function AdvancedDiplomaInHealthcareFacilitiesManagement() {
         "provider": {
             "@type": "EducationalOrganization",
             "name": "Edusphere College of Management and Technology Pte Ltd",
-            "url": "https://www.edusphere.edu.sg",
+            "url": "https://edusphere.edu.sg",
             "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "7500A Beach Road, #05-312 THE PLAZA",

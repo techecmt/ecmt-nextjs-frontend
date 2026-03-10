@@ -8,7 +8,7 @@ const TermsAndConditions = () => {
 
             <div className="space-y-6 text-gray-800">
                 <p>
-                    Welcome to Edusphere’s official website (www.edusphere.edu.sg). By accessing or using this website, you agree to be bound by the following Terms and Conditions, our Privacy Policy, and all applicable laws and regulations. If you do not agree with any of these terms, please do not use this site.
+                    Welcome to Edusphere’s official website (edusphere.edu.sg). By accessing or using this website, you agree to be bound by the following Terms and Conditions, our Privacy Policy, and all applicable laws and regulations. If you do not agree with any of these terms, please do not use this site.
                 </p>
 
                 <section>

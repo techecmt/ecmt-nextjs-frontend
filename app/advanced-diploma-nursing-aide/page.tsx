@@ -9,13 +9,13 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Advanced Diploma in Nursing Aide | Edusphere Singapore",
         description: "Blended learning advanced nursing aide diploma. Covers Basic Nursing, Geriatric Care & Emergency Care. 10 months, 168 hours.",
-        url: "https://www.edusphere.edu.sg/advanced-diploma-nursing-aide",
+        url: "https://edusphere.edu.sg/advanced-diploma-nursing-aide",
         siteName: "Edusphere College of Management and Technology",
         locale: "en_SG",
         type: "website",
     },
     alternates: {
-        canonical: "https://www.edusphere.edu.sg/advanced-diploma-nursing-aide",
+        canonical: "https://edusphere.edu.sg/advanced-diploma-nursing-aide",
     },
 };
 
@@ -28,7 +28,7 @@ export default function AdvancedDiplomaNursingAide() {
         "provider": {
             "@type": "EducationalOrganization",
             "name": "Edusphere College of Management and Technology Pte Ltd",
-            "url": "https://www.edusphere.edu.sg",
+            "url": "https://edusphere.edu.sg",
             "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "7500A Beach Road, #05-312 THE PLAZA",

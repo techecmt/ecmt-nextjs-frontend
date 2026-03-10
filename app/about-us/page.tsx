@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About Us | Edusphere College of Management and Technology",
     description: "Established in 2019, Edusphere College offers quality private diploma and WSQ courses in Singapore with experienced industry professionals.",
-    url: "https://www.edusphere.edu.sg/about-us",
+    url: "https://edusphere.edu.sg/about-us",
     siteName: "Edusphere College of Management and Technology",
     locale: "en_SG",
     type: "website",
   },
   alternates: {
-    canonical: "https://www.edusphere.edu.sg/about-us",
+    canonical: "https://edusphere.edu.sg/about-us",
   },
 };
 
@@ -27,8 +27,8 @@ export default function AboutUs() {
     "@type": ["EducationalOrganization", "CollegeOrUniversity"],
     "name": "Edusphere College of Management and Technology Pte Ltd",
     "alternateName": "Edusphere College",
-    "url": "https://www.edusphere.edu.sg",
-    "logo": "https://www.edusphere.edu.sg/homepage/logoimage.png",
+    "url": "https://edusphere.edu.sg",
+    "logo": "https://edusphere.edu.sg/homepage/logoimage.png",
     "description": "Private educational institution in Singapore offering diploma programs and WSQ courses in Engineering, IT, Business, Hospitality, and Caregiving.",
     "foundingDate": "2019",
     "address": {
