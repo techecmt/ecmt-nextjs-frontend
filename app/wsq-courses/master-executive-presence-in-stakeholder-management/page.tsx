@@ -39,7 +39,7 @@ export default function MasterExecutivePresenceInStakeholderManagement() {
                                 </svg>
                             </a>
                             <a
-                                href="#register"
+                                href="https://form.jotform.com/252672445341052"
                                 className="group bg-white text-[#1AB69D] border-2 border-[#1AB69D] px-8 py-4 rounded-lg font-semibold hover:bg-[#1AB69D] hover:text-white transition-all hover:shadow-lg flex items-center gap-2"
                             >
                                 Register Now

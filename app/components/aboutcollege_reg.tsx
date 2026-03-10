@@ -10,7 +10,7 @@ export default function AboutCollegeReg() {
           <div className="flex justify-center md:justify-start">
             <div className="w-full max-w-md rounded-lg overflow-hidden border border-gray-200 bg-white shadow-sm">
               <Image
-                src="/homepage/Registration.webp"
+                src="/homepage/registration.webp"
                 alt="Edusphere College Registration Certificate"
                 width={520}
                 height={720}

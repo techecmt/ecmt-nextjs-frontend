@@ -62,7 +62,7 @@ export default function GenAIPresentationsPage() {
 											<div className="mt-1 text-sm text-white/90">17 & 18 Dec 2025</div>
 											<div className="mt-3">
 												<a
-													href="#register"
+													href="https://form.jotform.com/252672445341052"
 													className="inline-flex w-full items-center justify-center rounded-xl px-5 py-2 text-sm font-semibold shadow-sm hover:opacity-90"
 													style={{ backgroundColor: '#1AB69D', color: '#ffffff' }}
 												>

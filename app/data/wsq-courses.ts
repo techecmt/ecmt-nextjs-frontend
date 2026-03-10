@@ -6,6 +6,7 @@ export type WsqCourse = {
   featured?: boolean;
   ctaLabel?: string;
   tag?: string;
+  registrationLink?: string;
 };
 
 export const wsqCourses: WsqCourse[] = [
@@ -17,6 +18,7 @@ export const wsqCourses: WsqCourse[] = [
     featured: true,
     ctaLabel: "View Course Details",
     tag: "Seats Filling Fast",
+    registrationLink: "https://form.jotform.com/252672445341052",
   },
   {
     id: "stakeholder-management",
@@ -25,6 +27,7 @@ export const wsqCourses: WsqCourse[] = [
     href: "/wsq-courses/master-executive-presence-in-stakeholder-management/",
     featured: true,
     ctaLabel: "View Course Details",
+    registrationLink: "https://form.jotform.com/252672445341052",
   },
   {
     id: "caregiving-elderly",
@@ -32,6 +35,7 @@ export const wsqCourses: WsqCourse[] = [
     imageSrc: "/wsq-images/Essential-Care-giving-Skills-for-Elderly.webp",
     href: "/wsq-courses/essential-care-giving-skills-for-elderly/",
     ctaLabel: "Learn More",
+    registrationLink: "https://form.jotform.com/252672445341052",
   },
   {
     id: "workplace-optimization",
@@ -39,6 +43,7 @@ export const wsqCourses: WsqCourse[] = [
     imageSrc: "/wsq-images/image-2.webp",
     href: "/wsq-courses/workplace-optimization-through-flexible-work-practices",
     ctaLabel: "Learn More",
+    registrationLink: "https://form.jotform.com/252672445341052",
   },
   {
     id: "navigating-service-challenges",
@@ -53,6 +58,7 @@ export const wsqCourses: WsqCourse[] = [
     imageSrc: "/wsq-images/pexels-tara-winstead-8386440.jpg.jpeg",
     href: "/wsq-courses/ai-driven-communication-strategies-to-drive-service-excellence/",
     ctaLabel: "Learn More",
+    registrationLink: "https://form.jotform.com/252672445341052",
   },
   {
     id: "support-persons-with-disabilities",
@@ -60,6 +66,7 @@ export const wsqCourses: WsqCourse[] = [
     imageSrc: "/wsq-images/Support-Service-to-Persons-with-Disabilities.webp",
     href: "/wsq-courses/support-service-to-persons-with-disabilities/",
     ctaLabel: "Learn More",
+    
   },
   
 ];
