@@ -4,6 +4,7 @@ import { join, relative, sep } from "node:path";
 
 const APP_DIR = join(process.cwd(), "app");
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.edusphere.edu.sg").replace(/\/+$/, "");
+const PAGE_FILE_PATTERN = /^page\.(tsx|ts|jsx|js|mdx)$/;
 
 function collectPageFiles(dir: string, pages: string[] = []): string[] {
   const entries = readdirSync(dir, { withFileTypes: true });
@@ -16,12 +17,21 @@ function collectPageFiles(dir: string, pages: string[] = []): string[] {
       continue;
     }
 
-    if (entry.isFile() && entry.name === "page.tsx") {
+    if (entry.isFile() && PAGE_FILE_PATTERN.test(entry.name)) {
       pages.push(fullPath);
     }
   }
 
   return pages;
+}
+
+function normalizeRoute(route: string): string {
+  if (route === "/") {
+    return route;
+  }
+
+  // Keep sitemap URLs aligned with trailingSlash routing.
+  return `${route.replace(/\/+$/, "")}/`;
 }
 
 function getPublicRouteFromPageFile(filePath: string): string | null {
@@ -44,18 +54,18 @@ function getPublicRouteFromPageFile(filePath: string): string | null {
     return "/";
   }
 
-  return `/${routeSegments.join("/")}`;
+  return normalizeRoute(`/${routeSegments.join("/")}`);
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const entries = collectPageFiles(APP_DIR).reduce<MetadataRoute.Sitemap>((acc, filePath) => {
+  const entriesByUrl = collectPageFiles(APP_DIR).reduce<Map<string, MetadataRoute.Sitemap[number]>>((acc, filePath) => {
     const route = getPublicRouteFromPageFile(filePath);
 
     if (!route) {
       return acc;
     }
 
-    acc.push({
+    acc.set(`${SITE_URL}${route}`, {
       url: `${SITE_URL}${route}`,
       lastModified: statSync(filePath).mtime,
       changeFrequency: route === "/" ? "weekly" : "monthly",
@@ -63,7 +73,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
 
     return acc;
-  }, []);
+  }, new Map());
+
+  const entries = Array.from(entriesByUrl.values());
 
   entries.sort((a, b) => a.url.localeCompare(b.url));
 

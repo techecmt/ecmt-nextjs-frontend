@@ -1,5 +1,10 @@
+import type { Metadata } from "next";
 import ContactForm from "../components/contactform";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+    title: "International Certificate in Nursing Aide in Singapore | Edusphere",
+};
 
 export default function CertificateInNursingAidInSingapore() {
     return (

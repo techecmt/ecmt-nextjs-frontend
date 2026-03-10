@@ -1,6 +1,11 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import ContactForm from "../components/contactform";
 import { FaWhatsapp } from "react-icons/fa";
+
+export const metadata: Metadata = {
+	title: "CPR and AED Training in Singapore | Edusphere",
+};
 
 const BRAND_PRIMARY = "#1AB69D";
 const BRAND_TEXT = "#202020";

@@ -1,5 +1,10 @@
+import type { Metadata } from "next";
 import ContactForm from "../components/contactform";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+    title: "Diploma in Information Technology in Singapore | Edusphere",
+};
 
 export default function DiplomaInInformationTechnology() {
     return (
