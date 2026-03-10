@@ -149,10 +149,10 @@ export default function Header() {
                       {/* Show MobileCoursesSection for Diploma Courses, WSQ Courses, SFARC Courses, Certificate Courses */}
                       {['Diploma Courses', 'WSQ Courses', 'SFARC Courses', 'Certificate Courses'].includes(item.name) &&
                         mobileAccordion === item.name && (
-                          <MobileCoursesSection menuType={item.name} />
+                          <MobileCoursesSection menuType={item.name} onLinkClick={() => setMobileMenuOpen(false)} />
                         )}
                       {item.name === 'Students Affair' && mobileAccordion === 'Students Affair' && (
-                        <StudentAffairsMobileList />
+                        <StudentAffairsMobileList onLinkClick={() => setMobileMenuOpen(false)} />
                       )}
                     </>
                   )}
@@ -356,7 +356,7 @@ function StudentAffairsDropdown({
 
 /* ================= STUDENT AFFAIRS (MOBILE) ================= */
 
-function StudentAffairsMobileList() {
+function StudentAffairsMobileList({ onLinkClick }: { onLinkClick: () => void }) {
   return (
     <div className="mt-3 space-y-2">
       <div className="border border-gray-100 rounded-lg overflow-hidden">
@@ -366,6 +366,7 @@ function StudentAffairsMobileList() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={onLinkClick}
                 className="flex items-start gap-2 py-2 px-2 hover:bg-white rounded transition-colors"
               >
                 <span className="text-[#1AB69D] mt-0.5 text-sm">›</span>
@@ -381,7 +382,7 @@ function StudentAffairsMobileList() {
 
 /* ================= MOBILE COURSES ================= */
 
-function MobileCoursesSection({ menuType }: { menuType: string }) {
+function MobileCoursesSection({ menuType, onLinkClick }: { menuType: string; onLinkClick: () => void }) {
   const [expandedSchool, setExpandedSchool] = React.useState<string | null>(null);
 
   const schoolIcons: { [key: string]: React.ReactNode } = {
@@ -406,6 +407,7 @@ function MobileCoursesSection({ menuType }: { menuType: string }) {
                   <Link
                     key={course.id}
                     href={course.href || '/contact'}
+                    onClick={onLinkClick}
                     className="flex items-start gap-2 py-2 px-2 hover:bg-white rounded transition-colors"
                   >
                     <span className="text-[#1AB69D] mt-0.5 text-sm">›</span>
@@ -474,6 +476,7 @@ function MobileCoursesSection({ menuType }: { menuType: string }) {
                       <Link
                         key={i}
                         href={course.url || '/contact'}
+                        onClick={onLinkClick}
                         className="flex items-start gap-2 py-2 px-2 hover:bg-white rounded transition-colors"
                       >
                         <span className="text-[#1AB69D] mt-0.5 text-sm">›</span>
