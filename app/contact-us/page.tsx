@@ -4,13 +4,14 @@ import ContactForm from "../components/contactform";
 import GoogleCarousel from "../components/GoogleCarousel";
 import { FiMapPin, FiMail, FiPhone, FiNavigation, FiExternalLink } from "react-icons/fi";
 import { FcGoogle } from "react-icons/fc";
+import { FaWhatsapp } from "react-icons/fa";
 
 export const metadata: Metadata = {
   title: "Contact Us | Edusphere College of Management and Technology",
-  description: "Get in touch with Edusphere College. Visit us at 7500A Beach Road, #05-312 THE PLAZA, Singapore 199591. Call +65-8220-0095 or email info@edusphere.edu.sg for inquiries.",
+	description: "Get in touch with Edusphere College. Visit us at 7500A Beach Road, #05-312 THE PLAZA, Singapore 199591. WhatsApp us for marketing, admin, student accounts, registration support, sales, and examination matters.",
   openGraph: {
     title: "Contact Us | Edusphere College of Management and Technology",
-    description: "Contact Edusphere College for inquiries about diploma programs, WSQ courses, and admissions. Located in Singapore.",
+		description: "Contact Edusphere College on WhatsApp for marketing, admin support, student accounts, registration support, sales, and examination matters.",
     url: "https://edusphere.edu.sg/contact",
     siteName: "Edusphere College of Management and Technology",
     locale: "en_SG",
@@ -55,21 +56,42 @@ export default function ContactPage() {
 		"contactPoint": [
 			{
 				"@type": "ContactPoint",
-				"telephone": "+65-8220-0095",
-				"contactType": "customer service",
+				"telephone": "+65-9125-4523",
+				"contactType": "marketing",
 				"areaServed": "SG",
 				"availableLanguage": ["English"]
 			},
 			{
 				"@type": "ContactPoint",
-				"telephone": "+65-9125-4523",
-				"contactType": "admissions",
+				"telephone": "+65-8138-5600",
+				"contactType": "administration support",
+				"areaServed": "SG",
+				"availableLanguage": ["English"]
+			},
+			{
+				"@type": "ContactPoint",
+				"telephone": "+65-8110-2783",
+				"contactType": "student accounts",
+				"areaServed": "SG",
+				"availableLanguage": ["English"]
+			},
+			{
+				"@type": "ContactPoint",
+				"telephone": "+65-8070-6203",
+				"contactType": "registration support and sales",
+				"areaServed": "SG",
+				"availableLanguage": ["English"]
+			},
+			{
+				"@type": "ContactPoint",
+				"telephone": "+65-8221-5143",
+				"contactType": "examination and results",
 				"areaServed": "SG",
 				"availableLanguage": ["English"]
 			}
 		],
 		"email": "info@edusphere.edu.sg",
-		"telephone": "+65-8220-0095",
+		"telephone": "+65-8070-6203",
 		"sameAs": [
 			"https://www.facebook.com/eduspherecollege",
 			"https://www.linkedin.com/company/edusphere-college",
@@ -134,15 +156,33 @@ export default function ContactPage() {
 										</div>
 									</div>
 
-									<div className="flex items-start gap-3">
-										<FiPhone className="text-[#1AB69D] mt-1 shrink-0" size={18} />
-										<div>
-											<h3 className="font-semibold text-gray-900">Phone</h3>
-											<div className="mt-1 space-y-1">
-													<a href="tel:+6582200095" className="block hover:underline">+65-8220-0095 <span className="text-xs text-gray-500">(Management)</span></a>
-													<a href="tel:+6591254523" className="block hover:underline">+65-9125-4523 <span className="text-xs text-gray-500">(Admissions)</span></a>
-													<a href="tel:+6591254523" className="block hover:underline">+65-9125-4523 <span className="text-xs text-gray-500">(Fianance Support)</span></a>
-											</div>
+									<div>
+										<div className="flex items-center gap-2 mb-3">
+											<FiPhone className="text-[#1AB69D] shrink-0" size={18} />
+											<h3 className="font-semibold text-gray-900">Phone / WhatsApp</h3>
+										</div>
+										<div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+											{([
+												{ href: "https://wa.me/6591254523", number: "+65-9125-4523", label: "Marketing" },
+												{ href: "https://wa.me/6581385600", number: "+65-8138-5600", label: "All Admin Related" },
+												{ href: "https://wa.me/6581102783", number: "+65-8110-2783", label: "Student Accounts" },
+												{ href: "https://wa.me/6580706203", number: "+65-8070-6203", label: "Registration & Sales" },
+												{ href: "https://wa.me/6582215143", number: "+65-8221-5143", label: "Examination / Results" },
+											] as const).map((c) => (
+												<a
+													key={c.number}
+													href={c.href}
+													target="_blank"
+													rel="noreferrer"
+													className="flex items-center gap-2.5 rounded-xl border border-gray-100 bg-gray-50 px-3 py-2.5 transition hover:border-green-200 hover:bg-green-50"
+												>
+													<FaWhatsapp className="text-green-600 shrink-0" size={18} />
+													<div className="min-w-0">
+														<p className="text-sm font-semibold text-gray-900 leading-tight">{c.number}</p>
+														<p className="text-xs text-gray-500 truncate">{c.label}</p>
+													</div>
+												</a>
+											))}
 										</div>
 									</div>
 
@@ -172,20 +212,7 @@ export default function ContactPage() {
 										</div>
 									</div>
 
-									<div className="pt-2">
-										<h3 className="font-semibold text-gray-900 mb-3">WhatsApp QR Codes</h3>
-										<div className="relative w-full overflow-hidden rounded-xl border border-gray-200">
-											<Image
-												src="/about-contact-other/Contact-us-qrcode.webp"
-												alt="WhatsApp QR codes to contact Edusphere"
-												width={1200}
-												height={800}
-												className="w-full h-auto"
-												priority
-											/>
-										</div>
-										<p className="mt-2 text-xs text-gray-500 inline-flex items-center gap-1"><FiExternalLink />Scan to start a WhatsApp chat.</p>
-									</div>
+									
 								</div>
 							</div>
 						</div>

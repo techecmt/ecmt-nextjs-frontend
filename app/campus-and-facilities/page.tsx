@@ -75,12 +75,12 @@ export default function CampusAndFacilities() {
         {/* Image Gallery */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           <div className="space-y-8">
-            <FacilityImageCard title="RECEPTION" imgSrc="/facilities/reception.webp" />
-            <FacilityImageCard title="MEETING ROOM" imgSrc="/facilities/meeting-room.webp" />
+            <FacilityImageCard title="RECEPTION" imgSrc="/facilities/reception.jpg" />
+            <FacilityImageCard title="MEETING ROOM" imgSrc="/facilities/meeting-room.jpg" />
           </div>
           <div className="space-y-8">
-            <FacilityImageCard title="ADMINISTRATION OFFICE" imgSrc="/facilities/adminstrationofffice.webp" />
-            <FacilityImageCard title="PANTRY" imgSrc="/facilities/pantry.webp" />
+            <FacilityImageCard title="ADMINISTRATION OFFICE" imgSrc="/facilities/adminstrationofffice.jpg" />
+            <FacilityImageCard title="PANTRY" imgSrc="/facilities/pantry.jpg" />
           </div>
         </div>
 
@@ -88,16 +88,16 @@ export default function CampusAndFacilities() {
             <ClassroomImageSection 
                 title="CLASSROOM 1 - 28.5 SQM"
                 capacity="CAPACITY - 19 PAX"
-                imgSrc1="/facilities/classroom-1.webp"
-                imgSrc2="/facilities/classroom1-1.webp"
+                imgSrc1="/facilities/classroom-1.jpg"
+                imgSrc2="/facilities/classroom1-1.jpg"
             />
         </div>
         <div className="mb-16">
             <ClassroomImageSection 
                 title="CLASSROOM 2 - 71.28 SQM"
                 capacity="CAPACITY - 47 PAX"
-                imgSrc1="/facilities/classroom-2.webp"
-                imgSrc2="/facilities/classroom-2-1.webp"
+                imgSrc1="/facilities/classroom-2.jpg"
+                imgSrc2="/facilities/classroom-2-1.jpg"
             />
         </div>
         <div className="mb-16">
@@ -106,7 +106,7 @@ export default function CampusAndFacilities() {
                 <p className="text-md font-medium text-gray-500">CAPACITY - 29 PAX</p>
             </div>
             <div className="w-full h-96 relative rounded-lg overflow-hidden shadow-lg">
-                <Image src="/facilities/classroom-3.webp" alt="Classroom 3" layout="fill" objectFit="cover" />
+                <Image src="/facilities/classroom-3.jpg" alt="Classroom 3" layout="fill" objectFit="cover" />
             </div>
         </div>
 

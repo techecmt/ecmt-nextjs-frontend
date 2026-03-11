@@ -167,13 +167,13 @@ export default function FAQPage() {
 								Explore WSQ Courses
 							</Link>
                             <Link
-								href="/diploma-courses"
+								href="/courses"
 								className="bg-[#1AB69D] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#16917f] transition-all hover:shadow-md"
 							>
 								Explore Diploma Courses
 							</Link>
 							<Link
-								href="/#contact"
+								href="/contact-us"
 								className="border-2 border-[#1AB69D] text-[#1AB69D] px-6 py-3 rounded-lg font-semibold hover:bg-[#1AB69D] hover:text-white transition-all"
 							>
 								Contact Admissions

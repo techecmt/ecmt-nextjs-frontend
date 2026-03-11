@@ -60,22 +60,47 @@ export default function GenAIPresentationsPage() {
 
 								{/* CTA */}
 								<div className="mt-6">
-									<div className="w-full max-w-sm rounded-2xl p-1 shadow-lg" style={{ background: 'linear-gradient(135deg, #1AB69D 0%, #31B979 100%)' }}>
-										<div className="rounded-2xl bg-white/10 p-4 text-white backdrop-blur">
-											<div className="flex items-center gap-2 text-sm font-semibold">
-												<span className="text-orange-300">🔥</span>
-												Seats filling fast
+									<div
+										className="w-full max-w-md rounded-2xl p-[1px] shadow-2xl ring-1 ring-white/20"
+										style={{ background: 'linear-gradient(135deg, rgba(26, 182, 157, 0.95) 0%, rgba(49, 185, 121, 0.92) 55%, rgba(238, 74, 98, 0.86) 100%)' }}
+									>
+										<div className="rounded-2xl bg-black/35 p-5 text-white backdrop-blur-md">
+											<div className="flex flex-wrap items-center gap-2">
+												<span className="inline-flex items-center gap-1 rounded-full bg-orange-400/90 px-3 py-1 text-xs font-bold text-[#202020]">
+													🔥 Limited Intake
+												</span>
+												<span className="inline-flex rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-white/95 ring-1 ring-white/20">
+													16-Hour WSQ Course
+												</span>
 											</div>
-											<div className="mt-1 text-sm text-white/90">17 & 18 Dec 2025</div>
-											<div className="mt-3">
+
+											<p className="mt-3 text-sm leading-relaxed text-white/90">
+												Secure your place in the next available run and get hands-on practice with ChatGPT, Gemini, and Gamma.
+											</p>
+
+											<div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
 												<a
 													href="https://form.jotform.com/252672445341052"
-													className="inline-flex w-full items-center justify-center rounded-xl px-5 py-2 text-sm font-semibold shadow-sm hover:opacity-90"
+													className="inline-flex w-full items-center justify-center rounded-xl px-5 py-2.5 text-sm font-bold shadow-sm transition hover:brightness-105"
 													style={{ backgroundColor: '#1AB69D', color: '#ffffff' }}
 												>
-													Register Now
+													Reserve Your Seat
+												</a>
+												<a
+													href="#register"
+													className="inline-flex w-full items-center justify-center rounded-xl border border-white/40 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/20"
+												>
+													View Full Details
 												</a>
 											</div>
+
+											<p className="mt-3 text-xs text-white/80">
+												Need help choosing funding? Call
+												{' '}
+												<a href="tel:+6582200095" className="font-semibold underline underline-offset-2">
+													+65 8220 0095
+												</a>
+											</p>
 										</div>
 									</div>
 								</div>

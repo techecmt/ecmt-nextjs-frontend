@@ -238,6 +238,140 @@ export default function AboutUs() {
         </div>
       </section>
 
+      {/* Organisational Chart */}
+      <section className="py-16 lg:py-24 bg-white relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-1/3 h-1/3 bg-red-50 rounded-full blur-3xl -z-10 -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="container mx-auto px-4 lg:px-20 max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-sm font-bold tracking-widest text-[#d81f26] uppercase mb-3">
+              How We&apos;re Organised
+            </h2>
+            <h3 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+              Organisational Chart
+            </h3>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              Our structured leadership ensures every department works together to deliver the best educational experience.
+            </p>
+          </div>
+
+          {/* Org Chart */}
+          <div className="flex flex-col items-center">
+            {/* Level 1 – Share Holders / Board of Directors */}
+            <div className="bg-[#d81f26] text-white rounded-2xl px-10 py-5 text-center shadow-lg">
+              <p className="font-bold text-lg">Share Holders / Board of Directors</p>
+            </div>
+
+            {/* Connector */}
+            <div className="w-px h-10 bg-gray-300"></div>
+
+            {/* Level 2 – CEO flanked by Academic Board & Examination Board */}
+            <div className="flex items-center justify-center gap-0 w-full max-w-4xl">
+              {/* Academic Board */}
+              <div className="hidden lg:flex items-center flex-1 justify-end">
+                <div className="bg-[#1e2a4a] text-white rounded-full px-6 py-3 text-center shadow-md">
+                  <p className="font-semibold text-sm">Academic Board</p>
+                </div>
+                <div className="w-8 h-px bg-gray-300"></div>
+              </div>
+
+              {/* CEO */}
+              <div className="bg-[#d81f26] text-white rounded-2xl px-10 py-5 text-center shadow-lg z-10">
+                <p className="font-bold text-lg">CEO</p>
+              </div>
+
+              {/* Examination Board */}
+              <div className="hidden lg:flex items-center flex-1 justify-start">
+                <div className="w-8 h-px bg-gray-300"></div>
+                <div className="bg-[#1e2a4a] text-white rounded-full px-6 py-3 text-center shadow-md">
+                  <p className="font-semibold text-sm">Examination Board</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile: Academic & Examination Board */}
+            <div className="flex lg:hidden flex-wrap justify-center gap-3 mt-4">
+              <div className="bg-[#1e2a4a] text-white rounded-full px-6 py-3 text-center shadow-md">
+                <p className="font-semibold text-sm">Academic Board</p>
+              </div>
+              <div className="bg-[#1e2a4a] text-white rounded-full px-6 py-3 text-center shadow-md">
+                <p className="font-semibold text-sm">Examination Board</p>
+              </div>
+            </div>
+
+            {/* Connector from CEO down */}
+            <div className="w-px h-10 bg-gray-300"></div>
+
+            {/* Horizontal line spanning Level 3 departments */}
+            <div className="hidden lg:block w-full max-w-6xl h-px bg-gray-300"></div>
+
+            {/* Level 3 – 6 Departments */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3 w-full max-w-6xl">
+              <div className="flex flex-col items-center">
+                <div className="hidden lg:block w-px h-6 bg-gray-300"></div>
+                <div className="bg-[#1e2a4a] text-white rounded-full px-4 py-3 text-center shadow-md w-full">
+                  <p className="font-semibold text-xs">Administration &amp; Student Support</p>
+                </div>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="hidden lg:block w-px h-6 bg-gray-300"></div>
+                <div className="bg-[#1e2a4a] text-white rounded-full px-4 py-3 text-center shadow-md w-full">
+                  <p className="font-semibold text-xs">Finance / HR / Facilities</p>
+                </div>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="hidden lg:block w-px h-6 bg-gray-300"></div>
+                <div className="bg-[#1e2a4a] text-white rounded-full px-4 py-3 text-center shadow-md w-full">
+                  <p className="font-semibold text-xs">Marketing / Business Development</p>
+                </div>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="hidden lg:block w-px h-6 bg-gray-300"></div>
+                <div className="bg-[#1e2a4a] text-white rounded-full px-4 py-3 text-center shadow-md w-full">
+                  <p className="font-semibold text-xs">ERF Programmes</p>
+                </div>
+                {/* Sub-level: Programme Manager */}
+                <div className="w-px h-6 bg-gray-300"></div>
+                <div className="bg-gray-200 text-gray-800 rounded-full px-4 py-2.5 text-center shadow-sm w-full">
+                  <p className="font-semibold text-xs">Programme Manager</p>
+                </div>
+                {/* Sub-level: Programme Executive */}
+                <div className="w-px h-6 bg-gray-300"></div>
+                <div className="bg-gray-200 text-gray-800 rounded-full px-4 py-2.5 text-center shadow-sm w-full">
+                  <p className="font-semibold text-xs">Programme Executive</p>
+                </div>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="hidden lg:block w-px h-6 bg-gray-300"></div>
+                <div className="bg-[#1e2a4a] text-white rounded-full px-4 py-3 text-center shadow-md w-full">
+                  <p className="font-semibold text-xs">Registered Training Provider (RTP)</p>
+                </div>
+                {/* Sub-level: Programme Manager */}
+                <div className="w-px h-6 bg-gray-300"></div>
+                <div className="bg-gray-200 text-gray-800 rounded-full px-4 py-2.5 text-center shadow-sm w-full">
+                  <p className="font-semibold text-xs">Programme Manager</p>
+                </div>
+                {/* Sub-level: Programme Executive */}
+                <div className="w-px h-6 bg-gray-300"></div>
+                <div className="bg-gray-200 text-gray-800 rounded-full px-4 py-2.5 text-center shadow-sm w-full">
+                  <p className="font-semibold text-xs">Programme Executive</p>
+                </div>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="hidden lg:block w-px h-6 bg-gray-300"></div>
+                <div className="bg-[#1e2a4a] text-white rounded-full px-4 py-3 text-center shadow-md w-full">
+                  <p className="font-semibold text-xs">Teachers</p>
+                </div>
+                {/* Sub-level: Trainers */}
+                <div className="w-px h-6 bg-gray-300"></div>
+                <div className="bg-gray-200 text-gray-800 rounded-full px-4 py-2.5 text-center shadow-sm w-full">
+                  <p className="font-semibold text-xs">Trainers</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Our Team Section - Delegated to Client Component */}
       <AboutUsClient />
     </div>

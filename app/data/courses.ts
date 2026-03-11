@@ -29,7 +29,7 @@ export const courseData: School[] = [
         title: "Advanced Diploma in Nursing Aide",
         mode: "Part Time",
         duration: "10 Months",
-        image: "/homepage/addipcaregiving.webp",
+        image: "/homepage/addipcaregiving.jpg",
         url: "/advanced-diploma-nursing-aide",
       },
       {
@@ -96,7 +96,7 @@ export const courseData: School[] = [
         title: "Diploma in Civil Engineering",
         mode: "Part Time",
         duration: "08 Months",
-        image: "/homepage/dipcivil.webp",
+        image: "/homepage/dipcivil.jpg",
         url: "/diploma-in-civil-engineering",
       },
       {
@@ -155,10 +155,10 @@ export const courseData: School[] = [
         url: "/diploma-in-retail-e-commerce-management",
       },
       {
-        title: "Diploma in Logistics & Supply Chain",
+        title: "Diploma in Logistics & Supply Chain Management",
         mode: "Part Time",
         duration: "12 Months",
-        image: "/homepage/logisticshomePage_nav.webp",
+        image: "/homepage/logisticshomePage_nav.jpg",
         url: "/diploma-in-logistics-and-supply-chain-management",
       },
     ],
@@ -168,7 +168,7 @@ export const courseData: School[] = [
     color: "#EE4A62",
     courses: [
       {
-        title: "Diploma in Logistics & Supply Chain (E-Learning)",
+        title: "Diploma in Logistics & Supply Chain Management (E-Learning)",
         mode: "Part Time",
         duration: "12 Months",
         elearning: true,

@@ -84,7 +84,7 @@ const teachersData: Teacher[] = [
         ]
       },
       {
-        name: "Diploma in Logistics & Supply Chain Management",
+        name: "Diploma in Logistics & Supply Chain  Management",
         modules: [
           "DLSCM1 – M1: Introduction to Logistics & Supply Chain Management",
           "DLSCM2 – M2: Procurement & Sourcing",
