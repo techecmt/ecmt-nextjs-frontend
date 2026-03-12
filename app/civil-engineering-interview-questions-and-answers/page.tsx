@@ -2,54 +2,471 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import ContactForm from "../components/contactform";
 
+type InterviewSection = {
+	title: string;
+	questions: {
+		question: string;
+		answer: string;
+	}[];
+};
+
+const interviewSections: InterviewSection[] = [
+	{
+		title: "Basic Civil Engineering Questions (1–20)",
+		questions: [
+			{
+				question: "1. What is civil engineering?",
+				answer:
+					"Civil engineering is the branch of engineering that deals with the design, construction, and maintenance of infrastructure such as buildings, bridges, roads, dams, and water supply systems.",
+			},
+			{
+				question: "2. What is concrete?",
+				answer:
+					"Concrete is a composite material made from cement, sand, aggregates, and water that hardens through hydration.",
+			},
+			{
+				question: "3. What is the standard size of a brick?",
+				answer: "Standard brick size as per IS code is 190 mm × 90 mm × 90 mm.",
+			},
+			{
+				question: "4. What is curing in concrete?",
+				answer:
+					"Curing is the process of maintaining moisture and temperature in concrete to allow proper hydration and strength development.",
+			},
+			{
+				question: "5. What is the minimum curing period for concrete?",
+				answer: "Minimum 7 days for OPC concrete and 10–14 days for blended cement.",
+			},
+			{
+				question: "6. What is the water-cement ratio?",
+				answer:
+					"Water-cement ratio is the ratio of the weight of water to the weight of cement in a concrete mix.",
+			},
+			{
+				question: "7. What is the slump test?",
+				answer: "A test used to measure the workability of fresh concrete.",
+			},
+			{
+				question: "8. What is the density of steel?",
+				answer: "The density of steel is approximately 7850 kg/m³.",
+			},
+			{
+				question: "9. What is the difference between PCC and RCC?",
+				answer:
+					"PCC is plain cement concrete without reinforcement, while RCC contains steel reinforcement.",
+			},
+			{
+				question: "10. What is the unit weight of concrete?",
+				answer: "Approximately 24 kN/m³.",
+			},
+			{
+				question: "11. What are aggregates?",
+				answer: "Aggregates are inert materials like sand, gravel, or crushed stone used in concrete.",
+			},
+			{
+				question: "12. What is M20 concrete?",
+				answer: "Concrete with characteristic compressive strength of 20 MPa at 28 days.",
+			},
+			{
+				question: "13. What is honeycombing?",
+				answer: "Honeycombing is the presence of voids in concrete due to improper compaction.",
+			},
+			{
+				question: "14. What is bleeding in concrete?",
+				answer: "Bleeding is the upward movement of water in fresh concrete.",
+			},
+			{
+				question: "15. What is a beam?",
+				answer:
+					"A horizontal structural element that carries loads and transfers them to columns.",
+			},
+			{
+				question: "16. What is a column?",
+				answer: "A vertical structural element that carries compressive loads.",
+			},
+			{
+				question: "17. What is a footing?",
+				answer: "A structural element that transfers load from the structure to the soil.",
+			},
+			{
+				question: "18. What are dead loads?",
+				answer: "Permanent loads from structural components.",
+			},
+			{
+				question: "19. What are live loads?",
+				answer: "Temporary loads such as people, furniture, and equipment.",
+			},
+			{
+				question: "20. What is a plinth beam?",
+				answer:
+					"A beam constructed at plinth level to distribute loads and prevent differential settlement.",
+			},
+		],
+	},
+	{
+		title: "Structural Engineering Questions (21–40)",
+		questions: [
+			{
+				question: "21. What is stress?",
+				answer: "Stress is the internal resistance offered by a material against external load.",
+			},
+			{
+				question: "22. What is strain?",
+				answer: "Strain is the deformation per unit length caused by stress.",
+			},
+			{
+				question: "23. What is modulus of elasticity?",
+				answer: "It is the ratio of stress to strain in the elastic range.",
+			},
+			{
+				question: "24. What is bending moment?",
+				answer: "The moment causing bending in a structural element.",
+			},
+			{
+				question: "25. What is shear force?",
+				answer: "A force that causes sliding between two parts of a structure.",
+			},
+			{
+				question: "26. What is torsion?",
+				answer: "Twisting force applied to a structural member.",
+			},
+			{
+				question: "27. What is a cantilever beam?",
+				answer: "A beam fixed at one end and free at the other.",
+			},
+			{
+				question: "28. What is a simply supported beam?",
+				answer: "A beam supported at both ends without restraint to rotation.",
+			},
+			{
+				question: "29. What is moment of inertia?",
+				answer: "A property of a section that indicates resistance to bending.",
+			},
+			{
+				question: "30. What is buckling?",
+				answer: "Sudden lateral failure of a column due to compressive loads.",
+			},
+			{
+				question: "31. What is ductility?",
+				answer: "Ability of a material to undergo deformation before failure.",
+			},
+			{
+				question: "32. What is yield strength?",
+				answer: "Stress at which material begins to deform plastically.",
+			},
+			{
+				question: "33. What is ultimate strength?",
+				answer: "Maximum stress material can withstand before failure.",
+			},
+			{
+				question: "34. What is prestressed concrete?",
+				answer: "Concrete where internal stresses are introduced before loading.",
+			},
+			{
+				question: "35. What is creep in concrete?",
+				answer: "Time-dependent deformation under constant load.",
+			},
+			{
+				question: "36. What is shrinkage in concrete?",
+				answer: "Reduction in volume due to moisture loss.",
+			},
+			{
+				question: "37. What is reinforcement?",
+				answer: "Steel bars embedded in concrete to resist tensile forces.",
+			},
+			{
+				question: "38. What is a slab?",
+				answer: "A flat horizontal structural element.",
+			},
+			{
+				question: "39. What is a retaining wall?",
+				answer: "A structure used to retain soil at different levels.",
+			},
+			{
+				question: "40. What is factor of safety?",
+				answer: "Ratio of ultimate strength to working stress.",
+			},
+		],
+	},
+	{
+		title: "Geotechnical Engineering Questions (41–55)",
+		questions: [
+			{
+				question: "41. What is soil?",
+				answer:
+					"Naturally occurring material composed of minerals, organic matter, water, and air.",
+			},
+			{
+				question: "42. What is bearing capacity of soil?",
+				answer: "Maximum load soil can support without failure.",
+			},
+			{
+				question: "43. What is consolidation?",
+				answer: "Compression of soil due to expulsion of water.",
+			},
+			{
+				question: "44. What is permeability?",
+				answer: "Ability of soil to allow water to pass through.",
+			},
+			{
+				question: "45. What is soil compaction?",
+				answer: "Process of increasing soil density by mechanical means.",
+			},
+			{
+				question: "46. What is liquefaction?",
+				answer: "Loss of soil strength due to earthquake vibrations.",
+			},
+			{
+				question: "47. What are shallow foundations?",
+				answer: "Foundations placed near ground surface.",
+			},
+			{
+				question: "48. What are deep foundations?",
+				answer: "Foundations transferring load to deeper layers.",
+			},
+			{
+				question: "49. What is pile foundation?",
+				answer: "Long slender column transferring loads deep into soil.",
+			},
+			{
+				question: "50. What is raft foundation?",
+				answer: "A large slab supporting multiple columns.",
+			},
+			{
+				question: "51. What is differential settlement?",
+				answer: "Uneven settlement of structure.",
+			},
+			{
+				question: "52. What is soil classification?",
+				answer: "Grouping soils based on particle size and properties.",
+			},
+			{
+				question: "53. What is shear strength of soil?",
+				answer: "Resistance to shear stress.",
+			},
+			{
+				question: "54. What is angle of internal friction?",
+				answer: "Resistance of soil particles to sliding.",
+			},
+			{
+				question: "55. What is cohesion in soil?",
+				answer: "Attraction between soil particles.",
+			},
+		],
+	},
+	{
+		title: "Construction Management Questions (56–75)",
+		questions: [
+			{
+				question: "56. What is project management?",
+				answer: "Planning, organizing, and controlling project resources.",
+			},
+			{
+				question: "57. What is CPM?",
+				answer: "Critical Path Method used for project scheduling.",
+			},
+			{
+				question: "58. What is PERT?",
+				answer: "Program Evaluation and Review Technique for project planning.",
+			},
+			{
+				question: "59. What is a Gantt chart?",
+				answer: "A bar chart showing project schedule.",
+			},
+			{
+				question: "60. What is quality control?",
+				answer: "Process of ensuring construction quality standards.",
+			},
+			{
+				question: "61. What is quality assurance?",
+				answer: "Process to prevent defects.",
+			},
+			{
+				question: "62. What is a BOQ?",
+				answer: "Bill of Quantities listing materials and work.",
+			},
+			{
+				question: "63. What is BBS?",
+				answer: "Bar Bending Schedule listing reinforcement details.",
+			},
+			{
+				question: "64. What is formwork?",
+				answer: "Temporary mould used to shape concrete.",
+			},
+			{
+				question: "65. What is scaffolding?",
+				answer: "Temporary structure used by workers during construction.",
+			},
+			{
+				question: "66. What is site layout?",
+				answer: "Arrangement of facilities on construction site.",
+			},
+			{
+				question: "67. What is lean construction?",
+				answer: "Reducing waste and improving efficiency.",
+			},
+			{
+				question: "68. What is safety management?",
+				answer: "Ensuring safe working conditions on site.",
+			},
+			{
+				question: "69. What is a punch list?",
+				answer: "List of incomplete or defective work.",
+			},
+			{
+				question: "70. What is procurement?",
+				answer: "Purchasing materials and services.",
+			},
+			{
+				question: "71. What is resource planning?",
+				answer: "Allocation of labor, materials, and equipment.",
+			},
+			{
+				question: "72. What is cost estimation?",
+				answer: "Calculating expected project cost.",
+			},
+			{
+				question: "73. What is tendering?",
+				answer: "Process of inviting bids for construction work.",
+			},
+			{
+				question: "74. What is contract management?",
+				answer: "Managing agreements between client and contractor.",
+			},
+			{
+				question: "75. What is value engineering?",
+				answer: "Improving function while reducing cost.",
+			},
+		],
+	},
+	{
+		title: "Advanced Civil Engineering Questions (76–100)",
+		questions: [
+			{
+				question: "76. What is BIM?",
+				answer: "Building Information Modeling used for digital construction planning.",
+			},
+			{
+				question: "77. What is sustainable construction?",
+				answer: "Building practices minimizing environmental impact.",
+			},
+			{
+				question: "78. What is green building?",
+				answer: "Energy-efficient and environmentally friendly construction.",
+			},
+			{
+				question: "79. What is smart city concept?",
+				answer: "Use of technology to improve urban infrastructure.",
+			},
+			{
+				question: "80. What is structural health monitoring?",
+				answer: "Monitoring structural performance using sensors.",
+			},
+			{
+				question: "81. What is earthquake-resistant design?",
+				answer: "Designing structures to withstand seismic forces.",
+			},
+			{
+				question: "82. What is wind load?",
+				answer: "Force exerted by wind on structures.",
+			},
+			{
+				question: "83. What is thermal stress?",
+				answer: "Stress caused by temperature changes.",
+			},
+			{
+				question: "84. What are expansion joints?",
+				answer: "Joints allowing thermal expansion.",
+			},
+			{
+				question: "85. What is drainage system?",
+				answer: "System for removing excess water.",
+			},
+			{
+				question: "86. What is water supply system?",
+				answer: "Infrastructure delivering clean water.",
+			},
+			{
+				question: "87. What is sewage treatment?",
+				answer: "Process of treating wastewater.",
+			},
+			{
+				question: "88. What is pavement?",
+				answer: "Road surface supporting vehicles.",
+			},
+			{
+				question: "89. What is flexible pavement?",
+				answer: "Bituminous road surface.",
+			},
+			{
+				question: "90. What is rigid pavement?",
+				answer: "Concrete road surface.",
+			},
+			{
+				question: "91. What is traffic engineering?",
+				answer: "Planning and managing traffic flow.",
+			},
+			{
+				question: "92. What is surveying?",
+				answer: "Measuring and mapping land.",
+			},
+			{
+				question: "93. What is leveling?",
+				answer: "Determining elevation differences.",
+			},
+			{
+				question: "94. What is total station?",
+				answer: "Electronic surveying instrument.",
+			},
+			{
+				question: "95. What is GPS surveying?",
+				answer: "Using satellites to measure location.",
+			},
+			{
+				question: "96. What is drone surveying?",
+				answer: "Using UAVs for site mapping.",
+			},
+			{
+				question: "97. What is 3D printing in construction?",
+				answer: "Automated layer-by-layer construction.",
+			},
+			{
+				question: "98. What is modular construction?",
+				answer: "Building components manufactured off-site.",
+			},
+			{
+				question: "99. What are smart materials?",
+				answer: "Materials that adapt to environmental changes.",
+			},
+			{
+				question: "100. What is future of civil engineering?",
+				answer:
+					"Integration of AI, automation, sustainability, and digital construction technologies.",
+			},
+		],
+	},
+];
+
 export const metadata: Metadata = {
 	title: "Civil Engineering Interview Questions and Answers | Edusphere",
 	description:
-		"Prepare for civil engineering interviews with practical questions and sample answers covering technical concepts, site work, and problem-solving.",
+		"Prepare for civil engineering interviews with 100 complete questions and answers across fundamentals, structural concepts, geotechnical engineering, construction management, and advanced topics.",
 };
 
 export default function CivilEngineeringInterviewGuide() {
 	return (
 		<main className="min-h-screen bg-white">
-			{/* Hero */}
 			<section className="bg-white">
-				<div className="container mx-auto px-4 md:px-8 py-12 md:py-16">
+				<div className="container mx-auto px-4 py-12 md:px-8 md:py-16">
 					<div className="flex flex-col items-start gap-4">
 						<span className="text-sm font-semibold text-gray-500">Blog</span>
-
-						<h1 className="text-3xl md:text-5xl font-bold leading-tight text-gray-900 max-w-5xl">
-							100+ Civil Engineering Interview Questions and Answers for 2025 Success
+						<h1 className="max-w-5xl text-3xl font-bold leading-tight text-gray-900 md:text-5xl">
+							100 Civil Engineering Interview Questions and Answers
 						</h1>
-
-						<div className="flex items-center gap-6 text-gray-600 text-sm">
-							<div className="inline-flex items-center gap-2">
-								<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth={2}
-										d="M8 7V3m8 4V3m-9 8h10m-11 8h12a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2v10a2 2 0 002 2z"
-									/>
-								</svg>
-								<span>30 Sep, 2025</span>
-							</div>
-							<div className="inline-flex items-center gap-2">
-								<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth={2}
-										d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2m-4-10H7a2 2 0 00-2 2v6a2 2 0 002 2h6m0-10V6a2 2 0 00-2-2H7m6 4h4a2 2 0 012 2v6a2 2 0 01-2 2h-4"
-									/>
-								</svg>
-								<span>Com 0</span>
-							</div>
-						</div>
-
-						<div className="relative w-full h-[260px] sm:h-[360px] md:h-[440px] rounded-2xl overflow-hidden shadow-lg">
+						<div className="relative h-[260px] w-full overflow-hidden rounded-2xl shadow-lg sm:h-[360px] md:h-[440px]">
 							<Image
 								src="/homepage/ADcivil.webp"
-								alt="Civil engineering interview guide"
+								alt="Civil engineering interview questions and answers"
 								fill
 								className="object-cover"
 								priority
@@ -59,119 +476,25 @@ export default function CivilEngineeringInterviewGuide() {
 				</div>
 			</section>
 
-			{/* Main Content */}
-			<section className="py-12 md:py-16 bg-white">
-				<div className="container mx-auto px-4 md:px-8 max-w-5xl">
-					<article className="space-y-12 text-gray-800">
-						<div className="space-y-4">
-							<p className="text-lg leading-relaxed">
-								Whether you are a fresh graduate, site engineer, or specialist, these 100+ civil engineering interview questions and concise answers will help you articulate fundamentals, site experience, and advanced concepts. Organised by category for 2025 interviews.
-							</p>
-							<div className="rounded-2xl border border-[#1AB69D]/30 bg-[#1AB69D]/10 p-6 shadow-sm">
-								<h2 className="text-xl font-semibold text-gray-900">Comprehensive Civil Engineering Interview Guide</h2>
-								<p className="mt-2 text-gray-700">Pair technical answers with codes, safety, quality, and constructability. Use STAR examples to show impact on cost, schedule, and safety.</p>
-							</div>
-						</div>
-
-						<div className="space-y-6">
-							<h2 className="text-2xl md:text-3xl font-bold text-gray-900">Basic Civil Engineering Questions (1–25)</h2>
-							<div className="grid gap-4 md:grid-cols-2 text-gray-700">
-								{["Unit weight of concrete (plain: ~24 kN/m³; RCC: ~25 kN/m³; lightweight: 12-20 kN/m³; heavyweight: 30-35 kN/m³)", "Standard brick size (IS 1077:1992) 190×90×90 mm; with mortar ~200×100×100 mm", "Minimum curing period (IS 456:2000): 7 days normal; 14 hot; 21 cold; 28 for max strength", "Water-cement ratio: 0.40–0.50 typical; lower ratio increases strength but reduces workability", "Slump test: measures workability of fresh concrete for placement/compaction", "Types of foundations: shallow (strip, pad, raft); deep (piles, caissons, piers)", "M20 characteristic strength: 20 MPa at 28 days", "M25 meaning: 25 MPa characteristic strength at 28 days", "Types of cement: OPC, PPC, rapid hardening, sulphate resistant, low heat", "One-way vs two-way slab: support directions and reinforcement orientation", "Types of beams: simply supported, cantilever, fixed, continuous, overhanging", "Bleeding in concrete: water separation due to excess water", "Honeycombing: voids from poor compaction or mix; weakens concrete", "Cantilever beam: fixed one end, free other; carries distributed or point loads", "Cement tests: fineness, consistency, setting time, soundness, compressive strength", "Lap length (IS 456): ~40ϕ mild steel; ~50ϕ HYSD", "Concrete grades: M10 to M50 and above, number denotes MPa", "BBS (Bar Bending Schedule): list of bars, shapes, lengths for estimation and control", "Plinth beam: horizontal beam at plinth to distribute load and control settlement", "Min foundation depth: ~1.5 m typical; deeper per soil report; black cotton soil ≥2.5 m", "PCC vs RCC: unreinforced vs reinforced with steel", "Loads: dead, live, wind, seismic, environmental", "Nominal mix vs design mix: fixed proportions vs lab-designed", "Density of steel: ~7850 kg/m³", "Plaster thickness: internal 12-15 mm; external 15-20 mm"].map((item) => (
-									<div key={item} className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
-										<p>{item}</p>
-									</div>
-								))}
-							</div>
-						</div>
-
-						<div className="space-y-6">
-							<h2 className="text-2xl md:text-3xl font-bold text-gray-900">Structural Engineering (26–50)</h2>
-							<div className="grid gap-4 md:grid-cols-2 text-gray-700">
-								{["Structural engineering: design/analysis to resist loads safely", "Beam vs column: horizontal carries transverse loads; vertical carries axial loads", "Tensile vs compressive stress: pulling apart vs squeezing", "Shear force and bending moment: internal forces causing shear and bending", "Lateral-torsional buckling: beam bends laterally and twists when unsupported laterally", "Modulus of elasticity (E): stress/strain in elastic range", "Bending stress formula: σ = (M·y)/I", "Short vs long columns: crushing vs buckling (slenderness threshold)", "Torsion: twisting causing shear along length", "Reinforcement role: concrete weak in tension; steel resists tension", "Column design methods: working stress and limit state", "Combined footing: one footing supporting two+ columns when close", "Elastic vs plastic bending: recovers vs permanent deformation", "RCC slab: reinforced concrete slab resisting bending and shear", "Fixed vs simply supported beam: rotational restraint vs free rotation", "Moment of inertia: section stiffness against bending/deflection", "Steel sections: I/H, channel, angle, CHS/RHS", "Ductility: deformation before failure; key for seismic energy dissipation", "Yield vs ultimate strength: start of plasticity vs max stress", "Foundations: shallow, deep, special (caisson, underpinning)", "Prestressed concrete: pre-compression to counter service tension", "Statically determinate vs indeterminate: equilibrium only vs compatibility needed", "Creep in concrete: time-dependent strain under sustained load", "Expansion joints: allow thermal movement to avoid cracking", "Factor of safety: ultimate strength / working stress"].map((item) => (
-									<div key={item} className="rounded-2xl border border-gray-200 bg-gray-50 p-4 shadow-sm">
-										<p>{item}</p>
-									</div>
-								))}
-							</div>
-						</div>
-
-						<div className="space-y-6">
-							<h2 className="text-2xl md:text-3xl font-bold text-gray-900">Site Engineering and Construction Management (51–75)</h2>
-							<div className="grid gap-4 md:grid-cols-2 text-gray-700">
-								{["Site engineer duties: supervise works, specs compliance, resources, safety, coordination", "Quality control: inspections, material tests, documentation, corrective actions", "Safety approach: briefings, PPE, hazard control, open reporting", "Handling delays: root cause, recovery plan, re-sequence, communicate", "CPM: critical path defines project duration; delays there delay project", "Managing subcontractors: clear scope, meetings, progress checks, resolve conflicts", "Tools: AutoCAD, MS Project/Primavera, Excel, Procore/Buildertrend", "On-site communication: meetings, clear docs, real-time updates", "Concrete works: verify mix, slump, supervise pour, curing for strength", "Procurement/logistics: schedule deliveries, verify quality/qty, protect storage", "Formwork: temporary mold for shape and finish; must be stable and tight", "Trade coordination: align sequences to avoid clashes (M&E, plumbing, HVAC)", "Cost management: track spend vs budget, find savings without quality loss", "Risk management: identify, assess, mitigate, monitor, contingency", "Environmental compliance: waste control, water/energy management, local regs", "BIM: 3D model for coordination, quantities, scheduling", "Change orders: assess scope/time/cost, document approvals, communicate", "Lean construction: reduce waste, improve flow and value", "Site inspections: check specs, safety, quality; document and close actions", "Construction methods: in-situ, precast, steel frame, modular", "Productivity: clear goals, training, monitor, resolve blockers, motivate", "Punch list: items to rectify before completion", "Dispute handling: listen, document, propose practical resolution", "Work at height safety: fall protection, harness, guardrails, training", "Handover quality: inspections, T&C, documentation, close defects"].map((item) => (
-									<div key={item} className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
-										<p>{item}</p>
-									</div>
-								))}
-							</div>
-						</div>
-
-						<div className="space-y-6">
-							<h2 className="text-2xl md:text-3xl font-bold text-gray-900">Quality Control and Advanced Topics (76–100)</h2>
-							<div className="grid gap-4 md:grid-cols-2 text-gray-700">
-								{["QA vs QC: prevent defects via process vs detect via inspection/testing", "QC tools: SPC charts, checklists, inspections, sampling, software", "Six Sigma: DMAIC to remove defects and variation", "Root cause analysis: fishbone, 5 Whys, fault tree", "SPC: monitor process variation over time", "Common standards: ISO 9001, ISO 14001, safety codes, building codes", "Handling non-conformance: isolate, analyze, correct, prevent, document", "Acceptance sampling: inspect a sample to accept/reject a lot", "Equipment calibration: scheduled, traceable standards, recorded", "Water-cement ratio effect: lower W/C increases strength but reduces workability", "Admixtures: modify workability, set, strength, durability", "Cement tests: fineness, consistency, setting, soundness, strength", "Consolidation: time-dependent volume reduction in clays under load", "Bearing capacity: max load soil supports without failure", "Soil liquefaction: saturated sand loses strength under seismic shaking", "Pile foundations: end-bearing, friction, or combined", "Geotech investigation: soil/rock data for foundation design", "Effective stress: total stress minus pore pressure; governs strength", "Smart cities: ICT-driven services—transport, energy, waste, governance", "Role of BIM: clash detection, cost, schedule, FM integration", "Trends: robotics, AI, drones, 3D printing, modular, sustainable materials", "Sustainability: green materials, energy efficiency, waste reduction", "BIM clash detection: early conflict resolution across disciplines", "Emerging tech impact: AI/IoT/robotics reshape design and construction", "Future challenges: climate adaptation, aging infrastructure, urbanization"].map((item) => (
-									<div key={item} className="rounded-2xl border border-gray-200 bg-gray-50 p-4 shadow-sm">
-										<p>{item}</p>
-									</div>
-								))}
-							</div>
-						</div>
-
-						<div className="space-y-6">
-							<h2 className="text-2xl md:text-3xl font-bold text-gray-900">Bonus (101–110)</h2>
-							<div className="grid gap-4 md:grid-cols-2 text-gray-700">
-								{["Steel for a beam: derive Ast from bending moment using IS 456 design equations", "Working stress vs limit state: permissible stress vs ultimate/serviceability approach", "Causes of concrete cracks: shrinkage, thermal, poor curing, overload, settlement, ASR", "Retaining wall design: earth pressure, sliding/overturning, bearing, drainage", "Construction joints: planned pour stops for movement and sequencing", "Structural health monitoring: sensors for strain, displacement, vibration", "High-rise design considerations: wind/seismic, lateral systems, foundation, fire/lifts", "Precast quality: factory control, testing, handling, connection detailing", "AI in construction: schedule optimization, vision QC, predictive maintenance", "Green building certification: LEED/BREEAM documentation, commissioning, compliance"].map((item) => (
-									<div key={item} className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
-										<p>{item}</p>
-									</div>
-								))}
-							</div>
-						</div>
-
-						<div className="space-y-6">
-							<h2 className="text-2xl md:text-3xl font-bold text-gray-900">Interview Preparation Tips</h2>
-							<div className="grid gap-5 md:grid-cols-3 text-gray-700">
-								<div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
-									<h3 className="text-lg font-semibold text-gray-900">Technical preparation</h3>
-									<ul className="mt-3 list-disc space-y-2 pl-5">
-										<li>Review SOM, fluids, geotech basics; codes (IS, IRC) and design checks.</li>
-										<li>Practice quick calcs for beams, slabs, footing sizing.</li>
-										<li>Know modern methods: precast, modular, BIM-enabled workflows.</li>
-									</ul>
+			<section className="bg-white py-12 md:py-16">
+				<div className="container mx-auto max-w-5xl px-4 md:px-8">
+					<article className="space-y-10 text-gray-800">
+						{interviewSections.map((section) => (
+							<section key={section.title} className="space-y-4">
+								<h2 className="text-2xl font-bold text-gray-900 md:text-3xl">{section.title}</h2>
+								<div className="grid gap-4">
+									{section.questions.map((item) => (
+										<div
+											key={item.question}
+											className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm"
+										>
+											<h3 className="text-lg font-semibold text-gray-900">{item.question}</h3>
+											<p className="mt-2 leading-relaxed text-gray-700">{item.answer}</p>
+										</div>
+									))}
 								</div>
-								<div className="rounded-2xl border border-gray-200 bg-gray-50 p-5 shadow-sm">
-									<h3 className="text-lg font-semibold text-gray-900">Project examples</h3>
-									<ul className="mt-3 list-disc space-y-2 pl-5">
-										<li>Prepare STAR stories on delays, safety saves, QA/QC wins.</li>
-										<li>Show cost, schedule, and safety impact with data.</li>
-										<li>Highlight coordination wins across trades and consultants.</li>
-									</ul>
-								</div>
-								<div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
-									<h3 className="text-lg font-semibold text-gray-900">Industry awareness</h3>
-									<ul className="mt-3 list-disc space-y-2 pl-5">
-										<li>Stay current on sustainability, green specs, and circularity.</li>
-										<li>Understand BIM, digital twins, drones, and QA tech.</li>
-										<li>Know safety and quality standards relevant to your region.</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-
-						<div className="space-y-4">
-							<h2 className="text-2xl md:text-3xl font-bold text-gray-900">Build Your Foundation First</h2>
-							<p>
-								Use these questions to sharpen fundamentals, pair answers with codes and site realities, and demonstrate how you manage safety, quality, and schedule. Confident, concise responses backed by real site examples stand out.
-							</p>
-							<div className="rounded-2xl border border-[#1AB69D] bg-[#1AB69D]/10 p-6 shadow-sm">
-								<p className="text-gray-900 font-semibold">Part-time diplomas at Edusphere</p>
-								<ul className="mt-2 list-disc space-y-1 pl-5 text-gray-700">
-									<li>Diploma in Civil Engineering</li>
-									<li>Advanced Diploma in Civil Engineering</li>
-									<li>Other specialised programmes for working adults</li>
-								</ul>
-							</div>
-						</div>
+							</section>
+						))}
 					</article>
 				</div>
 			</section>

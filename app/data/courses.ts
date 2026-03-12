@@ -208,7 +208,7 @@ export const courseData: School[] = [
         url: "/advanced-diploma-in-nursing-care-assistant-e-learning",
       },
       {
-        title: "Diploma in Human Resource (E-Learning)",
+        title: "Diploma in Human Resource Management (E-Learning)",
         mode: "Part Time",
         duration: "08 Months",
         elearning: true,

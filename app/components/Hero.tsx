@@ -38,52 +38,7 @@ export default function Hero() {
             Education is changing and Edusphere College is changing with it, so our students can find success in a world that's moving faster than ever before.
           </p>
 
-          {/* Interactive stats */}
-          <div className="flex flex-wrap gap-6 pt-4">
-            <div className="group/stat cursor-pointer">
-              <div className="flex items-center gap-3 p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
-                <div className="w-12 h-12 bg-[#1AB69D]/10 rounded-full flex items-center justify-center group-hover/stat:bg-[#1AB69D] transition-colors">
-                  <svg className="w-6 h-6 text-[#1AB69D] group-hover/stat:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-gray-900">2000+</div>
-                  <div className="text-sm text-gray-500">Students Enrolled</div>
-                </div>
-              </div>
-            </div>
-            
-
-            <div className="group/stat cursor-pointer">
-              <div className="flex items-center gap-3 p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
-                <div className="w-12 h-12 bg-[#EE4A62]/10 rounded-full flex items-center justify-center group-hover/stat:bg-[#EE4A62] transition-colors">
-                  <svg className="w-6 h-6 text-[#EE4A62] group-hover/stat:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-gray-900">25+</div>
-                  <div className="text-sm text-gray-500">TOP INSTRUCTORS</div>
-                </div>
-              </div>
-            </div>
-
-            {/* New stat: Success Rate */}
-            <div className="group/stat cursor-pointer">
-              <div className="flex items-center gap-3 p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
-                <div className="w-12 h-12 bg-[#1AB69D]/10 rounded-full flex items-center justify-center group-hover/stat:bg-[#1AB69D] transition-colors">
-                  <svg className="w-6 h-6 text-[#1AB69D] group-hover/stat:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2a10 10 0 100 20 10 10 0 000-20zm-1 14l6-6-1.5-1.5L11 13.5 9.5 12 8 13.5 11 16z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-gray-900">100%</div>
-                  <div className="text-sm text-gray-500">Success Rate</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          
 
           <div className="pt-2">
             <Button>

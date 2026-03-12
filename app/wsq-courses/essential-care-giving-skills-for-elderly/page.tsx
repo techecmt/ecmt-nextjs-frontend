@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import WsqContactForm from '../../components/wsq_contactform';
+import ContactForm from '../../components/contactform';
 import { FaWhatsapp } from 'react-icons/fa';
 
 export const metadata: Metadata = {
@@ -334,7 +334,7 @@ export default function EssentialCareGivingPage() {
 
 						{/* Form */}
 						<div className="lg:col-span-8">
-							<WsqContactForm />
+							<ContactForm />
 						</div>
 					</div>
 				</div>

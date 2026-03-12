@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import WSQContactForm from "../../components/wsq_contactform";
 import Image from "next/image";
 import { FaWhatsapp } from "react-icons/fa";
+import ContactForm from "../../components/contactform";
 
 export const metadata: Metadata = {
     title: "Master Executive Presence in Stakeholder Management | WSQ Course | Edusphere",
@@ -344,7 +345,7 @@ export default function MasterExecutivePresenceInStakeholderManagement() {
                 </div>
             </section>
 
-            <WSQContactForm />
+            <ContactForm />
         </main>
     );
 }

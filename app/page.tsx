@@ -97,6 +97,14 @@ export default function Home() {
       
       <Header />
       <Hero />
+      
+      <AboutCollegeReg />
+      <section id="courses">
+        <CourseList />
+      </section>
+      <section id="scedule">
+        <BatchSchedule />
+      </section>
       <section className="py-12 md:py-16 bg-gray-50">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-8 md:mb-12">
@@ -109,13 +117,6 @@ export default function Home() {
           </div>
           <GoogleCarousel />
         </div>
-      </section>
-      <AboutCollegeReg />
-      <section id="courses">
-        <CourseList />
-      </section>
-      <section id="scedule">
-        <BatchSchedule />
       </section>
       <ScoreCard />
       <ContactForm />

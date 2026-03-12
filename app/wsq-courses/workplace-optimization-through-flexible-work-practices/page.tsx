@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import WsqContactForm from "../../components/wsq_contactform";
 import { FaWhatsapp } from 'react-icons/fa';
+import ContactForm from "../../components/contactform";
 
 export const metadata: Metadata = {
   title: 'Workplace Optimization Through Flexible Work Practices | WSQ Course | Edusphere',
@@ -382,7 +383,7 @@ export default function FlexibleWorkPracticesPage() {
 
             {/* Form */}
             <div className="lg:col-span-8">
-              <WsqContactForm />
+              <ContactForm />
             </div>
           </div>
         </div>

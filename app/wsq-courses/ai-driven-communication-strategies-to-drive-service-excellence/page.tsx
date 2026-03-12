@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import WsqContactForm from '../../components/wsq_contactform';
 import { FaWhatsapp } from "react-icons/fa";
+import ContactForm from '../../components/contactform';
 
 export const metadata: Metadata = {
 	title: "AI-Driven Communication Strategies to Drive Service Excellence | WSQ Course | Edusphere",
@@ -299,7 +300,7 @@ export default function AIDrivenCommunicationPage() {
 
 						{/* Form */}
 						<div className="lg:col-span-8">
-							<WsqContactForm />
+							<ContactForm />
 						</div>
 					</div>
 				</div>
