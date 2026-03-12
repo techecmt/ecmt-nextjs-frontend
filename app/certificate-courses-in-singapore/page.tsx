@@ -1,10 +1,18 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Script from "next/script";
 
 export const metadata: Metadata = {
-	title: "Certificate Courses in Singapore | Edusphere",
+	title: "Certificate Courses in Singapore | Edusphere College - Professional Training",
 	description:
-		"Explore industry-focused certificate courses in Singapore at Edusphere College, including healthcare, engineering, F&B, and practical skills training.",
+		"Enroll in professional certificate courses in Singapore at Edusphere College. Healthcare, engineering, F&B, AutoCAD & foundation skills. Industry-focused training with practical skills development.",
+	keywords: "certificate courses Singapore, professional training Singapore, healthcare certificates, engineering courses, AutoCAD certification, nursing training Singapore, Edusphere College",
+	openGraph: {
+		title: "Certificate Courses in Singapore | Edusphere College",
+		description: "Professional certificate courses in healthcare, engineering, F&B and more. Industry-focused training in Singapore.",
+		type: "website",
+		images: ["/certificate_courses/Certificate-in-Foundation-Skills.png"]
+	}
 };
 
 type CertificateCourse = {
@@ -60,9 +68,91 @@ const CERTIFICATE_COURSES: CertificateCourse[] = [
     },
 ];
 
+const FAQ_DATA = [
+	{
+		question: "What are certificate courses and how do they differ from diploma courses?",
+		answer: "Certificate courses are shorter, focused training programs typically lasting 3-6 months that provide specific skills for immediate employment. Unlike diplomas which are comprehensive 1-2 year programs, certificates target particular competencies and are ideal for career changers or skill upgrades."
+	},
+	{
+		question: "Are certificate courses in Singapore recognized by employers?",
+		answer: "Yes, our certificate courses are industry-recognized and designed to meet current market demands. Many are aligned with SkillsFuture Singapore initiatives and accepted by employers across healthcare, engineering, F&B, and other sectors."
+	},
+	{
+		question: "How long does it take to complete a certificate course?",
+		answer: "Most certificate courses range from 3-6 months depending on the program. Healthcare certificates like NG Tube Feeding may be completed in 2-3 months, while technical courses like AutoCAD or Air Conditioning may take 4-6 months including practical training."
+	},
+	{
+		question: "Can I use SkillsFuture credits for these certificate courses?",
+		answer: "Many of our certificate courses are SkillsFuture eligible, allowing you to use your credits to offset course fees. Check with our admissions team for specific course eligibility and funding options available."
+	},
+	{
+		question: "What are the entry requirements for certificate courses?",
+		answer: "Entry requirements vary by course but generally require completion of secondary education or equivalent work experience. Some healthcare courses may require basic English proficiency. Specific prerequisites are listed for each program."
+	},
+	{
+		question: "Do certificate courses include practical training?",
+		answer: "Yes, all our certificate courses emphasize hands-on learning with practical components, laboratory sessions, or internship opportunities to ensure you gain real-world experience alongside theoretical knowledge."
+	},
+	{
+		question: "Are there part-time options for working professionals?",
+		answer: "We offer flexible scheduling including evening and weekend classes for most certificate programs to accommodate working professionals. Online learning components are available for select courses."
+	},
+	{
+		question: "What support is available after course completion?",
+		answer: "Graduates receive career guidance, job placement assistance, and access to our alumni network. We also provide ongoing support for professional development and advanced certification pathways."
+	}
+];
+
 export default function CertificateCoursesInSingapore() {
+	const structuredData = {
+		"@context": "https://schema.org",
+		"@type": "EducationalOrganization",
+		"name": "Edusphere College",
+		"description": "Professional certificate courses in Singapore covering healthcare, engineering, F&B, and technical skills",
+		"url": "https://edusphere.edu.sg/certificate-courses-in-singapore",
+		"hasOfferCatalog": {
+			"@type": "OfferCatalog",
+			"name": "Certificate Courses",
+			"itemListElement": CERTIFICATE_COURSES.map((course, index) => ({
+				"@type": "Course",
+				"name": course.title,
+				"description": `Professional certificate course in ${course.title.toLowerCase()} in Singapore`,
+				"provider": {
+					"@type": "EducationalOrganization",
+					"name": "Edusphere College"
+				},
+				"courseMode": "blended",
+				"educationalCredentialAwarded": "Certificate"
+			}))
+		}
+	};
+
+	const faqStructuredData = {
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		"mainEntity": FAQ_DATA.map(faq => ({
+			"@type": "Question",
+			"name": faq.question,
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": faq.answer
+			}
+		}))
+	};
+
 	return (
-		<main className="min-h-screen">
+		<>
+			<Script
+				id="course-structured-data"
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+			/>
+			<Script
+				id="faq-structured-data"
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
+			/>
+			<main className="min-h-screen">
 			{/* Hero Section */}
 			<section className="relative bg-linear-to-br from-white via-gray-50 to-[#1AB69D]/5 py-16 md:py-24 overflow-hidden">
 				<div className="absolute inset-0 bg-grid-pattern opacity-5" />
@@ -162,7 +252,80 @@ export default function CertificateCoursesInSingapore() {
 					</div>
 				</div>
 			</section>
+
+			{/* FAQ Section */}
+			<section className="py-12 md:py-16 bg-gray-50">
+				<div className="container mx-auto px-4 md:px-8 max-w-4xl">
+					<div className="text-center mb-10">
+						<h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+							Frequently Asked Questions
+						</h2>
+						<div className="w-16 h-1 bg-[#1AB69D] rounded-full mx-auto mb-4" />
+						<p className="text-gray-600 max-w-2xl mx-auto">
+							Find answers to common questions about our certificate courses in Singapore
+						</p>
+					</div>
+
+					<div className="space-y-3">
+						{FAQ_DATA.map((faq, index) => (
+							<details 
+								key={index} 
+								className="group bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden"
+							>
+								<summary className="flex items-center justify-between w-full px-6 py-4 text-left cursor-pointer hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1AB69D]/40 transition-colors [&::-webkit-details-marker]:hidden">
+									<span className="text-base md:text-lg font-semibold text-gray-900 pr-4">
+										{faq.question}
+									</span>
+									<span className="shrink-0 w-6 h-6 rounded-full bg-[#1AB69D]/10 grid place-items-center group-open:bg-[#1AB69D] transition-colors duration-200" aria-hidden="true">
+										<svg 
+											className="w-4 h-4 text-[#1AB69D] group-open:text-white group-open:rotate-45 transition-all duration-200" 
+											viewBox="0 0 24 24"
+											fill="none" 
+											stroke="currentColor" 
+											strokeWidth="2"
+										>
+											<path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
+										</svg>
+									</span>
+								</summary>
+								<div className="px-6 pb-5 pt-1">
+									<p className="text-gray-600 leading-relaxed text-sm md:text-base">
+										{faq.answer}
+									</p>
+								</div>
+							</details>
+						))}
+					</div>
+
+					{/* Call to Action */}
+					<div className="mt-12 text-center">
+						<div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
+							<h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+								Still have questions?
+							</h3>
+							<p className="text-gray-600 mb-6 max-w-md mx-auto">
+								Our admissions team is here to help you choose the right certificate course for your career goals.
+							</p>
+							<div className="flex flex-col sm:flex-row gap-4 justify-center">
+								<a 
+									href="/contact-us"
+									className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#1AB69D] px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-[#16917f] hover:shadow-md active:scale-95 transition-all"
+								>
+									Contact Us
+								</a>
+								<a 
+									href="tel:+65-6908-8885"
+									className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-[#1AB69D] px-6 py-3 text-sm font-semibold text-[#1AB69D] hover:bg-[#1AB69D] hover:text-white transition-all"
+								>
+									Call Now
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 		</main>
+		</>
 	);
 }
 

@@ -107,14 +107,14 @@ export const courseData: School[] = [
         url: "/advanced-diploma-in-civil-engineering",
       },
       {
-        title: "Diploma in M&E Engineering",
+        title: "Diploma in Mechanical and Electrical (M&E) Engineering",
         mode: "Part Time",
         duration: "08 Months",
         image: "/homepage/dipmech.webp",
         url: "/diploma-in-mechanical-and-electrical-engineering",
       },
       {
-        title: "Advanced Diploma in M&E Engineering",
+        title: "Advanced Diploma in Mechanical and Electrical (M&E) Engineering",
         mode: "Part Time",
         duration: "08 Months",
         image: "/homepage/admech.webp",
@@ -148,7 +148,7 @@ export const courseData: School[] = [
         url: "/diploma-in-human-resource-management",
       },
       {
-        title: "Diploma in Retail & E-Commerce",
+        title: "Diploma in Retail & E-Commerce Management",
         mode: "Part Time",
         duration: "12 Months",
         image: "/homepage/retail_commercehomePage_nav.webp",
@@ -176,7 +176,7 @@ export const courseData: School[] = [
         url: "/diploma-in-logistics-and-supply-chain-management-e-learning",
       },
       {
-        title: "Diploma in Retail & E-Commerce (E-Learning)",
+        title: "Diploma in Retail & E-Commerce Management (E-Learning)",
         mode: "Part Time",
         duration: "12 Months",
         elearning: true,
