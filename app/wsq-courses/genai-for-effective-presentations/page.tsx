@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import WsqContactForm from '../../components/wsq_contactform';
+import ContactForm from '@/app/components/contactform';
 
 export const metadata: Metadata = {
 	title: 'GenAI for Effective Presentations | WSQ Course | Edusphere',
@@ -383,7 +384,7 @@ export default function GenAIPresentationsPage() {
 			{/* Register form section */}
 			<section id="register" className="px-4 pb-20">
 				<div className="mx-auto max-w-7xl">
-					<WsqContactForm />
+					<ContactForm />
 				</div>
 			</section>
 		</main>
