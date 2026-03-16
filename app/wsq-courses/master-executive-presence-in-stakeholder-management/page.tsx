@@ -183,7 +183,11 @@ export default function MasterExecutivePresenceInStakeholderManagement() {
                             <table className="w-full text-sm">
                                 <thead className="bg-[#1AB69D] text-white">
                                     <tr>
-                                        <th className="px-4 py-4 text-left font-bold"></th>
+                                        <th className="px-4 py-4 text-left font-bold">
+                                            TGS-2025056021<br />
+                                            Master Executive Presence in Stakeholder Management<br />
+                                            <span className="font-normal text-xs">Funding Validity Period: 24-Jun-2025 TO 23-Jun-2027</span>
+                                        </th>
                                         <th className="px-4 py-4 text-center font-bold">
                                             Full Course Fee<br />
                                             <span className="font-normal text-xs">(For Foreigners and those not eligible for subsidies)</span>

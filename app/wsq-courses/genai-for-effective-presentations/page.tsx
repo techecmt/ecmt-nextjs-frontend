@@ -358,18 +358,25 @@ export default function GenAIPresentationsPage() {
 									<td className="px-4 py-3">S$1000.00</td>
 								</tr>
 								<tr style={{ color: '#202020' }}>
-									<td className="px-4 py-3 font-semibold">SkillsFuture Funding</td>
-									<td className="px-4 py-3">N.A</td>
-									<td className="px-4 py-3">– S$500.00</td>
-									<td className="px-4 py-3">– S$700.00</td>
-									<td className="px-4 py-3">– S$700.00</td>
+									<td className="px-4 py-3 font-semibold">With GST (9%)</td>
+									<td className="px-4 py-3">S$1090.00</td>
+									<td className="px-4 py-3">S$1090.00</td>
+									<td className="px-4 py-3">S$1090.00</td>
+									<td className="px-4 py-3">S$1090.00</td>
 								</tr>
 								<tr style={{ color: '#202020' }}>
-									<td className="px-4 py-3 font-semibold">Total Net Fee</td>
-									<td className="px-4 py-3 font-semibold">S$1000.00</td>
-									<td className="px-4 py-3 font-semibold">S$500.00</td>
-									<td className="px-4 py-3 font-semibold">S$300.00</td>
-									<td className="px-4 py-3 font-semibold">S$300.00</td>
+									<td className="px-4 py-3 font-semibold">SkillsFuture Funding</td>
+									<td className="px-4 py-3">–S$0.00</td>
+									<td className="px-4 py-3">–S$500.00</td>
+									<td className="px-4 py-3">–S$700.00</td>
+									<td className="px-4 py-3">–S$700.00</td>
+								</tr>
+								<tr style={{ color: '#202020' }}>
+									<td className="px-4 py-3 font-semibold">Total Nett Fee</td>
+									<td className="px-4 py-3 font-semibold">S$1090.00</td>
+									<td className="px-4 py-3 font-semibold">S$590.00</td>
+									<td className="px-4 py-3 font-semibold">S$390.00</td>
+									<td className="px-4 py-3 font-semibold">S$390.00</td>
 								</tr>
 							</tbody>
 						</table>
