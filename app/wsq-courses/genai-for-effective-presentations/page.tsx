@@ -162,7 +162,6 @@ export default function GenAIPresentationsPage() {
 									Upcoming Batch
 								</span>
 							</div>
-							<h3 className="text-base font-bold text-gray-900 mb-3">March 2026 Intake</h3>
 							<table className="w-full text-sm">
 								<thead>
 									<tr className="border-b border-[#1AB69D]/30">
