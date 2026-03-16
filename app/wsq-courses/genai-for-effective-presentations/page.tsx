@@ -113,13 +113,13 @@ export default function GenAIPresentationsPage() {
 								</div>
 								<div className="w-full max-w-xs space-y-4">
 									<div className="rounded-2xl bg-white px-6 py-5 text-center shadow-sm ring-1 ring-black/5" style={{ color: '#202020' }}>
-										<span className="text-lg font-semibold">ChatGPT</span>
+										<img src="/wsq-images/chatgpt.png" alt="gptlogo" />
 									</div>
 									<div className="rounded-2xl bg-white px-6 py-5 text-center shadow-sm ring-1 ring-black/5" style={{ color: '#202020' }}>
-										<span className="text-lg font-semibold">Gemini</span>
+										<img src="/wsq-images/gemini.png" alt="geminilogo" />
 									</div>
 									<div className="rounded-2xl bg-white px-6 py-5 text-center shadow-sm ring-1 ring-black/5" style={{ color: '#202020' }}>
-										<span className="text-lg font-semibold">Gamma</span>
+										<img src="/wsq-images/gamma.png" alt="gammalogo" />
 									</div>
 								</div>
 							</div>
@@ -150,6 +150,51 @@ export default function GenAIPresentationsPage() {
 
 					{/* Sidebar */}
 					<aside className="lg:col-span-4 space-y-5">
+						{/* Upcoming Batch Dates */}
+						<div className="relative rounded-2xl border-2 border-[#1AB69D] bg-gradient-to-br from-[#1AB69D]/10 to-emerald-50 p-6 shadow-md overflow-hidden">
+							<div className="absolute top-0 right-0 w-20 h-20 bg-[#1AB69D]/10 rounded-full -translate-y-1/2 translate-x-1/2" />
+							<div className="flex items-center gap-2 mb-4">
+								<span className="relative flex h-3 w-3">
+									<span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#EE4A62] opacity-75" />
+									<span className="relative inline-flex rounded-full h-3 w-3 bg-[#EE4A62]" />
+								</span>
+								<span className="text-sm font-bold uppercase tracking-wider text-[#EE4A62]">
+									Upcoming Batch
+								</span>
+							</div>
+							<h3 className="text-base font-bold text-gray-900 mb-3">March 2026 Intake</h3>
+							<table className="w-full text-sm">
+								<thead>
+									<tr className="border-b border-[#1AB69D]/30">
+										<th className="py-2 text-left font-semibold text-gray-700">Date</th>
+										<th className="py-2 text-left font-semibold text-gray-700">AM</th>
+										<th className="py-2 text-left font-semibold text-gray-700">PM</th>
+									</tr>
+								</thead>
+								<tbody className="divide-y divide-gray-200/60">
+									<tr>
+										<td className="py-2.5 font-semibold text-[#1AB69D]">24-Mar</td>
+										<td className="py-2.5 text-gray-800">9:00 AM – 1:00 PM</td>
+										<td className="py-2.5 text-gray-800">2:00 PM – 6:00 PM</td>
+									</tr>
+									<tr>
+										<td className="py-2.5 font-semibold text-[#1AB69D]">25-Mar</td>
+										<td className="py-2.5 text-gray-800">9:00 AM – 1:00 PM</td>
+										<td className="py-2.5 text-gray-800">2:00 PM – 5:00 PM</td>
+									</tr>
+								</tbody>
+							</table>
+							<a
+								href="https://form.jotform.com/252672445341052"
+								className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#1AB69D] px-5 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-[#16917f] active:scale-[0.98] transition-all"
+							>
+								Register for This Batch
+								<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+								</svg>
+							</a>
+						</div>
+
 						<div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6 shadow-sm">
 						<div className="mb-2" style={{ color: '#1AB69D' }}>🕒 COURSE DURATION</div>
 						<p className="text-sm" style={{ color: '#202020' }}>

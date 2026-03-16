@@ -316,37 +316,45 @@ export default function DiplomaInInformationTechnologyELearning() {
             </section>
 
             {/* Programme Fees & Refund Policy */}
-            <section className="py-12 md:py-16 bg-gray-50">
-                <div className="container mx-auto px-4 md:px-8 max-w-6xl">
-                    <div className="grid lg:grid-cols-2 gap-8">
-                        {/* Programme Fees */}
-                        <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-100">
-                            <h2 className="text-2xl font-bold text-[#1AB69D] mb-6">
-                                Programme Fees (Part-time):
-                            </h2>
+      <section className="py-12 md:py-16 bg-gray-50">
+        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Programme Fees */}
+            <div className="bg-white rounded-lg shadow-sm p-6">
+              <h2 className="text-2xl font-bold text-[#1AB69D] mb-6">
+                Programme Fees (Part-time):
+              </h2>
 
-                            <div className="space-y-2 text-sm text-gray-700 max-w-xl">
-                                <div className="flex items-start justify-between gap-4">
-                                    <span>Registration Fee (With GST)</span>
-                                    <span className="font-bold text-gray-900">:&nbsp;&nbsp;S$ 54.50</span>
-                                </div>
-                                <div className="italic text-gray-500 mb-1">Non-Refundable</div>
-                                <div className="border-t border-gray-800 my-2"></div>
+              <div className="space-y-2 text-sm text-gray-700 max-w-xl">
+                <div className="flex items-start justify-between gap-4">
+                  <span>Registration Fee (With GST)</span>
+                  <span className="font-bold text-gray-900">:&nbsp;&nbsp;S$ 109.00</span>
+                </div>
+                <div className="italic text-gray-500 mb-1">Non-Refundable</div>
+                <div className="border-t border-gray-800 my-2"></div>
 
-                                <div className="flex items-start justify-between gap-4">
-                                    <span>Course Fee</span>
-                                    <span className="font-bold text-gray-900">:&nbsp;&nbsp;S$ 2000.00</span>
-                                </div>
-                                <div className="flex items-start justify-between gap-4">
-                                    <span>GST (9%)</span>
-                                    <span className="font-bold text-gray-900">:&nbsp;&nbsp;S$ 180.00</span>
-                                </div>
-                                <div className="flex items-start justify-between gap-4 font-semibold mt-2">
-                                    <span>Net Course Fee Payable</span>
-                                    <span className="font-bold text-gray-900">:&nbsp;&nbsp;S$ 2180.00</span>
-                                </div>
-                            </div>
-                        </div>
+                <div className="flex items-start justify-between gap-4">
+                  <span>Course Fee</span>
+                  <span className="font-bold text-gray-900">:&nbsp;&nbsp;S$ 3000.00</span>
+                </div>
+                <div className="flex items-start justify-between gap-4">
+                  <span>Discount</span>
+                  <span className="font-bold text-[#EE4A62]">:&nbsp;&nbsp;(S$ 1000.00)</span>
+                </div>
+                <div className="flex items-start justify-between gap-4">
+                  <span>Fee After Discount</span>
+                  <span className="font-bold text-gray-900">:&nbsp;&nbsp;S$ 2000.00</span>
+                </div>
+                <div className="flex items-start justify-between gap-4">
+                  <span>GST (9%)</span>
+                  <span className="font-bold text-gray-900">:&nbsp;&nbsp;S$ 180.00</span>
+                </div>
+                <div className="flex items-start justify-between gap-4 font-semibold mt-2">
+                  <span>Net Course Fee Payable</span>
+                  <span className="font-bold text-gray-900">:&nbsp;&nbsp;S$ 2180.00</span>
+                </div>
+              </div>
+            </div>
 
                         {/* Refund Policy */}
                         <div className="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100">

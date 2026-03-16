@@ -5,21 +5,27 @@ import Image from "next/image";
 import Link from "next/link";
 import { courseData, School, Course } from "../data/courses";
 
-type SortOrder = "asc" | "desc";
+const CUSTOM_ORDER = [
+	"School of Caregiving",
+	"School of Hospitality",
+	"School of Engineering",
+	"School of Business",
+	"School of IT",
+	"E-Learning Courses",
+];
 
 export default function CourseList() {
 	const [activeSchool, setActiveSchool] = useState<string>("All Schools");
-	const [sortOrder, setSortOrder] = useState<SortOrder>("asc");
 
 	const sortedSchools = useMemo(() => {
 		const schoolsCopy = [...courseData];
-		schoolsCopy.sort((a, b) =>
-			sortOrder === "asc"
-				? a.title.localeCompare(b.title)
-				: b.title.localeCompare(a.title)
-		);
+		schoolsCopy.sort((a, b) => {
+			const ai = CUSTOM_ORDER.indexOf(a.title);
+			const bi = CUSTOM_ORDER.indexOf(b.title);
+			return (ai === -1 ? CUSTOM_ORDER.length : ai) - (bi === -1 ? CUSTOM_ORDER.length : bi);
+		});
 		return schoolsCopy;
-	}, [sortOrder]);
+	}, []);
 
 	const visibleSchools: School[] = useMemo(() => {
 		if (activeSchool === "All Schools") {
@@ -45,18 +51,6 @@ export default function CourseList() {
 						</p>
 					</div>
 
-					<div className="flex items-center gap-3 self-start md:self-auto">
-						<label className="text-xs md:text-sm text-gray-600">Sort by school</label>
-						<button
-							type="button"
-							onClick={() =>
-								setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"))
-							}
-							className="px-3 py-1.5 rounded-full border border-gray-200 text-xs md:text-sm text-gray-700 bg-white hover:border-[#1AB69D] hover:text-[#1AB69D] transition-colors"
-						>
-							{sortOrder === "asc" ? "A → Z" : "Z → A"}
-						</button>
-					</div>
 				</header>
 
 				{/* School filter pills */}

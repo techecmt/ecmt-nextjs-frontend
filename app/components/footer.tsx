@@ -2,119 +2,197 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube, FaWhatsapp, FaEnvelope } from 'react-icons/fa';
+import Link from 'next/link';
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube, FaWhatsapp, FaEnvelope, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
 import { SiTiktok } from 'react-icons/si';
+
+const contactCards = [
+  {
+    title: "Diploma Courses",
+    phone: { display: "(+65) 9125 4523", href: "https://wa.me/6591254523" },
+    email: "admin@edusphere.edu.sg",
+  },
+  {
+    title: "WSQ Courses",
+    phone: { display: "(+65) 8221 5143", href: "https://wa.me/6582215143" },
+    email: "training@edusphere.edu.sg",
+  },
+  {
+    title: "Management",
+    phone: { display: "(+65) 8220 0095", href: "https://wa.me/6582200095" },
+    email: "info@edusphere.edu.sg",
+  },
+];
+
+const quickLinks = [
+  { label: "Home", href: "/" },
+  { label: "Courses", href: "/courses" },
+  { label: "WSQ Courses", href: "/wsq-courses" },
+  { label: "Certificate Courses", href: "/certificate-courses-in-singapore" },
+  { label: "About Us", href: "/about-us" },
+  { label: "Our Teachers", href: "/our-teachers" },
+  { label: "Campus & Facilities", href: "/campus-and-facilities" },
+  { label: "Blog", href: "/blog" },
+  { label: "Careers", href: "/careers" },
+  { label: "Contact Us", href: "/contact-us" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Student Resources", href: "/essential-resources-and-support-for-students" },
+];
+
+const socialLinks = [
+  { label: "Facebook", icon: FaFacebookF, href: "https://www.facebook.com/profile.php?id=100057478838505", color: "text-[#4267B2]" },
+  { label: "Instagram", icon: FaInstagram, href: "https://www.instagram.com/eduspherecollege/", color: "text-pink-600" },
+  { label: "TikTok", icon: SiTiktok, href: "https://www.tiktok.com/@eduspherecollege_sg", color: "text-gray-900" },
+  { label: "LinkedIn", icon: FaLinkedinIn, href: "https://www.linkedin.com/company/edusphere-college-of-management-and-technology-pte-ltd/", color: "text-sky-700" },
+  { label: "YouTube", icon: FaYoutube, href: "https://www.youtube.com/@EdusphereCollegeSG", color: "text-red-600" },
+];
 
 export default function Footer() {
   return (
-    <footer className="relative bg-gray-100 pt-20 pb-14 mt-20 overflow-hidden">
-      {/* Subtle background overlay */}
+    <footer className="relative bg-gray-50 pt-16 pb-10 mt-16 overflow-hidden">
+      {/* Background decoration */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-linear-to-br from-emerald-100 to-teal-50 opacity-40" />
-        <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-linear-to-br from-violet-100 to-purple-50 opacity-30" />
-        <div className="absolute inset-x-0 top-0 h-24 bg-linear-to-b from-white/60 to-transparent" />
+        <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-[#1AB69D]/5 blur-3xl" />
+        <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-[#1AB69D]/5 blur-3xl" />
       </div>
-      <div className="container mx-auto px-6 relative">
-        {/* Top Section */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start mb-14">
-          {/* Left: Logo & address */}
-          <div className="md:col-span-5">
-            <div className="flex items-center gap-4 mb-5">
-              <div className="w-40 h-24 relative">
-                <Image src="/brand/logo.png" alt="Edusphere" fill className="object-contain" />
+
+      <div className="container mx-auto px-4 md:px-8 relative">
+        {/* Contact Cards */}
+        <div className="mb-14">
+          <h2 className="text-center text-2xl font-bold text-gray-900 mb-8 font-spartan tracking-tight">
+            Get in Touch
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {contactCards.map((card) => (
+              <div
+                key={card.title}
+                className="bg-white rounded-2xl p-5 border border-gray-200/80 shadow-sm hover:shadow-md transition-shadow"
+              >
+                <span className="inline-block text-xs font-semibold uppercase tracking-wider text-[#1AB69D] bg-[#1AB69D]/10 rounded-full px-3 py-1 mb-3">
+                  {card.title}
+                </span>
+                <a
+                  className="flex items-center gap-3 text-sm text-gray-800 hover:text-[#1AB69D] transition-colors mb-2.5"
+                  href={card.phone.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaWhatsapp className="text-lg text-green-500 shrink-0" />
+                  {card.phone.display}
+                </a>
+                <a
+                  className="flex items-center gap-3 text-sm text-gray-800 hover:text-[#1AB69D] transition-colors"
+                  href={`mailto:${card.email}`}
+                >
+                  <FaEnvelope className="text-lg text-[#EE4A62] shrink-0" />
+                  {card.email}
+                </a>
               </div>
-            </div>
-
-            <p className="text-sm text-gray-700 mb-2 leading-relaxed">
-              <span className="font-semibold text-gray-900">Address:</span><br />
-              7500A Beach Rd, #05-312 THE PLAZA, Singapore 199591
-            </p>
-            <p className="text-sm text-gray-700"><span className="font-semibold text-gray-900">CPE Reg No:</span> 201940174R</p>
-            <p className="text-sm text-gray-700 mt-1"><span className="font-semibold text-gray-900">Validity date:</span> From 28 August 2022 To 27 August 2026</p>
-            <p className="text-sm text-gray-700 mt-1"><span className="font-semibold text-gray-900">Our Timing:</span> Mondays – Fridays | 8.30am – 6.00pm </p>
-
-            <div className="mt-4 flex items-center gap-2.5">
-              <a aria-label="facebook" target="_blank" rel="noopener noreferrer" className="h-10 px-3.5 rounded-full border border-gray-300 bg-white hover:bg-gray-100 inline-flex items-center gap-2 text-[#4267B2] transition-colors" href="https://www.facebook.com/profile.php?id=100057478838505"><FaFacebookF /><span className="hidden sm:inline text-xs font-medium text-gray-700">Facebook</span></a>
-              <a aria-label="instagram" target="_blank" rel="noopener noreferrer" className="h-10 px-3.5 rounded-full border border-gray-300 bg-white hover:bg-gray-100 inline-flex items-center gap-2 text-pink-600 transition-colors" href="https://www.instagram.com/eduspherecollege/"><FaInstagram /><span className="hidden sm:inline text-xs font-medium text-gray-700">Instagram</span></a>
-              <a aria-label="tiktok" target="_blank" rel="noopener noreferrer" className="h-10 px-3.5 rounded-full border border-gray-300 bg-white hover:bg-gray-100 inline-flex items-center gap-2 text-gray-900 transition-colors" href="https://www.tiktok.com/@eduspherecollege_sg"><SiTiktok /><span className="hidden sm:inline text-xs font-medium text-gray-700">TikTok</span></a>
-              <a aria-label="linkedin" target="_blank" rel="noopener noreferrer" className="h-10 px-3.5 rounded-full border border-gray-300 bg-white hover:bg-gray-100 inline-flex items-center gap-2 text-sky-700 transition-colors" href="https://www.linkedin.com/company/edusphere-college-of-management-and-technology-pte-ltd/"><FaLinkedinIn /><span className="hidden sm:inline text-xs font-medium text-gray-700">LinkedIn</span></a>
-              <a aria-label="youtube" target="_blank" rel="noopener noreferrer" className="h-10 px-3.5 rounded-full border border-gray-300 bg-white hover:bg-gray-100 inline-flex items-center gap-2 text-red-600 transition-colors" href="https://www.youtube.com/@EdusphereCollegeSG"><FaYoutube /><span className="hidden sm:inline text-xs font-medium text-gray-700">YouTube</span></a>
-            </div>
+            ))}
           </div>
+        </div>
 
-          {/* Middle: Quick Links */}
+        {/* Main Footer Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 mb-12">
+          {/* Logo & Address */}
           <div className="md:col-span-4">
-            <h4 className="text-xl font-bold mb-4 text-gray-900 font-spartan">Quick Links</h4>
-            <div className="grid grid-cols-2 gap-x-8 gap-y-2 text-sm text-gray-700">
-              <a href="#" className="hover:text-[#1AB69D] transition-colors">Home</a>
-              <a href="#" className="hover:text-[#1AB69D] transition-colors">WSQ Courses</a>
-              <a href="#" className="hover:text-[#1AB69D] transition-colors">Diploma Courses</a>
-              <a href="#" className="hover:text-[#1AB69D] transition-colors">SFARC Courses</a>
-              <a href="#" className="hover:text-[#1AB69D] transition-colors">Advanced Diploma</a>
-              <a href="#" className="hover:text-[#1AB69D] transition-colors">Certificate Courses</a>
+            <Link href="/" className="inline-block mb-5">
+              <div className="w-36 h-20 relative">
+                <Image src="/brand/logo.png" alt="Edusphere College" fill className="object-contain" />
+              </div>
+            </Link>
+
+            <div className="space-y-2.5 text-sm text-gray-600">
+              <p className="flex items-start gap-2.5">
+                <FaMapMarkerAlt className="text-[#1AB69D] mt-0.5 shrink-0" />
+                <span>7500A Beach Rd, #05-312 THE PLAZA,<br />Singapore 199591</span>
+              </p>
+              <p className="flex items-start gap-2.5">
+                <FaClock className="text-[#1AB69D] mt-0.5 shrink-0" />
+                <span>Mon – Fri | 8:30 AM – 6:00 PM</span>
+              </p>
+            </div>
+
+            <div className="mt-3 space-y-1 text-xs text-gray-500">
+              <p><span className="font-medium text-gray-700">CPE Reg No:</span> 201940174R</p>
+              <p><span className="font-medium text-gray-700">Valid:</span> 28 Aug 2022 – 27 Aug 2026</p>
+            </div>
+
+            {/* Social Links */}
+            <div className="mt-5 flex items-center gap-2">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  aria-label={social.label}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={social.href}
+                  className={`h-9 w-9 rounded-full border border-gray-200 bg-white hover:bg-gray-50 inline-flex items-center justify-center ${social.color} transition-colors`}
+                >
+                  <social.icon className="w-3.5 h-3.5" />
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Right: Get Updates */}
-          <div className="md:col-span-3">
-            <h4 className="text-xl font-bold mb-4 text-gray-900 font-spartan">Get updates</h4>
-            <form onSubmit={(e) => e.preventDefault()} className="space-y-3 border border-gray-200 rounded-2xl p-5 bg-white shadow-sm">
-              <input
-                type="email"
-                placeholder="Email"
-                className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1AB69D] focus:border-transparent"
-              />
+          {/* Quick Links */}
+          <div className="md:col-span-4">
+            <h3 className="text-base font-bold text-gray-900 mb-4 font-spartan">Quick Links</h3>
+            <div className="grid grid-cols-2 gap-x-6 gap-y-2">
+              {quickLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-gray-600 hover:text-[#1AB69D] transition-colors py-0.5"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Newsletter */}
+          <div className="md:col-span-4">
+            <h3 className="text-base font-bold text-gray-900 mb-4 font-spartan">Stay Updated</h3>
+            <p className="text-sm text-gray-600 mb-4">
+              Get the latest updates on courses, events, and career tips.
+            </p>
+            <form onSubmit={(e) => e.preventDefault()} className="space-y-3">
               <input
                 type="text"
-                placeholder="Name"
-                className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1AB69D] focus:border-transparent"
+                placeholder="Your Name"
+                autoComplete="name"
+                className="w-full px-4 py-2.5 rounded-lg bg-white border border-gray-200 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1AB69D]/30 focus:border-[#1AB69D] transition-all"
               />
-              <button className="w-full rounded-xl bg-linear-to-r from-[#1AB69D] to-[#31B979] text-white py-3 font-semibold shadow-sm hover:shadow-md transition-shadow">
-                Join Now
+              <input
+                type="email"
+                placeholder="Email Address"
+                autoComplete="email"
+                className="w-full px-4 py-2.5 rounded-lg bg-white border border-gray-200 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1AB69D]/30 focus:border-[#1AB69D] transition-all"
+              />
+              <button
+                type="submit"
+                className="w-full rounded-lg bg-[#1AB69D] text-white py-2.5 text-sm font-semibold hover:bg-[#16917f] active:scale-[0.98] transition-all"
+              >
+                Subscribe
               </button>
             </form>
           </div>
         </div>
 
-        {/* Contact Cards */}
-        <div className="mb-12">
-          <h4 className="text-center text-2xl font-bold text-gray-900 mb-6 font-spartan">CONTACT INFORMATION</h4>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <div className="bg-white/90 border border-gray-200 rounded-2xl p-6 shadow-sm">
-              <h5 className="font-semibold text-gray-900 mb-3 text-lg">Reach Out for Diploma Courses</h5>
-              <a className="flex items-center gap-2 text-gray-900 mb-3" href="https://wa.me/6591254523" target="_blank" rel="noopener noreferrer">
-                <FaWhatsapp className="text-xl" /> (+65) 9125 4523
-              </a>
-              <a className="flex items-center gap-2 text-gray-900" href="mailto:admin@edusphere.edu.sg">
-                <FaEnvelope className="text-xl" /> <span className="text-[#EE4A62]">admin@edusphere.edu.sg</span>
-              </a>
-            </div>
-
-            <div className="bg-white/90 border border-gray-200 rounded-2xl p-6 shadow-sm">
-              <h5 className="font-semibold text-gray-900 mb-3 text-lg">Reach Out for WSQ Courses</h5>
-              <a className="flex items-center gap-2 text-gray-900 mb-3" href="https://wa.me/6582215143" target="_blank" rel="noopener noreferrer">
-                <FaWhatsapp className="text-xl" /> (+65) 8221 5143
-              </a>
-              <a className="flex items-center gap-2 text-gray-900" href="mailto:training@edusphere.edu.sg">
-                <FaEnvelope className="text-xl" /> <span className="text-[#EE4A62]">training@edusphere.edu.sg</span>
-              </a>
-            </div>
-
-            <div className="bg-white/90 border border-gray-200 rounded-2xl p-6 shadow-sm">
-              <h5 className="font-semibold text-gray-900 mb-3 text-lg">Management Contact</h5>
-              <a className="flex items-center gap-2 text-gray-900 mb-3" href="https://wa.me/6582200095" target="_blank" rel="noopener noreferrer">
-                <FaWhatsapp className="text-xl" /> (+65) 8220 0095
-              </a>
-              <a className="flex items-center gap-2 text-gray-900" href="mailto:info@edusphere.edu.sg">
-                <FaEnvelope className="text-xl" /> <span className="text-[#EE4A62]">info@edusphere.edu.sg</span>
-              </a>
-            </div>
+        {/* Bottom Bar */}
+        <div className="pt-6 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
+          <p>
+            © {new Date().getFullYear()} <span className="text-[#1AB69D] font-medium">Edusphere College of Management and Technology</span>. All rights reserved.
+          </p>
+          <div className="flex items-center gap-4">
+            <Link href="/privacy-policy" className="hover:text-[#1AB69D] transition-colors">
+              Privacy Policy
+            </Link>
+            <Link href="/terms-conditions" className="hover:text-[#1AB69D] transition-colors">
+              Terms & Conditions
+            </Link>
           </div>
-        </div>
-
-        {/* Copyright */}
-        <div className="pt-8 border-t border-gray-200 text-center text-sm text-gray-600">
-          <p>Copyright © 2025 <span className="text-[#1AB69D]">Edusphere College of Management and Technology</span> · Developed by <span className="text-gray-900 font-semibold">ECMT</span>. All rights reserved.</p>
         </div>
       </div>
     </footer>

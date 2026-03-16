@@ -343,19 +343,19 @@ export default function DiplomaInLogisticsAndSupplyChainManagement() {
                 </div>
                 <div className="flex items-start justify-between gap-4">
                   <span>Discount</span>
-                  <span className="font-bold text-[#EE4A62]">:&nbsp;&nbsp;(S$ 600.00)</span>
+                  <span className="font-bold text-[#EE4A62]">:&nbsp;&nbsp;(S$ 0.00)</span>
                 </div>
                 <div className="flex items-start justify-between gap-4">
                   <span>Fee After Discount</span>
-                  <span className="font-bold text-gray-900">:&nbsp;&nbsp;S$ 2400.00</span>
+                  <span className="font-bold text-gray-900">:&nbsp;&nbsp;S$ 3000.00</span>
                 </div>
                 <div className="flex items-start justify-between gap-4">
                   <span>GST (9%)</span>
-                  <span className="font-bold text-gray-900">:&nbsp;&nbsp;S$ 216.00</span>
+                  <span className="font-bold text-gray-900">:&nbsp;&nbsp;S$ 270.00</span>
                 </div>
                 <div className="flex items-start justify-between gap-4 font-semibold mt-2">
                   <span>Net Course Fee Payable</span>
-                  <span className="font-bold text-gray-900">:&nbsp;&nbsp;S$ 2616.00</span>
+                  <span className="font-bold text-gray-900">:&nbsp;&nbsp;S$ 3270.00</span>
                 </div>
               </div>
             </div>
