@@ -76,7 +76,7 @@ export default function CertificateInFoundationSkills() {
 
                             <div className="flex flex-wrap gap-4 pt-4">
                                 <a
-                                    href="#register"
+                                    href="https://form.jotform.com/253087866785072"
                                     className="group bg-[#1AB69D] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#16917f] transition-all hover:shadow-lg hover:scale-105 active:scale-95 flex items-center gap-2"
                                 >
                                     Register Now

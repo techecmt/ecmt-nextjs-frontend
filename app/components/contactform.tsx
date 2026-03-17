@@ -54,6 +54,7 @@ const courseOptions: {
   "Certificate Course": [
     "Certificate in NG (NASOGASTRIC) tube feeding",
     "Certificate in Physical and Massage Therapy",
+    "Certificate in Foundation Skills",
     "Certificate in Autocad",
     "Certificate in Air Conditioning",
     "Certificate in Cafe & Restaurant Management",
