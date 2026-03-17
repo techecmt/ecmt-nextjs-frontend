@@ -121,6 +121,13 @@ export const courseData: School[] = [
         url: "/advanced-diploma-in-mechanical-and-electrical-engineering",
       },
       {
+        title: "Advanced Diploma in Engineering Coordinator (Building Services & Fire Safety)",
+        mode: "Part Time",
+        duration: "12 Months",
+        image: "/homepage/adec-card.jpg",
+        url: "/advanced-diploma-in-engineering-coordinator",
+      },
+      {
         title: "Advanced Diploma in Healthcare Facilities Management",
         mode: "Part Time",
         duration: "08 Months",
@@ -160,6 +167,13 @@ export const courseData: School[] = [
         duration: "12 Months",
         image: "/homepage/logisticshomePage_nav.jpg",
         url: "/diploma-in-logistics-and-supply-chain-management",
+      },
+      {
+        title: "Diploma in Business Finance & Accounting",
+        mode: "Part Time",
+        duration: "12 Months",
+        image: "/homepage/dbfa-cover.jpg",
+        url: "/diploma-in-business-finance-and-accounting",
       },
     ],
   },

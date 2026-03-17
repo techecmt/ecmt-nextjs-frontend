@@ -41,15 +41,36 @@ export default function AboutUs() {
     "contactPoint": [
       {
         "@type": "ContactPoint",
-        "telephone": "+65-8220-0095",
+        "telephone": "+65-9125-4523",
+        "contactType": "sales",
+        "areaServed": "SG",
+        "availableLanguage": ["English"]
+      },
+      {
+        "@type": "ContactPoint",
+        "telephone": "+65-8138-5600",
         "contactType": "customer service",
         "areaServed": "SG",
         "availableLanguage": ["English"]
       },
       {
         "@type": "ContactPoint",
-        "telephone": "+65-9125-4523",
+        "telephone": "+65-8110-2783",
+        "contactType": "billing support",
+        "areaServed": "SG",
+        "availableLanguage": ["English"]
+      },
+      {
+        "@type": "ContactPoint",
+        "telephone": "+65-8070-6203",
         "contactType": "admissions",
+        "areaServed": "SG",
+        "availableLanguage": ["English"]
+      },
+      {
+        "@type": "ContactPoint",
+        "telephone": "+65-8221-5143",
+        "contactType": "technical support",
         "areaServed": "SG",
         "availableLanguage": ["English"]
       }
@@ -113,9 +134,12 @@ export default function AboutUs() {
                 <div className="flex items-start gap-3">
                   <Phone className="w-5 h-5 text-[#d81f26] mt-1 flex-shrink-0" />
                   <div>
-                    <p className="font-semibold">Contact:</p>
-                    <p>Customer Service: <a href="tel:+6582200095" className="hover:text-[#d81f26]">+65-8220-0095</a></p>
-                    <p>Admissions: <a href="tel:+6591254523" className="hover:text-[#d81f26]">+65-9125-4523</a></p>
+                    <p className="font-semibold">Contact (WhatsApp):</p>
+                    <p>Marketing: <a href="https://wa.me/6591254523" className="hover:text-[#d81f26]">+65-9125-4523</a></p>
+                    <p>All Admin Related: <a href="https://wa.me/6581385600" className="hover:text-[#d81f26]">+65-8138-5600</a></p>
+                    <p>Student Accounts: <a href="https://wa.me/6581102783" className="hover:text-[#d81f26]">+65-8110-2783</a></p>
+                    <p>Registration &amp; Sales: <a href="https://wa.me/6580706203" className="hover:text-[#d81f26]">+65-8070-6203</a></p>
+                    <p>Examination / Results: <a href="https://wa.me/6582215143" className="hover:text-[#d81f26]">+65-8221-5143</a></p>
                     <p>Email: <a href="mailto:info@edusphere.edu.sg" className="hover:text-[#d81f26]">info@edusphere.edu.sg</a></p>
                   </div>
                 </div>
