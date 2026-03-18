@@ -115,7 +115,7 @@ export default function Home() {
               Real stories from learners who have grown with us.
             </p>
           </div>
-          <GoogleCarousel />
+          
         </div>
       </section>
       <ScoreCard />
