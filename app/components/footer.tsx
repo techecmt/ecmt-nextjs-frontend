@@ -114,7 +114,7 @@ export default function Footer() {
             </div>
 
             <div className="mt-3 space-y-1 text-xs text-gray-500">
-              <p><span className="font-medium text-gray-700">CPE Reg No:</span> 201940174R</p>
+              <p><span className="font-medium text-gray-700">PEI Reg No:</span> 201940174R</p>
               <p><span className="font-medium text-gray-700">Valid:</span> 28 Aug 2022 – 27 Aug 2026</p>
             </div>
 

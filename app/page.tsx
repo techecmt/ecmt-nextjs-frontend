@@ -75,8 +75,8 @@ export default function Home() {
     ],
     "email": "info@edusphere.edu.sg",
     "sameAs": [
-      "https://www.facebook.com/eduspherecollege",
-      "https://www.linkedin.com/company/edusphere-college",
+      "https://www.facebook.com/eduspherecollegeofmanagementandtechnology",
+      "https://www.linkedin.com/company/edusphere-college-of-management-and-technology-pte-ltd/",
       "https://www.instagram.com/eduspherecollege"
     ],
     "areaServed": {
@@ -119,6 +119,7 @@ export default function Home() {
         </div>
       </section>
       <ScoreCard />
+      <GoogleCarousel />
       <ContactForm />
       
     </div>

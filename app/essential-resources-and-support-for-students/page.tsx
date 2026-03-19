@@ -104,7 +104,7 @@ export default function Page() {
 								<li>ECMT terminates the Course before the Course Completion Date;</li>
 								<li>
 									ECMT has not ensured that the Student meets the course entry or matriculation requirement as set by the
-									organisation stated in Schedule A within any stipulated timeline set by CPE; or
+									organisation stated in Schedule A within any stipulated timeline set by PEI; or
 								</li>
 							</ul>
 						</li>
@@ -283,9 +283,9 @@ export default function Page() {
 						<ul className="mt-6 list-disc pl-6 space-y-3 text-gray-700">
 							<li>The laws of Singapore will apply to how the student contract will be read and to the rights the parties have under the student Contract.</li>
 							<li>If any part of the student Contract is not valid for any reason under the law of Singapore, this will not affect any other part of the student Contract.</li>
-							<li>If the Student and ECMT cannot settle a dispute using the way arranged by ECMT, the Student and ECMT may refer the dispute to the CPE Mediation-Arbitration Scheme (www.ssg.gov.sg/cpe).</li>
+							<li>If the Student and ECMT cannot settle a dispute using the way arranged by ECMT, the Student and ECMT may refer the dispute to the PEI Mediation-Arbitration Scheme (https://www.ssg.gov.sg).</li>
 							<li>All information given by the Student to ECMT will not be given by ECMT to anyone else, unless the Student signs in writing that he agrees or unless ECMT is allowed to give the information by law.</li>
-							<li>Any agreement other than the student Contract is invalid if it is administered without the written permission of CPE. If there is any other agreement between ECMT and the Student that is different from the terms in the student Contract, then the terms in the student Contract will apply.</li>
+							<li>Any agreement other than the student Contract is invalid if it is administered without the written permission of PEI. If there is any other agreement between ECMT and the Student that is different from the terms in the student Contract, then the terms in the student Contract will apply.</li>
 							<li>If the Student or ECMT does not exercise or delay exercising any right granted by the student Contract, the Student and ECMT will still be able to exercise the same type of right under this Contract during the rest of the time the Contract continues.</li>
 							<li>If the student Contract is also signed or translated in any language other than English and there is a difference from the English language copy of this Contract, the English language copy will apply.</li>
 						</ul>
@@ -408,14 +408,14 @@ export default function Page() {
 								<tr>
 									<td className="w-40 md:w-52 font-semibold text-gray-900 px-4 py-3 border-r border-gray-200 text-center">Step 3:</td>
 									<td className="px-4 py-3 text-gray-700">
-										If the matter remains unresolved or the student is unsatisfied with the outcome, students may approach the CPE Student Services
-										Centre for assistance. At the Student Services Centre, CPE officers will review the complaints and provide the appropriate advice.
+										If the matter remains unresolved or the student is unsatisfied with the outcome, students may approach the PEI Student Services
+										Centre for assistance. At the Student Services Centre, PEI officers will review the complaints and provide the appropriate advice.
 									</td>
 								</tr>
 								<tr>
 									<td className="w-40 md:w-52 font-semibold text-gray-900 px-4 py-3 border-r border-gray-200 text-center">Step 4:</td>
 									<td className="px-4 py-3 text-gray-700">
-										The CPE may advise the student to participate in the Committee for Private Education’s (CPE’s) appointed Dispute Resolution Scheme
+										The PEI may advise the student to participate in the Committee for Private Education’s (PEI’s) appointed Dispute Resolution Scheme
 										which works as follows: Dispute Resolution Scheme Private education institutions participation in the dispute resolution process is
 										compulsory as stipulated by the Private Education Act. There are two stages in the process mediation and arbitration.
 										<strong className="font-semibold"> Stage 1: Mediation</strong> The complaint may be referred to the Singapore Mediation Centre for mediation. If a settlement between the student and the private education institution could be reached at the mediation stage, a settlement agreement would be drawn up and endorsed by the respective parties, and the dispute resolved.
