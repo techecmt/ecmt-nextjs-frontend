@@ -149,6 +149,11 @@ function CourseCard({ course }: { course: Course }) {
 					/>
 					{/* subtle gradient overlay to improve legibility when image colors are bright */}
 					<div className="absolute inset-0 pointer-events-none bg-linear-to-t from-black/20 to-transparent" />
+					{course.isNew && (
+						<span className="absolute top-3 right-3 animate-pulse px-2.5 py-1 text-[10px] font-bold rounded-full bg-[#EE4A62] text-white uppercase tracking-wide shadow-lg">
+							New
+						</span>
+					)}
 				</div>
 			) : (
 				<div className="relative h-40 md:h-48 w-full flex items-center justify-center bg-gray-100 rounded-t-2xl text-gray-400">

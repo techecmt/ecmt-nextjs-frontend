@@ -340,7 +340,7 @@ function CourseSection({
   title: string;
   subtitle: string;
   accent: string;
-  courses: { title: string; mode?: string; duration: string; image?: string; url?: string; elearning?: boolean }[];
+  courses: { title: string; mode?: string; duration: string; image?: string; url?: string; elearning?: boolean; isNew?: boolean }[];
   bg?: string;
 }) {
   return (
@@ -372,6 +372,11 @@ function CourseSection({
                   {course.elearning && (
                     <span className="absolute top-3 left-3 px-2.5 py-1 text-[10px] font-bold rounded-full bg-[#EE4A62] text-white">
                       E-LEARNING
+                    </span>
+                  )}
+                  {course.isNew && (
+                    <span className="absolute top-3 right-3 animate-pulse px-2.5 py-1 text-[10px] font-bold rounded-full bg-[#EE4A62] text-white uppercase tracking-wide shadow-lg">
+                      New
                     </span>
                   )}
                 </div>

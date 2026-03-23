@@ -260,7 +260,7 @@ function CourseSection({
   );
 }
 
-function CourseCard({ title, elearning, url }: any) {
+function CourseCard({ title, elearning, isNew, url }: any) {
   const href = url || '/contact';
   return (
     <Link
@@ -271,6 +271,11 @@ function CourseCard({ title, elearning, url }: any) {
       <span className="text-sm text-gray-700 group-hover:text-[#1AB69D] transition-colors leading-snug">
         {title}
       </span>
+      {isNew && (
+        <span className="ml-1 shrink-0 self-center animate-pulse px-1.5 py-0.5 text-[9px] font-bold rounded-full bg-[#EE4A62] text-white uppercase tracking-wide">
+          New
+        </span>
+      )}
     </Link>
   );
 }
@@ -484,6 +489,11 @@ function MobileCoursesSection({ menuType, onLinkClick }: { menuType: string; onL
                         <span className="text-xs text-gray-700 leading-snug">
                           {course.title}
                         </span>
+                        {course.isNew && (
+                          <span className="ml-1 shrink-0 self-center animate-pulse px-1.5 py-0.5 text-[9px] font-bold rounded-full bg-[#EE4A62] text-white uppercase tracking-wide">
+                            New
+                          </span>
+                        )}
                       </Link>
                     ))}
                   </div>

@@ -3,6 +3,7 @@ export type Course = {
   mode?: string;
   duration: string;
   elearning?: boolean;
+  isNew?: boolean;
   image?: string;
   url?: string;
 };
@@ -124,6 +125,7 @@ export const courseData: School[] = [
         title: "Advanced Diploma in Engineering Coordinator (Building Services & Fire Safety)",
         mode: "Part Time",
         duration: "12 Months",
+        isNew: true,
         image: "/homepage/adec-card.jpg",
         url: "/advanced-diploma-in-engineering-coordinator",
       },
@@ -172,6 +174,7 @@ export const courseData: School[] = [
         title: "Diploma in Business Finance & Accounting",
         mode: "Part Time",
         duration: "12 Months",
+        isNew: true,
         image: "/homepage/dbfa-cover.jpg",
         url: "/diploma-in-business-finance-and-accounting",
       },
