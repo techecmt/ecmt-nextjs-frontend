@@ -18,7 +18,7 @@ import { wsqCourses } from '../data/wsq-courses';
 const menuItems = [
   { name: 'Home', hasDropdown: false, href: '/' },
   { name: 'Diploma Courses', hasDropdown: true, href: '#' },
-  { name: 'WSQ Courses', hasDropdown: true, href: '#' },
+  { name: 'WSQ Courses', hasDropdown: true, href: '/wsq-courses' },
   { name: 'SFARC Courses', hasDropdown: true, href: '#' },
   { name: 'Certificate Courses', hasDropdown: false, href: '/certificate-courses-in-singapore' },
   { name: 'About Us', hasDropdown: false, href: '/about-us' },

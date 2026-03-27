@@ -75,7 +75,7 @@ export default function MasterExecutivePresenceInStakeholderManagement() {
 
                     <div className="max-w-4xl mx-auto">
                         <p className="text-gray-700 leading-relaxed text-justify mb-8">
-                            "Stakeholder Management: Executive Presence, Influence & Leadership" is a powerful course created to help professionals become confident and effective leaders. It teaches how to manage relationships with different stakeholders, build trust, and communicate clearly. This course goes beyond basic management by focusing on advanced skills like influencing others, handling conflicts, and leading with impact—both online and in-person.
+                            "Master Executive Presence in Stakeholder Management" is a powerful course created to help professionals become confident and effective leaders. It teaches how to manage relationships with different stakeholders, build trust, and communicate clearly. This course goes beyond basic management by focusing on advanced skills like influencing others, handling conflicts, and leading with impact—both online and in-person.
                         </p>
 
                         <div className="bg-[#1AB69D]/5 border-l-4 border-[#1AB69D] p-6 rounded-r-lg">
