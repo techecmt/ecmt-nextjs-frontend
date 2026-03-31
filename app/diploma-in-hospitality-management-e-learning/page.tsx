@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 		type: "website",
 	},
 	alternates: {
-		canonical: "https://edusphere.edu.sg/diploma-in-hospitality-management-e-learning",
+		canonical: "https://edusphere.edu.sg/category/hotel-management-course-in-singapore",
 	},
 };
 
