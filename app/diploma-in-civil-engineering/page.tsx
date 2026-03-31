@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import ContactForm from "../components/contactform";
+import BrochureButton from "../components/brochurebutton";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-    title: "Diploma in Civil Engineering | Edusphere Singapore",
-    description: "Diploma in Civil Engineering at Edusphere College. 8-month part-time course covering BIM, Structural Design, Soil Investigation, Engineering Math. S$600 discount available.",
+    title: "Part-Time Diploma in Civil Engineering | Edusphere Singapore",
+    description: "Part-Time Diploma in Civil Engineering at Edusphere College. 8-month part-time course covering BIM, Structural Design, Soil Investigation, Engineering Math. S$600 discount available.",
     keywords: "civil engineering diploma singapore, BIM course singapore, structural design course, engineering diploma singapore",
     openGraph: {
-        title: "Diploma in Civil Engineering | Edusphere Singapore",
+        title: "Part-Time Diploma in Civil Engineering | Edusphere Singapore",
         description: "Part-time civil engineering diploma covering BIM, Structural Design & Geotechnical Engineering. 8 months, S$600 discount.",
         url: "https://edusphere.edu.sg/diploma-in-civil-engineering",
         siteName: "Edusphere College of Management and Technology",
@@ -68,9 +69,73 @@ export default function DiplomaInCivilEngineering() {
         "numberOfCredits": 6
     };
 
+    const faqSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What makes civil engineering courses in Singapore valuable?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Civil engineering courses in Singapore provide industry-specific training tailored to the country's urban infrastructure needs, aligning with local regulations, safety standards, and employer expectations."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does this diploma differ from other civil engineering courses in Singapore?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Unlike short certifications, the Diploma in Civil Engineering at Edusphere offers a structured curriculum covering multiple modules such as engineering mathematics, 3D BIM modelling, soil investigation, structural design, and strength of materials."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I study this diploma part-time while working?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. The course offers a part-time Diploma in Civil Engineering option with weekend and weekday evening classes, allowing working professionals to balance studies and employment."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What are the career opportunities after completing civil engineering courses in Singapore?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Graduates can pursue roles such as Construction Manager, Site Engineer, Civil Engineer, or Building Services Engineer, with progression to senior roles through experience or further study."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are international students eligible for enrolment?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. International students in Singapore may apply, and the Diploma in Civil Engineering is recognised by employers locally and regionally."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the entry requirement for the Diploma in Civil Engineering?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Applicants need a minimum of 3 GCE 'O' level passes including English, or equivalent international secondary qualifications. Mature candidates aged 30 and above with at least 8 years of relevant working experience and a certificate qualification may also apply."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How long does the Diploma in Civil Engineering take to complete?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The programme is 8 months long with a total of 144 contact hours, conducted on a part-time basis."
+                }
+            }
+        ]
+    };
+
     return (
         <main className="min-h-screen">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
             {/* Hero Section */}
             <section className="relative bg-linear-to-br from-white via-gray-50 to-[#1AB69D]/5 py-16 md:py-24 overflow-hidden">
                 <div className="absolute inset-0 bg-grid-pattern opacity-5" aria-hidden="true"></div>
@@ -137,15 +202,7 @@ export default function DiplomaInCivilEngineering() {
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                                     </svg>
                                 </a>
-                                <a
-                                    href="#brochure"
-                                    className="group bg-white text-[#1AB69D] border-2 border-[#1AB69D] px-8 py-4 rounded-lg font-semibold hover:bg-[#1AB69D] hover:text-white transition-all hover:shadow-lg flex items-center gap-2"
-                                >
-                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                    </svg>
-                                    Download Brochure
-                                </a>
+                                <BrochureButton />
                             </div>
                         </div>
 
@@ -398,6 +455,71 @@ export default function DiplomaInCivilEngineering() {
                                 </table>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* FAQ Section */}
+            <section className="py-12 md:py-16 bg-gray-50">
+                <div className="container mx-auto px-4 md:px-8 max-w-4xl">
+                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-3 text-gray-900">
+                        Frequently Asked Questions
+                    </h2>
+                    <div className="flex justify-center mb-10">
+                        <div className="w-20 h-1 bg-[#1AB69D] rounded-full"></div>
+                    </div>
+
+                    <div className="space-y-4">
+                        {[
+                            {
+                                question: "What makes civil engineering courses in Singapore valuable?",
+                                answer: "Civil engineering courses in Singapore provide industry-specific training tailored to the country's urban infrastructure needs, aligning with local regulations, safety standards, and employer expectations.",
+                                highlight: true,
+                            },
+                            {
+                                question: "How does this diploma differ from other civil engineering courses in Singapore?",
+                                answer: "Unlike short certifications, the Diploma in Civil Engineering at Edusphere offers a structured curriculum covering multiple modules such as engineering mathematics, 3D BIM modelling, soil investigation, structural design, and strength of materials.",
+                                highlight: false,
+                            },
+                            {
+                                question: "Can I study this diploma part-time while working?",
+                                answer: "Yes. The course offers a part-time Diploma in Civil Engineering option with weekend and weekday evening classes, allowing working professionals to balance studies and employment.",
+                                highlight: false,
+                            },
+                            {
+                                question: "What are the career opportunities after completing civil engineering courses in Singapore?",
+                                answer: "Graduates can pursue roles such as Construction Manager, Site Engineer, Civil Engineer, or Building Services Engineer, with progression to senior roles through experience or further study.",
+                                highlight: false,
+                            },
+                            {
+                                question: "Are international students eligible for enrolment?",
+                                answer: "Yes. International students in Singapore may apply, and the Diploma in Civil Engineering is recognised by employers locally and regionally.",
+                                highlight: false,
+                            },
+                            {
+                                question: "What is the entry requirement for the Diploma in Civil Engineering?",
+                                answer: "Applicants need a minimum of 3 GCE 'O' level passes including English, or equivalent international secondary qualifications. Mature candidates aged 30 and above with at least 8 years of relevant working experience and a certificate qualification may also apply.",
+                                highlight: false,
+                            },
+                            {
+                                question: "How long does the Diploma in Civil Engineering take to complete?",
+                                answer: "The programme is 8 months long with a total of 144 contact hours, conducted on a part-time basis.",
+                                highlight: false,
+                            },
+                        ].map((item, index) => (
+                            <div key={index} className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                                <h3 className={`text-base font-bold px-6 py-4 ${
+                                    item.highlight
+                                        ? "text-[#1AB69D]"
+                                        : "text-gray-900"
+                                }`}>
+                                    {item.question}
+                                </h3>
+                                <p className="text-gray-700 text-sm px-6 pb-5 leading-relaxed text-justify">
+                                    {item.answer}
+                                </p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
