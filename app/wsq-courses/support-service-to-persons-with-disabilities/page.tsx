@@ -3,6 +3,7 @@ import Image from "next/image";
 import WsqContactForm from "../../components/wsq_contactform";
 import { FaWhatsapp } from "react-icons/fa";
 import ContactForm from "../../components/contactform";
+import OpenCertsGuide from "@/app/components/OpenCertsGuide";
 
 export const metadata: Metadata = {
   title: 'Support Service to Persons with Disabilities | WSQ Course | Edusphere',
@@ -247,6 +248,13 @@ export default function SupportServiceDisabilitiesPage() {
           </ul>
         </div>
       </section>
+
+      {/* OpenCerts Guide */}
+                              <section className="px-4 pb-10">
+                                  <div className="mx-auto max-w-7xl">
+                                      <OpenCertsGuide />
+                                  </div>
+                              </section>
 
       {/* Fees table */}
       <section className="px-4 pb-16">

@@ -100,7 +100,7 @@ const careerSupport: FaqItem[] = [
 	{
 		question: "Does Edusphere provide career support?",
 		answer:
-			"Yes. We support learners with resume clinics, interview preparation, industry insights, and referrals through our network where available.",
+			"Yes. We support learners with resume clinics, interview preparation, industry insights, and referrals through our network where available. Engagement with these services is encouraged to enhance employability outcomes.",
 	},
 	{
 		question: "Are there job placement guarantees?",

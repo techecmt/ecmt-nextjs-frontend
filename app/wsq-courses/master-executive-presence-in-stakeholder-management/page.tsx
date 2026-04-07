@@ -3,6 +3,7 @@ import WSQContactForm from "../../components/wsq_contactform";
 import Image from "next/image";
 import { FaWhatsapp } from "react-icons/fa";
 import ContactForm from "../../components/contactform";
+import OpenCertsGuide from "@/app/components/OpenCertsGuide";
 
 export const metadata: Metadata = {
     title: "Master Executive Presence in Stakeholder Management | WSQ Course | Edusphere",
@@ -164,6 +165,13 @@ export default function MasterExecutivePresenceInStakeholderManagement() {
                     </div>
                 </div>
             </section>
+
+            {/* OpenCerts Guide */}
+                        <section className="px-4 pb-10">
+                            <div className="mx-auto max-w-7xl">
+                                <OpenCertsGuide />
+                            </div>
+                        </section>
 
             {/* Funding Information */}
             <section id="entry-requirements" className="py-12 md:py-16 bg-white">

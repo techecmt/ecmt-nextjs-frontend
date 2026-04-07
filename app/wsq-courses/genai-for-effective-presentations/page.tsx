@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import WsqContactForm from '../../components/wsq_contactform';
 import ContactForm from '@/app/components/contactform';
+import OpenCertsGuide from '@/app/components/OpenCertsGuide';
 
 export const metadata: Metadata = {
 	title: 'GenAI for Effective Presentations | WSQ Course | Edusphere',
@@ -316,6 +317,13 @@ export default function GenAIPresentationsPage() {
 					<p className="mt-3" style={{ color: '#202020' }}>
 						Minimum Entry Requirement: Able to speak, listen, read and write English at a proficiency level not lower than the Employability Skills WSQ Level 4 Workplace Literacy (WPL).
 					</p>
+				</div>
+			</section>
+
+			{/* OpenCerts Guide */}
+			<section className="px-4 pb-10">
+				<div className="mx-auto max-w-7xl">
+					<OpenCertsGuide />
 				</div>
 			</section>
 
