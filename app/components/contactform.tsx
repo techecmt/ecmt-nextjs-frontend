@@ -6,13 +6,13 @@ import { courseData } from "../data/courses";
 type CourseType =
   | "Diploma Courses"
   | "WSQ Courses"
-  | "SFARC"
+  | "SRFAC"
   | "Certificate Course";
 
 const courseTabs: CourseType[] = [
   "Diploma Courses",
   "WSQ Courses",
-  "SFARC",
+  "SRFAC",
   "Certificate Course",
 ];
 
@@ -50,7 +50,7 @@ const courseOptions: {
     "Navigating Service Challenges",
     "AI-Driven Communication Strategies to Drive Service Excellence",
   ],
-  SFARC: ["Cardiopulmonary Resuscitation (CPR) + AED Training"],
+  SRFAC: ["Cardiopulmonary Resuscitation (CPR) + AED Training"],
   "Certificate Course": [
     "Certificate in NG (NASOGASTRIC) tube feeding",
     "Certificate in Physical and Massage Therapy",

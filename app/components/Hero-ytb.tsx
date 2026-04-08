@@ -3,11 +3,11 @@ import Button from './Button';
 
 export default function Heroytb() {
   return (
-    <section className="pt-24 pb-12 px-8 relative overflow-hidden">
-      {/* YouTube Video Background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <section className="pt-24 pb-12 px-8 overflow-hidden">
+      {/* YouTube Video */}
+      <div className="relative w-full mx-auto aspect-video overflow-hidden rounded-xl">
         <iframe
-          className="absolute top-1/2 left-1/2 w-[300%] h-[300%] -translate-x-1/2 -translate-y-1/2"
+          className="absolute inset-0 w-full h-full"
           src="https://www.youtube.com/embed/6jct1CQVtLo?autoplay=1&mute=1&loop=1&playlist=6jct1CQVtLo&controls=0&showinfo=0&modestbranding=1&rel=0&disablekb=1&iv_load_policy=3&playsinline=1"
           title="Background video"
           frameBorder="0"
@@ -15,11 +15,9 @@ export default function Heroytb() {
           referrerPolicy="strict-origin-when-cross-origin"
           style={{ border: 0 }}
         />
-        {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-black/60"></div>
       </div>
 
-      <div className="container mx-auto flex flex-col items-center justify-center text-center relative z-10 min-h-[60vh]">
+      <div className="container mx-auto flex flex-col items-center justify-center text-center mt-10">
         <div className="space-y-6 max-w-3xl">
           <div className="inline-block">
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-[#1AB69D]/20 text-[#1AB69D] rounded-full text-sm font-semibold animate-fadeIn">
@@ -30,7 +28,7 @@ export default function Heroytb() {
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-6xl font-bold text-white font-spartan leading-tight">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white font-spartan leading-tight">
             Welcome to our{' '}
             <span className="text-[#EE4A62] relative inline-block">
               College
@@ -40,7 +38,7 @@ export default function Heroytb() {
             </span>
           </h1>
           
-          <p className="text-white/90 text-lg font-poppins leading-relaxed mx-auto max-w-xl">
+          <p className="text-gray-600 dark:text-gray-300 text-lg font-poppins leading-relaxed mx-auto max-w-xl">
             Education is changing and Edusphere College is changing with it, so our students can find success in a world that&apos;s moving faster than ever before.
           </p>
 

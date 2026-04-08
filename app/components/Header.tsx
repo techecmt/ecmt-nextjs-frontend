@@ -19,10 +19,10 @@ const menuItems = [
   { name: 'Home', hasDropdown: false, href: '/' },
   { name: 'Diploma Courses', hasDropdown: true, href: '#' },
   { name: 'WSQ Courses', hasDropdown: true, href: '/wsq-courses' },
-  { name: 'SFARC Courses', hasDropdown: true, href: '#' },
+  { name: 'SRFAC Courses', hasDropdown: true, href: '#' },
   { name: 'Certificate Courses', hasDropdown: false, href: '/certificate-courses-in-singapore' },
   { name: 'About Us', hasDropdown: false, href: '/about-us' },
-  { name: 'Students Affair', hasDropdown: true, href: '#' },
+  { name: 'Students Affair', hasDropdown: true, href: '/students-affair' },
 ];
 
 const studentAffairsLinks = [
@@ -90,8 +90,8 @@ export default function Header() {
                 {item.name}
                 {item.hasDropdown && <FaChevronDown className="w-3 h-3" />}
               </Link>
-              {/* Show MegaMenu for Diploma, SFARC, Certificate; dedicated dropdown for WSQ */}
-              {['Diploma Courses', 'SFARC Courses', 'Certificate Courses'].includes(item.name) && openMenu === item.name && (
+              {/* Show MegaMenu for Diploma, SRFAC, Certificate; dedicated dropdown for WSQ */}
+              {['Diploma Courses', 'SRFAC Courses', 'Certificate Courses'].includes(item.name) && openMenu === item.name && (
                 <MegaMenu
                   onMouseEnter={() => setOpenMenu(item.name)}
                   onMouseLeave={() => setOpenMenu(null)}
@@ -146,8 +146,8 @@ export default function Header() {
                         />
                       </button>
 
-                      {/* Show MobileCoursesSection for Diploma Courses, WSQ Courses, SFARC Courses, Certificate Courses */}
-                      {['Diploma Courses', 'WSQ Courses', 'SFARC Courses', 'Certificate Courses'].includes(item.name) &&
+                      {/* Show MobileCoursesSection for Diploma Courses, WSQ Courses, SRFAC Courses, Certificate Courses */}
+                      {['Diploma Courses', 'WSQ Courses', 'SRFAC Courses', 'Certificate Courses'].includes(item.name) &&
                         mobileAccordion === item.name && (
                           <MobileCoursesSection menuType={item.name} onLinkClick={() => setMobileMenuOpen(false)} />
                         )}
@@ -199,8 +199,8 @@ function MegaMenu({
     );
   } else if (menuType === 'WSQ Courses') {
     filteredSchools = courseData.filter(school => school.title.includes('WSQ'));
-  } else if (menuType === 'SFARC Courses') {
-    filteredSchools = courseData.filter(school => school.title.includes('SFARC'));
+  } else if (menuType === 'SRFAC Courses') {
+    filteredSchools = courseData.filter(school => school.title.includes('SRFAC'));
   } else if (menuType === 'Certificate Courses') {
     filteredSchools = courseData.filter(school => school.title.includes('Certificate'));
   }
@@ -442,8 +442,8 @@ function MobileCoursesSection({ menuType, onLinkClick }: { menuType: string; onL
         school.title.includes('Business') ||
         school.title.includes('E-Learning')
     );
-  } else if (menuType === 'SFARC Courses') {
-    filteredSchools = courseData.filter(school => school.title.includes('SFARC'));
+  } else if (menuType === 'SRFAC Courses') {
+    filteredSchools = courseData.filter(school => school.title.includes('SRFAC'));
   } else if (menuType === 'Certificate Courses') {
     filteredSchools = courseData.filter(school => school.title.includes('Certificate'));
   }

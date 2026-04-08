@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 const diplomaCourses = courseData
   .filter(
     (s) =>
-      !s.title.includes("E-Learning") && !s.title.includes("SFARC")
+      !s.title.includes("E-Learning") && !s.title.includes("SRFAC")
   )
   .flatMap((s) =>
     s.courses
@@ -40,7 +40,7 @@ const diplomaCourses = courseData
 const advancedDiplomaCourses = courseData
   .filter(
     (s) =>
-      !s.title.includes("E-Learning") && !s.title.includes("SFARC")
+      !s.title.includes("E-Learning") && !s.title.includes("SRFAC")
   )
   .flatMap((s) =>
     s.courses

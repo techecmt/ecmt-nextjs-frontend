@@ -46,13 +46,7 @@ export default function SharePopup({ shareUrl }: { shareUrl: string }) {
           Share on Facebook
         </a>
 
-        {/* Dismiss */}
-        <button
-          onClick={() => setShow(false)}
-          className="mt-3 block w-full text-xs text-gray-400 hover:text-gray-500 transition-colors"
-        >
-          Maybe later
-        </button>
+        
       </div>
     </div>
   );

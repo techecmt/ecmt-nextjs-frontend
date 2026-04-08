@@ -243,7 +243,7 @@ export const courseData: School[] = [
     ],
   },
   {
-  title: "SFARC Courses",  // Must include "SFARC" for the menu filter to work
+  title: "SRFAC Courses",  // Must include "SRFAC" for the menu filter to work
   color: "#1AB69D",  // Or choose a different color, e.g., "#FF5733"
   courses: [
     {
