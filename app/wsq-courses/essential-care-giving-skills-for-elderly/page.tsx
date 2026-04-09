@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import ContactForm from '../../components/contactform';
 import { FaWhatsapp } from 'react-icons/fa';
+import WsqRefundPolicy from '../../components/WsqRefundPolicy';
+import OpenCertsGuide from '@/app/components/OpenCertsGuide';
 
 export const metadata: Metadata = {
 	title: 'Essential Care Giving Skills for Elderly | WSQ Course | Edusphere',
@@ -223,6 +225,13 @@ export default function EssentialCareGivingPage() {
 				</div>
 			</section>
 
+			{/* OpenCerts Guide */}
+			<section className="px-4 pb-10">
+				<div className="mx-auto max-w-7xl">
+					<OpenCertsGuide />
+				</div>
+			</section>
+
 			{/* Fees table */}
 			<section className="px-4 pb-16">
 				<div className="mx-auto max-w-7xl">
@@ -290,6 +299,9 @@ export default function EssentialCareGivingPage() {
 					</p>
 				</div>
 			</section>
+
+			{/* Refund Policy */}
+			<WsqRefundPolicy />
 
 			{/* Register form section */}
 			<section id="register" className="px-4 pb-20">

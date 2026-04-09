@@ -3,6 +3,8 @@ import Image from 'next/image';
 import WsqContactForm from '../../components/wsq_contactform';
 import { FaWhatsapp } from "react-icons/fa";
 import ContactForm from '../../components/contactform';
+import WsqRefundPolicy from '../../components/WsqRefundPolicy';
+import OpenCertsGuide from '@/app/components/OpenCertsGuide';
 
 export const metadata: Metadata = {
 	title: "AI-Driven Communication Strategies to Drive Service Excellence | WSQ Course | Edusphere",
@@ -188,6 +190,13 @@ export default function AIDrivenCommunicationPage() {
 				</div>
 			</section>
 
+			{/* OpenCerts Guide */}
+			<section className="px-4 pb-10">
+				<div className="mx-auto max-w-7xl">
+					<OpenCertsGuide />
+				</div>
+			</section>
+
 			{/* Fees table */}
 			<section className="px-4 pb-16">
 				<div className="mx-auto max-w-7xl">
@@ -256,6 +265,9 @@ export default function AIDrivenCommunicationPage() {
 					</p>
 				</div>
 			</section>
+
+			{/* Refund Policy */}
+			<WsqRefundPolicy />
 
 			{/* Register form section */}
 			<section id="register" className="px-4 pb-20">

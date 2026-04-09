@@ -4,6 +4,7 @@ import Image from "next/image";
 import { FaWhatsapp } from "react-icons/fa";
 import ContactForm from "../../components/contactform";
 import OpenCertsGuide from "@/app/components/OpenCertsGuide";
+import WsqRefundPolicy from "../../components/WsqRefundPolicy";
 
 export const metadata: Metadata = {
     title: "Master Executive Presence in Stakeholder Management | WSQ Course | Edusphere",
@@ -263,6 +264,9 @@ export default function MasterExecutivePresenceInStakeholderManagement() {
                     </div>
                 </div>
             </section>
+
+            {/* Refund Policy */}
+            <WsqRefundPolicy />
 
             {/* Contact Section */}
             <section id="contact" className="py-12 md:py-16 bg-gray-50">

@@ -4,6 +4,7 @@ import WsqContactForm from "../../components/wsq_contactform";
 import { FaWhatsapp } from 'react-icons/fa';
 import ContactForm from "../../components/contactform";
 import OpenCertsGuide from "@/app/components/OpenCertsGuide";
+import WsqRefundPolicy from "../../components/WsqRefundPolicy";
 
 export const metadata: Metadata = {
   title: 'Navigating Service Challenges | WSQ Course | Edusphere',
@@ -358,6 +359,9 @@ export default function NavigatingServiceChallengesPage() {
           </p>
         </div>
       </section>
+
+      {/* Refund Policy */}
+      <WsqRefundPolicy />
 
       {/* Register form section */}
       <section id="register" className="px-4 pb-20">
