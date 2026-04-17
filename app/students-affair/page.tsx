@@ -26,6 +26,7 @@ export default function StudentsAffairPage() {
   const videoUrl =
     "https://www.youtube.com/embed/6jct1CQVtLo?si=qcfuZzSqOi1DNFdt&controls=0";
   const shareUrl = "https://www.youtube.com/watch?v=6jct1CQVtLo";
+  const eventphotsolink = "https://drive.google.com/drive/folders/1pbQbEQizL5cGsu8PJUM8IQX9aQR0ssDH?usp=drive_link";
 
   return (
     <>
@@ -69,22 +70,32 @@ export default function StudentsAffairPage() {
             </p>
           </div>
 
-          {/* Video Card */}
-          <div className="relative max-w-4xl mx-auto rounded-3xl bg-white p-3 shadow-2xl shadow-black/5 ring-1 ring-black/5">
-            <div className="relative w-full aspect-video rounded-2xl overflow-hidden">
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src={videoUrl}
-                title="Graduation Ceremony 2026 – Part 1"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-              />
-            </div>
-          </div>
-
           {/* Action Cards Grid */}
-          <div className="mt-14 max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div className="mt-14 max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-5">
+            {/* Event Photos Card */}
+            <a
+              href={eventphotsolink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative flex flex-col items-center gap-3 rounded-2xl bg-white p-6 shadow-md ring-1 ring-black/5 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+            >
+              {/* Blinking badge */}
+              <span className="absolute -top-2 -right-2 flex items-center gap-1 rounded-full bg-[#1AB69D] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white shadow-lg">
+                <span className="inline-block h-1.5 w-1.5 animate-ping rounded-full bg-white" />
+                New
+              </span>
+
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#1AB69D]/10 text-[#1AB69D] transition-colors group-hover:bg-[#1AB69D] group-hover:text-white">
+                <FaImages className="text-2xl" />
+              </div>
+              <span className="text-sm font-bold text-gray-900">
+                Event Photos - Graduation 2026
+              </span>
+              <span className="flex items-center gap-1 text-xs text-gray-400">
+                <FaGoogleDrive className="text-sm" /> Google Drive
+              </span>
+            </a>
+
             {/* Share Card */}
             <a
               href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
@@ -120,12 +131,26 @@ export default function StudentsAffairPage() {
                 <FaImages className="text-2xl" />
               </div>
               <span className="text-sm font-bold text-gray-900">
-                View Photos
+                View PhotoBooth Photos
               </span>
               <span className="flex items-center gap-1 text-xs text-gray-400">
                 <FaGoogleDrive className="text-sm" /> Google Drive
               </span>
             </a>
+          </div>
+
+          {/* Video Card */}
+          <div className="relative mt-14 max-w-4xl mx-auto rounded-3xl bg-white p-3 shadow-2xl shadow-black/5 ring-1 ring-black/5">
+            <div className="relative w-full aspect-video rounded-2xl overflow-hidden">
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src={videoUrl}
+                title="Graduation Ceremony 2026 – Part 1"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            </div>
           </div>
         </div>
       </section>
