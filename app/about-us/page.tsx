@@ -234,7 +234,6 @@ export default function AboutUs() {
                     </div>
                     <div className="lg:col-span-3 p-8 lg:p-12 flex flex-col justify-center">
                         <div className="mb-6">
-                            <h2 className="text-sm font-bold tracking-widest text-[#d81f26] uppercase mb-1">Our Manager</h2>
                             <h3 className="text-3xl font-bold text-gray-900">A Message from the CEO & Director</h3>
                         </div>
                         
