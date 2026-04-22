@@ -130,7 +130,7 @@ export default function Home() {
       </section>
       
       <ScoreCard />
-      <GoogleCarousel />
+      
       <ContactForm />
       
     </div>

@@ -408,6 +408,18 @@ export default function DiplomaInRetailECommerceManagementELearning() {
                 </div>
             </section>
 
+            {/* Graduation Requirements */}
+            <section className="py-12 bg-gray-50">
+                <div className="container mx-auto px-4 md:px-8">
+                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-gray-900">Graduation Requirements</h2>
+                    <div className="max-w-3xl mx-auto">
+                        <p className="text-gray-700 text-base leading-relaxed text-justify">
+                            Upon successful completion of all required modules as detailed in the Course Outline, and fulfilling all associated attendance and assessment requirements, the student will be graduated successfully.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
             <ContactForm />
         </main>
     );
