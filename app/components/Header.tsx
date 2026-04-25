@@ -21,15 +21,19 @@ const menuItems = [
   { name: 'WSQ Courses', hasDropdown: true, href: '/wsq-courses' },
   { name: 'SRFAC Courses', hasDropdown: true, href: '#' },
   { name: 'Certificate Courses', hasDropdown: false, href: '/certificate-courses-in-singapore' },
-  { name: 'About Us', hasDropdown: false, href: '/about-us' },
+  { name: 'About Us', hasDropdown: true, href: '/about-us' },
   { name: 'Students Affair', hasDropdown: true, href: '/students-affair' },
 ];
 
-const studentAffairsLinks = [
+const aboutUsLinks = [
   { label: 'Campus and Facilities', href: '/campus-and-facilities' },
+  { label: 'Our Teachers', href: '/our-teachers' },
+  { label: 'Academic and Examination Board', href: '/about-us#academic-examination-board' },
+];
+
+const studentAffairsLinks = [
   { label: 'Contact', href: '/contact-us' },
   { label: 'FAQ', href: '/faq' },
-  { label: 'Our Teachers', href: '/our-teachers' },
   { label: 'Essential Resources and Support for Students', href: '/essential-resources-and-support-for-students' },
 ];
 
@@ -105,8 +109,16 @@ export default function Header() {
                 />
               )}
               {item.name === 'Students Affair' && openMenu === 'Students Affair' && (
-                <StudentAffairsDropdown
+                <SimpleLinksDropdown
+                  links={studentAffairsLinks}
                   onMouseEnter={() => setOpenMenu('Students Affair')}
+                  onMouseLeave={() => setOpenMenu(null)}
+                />
+              )}
+              {item.name === 'About Us' && openMenu === 'About Us' && (
+                <SimpleLinksDropdown
+                  links={aboutUsLinks}
+                  onMouseEnter={() => setOpenMenu('About Us')}
                   onMouseLeave={() => setOpenMenu(null)}
                 />
               )}
@@ -152,7 +164,10 @@ export default function Header() {
                           <MobileCoursesSection menuType={item.name} onLinkClick={() => setMobileMenuOpen(false)} />
                         )}
                       {item.name === 'Students Affair' && mobileAccordion === 'Students Affair' && (
-                        <StudentAffairsMobileList onLinkClick={() => setMobileMenuOpen(false)} />
+                        <SimpleLinksMobileList links={studentAffairsLinks} onLinkClick={() => setMobileMenuOpen(false)} />
+                      )}
+                      {item.name === 'About Us' && mobileAccordion === 'About Us' && (
+                        <SimpleLinksMobileList links={aboutUsLinks} onLinkClick={() => setMobileMenuOpen(false)} />
                       )}
                     </>
                   )}
@@ -324,12 +339,14 @@ function WsqDropdown({
   );
 }
 
-/* ================= STUDENT AFFAIRS DROPDOWN (DESKTOP) ================= */
+/* ================= SIMPLE LINKS DROPDOWN (DESKTOP) ================= */
 
-function StudentAffairsDropdown({
+function SimpleLinksDropdown({
+  links,
   onMouseEnter,
   onMouseLeave,
 }: {
+  links: { label: string; href: string }[];
   onMouseEnter: () => void;
   onMouseLeave: () => void;
 }) {
@@ -341,7 +358,7 @@ function StudentAffairsDropdown({
     >
       <div className="bg-white shadow-lg rounded-lg border border-gray-100 overflow-hidden">
         <div className="p-4 flex flex-col gap-2">
-          {studentAffairsLinks.map((link) => (
+          {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -359,15 +376,15 @@ function StudentAffairsDropdown({
   );
 }
 
-/* ================= STUDENT AFFAIRS (MOBILE) ================= */
+/* ================= SIMPLE LINKS (MOBILE) ================= */
 
-function StudentAffairsMobileList({ onLinkClick }: { onLinkClick: () => void }) {
+function SimpleLinksMobileList({ links, onLinkClick }: { links: { label: string; href: string }[]; onLinkClick: () => void }) {
   return (
     <div className="mt-3 space-y-2">
       <div className="border border-gray-100 rounded-lg overflow-hidden">
         <div className="px-3 pb-3 pt-3 bg-gray-50/50">
           <div className="space-y-1">
-            {studentAffairsLinks.map((link) => (
+            {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}

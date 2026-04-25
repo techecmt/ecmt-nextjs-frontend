@@ -395,6 +395,144 @@ export default function AboutUs() {
         </div>
       </section>
 
+      {/* Academic Board & Examination Board */}
+      <section id="academic-examination-board" className="py-16 lg:py-24 bg-gray-50 scroll-mt-24">
+        <div className="container mx-auto px-4 lg:px-20 max-w-7xl">
+          {/* Academic Board */}
+          <div className="mb-20">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <h2 className="text-sm font-bold tracking-widest text-[#d81f26] uppercase mb-3">
+                Governance
+              </h2>
+              <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 tracking-tight">
+                Academic Board
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                Our Academic Board sets the standards for academic quality and ensures every course meets the highest educational benchmarks.
+              </p>
+            </div>
+
+            {/* Members */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+              {[
+                {
+                  name: "Mr. Samsudeen Mohamed Tahir",
+                  qualification: "Bachelor of Mechanical Engineering",
+                  institution: "Anna University, India",
+                },
+                {
+                  name: "Ms. Haji Noor Mohamed Mursidha",
+                  qualification: "Bachelor of Science in Management",
+                  institution: "University of London, UK",
+                },
+                {
+                  name: "Mr. Mohamed Yasin Mohamed Amin",
+                  qualification: "Master of Computer Application",
+                  institution: "Bharathidasan University, India",
+                },
+              ].map((member) => (
+                <div key={member.name} className="bg-white p-6 rounded-xl shadow-md border border-gray-100 text-center hover:-translate-y-1 transition-transform duration-300">
+                  <div className="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4 text-[#d81f26]">
+                    <Award size={26} />
+                  </div>
+                  <h4 className="text-lg font-bold text-gray-900 mb-1">{member.name}</h4>
+                  <p className="text-sm text-gray-700">{member.qualification}</p>
+                  <p className="text-sm text-gray-500">{member.institution}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Roles & Responsibilities */}
+            <div className="bg-white rounded-2xl shadow-md border border-gray-100 p-8 lg:p-10">
+              <h4 className="text-xl lg:text-2xl font-bold text-gray-900 mb-6">
+                Roles &amp; Responsibilities – Academic Board Member
+              </h4>
+              <ol className="list-decimal list-outside ml-5 space-y-4 text-gray-700 leading-relaxed">
+                <li>
+                  To develop and review the policies and procedures on all academic matters of the private education institution, including but not limited to academic quality assurance measures; and
+                </li>
+                <li>
+                  To facilitate the implementation of and compliance with such policies and procedures.
+                </li>
+                <li>
+                  Develop a set of standards to ensure the academic quality of every course to be offered or provided by the private education institution, including but not limited to –
+                  <ol className="list-[lower-roman] list-outside ml-6 mt-2 space-y-1 text-gray-600">
+                    <li>the content of the modules or subjects of the course;</li>
+                    <li>the duration of the course; and</li>
+                    <li>the appropriate entry and graduation requirements;</li>
+                  </ol>
+                </li>
+                <li>
+                  Approve each person to be deployed to teach any course offered or provided by the private education institution or any module or subject thereof, after determining that the person possesses the minimum qualifications and experience and other criteria prescribed in regulation 26; and review the policies and procedures referred to in paragraph (1) &amp; (2).
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          {/* Examination Board */}
+          <div>
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <h2 className="text-sm font-bold tracking-widest text-[#d81f26] uppercase mb-3">
+                Governance
+              </h2>
+              <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 tracking-tight">
+                Examination Board
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                The Examination Board oversees the development and integrity of all examination and assessment procedures across the institution.
+              </p>
+            </div>
+
+            {/* Members */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+              {[
+                {
+                  name: "Mr. Samsudeen Mohamed Tahir",
+                  qualification: "Bachelor of Mechanical Engineering",
+                  institution: "Anna University, India",
+                },
+                {
+                  name: "Ms. Haji Noor Mohamed Mursidha",
+                  qualification: "Bachelor of Science in Management",
+                  institution: "University of London, UK",
+                },
+                {
+                  name: "Mr. Mohamed Yasin Mohamed Amin",
+                  qualification: "Master of Computer Application",
+                  institution: "Bharathidasan University, India",
+                },
+              ].map((member) => (
+                <div key={member.name} className="bg-white p-6 rounded-xl shadow-md border border-gray-100 text-center hover:-translate-y-1 transition-transform duration-300">
+                  <div className="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-[#1e2a4a]">
+                    <CheckCircle size={26} />
+                  </div>
+                  <h4 className="text-lg font-bold text-gray-900 mb-1">{member.name}</h4>
+                  <p className="text-sm text-gray-700">{member.qualification}</p>
+                  <p className="text-sm text-gray-500">{member.institution}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Roles & Responsibilities */}
+            <div className="bg-white rounded-2xl shadow-md border border-gray-100 p-8 lg:p-10">
+              <h4 className="text-xl lg:text-2xl font-bold text-gray-900 mb-6">
+                Roles &amp; Responsibilities – Examination Board Member
+              </h4>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                The Examination Board will be in charge of the development of examination and assessment procedures, such as developing and facilitating the implementation of procedures to:
+              </p>
+              <ol className="list-decimal list-outside ml-5 space-y-3 text-gray-700 leading-relaxed">
+                <li>Ensure the security of examination scripts and answer scripts;</li>
+                <li>Ensure the proper conduct of examinations and assessments;</li>
+                <li>Define and ensure the proper discharge of duties and responsibilities of invigilators and markers;</li>
+                <li>Conduct moderation of examination and assessment marks; and</li>
+                <li>Handle appeals from students with regard to examination or assessment matters.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Our Team Section - Delegated to Client Component */}
       <AboutUsClient />
     </div>
