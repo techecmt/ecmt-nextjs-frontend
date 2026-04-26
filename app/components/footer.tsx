@@ -109,7 +109,13 @@ export default function Footer() {
               </p>
               <p className="flex items-start gap-2.5">
                 <FaClock className="text-[#1AB69D] mt-0.5 shrink-0" />
-                <span>Mon – Fri | 8:30 AM – 6:00 PM</span>
+                <span>
+                  Mon – Wed | 9:30 AM – 6:30 PM<br />
+                  Thu | Closed<br />
+                  Fri | 1:00 PM – 6:00 PM<br />
+                  Sat | 9:30 AM – 10:00 PM<br />
+                  Sun | 9:00 AM – 7:00 PM
+                </span>
               </p>
             </div>
 

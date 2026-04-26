@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import ContactForm from "../components/contactform";
-import GoogleCarousel from "../components/GoogleCarousel";
-import { FiMapPin, FiMail, FiPhone, FiNavigation, FiExternalLink } from "react-icons/fi";
+import { FiMapPin, FiMail, FiPhone, FiNavigation, FiExternalLink, FiClock } from "react-icons/fi";
 import { FcGoogle } from "react-icons/fc";
 import { FaWhatsapp } from "react-icons/fa";
 
@@ -100,9 +99,27 @@ export default function ContactPage() {
 		"openingHoursSpecification": [
 			{
 				"@type": "OpeningHoursSpecification",
-				"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-				"opens": "09:00",
+				"dayOfWeek": ["Monday", "Tuesday", "Wednesday"],
+				"opens": "09:30",
+				"closes": "18:30"
+			},
+			{
+				"@type": "OpeningHoursSpecification",
+				"dayOfWeek": "Friday",
+				"opens": "13:00",
 				"closes": "18:00"
+			},
+			{
+				"@type": "OpeningHoursSpecification",
+				"dayOfWeek": "Saturday",
+				"opens": "09:30",
+				"closes": "22:00"
+			},
+			{
+				"@type": "OpeningHoursSpecification",
+				"dayOfWeek": "Sunday",
+				"opens": "09:00",
+				"closes": "19:00"
 			}
 		],
 		"priceRange": "$$"
@@ -186,6 +203,20 @@ export default function ContactPage() {
 										</div>
 									</div>
 
+									<div className="flex items-start gap-3">
+										<FiClock className="text-[#1AB69D] mt-1 shrink-0" size={18} />
+										<div>
+											<h3 className="font-semibold text-gray-900">Operating Hours</h3>
+											<ul className="mt-1 space-y-0.5">
+												<li>Monday – Wednesday: 9:30 AM – 6:30 PM</li>
+												<li>Thursday: Closed</li>
+												<li>Friday: 1:00 PM – 6:00 PM</li>
+												<li>Saturday: 9:30 AM – 10:00 PM</li>
+												<li>Sunday: 9:00 AM – 7:00 PM</li>
+											</ul>
+										</div>
+									</div>
+
 									<div>
 										<h3 className="font-semibold text-gray-900">Quick Actions</h3>
 										<div className="mt-2 flex flex-wrap gap-3">
@@ -228,48 +259,40 @@ export default function ContactPage() {
 				</div>
 			</section>
 
-			{/* Map + Reviews two-column */}
+			{/* Map full-width */}
 			<section className="mt-10">
 				<div className="container mx-auto px-4">
-					<div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-start">
-						{/* Map card */}
-						<div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
-							<div className="w-full h-80 sm:h-96 md:h-112 lg:h-128">
-								<iframe
-									src={MAP_EMBED}
-									loading="lazy"
-									className="w-full h-full"
-									title="Google Map — Edusphere College, Singapore"
-									referrerPolicy="no-referrer-when-downgrade"
-									allowFullScreen
-								/>
-							</div>
-							<div className="flex flex-col md:flex-row items-start md:items-center gap-3 p-4 bg-gray-50">
-								<span className="text-gray-700 text-sm">{ADDRESS}</span>
-								<div className="md:ml-auto flex gap-3">
-									<a
-										href={MAP_DIRECTIONS}
-										target="_blank"
-										rel="noreferrer"
-										className="inline-flex items-center rounded-md bg-[#1AB69D] text-white px-4 py-2 text-sm font-semibold hover:bg-[#169d88]"
-									>
-										Get Directions
-									</a>
-									<a
-										href={REVIEW_LINK}
-										target="_blank"
-										rel="noreferrer"
-										className="inline-flex items-center rounded-md border border-[#1AB69D] text-[#1AB69D] px-4 py-2 text-sm font-semibold hover:bg-[#e9fbf7]"
-									>
-										Leave a Review
-									</a>
-								</div>
-							</div>
+					<div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
+						<div className="w-full h-80 sm:h-96 md:h-112 lg:h-128">
+							<iframe
+								src={MAP_EMBED}
+								loading="lazy"
+								className="w-full h-full"
+								title="Google Map — Edusphere College, Singapore"
+								referrerPolicy="no-referrer-when-downgrade"
+								allowFullScreen
+							/>
 						</div>
-
-						{/* Reviews card */}
-						<div>
-							<GoogleCarousel />
+						<div className="flex flex-col md:flex-row items-start md:items-center gap-3 p-4 bg-gray-50">
+							<span className="text-gray-700 text-sm">{ADDRESS}</span>
+							<div className="md:ml-auto flex gap-3">
+								<a
+									href={MAP_DIRECTIONS}
+									target="_blank"
+									rel="noreferrer"
+									className="inline-flex items-center rounded-md bg-[#1AB69D] text-white px-4 py-2 text-sm font-semibold hover:bg-[#169d88]"
+								>
+									Get Directions
+								</a>
+								<a
+									href={REVIEW_LINK}
+									target="_blank"
+									rel="noreferrer"
+									className="inline-flex items-center rounded-md border border-[#1AB69D] text-[#1AB69D] px-4 py-2 text-sm font-semibold hover:bg-[#e9fbf7]"
+								>
+									Leave a Review
+								</a>
+							</div>
 						</div>
 					</div>
 				</div>
