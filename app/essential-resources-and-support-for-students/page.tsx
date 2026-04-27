@@ -11,7 +11,7 @@ export default function Page() {
 	return (
 		<main>
 			{/* Combined hero + policy content in a single section */}
-			<section className="relative w-full bg-gradient-to-b from-rose-50 to-white" aria-label="Policy Content">
+			<section className="relative w-full bg-linear-to-b from-rose-50 to-white" aria-label="Policy Content">
 				<div className="max-w-6xl mx-auto px-6 py-12">
 					<h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">
 						Our Policy – <span className="text-rose-600">Course or Module Deferment</span>
@@ -46,32 +46,32 @@ export default function Page() {
 
 					<div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
 						<figure className="rounded-xl shadow-md ring-1 ring-black/5 bg-white overflow-hidden">
-							<div className="relative aspect-[3/4]">
+							<div className="relative aspect-3/4">
 								<Image
-									src="/brand/dme1-sample.webp"
-									alt="Diploma in Mechanical and Electrical (M&E) Engineering certificate sample"
+									src="/brand/dhtm-certificate-sample.jpg"
+									alt="DHTM certificate sample"
 									fill
 									className="object-cover"
 									sizes="(min-width: 768px) 50vw, 100vw"
 								/>
 							</div>
 							<figcaption className="px-6 py-4 text-center font-medium text-gray-800">
-								Diploma in Mechanical and Electrical (M&E) Engineering
+								DHTM Sample Certificate
 							</figcaption>
 						</figure>
 
 						<figure className="rounded-xl shadow-md ring-1 ring-black/5 bg-white overflow-hidden">
-							<div className="relative aspect-[3/4]">
+							<div className="relative aspect-3/4">
 								<Image
-									src="/brand/adme2-sample.webp"
-									alt="Advanced Diploma in Mechanical and Electrical (M&E) Engineering certificate sample"
+									src="/brand/dhtm-marksheet-sample.jpg"
+									alt="DHTM marksheet sample"
 									fill
 									className="object-cover"
 									sizes="(min-width: 768px) 50vw, 100vw"
 								/>
 							</div>
 							<figcaption className="px-6 py-4 text-center font-medium text-gray-800">
-								Advanced Diploma in Mechanical and Electrical (M&E) Engineering
+								DHTM Sample Marksheet
 							</figcaption>
 						</figure>
 					</div>

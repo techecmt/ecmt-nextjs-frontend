@@ -40,28 +40,17 @@ const teamCategories = [
     ],
   },
   {
-    id: "human-resources",
-    label: "Human Resources",
+    id: "human-resources & Finance",
+    label: "Human Resources & Finance",
     members: [
       {
-        name: "Mr. Syed Mustafa",
-        role: "Board Member",
-        image: "/about-contact-other/mustafa.webp",
+        name: "Mr. Mohamed Tahir",
+        role: "Finance & HR Head",
+        image: "/about-contact-other/tahirdp.webp",
       },
     ],
   },
-  {
-    id: "learning-support",
-    label: "Learning Support Management",
-    members: [
-      {
-        name: "Mr. Syed Mustafa",
-        role: "Board Member",
-        image: "/about-contact-other/mustafa.webp",
-      },
-    ],
-  },
-  {
+    {
     id: "sales-marketing",
     label: "Sales & Marketing",
     members: [
@@ -81,6 +70,11 @@ const teamCategories = [
         role: "Academic Manager",
         image: "/about-contact-other/rajes.png",
       },
+      {
+        name: "Mr. Dej Escasa",
+        role: "Training Manager",
+        image: "/about-contact-other/dej.jpg",
+      },
     ],
   },
   {
@@ -94,11 +88,7 @@ const teamCategories = [
       },
     ],
   },
-  {
-    id: "finance",
-    label: "Finance",
-    members: [],
-  },
+  
 ];
 
 export default function AboutUsClient() {
@@ -143,7 +133,7 @@ export default function AboutUsClient() {
                   key={category.id}
                   onClick={() => setActiveCategory(category.id)}
                   className={`
-                        px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 whitespace-nowrap flex-shrink-0
+                        px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 whitespace-nowrap shrink-0
                         ${
                           isActive
                             ? "bg-[#d81f26] text-white shadow-lg shadow-red-200 transform scale-105"
@@ -165,10 +155,10 @@ export default function AboutUsClient() {
               {activeTeam.members.map((member, index) => (
                 <div
                   key={`${activeTeam.id}-${member.name}-${index}`}
-                  className="group bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-xl hover:border-red-100 transition-all duration-300 flex flex-col items-center text-center animate-in fade-in zoom-in-95 duration-500"
+                  className="group bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-xl hover:border-red-100 transition-all duration-300 flex flex-col items-center text-center animate-in fade-in zoom-in-95"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="relative w-40 h-40 mb-6 rounded-full p-1 bg-gradient-to-tr from-gray-100 to-gray-200 group-hover:from-red-100 group-hover:to-orange-100 transition-colors">
+                  <div className="relative w-40 h-40 mb-6 rounded-full p-1 bg-linear-to-tr from-gray-100 to-gray-200 group-hover:from-red-100 group-hover:to-orange-100 transition-colors">
                     <div className="w-full h-full rounded-full overflow-hidden relative">
                       <Image
                         src={member.image}

@@ -124,7 +124,7 @@ export default function AboutUs() {
               {/* NAP Information */}
               <div className="mt-8 space-y-3 text-gray-700">
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-[#d81f26] mt-1 flex-shrink-0" />
+                  <MapPin className="w-5 h-5 text-[#d81f26] mt-1 shrink-0" />
                   <div>
                     <p className="font-semibold">Address:</p>
                     <p>7500A Beach Road, #05-312 THE PLAZA</p>
@@ -132,7 +132,7 @@ export default function AboutUs() {
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Phone className="w-5 h-5 text-[#d81f26] mt-1 flex-shrink-0" />
+                  <Phone className="w-5 h-5 text-[#d81f26] mt-1 shrink-0" />
                   <div>
                     <p className="font-semibold">Contact (WhatsApp):</p>
                     <p>Marketing: <a href="https://wa.me/6591254523" className="hover:text-[#d81f26]">+65-9125-4523</a></p>
@@ -226,7 +226,7 @@ export default function AboutUs() {
                             fill
                             className="object-cover object-top"
                         />
-                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent lg:bg-none"></div>
+                         <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent lg:bg-none"></div>
                          <div className="absolute bottom-4 left-4 text-white lg:hidden">
                             <p className="font-bold text-lg">Mr. Samsudeen Mohamed Tahir</p>
                             <p className="text-sm opacity-90">CEO/ Director / PEI Manager</p>

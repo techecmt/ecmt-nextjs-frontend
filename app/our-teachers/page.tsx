@@ -115,7 +115,7 @@ const teachersData: Teacher[] = [
       "Master of Business Administration",
       "Kuala Lumpur Metropolitan University College (KLMUC), Kelana Jaya, Malaysia"
     ],
-    deployedMode: "Part Time",
+    deployedMode: "Full Time",
     courses: [
       {
         name: "Advanced Diploma in Hospitality Management",
@@ -354,7 +354,7 @@ const teachersData: Teacher[] = [
       "Master in Arts, Counselling",
       "Goldsmith University of London, UK"
     ],
-    deployedMode: "Part Time",
+    deployedMode: "Full Time",
     courses: [
       {
         name: "Diploma in Caregiving",
