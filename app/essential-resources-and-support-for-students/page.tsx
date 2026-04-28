@@ -12,12 +12,12 @@ export default function Page() {
 		<main>
 			{/* Combined hero + policy content in a single section */}
 			<section className="relative w-full bg-linear-to-b from-rose-50 to-white" aria-label="Policy Content">
-				<div className="max-w-6xl mx-auto px-6 py-12">
-					<h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">
+				<div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-12">
+					<h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">
 						Our Policy – <span className="text-rose-600">Course or Module Deferment</span>
 					</h1>
 
-					<ul className="mt-8 list-disc pl-6 space-y-4 text-gray-700">
+					<ul className="mt-6 md:mt-8 list-disc pl-5 sm:pl-6 space-y-4 text-gray-700 text-sm sm:text-base">
 						<li>
 							All requests for course or module deferment must be made in writing. Students should send their
 							requests to any customer service staff. All requests must be supported with documentary evidence.
@@ -37,14 +37,154 @@ export default function Page() {
 				</div>
 			</section>
 
+			{/* Attendance Policy section */}
+			<section id="attendance-policy" className="w-full bg-white scroll-mt-24" aria-label="Attendance Policy">
+				<div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-12 space-y-8 md:space-y-10 text-sm sm:text-base">
+					<h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">
+						Our Policy – <span className="text-rose-600">Attendance</span>
+					</h2>
+
+					{/* International Students */}
+					<div>
+						<h3 className="text-xl sm:text-2xl font-semibold text-gray-900">International Students</h3>
+						<p className="mt-4 text-gray-700">
+							International students holding a Student Pass issued by Immigration and Checkpoints Authority are required to maintain a minimum attendance of 90% for the overall course.
+						</p>
+
+						<p className="mt-4 text-gray-700">Students who fall below the required attendance may be subject to:</p>
+						<ul className="mt-2 list-disc pl-5 sm:pl-6 space-y-2 text-gray-700">
+							<li>Reporting to ICA</li>
+							<li>Possible cancellation of the Student Pass</li>
+						</ul>
+						<p className="mt-4 text-gray-700">
+							To be eligible for certification, students must meet the minimum attendance requirement set by the institution (typically 85% or above).
+						</p>
+
+						<h4 className="mt-6 text-base font-semibold text-gray-900">Make-up Classes:</h4>
+						<p className="mt-2 text-gray-700">
+							Students with attendance below the required level due to valid reasons (e.g., medical or emergency leave) may be required to:
+						</p>
+						<ul className="mt-2 list-disc pl-5 sm:pl-6 space-y-2 text-gray-700">
+							<li>Attend make-up classes</li>
+							<li>Pay applicable fees</li>
+						</ul>
+						<p className="mt-4 text-gray-700">
+							If attendance is significantly below the required level, the student may be required to retake the module.
+						</p>
+
+						<h4 className="mt-6 text-base font-semibold text-gray-900">Late Enrollment:</h4>
+						<p className="mt-2 text-gray-700">
+							Students who join after course commencement may be allowed to continue only if make-up classes are arranged to meet attendance requirements.
+						</p>
+					</div>
+
+					{/* Local Students */}
+					<div>
+						<h3 className="text-xl sm:text-2xl font-semibold text-gray-900">Local Students</h3>
+						<p className="mt-4 text-gray-700">
+							Students who do not require a Student Pass (e.g., NRIC/WP holders) must maintain a minimum attendance of 75% (or as defined by institutional policy) to be eligible for certification.
+						</p>
+
+						<h4 className="mt-6 text-base font-semibold text-gray-900">Make-up Classes:</h4>
+						<p className="mt-2 text-gray-700">
+							Students with attendance below the required level due to valid reasons (e.g., medical or approved leave) may:
+						</p>
+						<ul className="mt-2 list-disc pl-5 sm:pl-6 space-y-2 text-gray-700">
+							<li>Attend make-up classes</li>
+							<li>Pay applicable fees to fulfill attendance requirements</li>
+						</ul>
+
+						<h4 className="mt-6 text-base font-semibold text-gray-900">Late Enrollment:</h4>
+						<p className="mt-2 text-gray-700">
+							Students who enroll after the course has started may be permitted to join, provided:
+						</p>
+						<ul className="mt-2 list-disc pl-5 sm:pl-6 space-y-2 text-gray-700">
+							<li>Make-up classes are arranged</li>
+							<li>Attendance requirements can still be fulfilled</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			{/* Student Contract & Documents section */}
+			<section
+				id="student-contract"
+				className="w-full bg-linear-to-b from-white to-rose-50 scroll-mt-24"
+				aria-label="Student Contract and Admission Documents"
+			>
+				<div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-12">
+					<h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">
+						Student <span className="text-rose-600">Contract & Admission Documents</span>
+					</h2>
+					<p className="mt-4 text-sm sm:text-base text-gray-700">
+						Please review the following documents before enrolment. Click a button to open the document, or use the embedded preview below.
+					</p>
+
+					<div className="mt-6 md:mt-8 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
+						<a
+							href="https://drive.google.com/file/d/1FwMZFjnj6n_SuATuIsLHzVR9gFs4G_xX/view?usp=sharing"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="inline-flex items-center justify-center gap-2 rounded-lg bg-rose-600 px-5 sm:px-6 py-3 text-sm sm:text-base text-white font-semibold shadow-md hover:bg-rose-700 transition-colors w-full sm:w-auto"
+						>
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 shrink-0" aria-hidden="true">
+								<path d="M4 4a2 2 0 012-2h5l5 5v9a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" />
+							</svg>
+							Student Contract
+						</a>
+						<a
+							href="https://drive.google.com/file/d/1h6HpU_O_-5M3_VyXq1CWOz7umpMFEz7G/view?usp=sharing"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-5 sm:px-6 py-3 text-sm sm:text-base text-white font-semibold shadow-md hover:bg-gray-800 transition-colors w-full sm:w-auto"
+						>
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 shrink-0" aria-hidden="true">
+								<path d="M4 4a2 2 0 012-2h5l5 5v9a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" />
+							</svg>
+							Advisory Note, Offer of Admission and More
+						</a>
+					</div>
+
+					<div className="mt-8 md:mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+						<figure className="rounded-xl shadow-md ring-1 ring-black/5 bg-white overflow-hidden">
+							<div className="w-full h-[60vh] sm:h-[70vh] md:h-auto md:aspect-3/4">
+								<iframe
+									src="https://drive.google.com/file/d/1FwMZFjnj6n_SuATuIsLHzVR9gFs4G_xX/preview"
+									title="Student Contract preview"
+									className="w-full h-full"
+									allow="autoplay"
+								/>
+							</div>
+							<figcaption className="px-4 sm:px-6 py-3 sm:py-4 text-center text-sm sm:text-base font-medium text-gray-800">
+								Student Contract
+							</figcaption>
+						</figure>
+
+						<figure className="rounded-xl shadow-md ring-1 ring-black/5 bg-white overflow-hidden">
+							<div className="w-full h-[60vh] sm:h-[70vh] md:h-auto md:aspect-3/4">
+								<iframe
+									src="https://drive.google.com/file/d/1h6HpU_O_-5M3_VyXq1CWOz7umpMFEz7G/preview"
+									title="Advisory Note, Offer of Admission and More preview"
+									className="w-full h-full"
+									allow="autoplay"
+								/>
+							</div>
+							<figcaption className="px-4 sm:px-6 py-3 sm:py-4 text-center text-sm sm:text-base font-medium text-gray-800">
+								Advisory Note, Offer of Admission and More
+							</figcaption>
+						</figure>
+					</div>
+				</div>
+			</section>
+
 			{/* Certificates section */}
 			<section className="w-full bg-white" aria-label="Certificates">
-				<div className="max-w-6xl mx-auto px-6 py-12">
-					<h2 className="text-center text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">
+				<div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-12">
+					<h2 className="text-center text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">
 						Our <span className="text-rose-600">sample Certificate</span>
 					</h2>
 
-					<div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+					<div className="mt-8 md:mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
 						<figure className="rounded-xl shadow-md ring-1 ring-black/5 bg-white overflow-hidden">
 							<div className="relative aspect-3/4">
 								<Image
@@ -55,7 +195,7 @@ export default function Page() {
 									sizes="(min-width: 768px) 50vw, 100vw"
 								/>
 							</div>
-							<figcaption className="px-6 py-4 text-center font-medium text-gray-800">
+							<figcaption className="px-4 sm:px-6 py-3 sm:py-4 text-center text-sm sm:text-base font-medium text-gray-800">
 								DHTM Sample Certificate
 							</figcaption>
 						</figure>
@@ -70,7 +210,7 @@ export default function Page() {
 									sizes="(min-width: 768px) 50vw, 100vw"
 								/>
 							</div>
-							<figcaption className="px-6 py-4 text-center font-medium text-gray-800">
+							<figcaption className="px-4 sm:px-6 py-3 sm:py-4 text-center text-sm sm:text-base font-medium text-gray-800">
 								DHTM Sample Marksheet
 							</figcaption>
 						</figure>
@@ -80,16 +220,16 @@ export default function Page() {
 
 			{/* Withdrawal & Refund Policy section */}
 			<section className="w-full bg-white" aria-label="Withdrawal and Refund Policy">
-				<div className="max-w-6xl mx-auto px-6 py-12">
-					<h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">
+				<div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-12">
+					<h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">
 						Our Policy – <span className="text-rose-600">Course withdrawal and Refund of Fee</span>
 					</h2>
 
-					<h3 className="mt-8 text-sm font-semibold tracking-wide text-gray-900 uppercase">
+					<h3 className="mt-6 md:mt-8 text-sm font-semibold tracking-wide text-gray-900 uppercase">
 						Refund for withdrawal due to non-delivery of course:
 					</h3>
 
-					<ol className="mt-6 space-y-6 text-gray-700">
+					<ol className="mt-6 space-y-6 text-sm sm:text-base text-gray-700">
 						<li>
 							<p>
 								Subject to Force Majeure, a student shall be entitled to immediately withdraw from the Course by giving
@@ -117,41 +257,41 @@ export default function Page() {
 						</li>
 					</ol>
 
-					<p className="mt-6 text-gray-700">
+					<p className="mt-6 text-sm sm:text-base text-gray-700">
 						If the Student withdraws from the Course for any reason other than those stated in Clause 2.1, ECMT will, within
 						seven (7) working days of receiving the Student’s written notice of withdrawal, refund to the Student an amount
 						based on the table in Schedule D.
 					</p>
 
 					{/* Refund table */}
-					<div className="mt-8 overflow-x-auto">
-						<table className="min-w-full table-auto border border-gray-200">
+					<div className="mt-6 md:mt-8 overflow-x-auto -mx-4 sm:mx-0">
+						<table className="min-w-full table-auto border border-gray-200 text-sm sm:text-base">
 							<thead>
 								<tr>
-									<th className="w-1/3 bg-rose-600 text-white text-sm md:text-base font-semibold px-4 py-3 border-r border-rose-600 text-center">
+									<th className="w-1/3 bg-rose-600 text-white text-sm md:text-base font-semibold px-3 sm:px-4 py-3 border-r border-rose-600 text-center">
 										Refund of Course Fee (%)
 									</th>
-									<th className="bg-rose-600 text-white text-sm md:text-base font-semibold px-4 py-3 text-left">
+									<th className="bg-rose-600 text-white text-sm md:text-base font-semibold px-3 sm:px-4 py-3 text-left">
 										If Student’s written notice of withdrawal is received:
 									</th>
 								</tr>
 							</thead>
 							<tbody className="divide-y divide-gray-200">
 								<tr>
-									<td className="text-center font-medium px-4 py-3 border-r border-gray-200">100%</td>
-									<td className="px-4 py-3">("Maximum Refund") More than [30] days before the Course Commencement Date</td>
+									<td className="text-center font-medium px-3 sm:px-4 py-3 border-r border-gray-200">100%</td>
+									<td className="px-3 sm:px-4 py-3">("Maximum Refund") More than [30] days before the Course Commencement Date</td>
 								</tr>
 								<tr>
-									<td className="text-center font-medium px-4 py-3 border-r border-gray-200">50%</td>
-									<td className="px-4 py-3">Before, but not more than [30] days before the Course Commencement Date</td>
+									<td className="text-center font-medium px-3 sm:px-4 py-3 border-r border-gray-200">50%</td>
+									<td className="px-3 sm:px-4 py-3">Before, but not more than [30] days before the Course Commencement Date</td>
 								</tr>
 								<tr>
-									<td className="text-center font-medium px-4 py-3 border-r border-gray-200">25%</td>
-									<td className="px-4 py-3">After, but not more than [15] days after the Course Commencement Date</td>
+									<td className="text-center font-medium px-3 sm:px-4 py-3 border-r border-gray-200">25%</td>
+									<td className="px-3 sm:px-4 py-3">After, but not more than [15] days after the Course Commencement Date</td>
 								</tr>
 								<tr>
-									<td className="text-center font-medium px-4 py-3 border-r border-gray-200">0%</td>
-									<td className="px-4 py-3">More than [15] days after the Course Commencement Date</td>
+									<td className="text-center font-medium px-3 sm:px-4 py-3 border-r border-gray-200">0%</td>
+									<td className="px-3 sm:px-4 py-3">More than [15] days after the Course Commencement Date</td>
 								</tr>
 							</tbody>
 						</table>
@@ -161,35 +301,35 @@ export default function Page() {
 
 			{/* Non‑tuition Fees – Refund Policy */}
 			<section className="w-full bg-white" aria-label="Non-tuition Fees Refund Policy">
-				<div className="max-w-6xl mx-auto px-6 py-12">
-					<h2 className="text-center text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">
+				<div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-12">
+					<h2 className="text-center text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">
 						Non-tuition Fees – <span className="text-rose-600">Refund Policy</span>
 					</h2>
 
-					<div className="mt-10 overflow-x-auto">
-						<table className="min-w-full table-auto border border-gray-200">
+					<div className="mt-8 md:mt-10 overflow-x-auto -mx-4 sm:mx-0">
+						<table className="min-w-full table-auto border border-gray-200 text-sm sm:text-base">
 							<thead>
 								<tr>
-									<th className="w-1/3 bg-rose-600 text-white text-sm md:text-base font-semibold px-4 py-3 border-r border-rose-600 text-left">
+									<th className="w-1/3 bg-rose-600 text-white text-sm md:text-base font-semibold px-3 sm:px-4 py-3 border-r border-rose-600 text-left">
 										Types of Fees
 									</th>
-									<th className="bg-rose-600 text-white text-sm md:text-base font-semibold px-4 py-3 text-left">
+									<th className="bg-rose-600 text-white text-sm md:text-base font-semibold px-3 sm:px-4 py-3 text-left">
 										Percentage of Refund
 									</th>
 								</tr>
 							</thead>
 							<tbody className="divide-y divide-gray-200">
 								<tr>
-									<td className="px-4 py-3">Course Application Fee</td>
-									<td className="px-4 py-3">Not refundable</td>
+									<td className="px-3 sm:px-4 py-3">Course Application Fee</td>
+									<td className="px-3 sm:px-4 py-3">Not refundable</td>
 								</tr>
 								<tr>
-									<td className="px-4 py-3">Not refundable</td>
-									<td className="px-4 py-3">Not refundable as fee is imposed by the bank.</td>
+									<td className="px-3 sm:px-4 py-3">Not refundable</td>
+									<td className="px-3 sm:px-4 py-3">Not refundable as fee is imposed by the bank.</td>
 								</tr>
 								<tr>
-									<td className="px-4 py-3">Continual Material Fee</td>
-									<td className="px-4 py-3">
+									<td className="px-3 sm:px-4 py-3">Continual Material Fee</td>
+									<td className="px-3 sm:px-4 py-3">
 										<span className="block">75% – if the refund request is made 30 days or more before the intake date</span>
 										<span className="block">50% – if the refund request is made 14 days or more but less than 30 days before the intake date</span>
 										<span className="block">5% – if the refund is made less than 14 days before the intake date</span>
@@ -197,8 +337,8 @@ export default function Page() {
 									</td>
 								</tr>
 								<tr>
-									<td className="px-4 py-3">Continual Assessment Fee</td>
-									<td className="px-4 py-3">
+									<td className="px-3 sm:px-4 py-3">Continual Assessment Fee</td>
+									<td className="px-3 sm:px-4 py-3">
 										<span className="block">75% – if the refund request is made 30 days or more before the intake date</span>
 										<span className="block">50% – if the refund request is made 14 days or more but less than 30 days before the intake date</span>
 										<span className="block">5% – if the refund is made less than 14 days before the intake date</span>
@@ -206,8 +346,8 @@ export default function Page() {
 									</td>
 								</tr>
 								<tr>
-									<td className="px-4 py-3">Examination Fee</td>
-									<td className="px-4 py-3">
+									<td className="px-3 sm:px-4 py-3">Examination Fee</td>
+									<td className="px-3 sm:px-4 py-3">
 										<span className="block">75% – if the refund request is made 30 days or more before the intake date</span>
 										<span className="block">50% – if the refund request is made 14 days or more but less than 30 days before the intake date</span>
 										<span className="block">5% – if the refund is made less than 14 days before the intake date</span>
@@ -215,8 +355,8 @@ export default function Page() {
 									</td>
 								</tr>
 								<tr>
-									<td className="px-4 py-3">Student Membership Fee</td>
-									<td className="px-4 py-3">
+									<td className="px-3 sm:px-4 py-3">Student Membership Fee</td>
+									<td className="px-3 sm:px-4 py-3">
 										<span className="block">75% – if the refund request is made 30 days or more before the intake date</span>
 										<span className="block">50% – if the refund request is made 14 days or more but less than 30 days before the intake date</span>
 										<span className="block">5% – if the refund is made less than 14 days before the intake date</span>
@@ -224,8 +364,8 @@ export default function Page() {
 									</td>
 								</tr>
 								<tr>
-									<td className="px-4 py-3">Insurance Fee</td>
-									<td className="px-4 py-3">Payable per academic year or per course, if applicable. NOT REFUNDABLE.</td>
+									<td className="px-3 sm:px-4 py-3">Insurance Fee</td>
+									<td className="px-3 sm:px-4 py-3">Payable per academic year or per course, if applicable. NOT REFUNDABLE.</td>
 								</tr>
 							</tbody>
 						</table>
@@ -235,9 +375,9 @@ export default function Page() {
 
 			{/* Cooling-off, Force Majeure, No Double Claim, Additional Info */}
 			<section className="w-full bg-white" aria-label="Additional Policies">
-				<div className="max-w-6xl mx-auto px-6 py-12 space-y-10">
+				<div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-12 space-y-8 md:space-y-10 text-sm sm:text-base">
 					<div>
-						<h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">
+						<h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">
 							Refund During <span className="text-rose-600">Cooling-off Period</span>
 						</h2>
 						<p className="mt-6 text-gray-700">
@@ -252,7 +392,7 @@ export default function Page() {
 					</div>
 
 					<div>
-						<h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">Force Majeure</h2>
+						<h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">Force Majeure</h2>
 						<p className="mt-6 text-gray-700">
 							In the event that ECMT and the student shall be rendered unable to carry out the whole or any part of its
 							obligations under the Student Contract for any reason beyond the control of that party, including but not limited to
@@ -268,7 +408,7 @@ export default function Page() {
 					</div>
 
 					<div>
-						<h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">No Double Claim</h2>
+						<h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">No Double Claim</h2>
 						<p className="mt-6 text-gray-700">
 							If the Student and/or his/her parent/guardian receives any payment from ECMT or the Escrow Bank/Insurance Company
 							due to a provision of the Student Contract or the Master Escrow Agreement/Master Insurance Agreement for any matter
@@ -279,7 +419,7 @@ export default function Page() {
 					</div>
 
 					<div>
-						<h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">Additional Information</h2>
+						<h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">Additional Information</h2>
 						<ul className="mt-6 list-disc pl-6 space-y-3 text-gray-700">
 							<li>The laws of Singapore will apply to how the student contract will be read and to the rights the parties have under the student Contract.</li>
 							<li>If any part of the student Contract is not valid for any reason under the law of Singapore, this will not affect any other part of the student Contract.</li>
@@ -294,8 +434,8 @@ export default function Page() {
 			</section>
 
 			<section className="w-full bg-white" aria-label="Personal Data Protection">
-				<div className="max-w-6xl mx-auto px-6 py-12 space-y-8">
-					<h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">
+				<div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-12 space-y-6 md:space-y-8 text-sm sm:text-base">
+					<h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">
 						Our Policy – <span className="text-rose-600">Personal Data Protection</span>
 					</h2>
 
@@ -373,8 +513,8 @@ export default function Page() {
 			</section>
 
 			<section className="w-full bg-white" aria-label="Feedback and Complaints">
-				<div className="max-w-6xl mx-auto px-6 py-12 space-y-6">
-					<h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">
+				<div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-12 space-y-6 text-sm sm:text-base">
+					<h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">
 						Our Policy – <span className="text-rose-600">Feedback and Complaints</span>
 					</h2>
 					<p className="text-gray-700">Edusphere College of Management and Technology has a Customer Feedback and Resolution Framework in place.</p>
@@ -388,33 +528,33 @@ export default function Page() {
 						ECMT approaches student/customer feedback and grievances according to the following guiding principles.
 					</p>
 
-					<div className="mt-6 overflow-x-auto">
+					<div className="mt-6 overflow-x-auto -mx-4 sm:mx-0">
 						<table className="min-w-full table-auto border border-gray-200">
 							<tbody className="divide-y divide-gray-200">
 								<tr>
-									<td className="w-40 md:w-52 font-semibold text-gray-900 px-4 py-3 border-r border-gray-200 text-center">Step 1:</td>
-									<td className="px-4 py-3 text-gray-700">
+									<td className="w-28 sm:w-40 md:w-52 font-semibold text-gray-900 px-3 sm:px-4 py-3 border-r border-gray-200 text-center align-top">Step 1:</td>
+									<td className="px-3 sm:px-4 py-3 text-gray-700">
 										Informal management of feedback (minor problem) will be attempted on the same day it is received before escalation to
 										Grievance or Written Grievance (major problem).
 									</td>
 								</tr>
 								<tr>
-									<td className="w-40 md:w-52 font-semibold text-gray-900 px-4 py-3 border-r border-gray-200 text-center">Step 2:</td>
-									<td className="px-4 py-3 text-gray-700">
+									<td className="w-28 sm:w-40 md:w-52 font-semibold text-gray-900 px-3 sm:px-4 py-3 border-r border-gray-200 text-center align-top">Step 2:</td>
+									<td className="px-3 sm:px-4 py-3 text-gray-700">
 										If unresolved on the same day, the grievance will be resolved within 14 working days from the day the feedback/grievance was
 										received.
 									</td>
 								</tr>
 								<tr>
-									<td className="w-40 md:w-52 font-semibold text-gray-900 px-4 py-3 border-r border-gray-200 text-center">Step 3:</td>
-									<td className="px-4 py-3 text-gray-700">
+									<td className="w-28 sm:w-40 md:w-52 font-semibold text-gray-900 px-3 sm:px-4 py-3 border-r border-gray-200 text-center align-top">Step 3:</td>
+									<td className="px-3 sm:px-4 py-3 text-gray-700">
 										If the matter remains unresolved or the student is unsatisfied with the outcome, students may approach the PEI Student Services
 										Centre for assistance. At the Student Services Centre, PEI officers will review the complaints and provide the appropriate advice.
 									</td>
 								</tr>
 								<tr>
-									<td className="w-40 md:w-52 font-semibold text-gray-900 px-4 py-3 border-r border-gray-200 text-center">Step 4:</td>
-									<td className="px-4 py-3 text-gray-700">
+									<td className="w-28 sm:w-40 md:w-52 font-semibold text-gray-900 px-3 sm:px-4 py-3 border-r border-gray-200 text-center align-top">Step 4:</td>
+									<td className="px-3 sm:px-4 py-3 text-gray-700">
 										The PEI may advise the student to participate in the Committee for Private Education’s (PEI’s) appointed Dispute Resolution Scheme
 										which works as follows: Dispute Resolution Scheme Private education institutions participation in the dispute resolution process is
 										compulsory as stipulated by the Private Education Act. There are two stages in the process mediation and arbitration.

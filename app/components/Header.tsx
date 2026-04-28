@@ -35,6 +35,8 @@ const studentAffairsLinks = [
   { label: 'Contact', href: '/contact-us' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Essential Resources and Support for Students', href: '/essential-resources-and-support-for-students' },
+  { label: 'Student Contract', href: '/essential-resources-and-support-for-students#student-contract' },
+  { label: 'Attendance Policy', href: '/essential-resources-and-support-for-students#attendance-policy' },
 ];
 
 export default function Header() {

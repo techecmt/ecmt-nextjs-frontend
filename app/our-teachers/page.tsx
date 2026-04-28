@@ -547,6 +547,187 @@ const teachersData: Teacher[] = [
         ]
       }
     ]
+  },
+  {
+    name: "Mr. Dej Escasa",
+    qualifications: [],
+    deployedMode: "Full Time",
+    courses: [
+      {
+        name: "Diploma in Hotel & Tourism Management",
+        modules: [
+          "DHTM1 – M1: Customer Relationship Management",
+          "DHTM2 – M2: Room Division Management",
+          "DHTM3 – M3: Food & Beverage Management",
+          "DHTM4 – M4: Effective Business Communication",
+          "DHTM5 – M5: Entrepreneurship in Hospitality",
+          "DHTM6 – M6: Waste Management for Hotels & Restaurants"
+        ]
+      },
+      {
+        name: "Diploma in Hotel & Tourism Management (E-Learning)",
+        modules: [
+          "DHTM1 – M1: Customer Relationship Management",
+          "DHTM2 – M2: Room Division Management",
+          "DHTM3 – M3: Food & Beverage Management",
+          "DHTM4 – M4: Effective Business Communication",
+          "DHTM5 – M5: Entrepreneurship in Hospitality",
+          "DHTM6 – M6: Waste Management for Hotels & Restaurants"
+        ]
+      },
+      {
+        name: "Diploma in Business Administration",
+        modules: [
+          "DBA1 – M1: Principles of Management",
+          "DBA2 – M2: Effective Business Communication",
+          "DBA3 – M3: Principles of Economics",
+          "DBA4 – M4: Principles of Finance & Accounting",
+          "DBA5 – M5: Sales & Marketing",
+          "DBA6 – M6: Human Resource Management"
+        ]
+      },
+      {
+        name: "Diploma in Human Resource Management",
+        modules: [
+          "DHRM1 – M1: Principles of Human Resource Management",
+          "DHRM2 – M2: Effective Business Communication",
+          "DHRM3 – M3: Accounting for Managers",
+          "DHRM4 – M4: Organisation Psychology",
+          "DHRM5 – M5: Employment Law & Contracts",
+          "DHRM6 – M6: Training & Development"
+        ]
+      },
+      {
+        name: "Diploma in Human Resource Management (E-Learning)",
+        modules: [
+          "DHRM1 – M1: Principles of Human Resource Management",
+          "DHRM2 – M2: Effective Business Communication",
+          "DHRM3 – M3: Accounting for Managers",
+          "DHRM4 – M4: Organisation Psychology",
+          "DHRM5 – M5: Employment Law & Contracts",
+          "DHRM6 – M6: Training & Development"
+        ]
+      },
+      {
+        name: "Advanced Diploma in Hospitality Management",
+        modules: [
+          "ADHM1 – M1: Human Resources Management in Hospitality",
+          "ADHM2 – M2: Digital & Social Media Marketing in Hospitality",
+          "ADHM3 – M3: Culinary Arts & Management",
+          "ADHM4 – M4: Events Planning & Management",
+          "ADHM5 – M5: Facilities Management & Operations",
+          "ADHM6 – M6: Finance & Accounting in Hospitality",
+          "ADHM7 – M7: Project – Case Management"
+        ]
+      },
+      {
+        name: "Diploma in Logistics & Supply Chain Management",
+        modules: [
+          "DLSCM1 – M1: Introduction to Logistics & Supply Chain Management",
+          "DLSCM2 – M2: Procurement & Sourcing",
+          "DLSCM3 – M3: Inventory Management",
+          "DLSCM4 – M4: Warehouse & Distribution Management",
+          "DLSCM5 – M5: Supply Chain Technology & Information Systems",
+          "DLSCM6 – M6: Financial Management for Supply Chains"
+        ]
+      },
+      {
+        name: "Diploma in Logistics & Supply Chain Management (E-Learning)",
+        modules: [
+          "DLSCM1 – M1: Introduction to Logistics & Supply Chain Management",
+          "DLSCM2 – M2: Procurement & Sourcing",
+          "DLSCM3 – M3: Inventory Management",
+          "DLSCM4 – M4: Warehouse & Distribution Management",
+          "DLSCM5 – M5: Supply Chain Technology & Information Systems",
+          "DLSCM6 – M6: Financial Management for Supply Chains"
+        ]
+      }
+    ]
+  },
+  {
+    name: "Mr. Mohammad Maheswaran",
+    qualifications: [],
+    deployedMode: "Part Time",
+    courses: [
+      {
+        name: "Diploma in Hotel & Tourism Management",
+        modules: [
+          "DHTM1 – M1: Customer Relationship Management",
+          "DHTM2 – M2: Room Division Management",
+          "DHTM3 – M3: Food & Beverage Management",
+          "DHTM4 – M4: Effective Business Communication",
+          "DHTM5 – M5: Entrepreneurship in Hospitality",
+          "DHTM6 – M6: Waste Management for Hotels & Restaurants"
+        ]
+      },
+      {
+        name: "Diploma in Hotel & Tourism Management (E-Learning)",
+        modules: [
+          "DHTM1 – M1: Customer Relationship Management",
+          "DHTM2 – M2: Room Division Management",
+          "DHTM3 – M3: Food & Beverage Management",
+          "DHTM4 – M4: Effective Business Communication",
+          "DHTM5 – M5: Entrepreneurship in Hospitality",
+          "DHTM6 – M6: Waste Management for Hotels & Restaurants"
+        ]
+      },
+      {
+        name: "Advanced Diploma in Hospitality Management",
+        modules: [
+          "ADHM1 – M1: Human Resources Management in Hospitality",
+          "ADHM2 – M2: Digital & Social Media Marketing in Hospitality",
+          "ADHM3 – M3: Culinary Arts & Management",
+          "ADHM4 – M4: Events Planning & Management",
+          "ADHM5 – M5: Facilities Management & Operations",
+          "ADHM6 – M6: Finance & Accounting in Hospitality",
+          "ADHM7 – M7: Project – Case Management"
+        ]
+      },
+      {
+        name: "Diploma in Logistics & Supply Chain Management",
+        modules: [
+          "DLSCM1 – M1: Introduction to Logistics & Supply Chain Management",
+          "DLSCM2 – M2: Procurement & Sourcing",
+          "DLSCM3 – M3: Inventory Management",
+          "DLSCM4 – M4: Warehouse & Distribution Management",
+          "DLSCM5 – M5: Supply Chain Technology & Information Systems",
+          "DLSCM6 – M6: Financial Management for Supply Chains"
+        ]
+      },
+      {
+        name: "Diploma in Business Administration",
+        modules: [
+          "DBA1 – M1: Principles of Management",
+          "DBA2 – M2: Effective Business Communication",
+          "DBA3 – M3: Principles of Economics",
+          "DBA4 – M4: Principles of Finance & Accounting",
+          "DBA5 – M5: Sales & Marketing",
+          "DBA6 – M6: Human Resource Management"
+        ]
+      },
+      {
+        name: "Diploma in Human Resource Management",
+        modules: [
+          "DHRM1 – M1: Principles of Human Resource Management",
+          "DHRM2 – M2: Effective Business Communication",
+          "DHRM3 – M3: Accounting for Managers",
+          "DHRM4 – M4: Organisation Psychology",
+          "DHRM5 – M5: Employment Law & Contracts",
+          "DHRM6 – M6: Training & Development"
+        ]
+      },
+      {
+        name: "Diploma in Business Finance & Accounting",
+        modules: [
+          "DBFA01 – M1: Fundamentals of Business Accounting",
+          "DBFA02 – M2: Practical Bookkeeping & Accounting Operations",
+          "DBFA03 – M3: Business Finance & Cost Management",
+          "DBFA04 – M4: Accounting Software Applications",
+          "DBFA05 – M5: Payroll Administration & Employment Compliance",
+          "DBFA06 – M6: Excel & Digital Tools for Business Finance"
+        ]
+      }
+    ]
   }
 ];
 
