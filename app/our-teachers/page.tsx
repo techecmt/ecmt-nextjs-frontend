@@ -549,8 +549,9 @@ const teachersData: Teacher[] = [
     ]
   },
   {
-    name: "Mr. Dej Escasa",
-    qualifications: [],
+    name: "Mr. Escasa Danilo Jr Abrencillo",
+    qualifications: ["Bachelors Degree, Business Adminstration Major in Tourism  (Highest Honors , Columban College)",
+      "Bachelors of Humanities, Dela Salle University"],
     deployedMode: "Full Time",
     courses: [
       {
