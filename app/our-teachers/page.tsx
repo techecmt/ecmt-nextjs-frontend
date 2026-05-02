@@ -17,7 +17,7 @@ interface Teacher {
 
 const teachersData: Teacher[] = [
   {
-    name: "Samsudeen Mohamed Tahir",
+    name: "Mr. Samsudeen Mohamed Tahir",
     qualifications: [
       "Bachelor of Mechanical Engineering",
       "Anna University, India"
@@ -62,7 +62,7 @@ const teachersData: Teacher[] = [
         modules: [
           "DCE1 – M1: Engineering Mathematics",
           "DCE2 – M2: Engineering English & Communication",
-          "DCE3 – M3: Engineering Drawing & 3D BIM",
+          "DCE3 – M3: Engineering Drawing & 3D Building Information Modelling",
           "DCE4 – M4: Soil Investigation & Geotechnical Instrumentation",
           "DCE5 – M5: Structural Design & Engineering",
           "DCE6 – M6: Strength of Materials"
@@ -222,7 +222,7 @@ const teachersData: Teacher[] = [
         modules: [
           "DCE1 – M1: Engineering Mathematics",
           "DCE2 – M2: Engineering English & Communication",
-          "DCE3 – M3: Engineering Drawing & 3D BIM",
+          "DCE3 – M3: Engineering Drawing & 3D Building Information Modelling",
           "DCE4 – M4: Soil Investigation & Geotechnical Instrumentation",
           "DCE5 – M5: Structural Design & Engineering",
           "DCE6 – M6: Strength of Materials"
@@ -264,7 +264,7 @@ const teachersData: Teacher[] = [
     ]
   },
   {
-    name: "Haji Noor Mohamed Mursidha",
+    name: "Ms. Haji Noor Mohamed Mursidha",
     qualifications: ["Bachelor of Science in Management", "University of London, UK"],
     deployedMode: "Part Time",
     courses: [
@@ -349,7 +349,7 @@ const teachersData: Teacher[] = [
     ]
   },
   {
-    name: "Thilagavathy D/o Vellisamy",
+    name: "Ms. Thilagavathy D/o Vellisamy",
     qualifications: [
       "Master in Arts, Counselling",
       "Goldsmith University of London, UK"
@@ -647,7 +647,7 @@ const teachersData: Teacher[] = [
   },
   {
     name: "Mr. Mohammad Maheswaran",
-    qualifications: [],
+    qualifications: ["MASTERS OF BUSINESS ADMINISTRATION (MBA) (2014) Anglia Ruskin University, United Kingdom"],
     deployedMode: "Part Time",
     courses: [
       {
@@ -729,6 +729,111 @@ const teachersData: Teacher[] = [
         ]
       }
     ]
+  },
+  {
+    name: "Mr. Low Thiam Sze",
+    qualifications: [
+      "Master of Science in Skills and Workforce Development",
+      "University of Cardiff"
+    ],
+    deployedMode: "Part Time",
+    courses: [
+      {
+        name: "Diploma in Logistics & Supply Chain Management",
+        modules: [
+          "DLSCM1 – M1: Introduction to Logistics & Supply Chain Management",
+          "DLSCM2 – M2: Procurement & Sourcing",
+          "DLSCM3 – M3: Inventory Management",
+          "DLSCM4 – M4: Warehouse & Distribution Management",
+          "DLSCM5 – M5: Supply Chain Technology & Information Systems",
+          "DLSCM6 – M6: Financial Management for Supply Chains"
+        ]
+      },
+      {
+        name: "Diploma in Logistics & Supply Chain Management (E-Learning)",
+        modules: [
+          "DLSCM1 – M1: Introduction to Logistics & Supply Chain Management",
+          "DLSCM2 – M2: Procurement & Sourcing",
+          "DLSCM3 – M3: Inventory Management",
+          "DLSCM4 – M4: Warehouse & Distribution Management",
+          "DLSCM5 – M5: Supply Chain Technology & Information Systems",
+          "DLSCM6 – M6: Financial Management for Supply Chains"
+        ]
+      },
+      {
+        name: "Diploma in Retail & E-Commerce Management",
+        modules: [
+          "DREM01 – M1: Introduction to Retail and E-commerce Management",
+          "DREM02 – M2: E-commerce Platforms and Technologies",
+          "DREM03 – M3: Digital Marketing and Customer Engagement",
+          "DREM04 – M4: Inventory and Supply Chain Management",
+          "DREM05 – M5: Retail Finance and Budgeting",
+          "DREM06 – M6: Retail and E-commerce Entrepreneurship"
+        ]
+      },
+      {
+        name: "Diploma in Retail & E-Commerce Management (E-Learning)",
+        modules: [
+          "DREM01 – M1: Introduction to Retail and E-commerce Management",
+          "DREM02 – M2: E-commerce Platforms and Technologies",
+          "DREM03 – M3: Digital Marketing and Customer Engagement",
+          "DREM04 – M4: Inventory and Supply Chain Management",
+          "DREM05 – M5: Retail Finance and Budgeting",
+          "DREM06 – M6: Retail and E-commerce Entrepreneurship"
+        ]
+      }
+    ]
+  },
+  {
+    name: "Mr. Basheer Ahmed Junaid Ahmed",
+    qualifications: [
+      "Bachelor in Mechanical Engineering",
+      "Bangalore University, Karnataka, India"
+    ],
+    deployedMode: "Part Time",
+    courses: [
+      {
+        name: "Diploma in Mechanical & Electrical (M&E) Engineering",
+        modules: [
+          "DME1 – M1: Engineering Mathematics",
+          "DME2 – M2: Engineering Science",
+          "DME3 – M3: Computer-Aided Design",
+          "DME4 – M4: M & E Equipment",
+          "DME5 – M5: Mechanical & Electrical Services for Building Facilities",
+          "DME6 – M6: Workplace Safety & Health"
+        ]
+      },
+      {
+        name: "Advanced Diploma in Mechanical & Electrical (M&E) Engineering",
+        modules: [
+          "ADME1 – M1: Building Automation Technology",
+          "ADME2 – M2: Energy Management System",
+          "ADME3 – M3: Smart Building Management",
+          "ADME4 – M4: Advanced Facilities Management Solutions",
+          "ADME5 – M5: Artificial Intelligence & Machine Learning in M&E",
+          "ADME6 – M6: Project"
+        ]
+      },
+      {
+        name: "Diploma in Civil Engineering",
+        modules: [
+          "DCE1 – M1: Engineering Mathematics",
+          "DCE2 – M2: Engineering English & Communication",
+          "DCE3 – M3: Engineering Drawing & 3D Building Information Modelling"
+        ]
+      },
+      {
+        name: "Advanced Diploma in Civil Engineering",
+        modules: [
+          "ADCE01 – M1: Construction Materials & Testing",
+          "ADCE02 – M2: Advanced Foundation Engineering",
+          "ADCE03 – M3: Project Management in Planning & Scheduling",
+          "ADCE04 – M4: Building Management System",
+          "ADCE05 – M5: Facade Engineering",
+          "ADCE06 – M6: Green Building & Sustainability"
+        ]
+      }
+    ]
   }
 ];
 
@@ -746,7 +851,7 @@ function TeacherCard({ teacher }: { teacher: Teacher }) {
     <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border-2 border-gray-100 hover:border-[#1AB69D]/30">
       {/* Teacher Header */}
       <div className="flex items-start gap-4 mb-6 pb-6 border-b-2 border-gray-100">
-        <div className="w-16 h-16 bg-gradient-to-br from-[#1AB69D] to-[#16a890] rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
+        <div className="w-16 h-16 bg-linear-to-br from-[#1AB69D] to-[#16a890] rounded-full flex items-center justify-center shrink-0 shadow-lg">
           <FaGraduationCap className="text-white text-2xl" />
         </div>
         <div className="flex-1">
@@ -783,7 +888,7 @@ function TeacherCard({ teacher }: { teacher: Teacher }) {
                 className="w-full flex items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left"
               >
                 <span className="font-semibold text-gray-900 text-sm pr-4">{course.name}</span>
-                <div className="flex items-center gap-2 flex-shrink-0">
+                <div className="flex items-center gap-2 shrink-0">
                   <span className="text-xs text-gray-500 font-medium">{course.modules.length} modules</span>
                   {expandedCourses[idx] ? (
                     <FaChevronUp className="text-[#1AB69D] w-4 h-4" />
@@ -798,7 +903,7 @@ function TeacherCard({ teacher }: { teacher: Teacher }) {
                   <ul className="space-y-2">
                     {course.modules.map((module, mIdx) => (
                       <li key={mIdx} className="flex items-start gap-3 text-sm text-gray-700">
-                        <span className="w-2 h-2 bg-[#EE4A62] rounded-full mt-1.5 flex-shrink-0"></span>
+                        <span className="w-2 h-2 bg-[#EE4A62] rounded-full mt-1.5 shrink-0"></span>
                         <span>{module}</span>
                       </li>
                     ))}
@@ -815,9 +920,9 @@ function TeacherCard({ teacher }: { teacher: Teacher }) {
 
 export default function OurTeachersPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+    <main className="min-h-screen bg-linear-to-b from-gray-50 to-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#1AB69D] to-[#16a085] pt-32 pb-16 px-8 relative overflow-hidden">
+      <section className="bg-linear-to-br from-[#1AB69D] to-[#16a085] pt-32 pb-16 px-8 relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
         <div className="absolute bottom-0 left-0 w-72 h-72 bg-white opacity-5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
@@ -850,7 +955,7 @@ export default function OurTeachersPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-8 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-16 px-8 bg-linear-to-br from-gray-50 to-white">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-spartan">
             Ready to Learn from the Best?

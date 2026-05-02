@@ -6,7 +6,7 @@ export default function Heroytb() {
     <section className="pt-24 pb-12 px-8 overflow-hidden">
       {/* Video Title */}
       <div className="container mx-auto max-w-5xl text-center mb-8">
-        <span className="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-[#EE4A62]/10 via-[#EE4A62]/15 to-[#1AB69D]/10 text-[#EE4A62] rounded-full text-xs font-bold uppercase tracking-[0.2em] mb-5 border border-[#EE4A62]/20 shadow-sm backdrop-blur-sm">
+        <span className="inline-flex items-center gap-2 px-5 py-2 bg-linear-to-r from-[#EE4A62]/10 via-[#EE4A62]/15 to-[#1AB69D]/10 text-[#EE4A62] rounded-full text-xs font-bold uppercase tracking-[0.2em] mb-5 border border-[#EE4A62]/20 shadow-sm backdrop-blur-sm">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#EE4A62] opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#EE4A62]"></span>
@@ -18,11 +18,11 @@ export default function Heroytb() {
         </span>
 
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-spartan leading-tight tracking-tight">
-          <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-white dark:via-gray-100 dark:to-white bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-white dark:via-gray-100 dark:to-white bg-clip-text text-transparent">
             Graduation Ceremony
           </span>{' '}
           <span className="relative inline-block">
-            <span className="bg-gradient-to-r from-[#1AB69D] to-[#0d8a76] bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-[#1AB69D] to-[#0d8a76] bg-clip-text text-transparent">
               2026
             </span>
             <svg className="absolute -bottom-1 left-0 w-full h-2 text-[#1AB69D]/40" viewBox="0 0 100 8" fill="none" preserveAspectRatio="none">
@@ -32,11 +32,11 @@ export default function Heroytb() {
         </h2>
 
         <div className="flex items-center justify-center gap-3 mt-3">
-          <span className="h-px w-12 bg-gradient-to-r from-transparent to-[#EE4A62]/40"></span>
+          <span className="h-px w-12 bg-linear-to-r from-transparent to-[#EE4A62]/40"></span>
           <span className="text-[#EE4A62] dark:text-[#EE4A62] text-sm md:text-base font-semibold font-poppins tracking-widest uppercase">
             Part 01
           </span>
-          <span className="h-px w-12 bg-gradient-to-l from-transparent to-[#EE4A62]/40"></span>
+          <span className="h-px w-12 bg-linear-to-l from-transparent to-[#EE4A62]/40"></span>
         </div>
 
         <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg font-poppins mt-4 max-w-2xl mx-auto leading-relaxed">

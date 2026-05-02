@@ -231,7 +231,7 @@ export default function AdvancedDiplomaInComputerApplicationTransportation() {
 						{/* Teacher-to-Student Ratio */}
 						<div className="bg-white rounded-lg shadow-sm p-6 border border-gray-100">
 							<h3 className="text-xl font-bold text-[#1AB69D] mb-4">Teacher-to-Student Ratio:</h3>
-							<p className="text-gray-700 text-sm">The Teacher-to-student ratio is 1:15 (Lecture / Practical)</p>
+							<p className="text-gray-700 text-sm">The Teacher-to-student ratio is 1:40 (Lecture / Practical)</p>
 						</div>
 
 						{/* Certification */}

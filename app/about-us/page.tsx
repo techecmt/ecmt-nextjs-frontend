@@ -105,7 +105,7 @@ export default function AboutUs() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                ABOUT US
+                ABOUT OUR COLLEGE
               </h1>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
                 <strong>Edusphere College of Management and Technology Pte Ltd</strong>, established in <strong>2019</strong>, was founded on the
@@ -270,127 +270,24 @@ export default function AboutUs() {
               How We&apos;re Organised
             </h2>
             <h3 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
-              Organisational Chart
+              Organisation Chart
             </h3>
             <p className="text-lg text-gray-600 leading-relaxed">
               Our structured leadership ensures every department works together to deliver the best educational experience.
             </p>
           </div>
 
-          {/* Org Chart */}
-          <div className="flex flex-col items-center">
-            {/* Level 1 – Share Holders / Board of Directors */}
-            <div className="bg-[#d81f26] text-white rounded-2xl px-10 py-5 text-center shadow-lg">
-              <p className="font-bold text-lg">Share Holders / Board of Directors</p>
-            </div>
-
-            {/* Connector */}
-            <div className="w-px h-10 bg-gray-300"></div>
-
-            {/* Level 2 – CEO flanked by Academic Board & Examination Board */}
-            <div className="flex items-center justify-center gap-0 w-full max-w-4xl">
-              {/* Academic Board */}
-              <div className="hidden lg:flex items-center flex-1 justify-end">
-                <div className="bg-[#1e2a4a] text-white rounded-full px-6 py-3 text-center shadow-md">
-                  <p className="font-semibold text-sm">Academic Board</p>
-                </div>
-                <div className="w-8 h-px bg-gray-300"></div>
-              </div>
-
-              {/* CEO */}
-              <div className="bg-[#d81f26] text-white rounded-2xl px-10 py-5 text-center shadow-lg z-10">
-                <p className="font-bold text-lg">CEO</p>
-              </div>
-
-              {/* Examination Board */}
-              <div className="hidden lg:flex items-center flex-1 justify-start">
-                <div className="w-8 h-px bg-gray-300"></div>
-                <div className="bg-[#1e2a4a] text-white rounded-full px-6 py-3 text-center shadow-md">
-                  <p className="font-semibold text-sm">Examination Board</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Mobile: Academic & Examination Board */}
-            <div className="flex lg:hidden flex-wrap justify-center gap-3 mt-4">
-              <div className="bg-[#1e2a4a] text-white rounded-full px-6 py-3 text-center shadow-md">
-                <p className="font-semibold text-sm">Academic Board</p>
-              </div>
-              <div className="bg-[#1e2a4a] text-white rounded-full px-6 py-3 text-center shadow-md">
-                <p className="font-semibold text-sm">Examination Board</p>
-              </div>
-            </div>
-
-            {/* Connector from CEO down */}
-            <div className="w-px h-10 bg-gray-300"></div>
-
-            {/* Horizontal line spanning Level 3 departments */}
-            <div className="hidden lg:block w-full max-w-6xl h-px bg-gray-300"></div>
-
-            {/* Level 3 – 6 Departments */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3 w-full max-w-6xl">
-              <div className="flex flex-col items-center">
-                <div className="hidden lg:block w-px h-6 bg-gray-300"></div>
-                <div className="bg-[#1e2a4a] text-white rounded-full px-4 py-3 text-center shadow-md w-full">
-                  <p className="font-semibold text-xs">Administration &amp; Student Support</p>
-                </div>
-              </div>
-              <div className="flex flex-col items-center">
-                <div className="hidden lg:block w-px h-6 bg-gray-300"></div>
-                <div className="bg-[#1e2a4a] text-white rounded-full px-4 py-3 text-center shadow-md w-full">
-                  <p className="font-semibold text-xs">Finance / HR / Facilities</p>
-                </div>
-              </div>
-              <div className="flex flex-col items-center">
-                <div className="hidden lg:block w-px h-6 bg-gray-300"></div>
-                <div className="bg-[#1e2a4a] text-white rounded-full px-4 py-3 text-center shadow-md w-full">
-                  <p className="font-semibold text-xs">Marketing / Business Development</p>
-                </div>
-              </div>
-              <div className="flex flex-col items-center">
-                <div className="hidden lg:block w-px h-6 bg-gray-300"></div>
-                <div className="bg-[#1e2a4a] text-white rounded-full px-4 py-3 text-center shadow-md w-full">
-                  <p className="font-semibold text-xs">ERF Programmes</p>
-                </div>
-                {/* Sub-level: Programme Manager */}
-                <div className="w-px h-6 bg-gray-300"></div>
-                <div className="bg-gray-200 text-gray-800 rounded-full px-4 py-2.5 text-center shadow-sm w-full">
-                  <p className="font-semibold text-xs">Programme Manager</p>
-                </div>
-                {/* Sub-level: Programme Executive */}
-                <div className="w-px h-6 bg-gray-300"></div>
-                <div className="bg-gray-200 text-gray-800 rounded-full px-4 py-2.5 text-center shadow-sm w-full">
-                  <p className="font-semibold text-xs">Programme Executive</p>
-                </div>
-              </div>
-              <div className="flex flex-col items-center">
-                <div className="hidden lg:block w-px h-6 bg-gray-300"></div>
-                <div className="bg-[#1e2a4a] text-white rounded-full px-4 py-3 text-center shadow-md w-full">
-                  <p className="font-semibold text-xs">Registered Training Provider (RTP)</p>
-                </div>
-                {/* Sub-level: Programme Manager */}
-                <div className="w-px h-6 bg-gray-300"></div>
-                <div className="bg-gray-200 text-gray-800 rounded-full px-4 py-2.5 text-center shadow-sm w-full">
-                  <p className="font-semibold text-xs">Programme Manager</p>
-                </div>
-                {/* Sub-level: Programme Executive */}
-                <div className="w-px h-6 bg-gray-300"></div>
-                <div className="bg-gray-200 text-gray-800 rounded-full px-4 py-2.5 text-center shadow-sm w-full">
-                  <p className="font-semibold text-xs">Programme Executive</p>
-                </div>
-              </div>
-              <div className="flex flex-col items-center">
-                <div className="hidden lg:block w-px h-6 bg-gray-300"></div>
-                <div className="bg-[#1e2a4a] text-white rounded-full px-4 py-3 text-center shadow-md w-full">
-                  <p className="font-semibold text-xs">Teachers</p>
-                </div>
-                {/* Sub-level: Trainers */}
-                <div className="w-px h-6 bg-gray-300"></div>
-                <div className="bg-gray-200 text-gray-800 rounded-full px-4 py-2.5 text-center shadow-sm w-full">
-                  <p className="font-semibold text-xs">Trainers</p>
-                </div>
-              </div>
-            </div>
+          {/* Org Chart Image */}
+          <div className="relative w-full max-w-6xl mx-auto rounded-2xl overflow-hidden shadow-lg ring-1 ring-black/5 bg-white">
+            <Image
+              src="/about-contact-other/orgchart_2026.png"
+              alt="Edusphere College Organisation Chart 2026"
+              width={1600}
+              height={1000}
+              className="w-full h-auto object-contain"
+              priority={false}
+              sizes="(min-width: 1024px) 1024px, 100vw"
+            />
           </div>
         </div>
       </section>
@@ -538,3 +435,5 @@ export default function AboutUs() {
     </div>
   );
 }
+
+

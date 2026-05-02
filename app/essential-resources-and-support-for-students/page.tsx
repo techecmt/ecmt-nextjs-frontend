@@ -44,39 +44,7 @@ export default function Page() {
 						Our Policy – <span className="text-rose-600">Attendance</span>
 					</h2>
 
-					{/* International Students */}
-					<div>
-						<h3 className="text-xl sm:text-2xl font-semibold text-gray-900">International Students</h3>
-						<p className="mt-4 text-gray-700">
-							International students holding a Student Pass issued by Immigration and Checkpoints Authority are required to maintain a minimum attendance of 90% for the overall course.
-						</p>
-
-						<p className="mt-4 text-gray-700">Students who fall below the required attendance may be subject to:</p>
-						<ul className="mt-2 list-disc pl-5 sm:pl-6 space-y-2 text-gray-700">
-							<li>Reporting to ICA</li>
-							<li>Possible cancellation of the Student Pass</li>
-						</ul>
-						<p className="mt-4 text-gray-700">
-							To be eligible for certification, students must meet the minimum attendance requirement set by the institution (typically 85% or above).
-						</p>
-
-						<h4 className="mt-6 text-base font-semibold text-gray-900">Make-up Classes:</h4>
-						<p className="mt-2 text-gray-700">
-							Students with attendance below the required level due to valid reasons (e.g., medical or emergency leave) may be required to:
-						</p>
-						<ul className="mt-2 list-disc pl-5 sm:pl-6 space-y-2 text-gray-700">
-							<li>Attend make-up classes</li>
-							<li>Pay applicable fees</li>
-						</ul>
-						<p className="mt-4 text-gray-700">
-							If attendance is significantly below the required level, the student may be required to retake the module.
-						</p>
-
-						<h4 className="mt-6 text-base font-semibold text-gray-900">Late Enrollment:</h4>
-						<p className="mt-2 text-gray-700">
-							Students who join after course commencement may be allowed to continue only if make-up classes are arranged to meet attendance requirements.
-						</p>
-					</div>
+					
 
 					{/* Local Students */}
 					<div>
@@ -94,14 +62,7 @@ export default function Page() {
 							<li>Pay applicable fees to fulfill attendance requirements</li>
 						</ul>
 
-						<h4 className="mt-6 text-base font-semibold text-gray-900">Late Enrollment:</h4>
-						<p className="mt-2 text-gray-700">
-							Students who enroll after the course has started may be permitted to join, provided:
-						</p>
-						<ul className="mt-2 list-disc pl-5 sm:pl-6 space-y-2 text-gray-700">
-							<li>Make-up classes are arranged</li>
-							<li>Attendance requirements can still be fulfilled</li>
-						</ul>
+						
 					</div>
 				</div>
 			</section>
@@ -264,37 +225,44 @@ export default function Page() {
 					</p>
 
 					{/* Refund table */}
-					<div className="mt-6 md:mt-8 overflow-x-auto -mx-4 sm:mx-0">
-						<table className="min-w-full table-auto border border-gray-200 text-sm sm:text-base">
-							<thead>
-								<tr>
-									<th className="w-1/3 bg-rose-600 text-white text-sm md:text-base font-semibold px-3 sm:px-4 py-3 border-r border-rose-600 text-center">
-										Refund of Course Fee (%)
-									</th>
-									<th className="bg-rose-600 text-white text-sm md:text-base font-semibold px-3 sm:px-4 py-3 text-left">
-										If Student’s written notice of withdrawal is received:
-									</th>
-								</tr>
-							</thead>
-							<tbody className="divide-y divide-gray-200">
-								<tr>
-									<td className="text-center font-medium px-3 sm:px-4 py-3 border-r border-gray-200">100%</td>
-									<td className="px-3 sm:px-4 py-3">("Maximum Refund") More than [30] days before the Course Commencement Date</td>
-								</tr>
-								<tr>
-									<td className="text-center font-medium px-3 sm:px-4 py-3 border-r border-gray-200">50%</td>
-									<td className="px-3 sm:px-4 py-3">Before, but not more than [30] days before the Course Commencement Date</td>
-								</tr>
-								<tr>
-									<td className="text-center font-medium px-3 sm:px-4 py-3 border-r border-gray-200">25%</td>
-									<td className="px-3 sm:px-4 py-3">After, but not more than [15] days after the Course Commencement Date</td>
-								</tr>
-								<tr>
-									<td className="text-center font-medium px-3 sm:px-4 py-3 border-r border-gray-200">0%</td>
-									<td className="px-3 sm:px-4 py-3">More than [15] days after the Course Commencement Date</td>
-								</tr>
-							</tbody>
-						</table>
+					<div className="mt-6 md:mt-8 rounded-2xl bg-white shadow-md ring-1 ring-black/5 overflow-hidden">
+						<div className="px-5 sm:px-7 pt-6 pb-4">
+							<h3 className="text-2xl sm:text-3xl font-bold text-teal-500 leading-snug">
+								Course Withdrawal/Transfer and Refund Policy
+							</h3>
+						</div>
+						<div className="overflow-x-auto">
+							<table className="min-w-full table-auto text-sm sm:text-base">
+								<thead>
+									<tr>
+										<th className="w-1/3 bg-rose-500 text-white font-bold px-4 sm:px-6 py-4 text-left align-top">
+											Refund of Course Fee (%)
+										</th>
+										<th className="bg-rose-500 text-white font-bold px-4 sm:px-6 py-4 text-left align-top">
+											If Student’s written notice of withdrawal is received:
+										</th>
+									</tr>
+								</thead>
+								<tbody className="divide-y divide-gray-200">
+									<tr>
+										<td className="text-center font-extrabold text-gray-900 px-4 sm:px-6 py-5">100%</td>
+										<td className="px-4 sm:px-6 py-5 text-gray-700">("Maximum Refund") More than [30] days before the Course Commencement Date</td>
+									</tr>
+									<tr>
+										<td className="text-center font-extrabold text-gray-900 px-4 sm:px-6 py-5">50%</td>
+										<td className="px-4 sm:px-6 py-5 text-gray-700">Before, but not more than [30] days before the Course Commencement Date</td>
+									</tr>
+									<tr>
+										<td className="text-center font-extrabold text-gray-900 px-4 sm:px-6 py-5">25%</td>
+										<td className="px-4 sm:px-6 py-5 text-gray-700">After, but not more than [15] days after the Course Commencement Date</td>
+									</tr>
+									<tr>
+										<td className="text-center font-extrabold text-gray-900 px-4 sm:px-6 py-5">0%</td>
+										<td className="px-4 sm:px-6 py-5 text-gray-700">More than [15] days after the Course Commencement Date</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 					</div>
 				</div>
 			</section>

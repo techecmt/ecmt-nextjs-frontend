@@ -233,7 +233,7 @@ export default function DiplomaInCaregiving() {
                 Teacher-to-Student Ratio:
               </h3>
               <p className="text-gray-700 text-sm">
-                The Teacher-to-student ratio is 1:30 (Lecture / Practical)
+                The Teacher-to-student ratio is 1:40 (Lecture / Practical)
               </p>
             </div>
 

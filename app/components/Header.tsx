@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
@@ -26,9 +26,11 @@ const menuItems = [
 ];
 
 const aboutUsLinks = [
+  { label: 'About our College', href: '/about-us' },
   { label: 'Campus and Facilities', href: '/campus-and-facilities' },
   { label: 'Our Teachers', href: '/our-teachers' },
   { label: 'Academic and Examination Board', href: '/about-us#academic-examination-board' },
+  { label: 'Fee Protection Scheme', href: '/fee-protection-scheme' },
 ];
 
 const studentAffairsLinks = [
@@ -43,6 +45,20 @@ export default function Header() {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileAccordion, setMobileAccordion] = useState<string | null>(null);
+
+  // Lock body scroll while the mobile menu is open
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    const original = document.body.style.overflow;
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = original || '';
+    }
+    return () => {
+      document.body.style.overflow = original || '';
+    };
+  }, [mobileMenuOpen]);
 
   return (
     <header className="bg-white shadow-sm fixed top-0 left-0 right-0 z-50 overflow-visible">
@@ -70,8 +86,10 @@ export default function Header() {
         {/* MOBILE MENU BUTTON */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden text-2xl text-[#1AB69D]"
+          className="lg:hidden text-2xl text-[#1AB69D] p-2 -mr-2"
           aria-label="Toggle menu"
+          aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-menu"
         >
           {mobileMenuOpen ? <FaTimes /> : <FaBars />}
         </button>
@@ -130,8 +148,14 @@ export default function Header() {
 
         {/* MOBILE MENU */}
         {mobileMenuOpen && (
-          <div className="lg:hidden fixed inset-x-0 top-[72px] bottom-0 bg-white overflow-y-auto shadow-2xl">
-            <nav className="p-4 space-y-2">
+          <div
+            id="mobile-menu"
+            className="lg:hidden fixed inset-x-0 top-[72px] bottom-0 bg-white overflow-y-auto overscroll-contain shadow-2xl"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Main navigation"
+          >
+            <nav className="p-4 pb-10 space-y-2">
               {menuItems.map((item) => (
                 <div key={item.name}>
                   {!item.hasDropdown ? (
@@ -278,7 +302,7 @@ function CourseSection({
 }
 
 function CourseCard({ title, elearning, isNew, url }: any) {
-  const href = url || '/contact';
+  const href = url || '/contact-us';
   return (
     <Link
       href={href}
@@ -322,7 +346,7 @@ function WsqDropdown({
               wsqList.map((course, idx) => (
                 <Link
                   key={idx}
-                  href={course.href || '/contact'}
+                  href={course.href || '/contact-us'}
                   className="flex items-center gap-2 py-2 px-2 hover:bg-gray-50 rounded transition-colors"
                 >
                   <span className="text-[#1AB69D]">›</span>
@@ -430,7 +454,7 @@ function MobileCoursesSection({ menuType, onLinkClick }: { menuType: string; onL
                 wsqList.map((course) => (
                   <Link
                     key={course.id}
-                    href={course.href || '/contact'}
+                    href={course.href || '/contact-us'}
                     onClick={onLinkClick}
                     className="flex items-start gap-2 py-2 px-2 hover:bg-white rounded transition-colors"
                   >
@@ -500,7 +524,7 @@ function MobileCoursesSection({ menuType, onLinkClick }: { menuType: string; onL
                     {school.courses.map((course: any, i: number) => (
                       <Link
                         key={i}
-                        href={course.url || '/contact'}
+                        href={course.url || '/contact-us'}
                         onClick={onLinkClick}
                         className="flex items-start gap-2 py-2 px-2 hover:bg-white rounded transition-colors"
                       >

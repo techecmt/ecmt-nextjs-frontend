@@ -73,14 +73,7 @@ export const courseData: School[] = [
     title: "School of IT",
     color: "#1AB69D",
     courses: [
-      {
-        title: "Diploma in Information Technology",
-        mode: "Part Time",
-        duration: "08 Months",
-        image: "/homepage/dit-el.png",
-        url: "/diploma-in-information-technology",
-      },
-      {
+            {
         title: "Advanced Diploma in Computer Application (Transportation)",
         mode: "Part Time",
         duration: "08 Months",
@@ -217,7 +210,7 @@ export const courseData: School[] = [
         url: "/diploma-in-hospitality-management-e-learning",
       },
       {
-        title: "Advanced Diploma in Nursing Care (E-Learning)",
+        title: "Advanced Diploma in Nursing Care Assistant (E-Learning)",
         mode: "Part Time",
         duration: "08 Months",
         elearning: true,

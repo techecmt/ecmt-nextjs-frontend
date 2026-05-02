@@ -1,46 +1,40 @@
 "use client";
 
-import { useState } from "react";
-import { batchScheduleData } from "../data/batchschedule";
+import { useMemo, useState } from "react";
+import { batchScheduleData, type Batch, type BatchSchedule } from "../data/batchschedule";
+
+const MONTHS: { key: keyof Omit<BatchSchedule, "courseName">; label: string; short: string }[] = [
+  { key: "may2026", label: "MAY 2026", short: "May" },
+  { key: "jun2026", label: "JUN 2026", short: "Jun" },
+  { key: "jul2026", label: "JUL 2026", short: "Jul" },
+  { key: "sep2026", label: "SEP 2026", short: "Sep" },
+  { key: "oct2026", label: "OCT 2026", short: "Oct" },
+  { key: "nov2026", label: "NOV 2026", short: "Nov" },
+];
+
+const isAvailable = (b: Batch) => Boolean(b.startDate && b.endDate);
 
 export default function BatchSchedule() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  const filteredData = batchScheduleData.filter(
-    (course) =>
-      course.courseName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      course.courseCode.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredData = useMemo(
+    () =>
+      batchScheduleData.filter((course) =>
+        course.courseName.toLowerCase().includes(searchTerm.toLowerCase())
+      ),
+    [searchTerm]
   );
-
-  const getDateCellClass = (date: string) => {
-    if (date === "N.A") {
-      return "text-gray-400 italic text-sm";
-    }
-    if (date.includes("BATCH FULL")) {
-      return "text-red-600 font-bold text-sm";
-    }
-    return "text-gray-900 font-semibold text-sm";
-  };
-
-  const getDateCellBg = (date: string) => {
-    if (date.includes("BATCH FULL")) {
-      return "bg-red-50";
-    }
-    if (date !== "N.A") {
-      return "bg-green-50";
-    }
-    return "bg-gray-50";
-  };
 
   return (
     <section className="py-12 md:py-16 bg-white">
-      <div className="container mx-auto px-4 md:px-8">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="mb-8">
-            <div className="flex items-center gap-2 mb-3">
+          <div className="mb-6 md:mb-8">
+            <div className="flex items-center gap-2 mb-2">
               <span className="w-2 h-2 rounded-full bg-[#1AB69D]" />
-              <span className="text-sm font-semibold text-[#1AB69D] uppercase tracking-wider">
+              <span className="text-xs md:text-sm font-semibold text-[#1AB69D] uppercase tracking-wider">
                 Batch Schedule
               </span>
             </div>
@@ -48,22 +42,22 @@ export default function BatchSchedule() {
               Upcoming Course Batches 2026
             </h2>
             <p className="text-gray-600 text-sm md:text-base">
-              View our available batch schedules and secure your spot today
+              View available start &amp; end dates and reserve your seat today.
             </p>
           </div>
 
-          {/* Search Bar */}
-          <div className="mb-6">
-            <div className="relative max-w-md">
+          {/* Search + Legend */}
+          <div className="mb-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <div className="relative w-full sm:max-w-sm">
               <input
                 type="text"
-                placeholder="Search by course name or code..."
+                placeholder="Search course..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full px-4 py-3 pl-10 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1AB69D]/30 focus:border-[#1AB69D] outline-none transition-all duration-300"
+                className="w-full pl-10 pr-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1AB69D]/30 focus:border-[#1AB69D] outline-none transition-all"
               />
               <svg
-                className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
+                className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -76,200 +70,178 @@ export default function BatchSchedule() {
                 />
               </svg>
             </div>
-          </div>
-
-          {/* Legend */}
-          <div className="flex flex-wrap gap-4 mb-6 text-sm">
-            <div className="flex items-center gap-2">
-              <span className="w-4 h-4 rounded bg-green-50 border border-green-200" />
-              <span className="text-gray-700">Available</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="w-4 h-4 rounded bg-red-50 border border-red-200" />
-              <span className="text-gray-700">Batch Full</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="w-4 h-4 rounded bg-gray-50 border border-gray-200" />
-              <span className="text-gray-700">Not Available</span>
+            <div className="flex flex-wrap gap-3 text-xs">
+              <span className="inline-flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded bg-emerald-50 border border-emerald-200" />
+                <span className="text-gray-700">Available</span>
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded bg-gray-100 border border-gray-200" />
+                <span className="text-gray-500">Not available</span>
+              </span>
             </div>
           </div>
 
-          {/* Desktop Table */}
-          <div className="hidden lg:block overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
-            <table className="w-full">
+          {/* Desktop / Tablet Table (≥ md) */}
+          <div className="hidden md:block overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+            <table className="w-full text-xs lg:text-sm border-collapse">
               <thead>
                 <tr className="bg-[#1AB69D] text-white">
-                  <th className="px-4 py-4 text-left text-sm font-semibold w-[25%]">
-                    Course Name
+                  <th className="sticky left-0 z-10 bg-[#1AB69D] px-3 py-3 text-left font-semibold border-r border-white/20 min-w-[200px]">
+                    Course
                   </th>
-                  <th className="px-3 py-4 text-center text-sm font-semibold w-[10%]">
-                    Code
-                  </th>
-                  <th className="px-4 py-4 text-center text-sm font-semibold w-[13%]">
-                    JAN '26
-                  </th>
-                  <th className="px-4 py-4 text-center text-sm font-semibold w-[13%]">
-                    FEB '26
-                  </th>
-                  <th className="px-4 py-4 text-center text-sm font-semibold w-[13%]">
-                    MAR '26
-                  </th>
-                  <th className="px-4 py-4 text-center text-sm font-semibold w-[13%]">
-                    APR '26
-                  </th>
-                  <th className="px-4 py-4 text-center text-sm font-semibold w-[13%]">
-                    MAY '26
-                  </th>
+                  {MONTHS.map((m) => (
+                    <th
+                      key={m.key}
+                      className="px-2 py-3 text-center font-semibold border-l border-white/20 whitespace-nowrap"
+                    >
+                      {m.label}
+                    </th>
+                  ))}
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200">
-                {filteredData.map((course, index) => (
+              <tbody>
+                {filteredData.map((course, idx) => (
                   <tr
-                    key={course.courseCode}
-                    className="hover:bg-gray-50 transition-colors"
+                    key={course.courseName}
+                    className={`${
+                      idx % 2 === 0 ? "bg-white" : "bg-gray-50/60"
+                    } hover:bg-[#1AB69D]/5 transition-colors`}
                   >
-                    <td className="px-4 py-4 w-[25%]">
-                      <div className="text-xs font-medium text-gray-900 leading-tight">
+                    <td className="sticky left-0 z-1 bg-inherit px-3 py-3 align-middle border-r border-gray-200">
+                      <div className="font-semibold text-gray-900 leading-snug max-w-[260px]">
                         {course.courseName}
                       </div>
                     </td>
-                    <td className="px-3 py-4 w-[10%]">
-                      <div className="text-xs font-bold text-center text-[#1AB69D] bg-[#1AB69D]/10 rounded-full px-2 py-1 inline-block">
-                        {course.courseCode}
-                      </div>
-                    </td>
-                    <td
-                      className={`px-4 py-4 text-center font-medium w-[13%] ${getDateCellBg(
-                        course.jan2026
-                      )}`}
-                    >
-                      <span className={getDateCellClass(course.jan2026)}>
-                        {course.jan2026}
-                      </span>
-                    </td>
-                    <td
-                      className={`px-4 py-4 text-center font-medium w-[13%] ${getDateCellBg(
-                        course.feb2026
-                      )}`}
-                    >
-                      <span className={getDateCellClass(course.feb2026)}>
-                        {course.feb2026}
-                      </span>
-                    </td>
-                    <td
-                      className={`px-4 py-4 text-center font-medium w-[13%] ${getDateCellBg(
-                        course.mar2026
-                      )}`}
-                    >
-                      <span className={getDateCellClass(course.mar2026)}>
-                        {course.mar2026}
-                      </span>
-                    </td>
-                    <td
-                      className={`px-4 py-4 text-center font-medium w-[13%] ${getDateCellBg(
-                        course.apr2026
-                      )}`}
-                    >
-                      <span className={getDateCellClass(course.apr2026)}>
-                        {course.apr2026}
-                      </span>
-                    </td>
-                    <td
-                      className={`px-4 py-4 text-center font-medium w-[13%] ${getDateCellBg(
-                        course.may2026
-                      )}`}
-                    >
-                      <span className={getDateCellClass(course.may2026)}>
-                        {course.may2026}
-                      </span>
-                    </td>
+                    {MONTHS.map((m) => {
+                      const b = course[m.key];
+                      const ok = isAvailable(b);
+                      return (
+                        <td
+                          key={m.key}
+                          className={`px-2 py-2 text-center align-middle border-l border-gray-200 ${
+                            ok ? "bg-emerald-50/70" : "bg-gray-100/60"
+                          }`}
+                        >
+                          {ok ? (
+                            <div className="flex flex-col items-center leading-tight">
+                              <span className="font-semibold text-gray-900 whitespace-nowrap">
+                                {b.startDate}
+                              </span>
+                              <span className="text-[10px] text-gray-400 my-0.5">
+                                to
+                              </span>
+                              <span className="text-gray-600 whitespace-nowrap">
+                                {b.endDate}
+                              </span>
+                            </div>
+                          ) : (
+                            <span className="text-gray-400 italic text-xs">—</span>
+                          )}
+                        </td>
+                      );
+                    })}
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
 
-          {/* Mobile Cards */}
-          <div className="lg:hidden space-y-4">
-            {filteredData.map((course) => (
-              <div
-                key={course.courseCode}
-                className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden"
-              >
-                <div className="bg-[#1AB69D] px-4 py-3">
-                  <h3 className="text-white font-semibold text-sm">
-                    {course.courseName}
-                  </h3>
-                  <span className="inline-block mt-1 text-xs font-bold text-[#1AB69D] bg-white rounded-full px-3 py-1">
-                    {course.courseCode}
-                  </span>
+          {/* Mobile Accordion (< md) */}
+          <div className="md:hidden space-y-2.5">
+            {filteredData.map((course, idx) => {
+              const open = openIndex === idx;
+              const availableCount = MONTHS.filter((m) =>
+                isAvailable(course[m.key])
+              ).length;
+              return (
+                <div
+                  key={course.courseName}
+                  className="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden"
+                >
+                  <button
+                    type="button"
+                    onClick={() => setOpenIndex(open ? null : idx)}
+                    aria-expanded={open}
+                    className="w-full text-left px-4 py-3 flex items-start gap-3 active:bg-gray-50"
+                  >
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-sm font-semibold text-gray-900 leading-snug">
+                        {course.courseName}
+                      </h3>
+                      <p className="mt-1 text-xs text-[#1AB69D] font-medium">
+                        {availableCount} batch
+                        {availableCount === 1 ? "" : "es"} available
+                      </p>
+                    </div>
+                    <span
+                      className={`mt-1 shrink-0 w-7 h-7 rounded-full flex items-center justify-center bg-[#1AB69D]/10 text-[#1AB69D] transition-transform ${
+                        open ? "rotate-180" : ""
+                      }`}
+                      aria-hidden
+                    >
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                  {open && (
+                    <div className="px-4 pb-4 pt-1 border-t border-gray-100">
+                      <div className="grid grid-cols-2 gap-2">
+                        {MONTHS.map((m) => {
+                          const b = course[m.key];
+                          const ok = isAvailable(b);
+                          return (
+                            <div
+                              key={m.key}
+                              className={`rounded-lg border p-2.5 ${
+                                ok
+                                  ? "border-emerald-200 bg-emerald-50/70"
+                                  : "border-gray-200 bg-gray-50"
+                              }`}
+                            >
+                              <div className="text-[10px] font-bold tracking-wider text-gray-500 mb-1.5">
+                                {m.label}
+                              </div>
+                              {ok ? (
+                                <dl className="space-y-1 text-[11px]">
+                                  <div className="flex justify-between gap-2">
+                                    <dt className="text-gray-500">Start</dt>
+                                    <dd className="font-semibold text-gray-900">
+                                      {b.startDate}
+                                    </dd>
+                                  </div>
+                                  <div className="flex justify-between gap-2">
+                                    <dt className="text-gray-500">End</dt>
+                                    <dd className="font-semibold text-gray-900">
+                                      {b.endDate}
+                                    </dd>
+                                  </div>
+                                </dl>
+                              ) : (
+                                <p className="text-xs text-gray-400 italic">
+                                  Not available
+                                </p>
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
                 </div>
-                <div className="p-4 space-y-3">
-                  <div className="grid grid-cols-2 gap-3">
-                    <div
-                      className={`p-3 rounded-lg ${getDateCellBg(
-                        course.jan2026
-                      )}`}
-                    >
-                      <div className="text-xs text-gray-600 font-medium mb-1">
-                        JAN '26
-                      </div>
-                      <div className={`text-sm ${getDateCellClass(course.jan2026)}`}>
-                        {course.jan2026}
-                      </div>
-                    </div>
-                    <div
-                      className={`p-3 rounded-lg ${getDateCellBg(
-                        course.feb2026
-                      )}`}
-                    >
-                      <div className="text-xs text-gray-600 font-medium mb-1">
-                        FEB '26
-                      </div>
-                      <div className={`text-sm ${getDateCellClass(course.feb2026)}`}>
-                        {course.feb2026}
-                      </div>
-                    </div>
-                    <div
-                      className={`p-3 rounded-lg ${getDateCellBg(
-                        course.mar2026
-                      )}`}
-                    >
-                      <div className="text-xs text-gray-600 font-medium mb-1">
-                        MAR '26
-                      </div>
-                      <div className={`text-sm ${getDateCellClass(course.mar2026)}`}>
-                        {course.mar2026}
-                      </div>
-                    </div>
-                    <div
-                      className={`p-3 rounded-lg ${getDateCellBg(
-                        course.apr2026
-                      )}`}
-                    >
-                      <div className="text-xs text-gray-600 font-medium mb-1">
-                        APR '26
-                      </div>
-                      <div className={`text-sm ${getDateCellClass(course.apr2026)}`}>
-                        {course.apr2026}
-                      </div>
-                    </div>
-                    <div
-                      className={`p-3 rounded-lg col-span-2 ${getDateCellBg(
-                        course.may2026
-                      )}`}
-                    >
-                      <div className="text-xs text-gray-600 font-medium mb-1">
-                        MAY '26
-                      </div>
-                      <div className={`text-sm ${getDateCellClass(course.may2026)}`}>
-                        {course.may2026}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* No Results */}
@@ -298,21 +270,21 @@ export default function BatchSchedule() {
           )}
 
           {/* Call to Action */}
-          <div className="mt-8 bg-gradient-to-r from-[#1AB69D]/10 to-[#1AB69D]/5 rounded-xl p-6 border border-[#1AB69D]/20">
+          <div className="mt-8 bg-linear-to-r from-[#1AB69D]/10 to-[#1AB69D]/5 rounded-xl p-5 md:p-6 border border-[#1AB69D]/20">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-1">
                   Ready to Enroll?
                 </h3>
                 <p className="text-sm text-gray-600">
-                  Secure your spot in our upcoming batches today
+                  Secure your spot in our upcoming batches today.
                 </p>
               </div>
               <a
                 href="/contact-us"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#1AB69D] px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-[#16917f] hover:shadow-md active:scale-95 transition-all whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#1AB69D] px-5 py-2.5 md:px-6 md:py-3 text-sm font-semibold text-white shadow-sm hover:bg-[#16917f] hover:shadow-md active:scale-95 transition-all whitespace-nowrap"
               >
-                Let's Get Started
+                Let&apos;s Get Started
                 <svg
                   className="h-4 w-4"
                   viewBox="0 0 24 24"
