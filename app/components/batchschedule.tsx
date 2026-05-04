@@ -124,17 +124,20 @@ export default function BatchSchedule() {
                           }`}
                         >
                           {ok ? (
-                            <div className="flex flex-col items-center leading-tight">
-                              <span className="font-semibold text-gray-900 whitespace-nowrap">
-                                {b.startDate}
-                              </span>
-                              <span className="text-[10px] text-gray-400 my-0.5">
-                                to
-                              </span>
-                              <span className="text-gray-600 whitespace-nowrap">
-                                {b.endDate}
-                              </span>
-                            </div>
+                            <dl className="space-y-1 text-[11px] text-left max-w-[140px] mx-auto">
+                              <div className="flex items-center justify-between gap-2">
+                                <dt className="text-gray-500">Start Date</dt>
+                                <dd className="font-semibold text-gray-900 whitespace-nowrap">
+                                  {b.startDate}
+                                </dd>
+                              </div>
+                              <div className="flex items-center justify-between gap-2">
+                                <dt className="text-gray-500">End Date</dt>
+                                <dd className="font-semibold text-gray-700 whitespace-nowrap">
+                                  {b.endDate}
+                                </dd>
+                              </div>
+                            </dl>
                           ) : (
                             <span className="text-gray-400 italic text-xs">—</span>
                           )}

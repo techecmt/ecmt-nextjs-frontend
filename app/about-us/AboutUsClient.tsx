@@ -46,7 +46,7 @@ const teamCategories = [
       {
         name: "Mr. Mohamed Tahir",
         role: "Finance & HR Head",
-        image: "/about-contact-other/tahirdp.webp",
+        image: "/about-contact-other/Tahirdp.webp",
       },
     ],
   },
