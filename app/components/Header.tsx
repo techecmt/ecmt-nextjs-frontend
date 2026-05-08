@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
+import { FaBars, FaTimes, FaChevronDown, FaChevronRight } from 'react-icons/fa';
 import { 
   FaHeartbeat, 
   FaHotel, 
@@ -30,6 +30,10 @@ const aboutUsLinks = [
   { label: 'Our Teachers', href: '/our-teachers' },
   { label: 'Our A&E Board Members', href: '/about-us#academic-examination-board' },
   { label: 'Contact Us', href: '/contact-us' },
+];
+
+const studentAffairsFormsLinks = [
+  { label: 'Course Evaluation Form', href: '/forms/course-evaluation-form' },
 ];
 
 const studentAffairsLinks = [
@@ -151,7 +155,8 @@ export default function Header() {
                 />
               )}
               {item.name === 'Students Affair' && openMenu === 'Students Affair' && (
-                <SimpleLinksDropdown
+                <StudentAffairsDropdown
+                  formsLinks={studentAffairsFormsLinks}
                   links={studentAffairsLinks}
                   onMouseEnter={() => setOpenMenu('Students Affair')}
                   onMouseLeave={() => setOpenMenu(null)}
@@ -223,7 +228,11 @@ export default function Header() {
                           <MobileCoursesSection menuType={item.name} onLinkClick={() => setMobileMenuOpen(false)} />
                         )}
                       {item.name === 'Students Affair' && mobileAccordion === 'Students Affair' && (
-                        <SimpleLinksMobileList links={studentAffairsLinks} onLinkClick={() => setMobileMenuOpen(false)} />
+                        <StudentAffairsMobileList
+                          formsLinks={studentAffairsFormsLinks}
+                          links={studentAffairsLinks}
+                          onLinkClick={() => setMobileMenuOpen(false)}
+                        />
                       )}
                       {item.name === 'About Us' && mobileAccordion === 'About Us' && (
                         <SimpleLinksMobileList links={aboutUsLinks} onLinkClick={() => setMobileMenuOpen(false)} />
@@ -391,6 +400,145 @@ function WsqDropdown({
               <div className="text-sm text-gray-500">No WSQ courses found.</div>
             )}
           </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ================= STUDENTS AFFAIR (FORMS + LINKS) ================= */
+
+function StudentAffairsDropdown({
+  formsLinks,
+  links,
+  onMouseEnter,
+  onMouseLeave,
+}: {
+  formsLinks: { label: string; href: string }[];
+  links: { label: string; href: string }[];
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
+}) {
+  const linkClasses =
+    'flex items-center gap-2 py-2 px-2 hover:bg-[#1AB69D]/6 rounded-lg transition-colors group';
+
+  return (
+    <div
+      className="absolute left-1/2 -translate-x-1/2 top-full pt-3 z-60"
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      <div className="flex rounded-2xl border border-gray-100 bg-white shadow-xl">
+        {/* Primary panel — Forms is drill entry only; links open in submenu */}
+        <div className="w-[288px] shrink-0 border-r border-gray-100 py-4 pl-4 pr-4">
+          <div className="group/stuforms relative">
+            <div
+              className="flex cursor-default items-center justify-between gap-2 rounded-lg bg-[#1AB69D]/5 px-2 py-2.5 text-[#1AB69D]"
+            >
+              <span className="text-xs font-bold uppercase tracking-widest">Forms</span>
+              <FaChevronRight
+                className="h-3 w-3 transition-transform duration-200 group-hover/stuforms:translate-x-0.5"
+                aria-hidden="true"
+              />
+            </div>
+            {/* Fly-out submenu — overlaps parent slightly so pointer path does not flicker */}
+            <div
+              role="presentation"
+              className="absolute left-full top-0 z-70 -ml-2 pt-1 pl-4 invisible opacity-0 pointer-events-none overflow-visible transition-opacity duration-150 group-hover/stuforms:visible group-hover/stuforms:opacity-100 group-hover/stuforms:pointer-events-auto"
+            >
+              <div className="min-w-[280px] rounded-2xl border border-gray-100 bg-white py-3 pl-4 pr-5 shadow-xl">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-[#1AB69D]/80">
+                  Forms
+                </p>
+                <nav className="mt-2 flex flex-col gap-0.5" aria-label="Student affair forms">
+                  {formsLinks.map((link) => (
+                    <Link key={link.href} href={link.href} className={linkClasses}>
+                      <span className="text-[#1AB69D] text-base font-bold leading-none">›</span>
+                      <span className="text-sm leading-snug text-gray-700 transition-colors group-hover:text-[#1AB69D]">
+                        {link.label}
+                      </span>
+                    </Link>
+                  ))}
+                </nav>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-4 flex flex-col gap-0.5 border-t border-gray-100 pt-3">
+            {links.map((link) => (
+              <Link key={link.href} href={link.href} className={linkClasses}>
+                <span className="text-[#1AB69D] text-base font-bold leading-none">›</span>
+                <span className="text-sm leading-snug text-gray-700 transition-colors group-hover:text-[#1AB69D]">
+                  {link.label}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function StudentAffairsMobileList({
+  formsLinks,
+  links,
+  onLinkClick,
+}: {
+  formsLinks: { label: string; href: string }[];
+  links: { label: string; href: string }[];
+  onLinkClick: () => void;
+}) {
+  const [formsExpanded, setFormsExpanded] = React.useState(false);
+
+  return (
+    <div className="mt-3 space-y-2">
+      <div className="border border-gray-100 rounded-lg bg-gray-50/50 px-3 py-2 overflow-hidden">
+        <button
+          type="button"
+          aria-expanded={formsExpanded}
+          onClick={() => setFormsExpanded((v) => !v)}
+          className={`flex w-full items-center justify-between gap-2 rounded-lg px-2 py-3 text-left text-sm font-semibold transition-colors ${
+            formsExpanded ? 'bg-[#1AB69D]/10 text-[#1AB69D]' : 'bg-white text-gray-800 hover:bg-gray-50'
+          }`}
+        >
+          Forms
+          <FaChevronDown
+            className={`shrink-0 text-xs transition-transform duration-200 ${
+              formsExpanded ? 'rotate-180 text-[#1AB69D]' : 'text-gray-500'
+            }`}
+          />
+        </button>
+        {formsExpanded && (
+          <div className="mt-2 space-y-1 border-l-2 border-[#1AB69D]/30 pl-4 ml-2 pb-2">
+            {formsLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={onLinkClick}
+                className="flex items-start gap-2 rounded-md py-2 pr-2 transition-colors hover:bg-white"
+              >
+                <span className="mt-0.5 text-sm font-bold text-[#1AB69D]">›</span>
+                <span className="text-xs leading-snug text-gray-700">{link.label}</span>
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div className="border border-gray-100 rounded-lg px-3 py-3 bg-gray-50/50 overflow-hidden">
+        <div className="space-y-1">
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={onLinkClick}
+              className="flex items-start gap-2 py-2 px-2 rounded-md transition-colors hover:bg-white"
+            >
+              <span className="text-[#1AB69D] mt-0.5 text-sm">›</span>
+              <span className="text-xs text-gray-700 leading-snug">{link.label}</span>
+            </Link>
+          ))}
         </div>
       </div>
     </div>

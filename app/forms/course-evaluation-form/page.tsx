@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import SubmissionBanner from "./SubmissionBanner";
 
 export const metadata: Metadata = {
   title: "Course Evaluation Form | Edusphere College",
@@ -140,10 +141,19 @@ function RatingsTable({
   );
 }
 
-export default function CourseEvaluationFormPage() {
+export default async function CourseEvaluationFormPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ submitted?: string }>;
+}) {
+  const { submitted } = await searchParams;
+
   return (
     <main className="bg-gray-50 py-10 md:py-14">
       <div className="mx-auto w-full max-w-5xl px-4">
+
+        {submitted && <SubmissionBanner success={submitted === "1"} />}
+
         <section className="mb-6 rounded-2xl border border-gray-200 bg-white p-5 md:p-8">
           <h1 className="text-2xl font-bold text-gray-900 md:text-3xl">Course Evaluation Form</h1>
           <p className="mt-2 text-sm text-gray-600 md:text-base">
@@ -151,7 +161,12 @@ export default function CourseEvaluationFormPage() {
           </p>
         </section>
 
-        <form className="space-y-6 rounded-2xl border border-gray-200 bg-white p-5 md:p-8">
+        <form
+          action="/api/forms/submit"
+          method="post"
+          className="space-y-6 rounded-2xl border border-gray-200 bg-white p-5 md:p-8"
+        >
+          <input type="hidden" name="form_key" value="course_evaluation_form" />
           <section>
             <h2 className="mb-4 text-lg font-semibold text-gray-900">Participant Information</h2>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
