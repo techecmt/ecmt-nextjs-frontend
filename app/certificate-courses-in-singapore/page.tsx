@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Script from "next/script";
+import Link from "next/link";
+import { courseData } from "../data/courses";
 
 export const metadata: Metadata = {
 	title: "Certificate Courses in Singapore | Edusphere College - Professional Training",
@@ -68,6 +70,9 @@ const CERTIFICATE_COURSES: CertificateCourse[] = [
     },
 ];
 
+const SRFAC_SCHOOL = courseData.find((s) => s.title.includes("SRFAC"));
+const SRFAC_COURSES_FROM_DATA = SRFAC_SCHOOL?.courses ?? [];
+
 const FAQ_DATA = [
 	{
 		question: "What are certificate courses and how do they differ from diploma courses?",
@@ -113,17 +118,24 @@ export default function CertificateCoursesInSingapore() {
 		"hasOfferCatalog": {
 			"@type": "OfferCatalog",
 			"name": "Certificate Courses",
-			"itemListElement": CERTIFICATE_COURSES.map((course, index) => ({
-				"@type": "Course",
-				"name": course.title,
-				"description": `Professional certificate course in ${course.title.toLowerCase()} in Singapore`,
-				"provider": {
-					"@type": "EducationalOrganization",
-					"name": "Edusphere College"
-				},
-				"courseMode": "blended",
-				"educationalCredentialAwarded": "Certificate"
-			}))
+		"itemListElement": [
+				...CERTIFICATE_COURSES.map((course) => ({
+					"@type": "Course",
+					"name": course.title,
+					"description": `Professional certificate course in ${course.title.toLowerCase()} in Singapore`,
+					"provider": { "@type": "EducationalOrganization", "name": "Edusphere College" },
+					"courseMode": "blended",
+					"educationalCredentialAwarded": "Certificate"
+				})),
+				...SRFAC_COURSES_FROM_DATA.map((course) => ({
+					"@type": "Course",
+					"name": course.title,
+					"description": `SRFAC-aligned training: ${course.title}`,
+					"provider": { "@type": "EducationalOrganization", "name": "Edusphere College" },
+					"courseMode": "mixed",
+					"educationalCredentialAwarded": "Certificate"
+				}))
+			]
 		}
 	};
 
@@ -252,6 +264,82 @@ export default function CertificateCoursesInSingapore() {
 					</div>
 				</div>
 			</section>
+
+			{/* SRFAC courses (merged under Certificate Courses) */}
+			{SRFAC_COURSES_FROM_DATA.length > 0 && (
+				<section id="srfac-courses" className="py-12 md:py-16 bg-gray-50 scroll-mt-24 border-t border-gray-100">
+					<div className="container mx-auto px-4 md:px-8 max-w-6xl">
+						<div className="mb-10">
+							<span className="inline-flex items-center gap-2 rounded-full bg-[#1AB69D]/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[#1AB69D]">
+								SRFAC
+							</span>
+							<h2 className="mt-3 text-2xl md:text-3xl font-bold text-gray-900">
+								SRFAC Courses
+							</h2>
+							<p className="mt-3 max-w-2xl text-sm md:text-base text-gray-600 leading-relaxed">
+								Singapore Resuscitation and First Aid Council recognised programmes offered alongside our certificate pathway.
+							</p>
+							<div className="mt-3 h-1 w-16 rounded-full bg-[#1AB69D]" />
+						</div>
+
+						<div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+							{SRFAC_COURSES_FROM_DATA.map((course) => {
+								const img = course.image ?? "/homepage/cpraed-m.jpeg";
+								const href = course.url ?? "/contact-us";
+								const isInternal = href.startsWith("/");
+
+								const cta = (
+									<span className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#1AB69D] px-4 py-2 text-xs md:text-sm font-semibold text-white shadow-sm hover:bg-[#16917f] hover:shadow-md active:scale-95 transition-all">
+										{isInternal ? "View course" : "Register Now"}
+										<svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M13 7L18 12L13 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+											<path d="M6 12H18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+										</svg>
+									</span>
+								);
+
+								return (
+									<article
+										key={course.title}
+										className="group bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden flex flex-col hover:shadow-xl hover:border-[#1AB69D]/60 transition-all duration-200"
+									>
+										<div className="relative h-44 md:h-48 overflow-hidden">
+											<Image
+												src={img}
+												alt={course.title}
+												fill
+												className="object-cover transform group-hover:scale-105 transition-transform duration-300"
+												sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+											/>
+											<div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
+										</div>
+
+										<div className="flex flex-col flex-1 p-5 md:p-6 gap-3">
+											<h3 className="text-base md:text-lg font-semibold text-gray-900 leading-snug">
+												{course.title}
+											</h3>
+											<p className="text-xs text-gray-500">
+												Duration: {course.duration}
+											</p>
+											<div className="pt-1">
+												{isInternal ? (
+													<Link href={href} className="inline-block">
+														{cta}
+													</Link>
+												) : (
+													<a href={href} target="_blank" rel="noopener noreferrer" className="inline-block">
+														{cta}
+													</a>
+												)}
+											</div>
+										</div>
+									</article>
+								);
+							})}
+						</div>
+					</div>
+				</section>
+			)}
 
 			{/* FAQ Section */}
 			<section className="py-12 md:py-16 bg-gray-50">

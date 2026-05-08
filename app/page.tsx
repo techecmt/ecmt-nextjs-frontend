@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
 import Header from "./components/Header";
-import Hero from "./components/Hero";
 import AboutCollegeReg from "./components/aboutcollege_reg";
 import CourseList from "./components/course";
 import ContactForm from "./components/contactform";
-import GoogleCarousel from "./components/GoogleCarousel";
 import BatchSchedule from "./components/batchschedule";
 import ScoreCard from "./components/scorecard";
-import Heroytb from "./components/Hero-ytb";
+import HeroSlider from "./components/heroslider";
 
 export const metadata: Metadata = {
   title: "Edusphere College of Management and Technology | Singapore",
@@ -97,30 +95,7 @@ export default function Home() {
       />
       
       <Header />
-      <Heroytb />
-      <section className="py-12 md:py-16 bg-gray-50">
-        <div className="container mx-auto px-4 md:px-8">
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-              What Our Alumni Say
-            </h2>
-            <p className="text-md md:text-lg text-gray-600 mt-2">
-              Real stories from learners who have grown with us.
-            </p>
-          </div>
-          <div className="flex justify-center">
-            <iframe
-              className="w-full max-w-2xl aspect-video rounded-lg shadow-lg"
-              src="https://www.youtube.com/embed/zf7Vl9VyUXk?si=plB71T8i4XfdP00L"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            />
-          </div>
-        </div>
-      </section>
+      <HeroSlider />
       <AboutCollegeReg />
       <section id="courses">
         <CourseList />

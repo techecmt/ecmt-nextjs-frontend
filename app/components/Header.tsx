@@ -16,27 +16,27 @@ import { courseData } from '../data/courses';
 import { wsqCourses } from '../data/wsq-courses';
 
 const menuItems = [
-  { name: 'Home', hasDropdown: false, href: '/' },
-  { name: 'Diploma Courses', hasDropdown: true, href: '#' },
-  { name: 'WSQ Courses', hasDropdown: true, href: '/wsq-courses' },
-  { name: 'SRFAC Courses', hasDropdown: true, href: '#' },
-  { name: 'Certificate Courses', hasDropdown: false, href: '/certificate-courses-in-singapore' },
   { name: 'About Us', hasDropdown: true, href: '/about-us' },
   { name: 'Students Affair', hasDropdown: true, href: '/students-affair' },
+  { name: 'Diploma Courses', hasDropdown: true, href: '#' },
+  { name: 'WSQ Courses', hasDropdown: true, href: '/wsq-courses' },
+  { name: 'Certificate Courses', hasDropdown: false, href: '/certificate-courses-in-singapore' },
 ];
 
 const aboutUsLinks = [
-  { label: 'About our College', href: '/about-us' },
-  { label: 'Campus and Facilities', href: '/campus-and-facilities' },
+  { label: 'Who Are We', href: '/about-us' },
+  { label: 'Our Team', href: '/about-us#our-team' },
+  { label: 'Our Campus', href: '/campus-and-facilities' },
   { label: 'Our Teachers', href: '/our-teachers' },
-  { label: 'Academic and Examination Board', href: '/about-us#academic-examination-board' },
-  { label: 'Fee Protection Scheme', href: '/fee-protection-scheme' },
+  { label: 'Our A&E Board Members', href: '/about-us#academic-examination-board' },
+  { label: 'Contact Us', href: '/contact-us' },
 ];
 
 const studentAffairsLinks = [
   { label: 'Contact', href: '/contact-us' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Newsroom', href: '/newsroom' },
+  { label: 'Fee Protection Scheme', href: '/fee-protection-scheme' },
   { label: 'Essential Resources and Support for Students', href: '/essential-resources-and-support-for-students' },
   { label: 'Student Contract', href: '/essential-resources-and-support-for-students#student-contract' },
   { label: 'Attendance Policy', href: '/essential-resources-and-support-for-students#attendance-policy' },
@@ -46,8 +46,8 @@ export default function Header() {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileAccordion, setMobileAccordion] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
 
-  // Lock body scroll while the mobile menu is open
   useEffect(() => {
     if (typeof document === 'undefined') return;
     const original = document.body.style.overflow;
@@ -61,33 +61,43 @@ export default function Header() {
     };
   }, [mobileMenuOpen]);
 
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 8);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className="bg-white shadow-sm fixed top-0 left-0 right-0 z-50 overflow-visible">
-      <div className="container mx-auto flex items-center justify-between px-4 md:px-8 h-[72px]">
-        
-        {/* LOGO */}
-        <div className="relative h-[72px] w-[220px] md:w-[260px] flex items-center">
+    <header
+      className={`bg-white fixed top-0 left-0 right-0 z-50 overflow-visible transition-shadow duration-300 ${
+        scrolled ? 'shadow-md' : 'shadow-sm border-b border-gray-100'
+      }`}
+    >
+      <div className="container mx-auto flex items-center justify-between px-4 md:px-8 h-[84px]">
+
+        {/* LOGO — click to go Home */}
+        <Link href="/" aria-label="Go to homepage" className="relative h-[84px] w-[240px] md:w-[290px] flex items-center shrink-0">
           <Image
             src="/brand/Logo_png_high.png"
             alt="Edusphere College Logo"
-            width={260}
-            height={260}
+            width={290}
+            height={290}
             priority
             className="
               absolute
               top-1/2 -translate-y-1/2
               left-0
               object-contain
-              w-[180px] h-[180px]
-              md:w-[220px] md:h-[220px]
+              w-[200px] h-[200px]
+              md:w-[250px] md:h-[250px]
             "
           />
-        </div>
+        </Link>
 
         {/* MOBILE MENU BUTTON */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden text-2xl text-[#1AB69D] p-2 -mr-2"
+          className="lg:hidden text-2xl text-[#1AB69D] p-2 -mr-2 rounded-lg hover:bg-[#1AB69D]/10 transition-colors"
           aria-label="Toggle menu"
           aria-expanded={mobileMenuOpen}
           aria-controls="mobile-menu"
@@ -96,7 +106,7 @@ export default function Header() {
         </button>
 
         {/* DESKTOP MENU */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-1">
           {menuItems.map((item) => (
             <div
               key={item.name}
@@ -106,21 +116,32 @@ export default function Header() {
             >
               <Link
                 href={item.href}
-                className={`font-poppins transition-colors flex items-center gap-1 ${
-                  item.name === 'Home'
-                    ? 'text-[#1AB69D]'
-                    : 'text-[#202020] hover:text-[#1AB69D]'
-                }`}
+                className={`
+                  relative font-medium text-[0.875rem] tracking-wide px-3 py-2 rounded-lg
+                  flex items-center gap-1.5 transition-all duration-200
+                  after:absolute after:bottom-0 after:left-3 after:right-3 after:h-[2px]
+                  after:rounded-full after:transition-all after:duration-200
+                  ${
+                    openMenu === item.name
+                      ? 'text-[#1AB69D] bg-[#1AB69D]/5 after:bg-[#1AB69D] after:opacity-100'
+                      : 'text-[#2d2d2d] hover:text-[#1AB69D] hover:bg-[#1AB69D]/5 after:opacity-0 hover:after:opacity-100 after:bg-[#1AB69D]'
+                  }
+                `}
               >
                 {item.name}
-                {item.hasDropdown && <FaChevronDown className="w-3 h-3" />}
+                {item.hasDropdown && (
+                  <FaChevronDown
+                    className={`w-2.5 h-2.5 transition-transform duration-200 ${
+                      openMenu === item.name ? 'rotate-180' : ''
+                    }`}
+                  />
+                )}
               </Link>
-              {/* Show MegaMenu for Diploma, SRFAC, Certificate; dedicated dropdown for WSQ */}
-              {['Diploma Courses', 'SRFAC Courses', 'Certificate Courses'].includes(item.name) && openMenu === item.name && (
+
+              {item.name === 'Diploma Courses' && openMenu === item.name && (
                 <MegaMenu
                   onMouseEnter={() => setOpenMenu(item.name)}
                   onMouseLeave={() => setOpenMenu(null)}
-                  menuType={item.name}
                 />
               )}
               {item.name === 'WSQ Courses' && openMenu === 'WSQ Courses' && (
@@ -145,25 +166,33 @@ export default function Header() {
               )}
             </div>
           ))}
+
+          {/* CTA Button */}
+          <Link
+            href="https://onlineportal.edusphere.edu.sg/login"
+            className="ml-3 px-5 py-2 bg-[#1AB69D] text-white text-sm font-semibold rounded-full hover:bg-[#159b85] transition-colors duration-200 shadow-sm hover:shadow-md"
+          >
+            Student Portal
+          </Link>
         </nav>
 
         {/* MOBILE MENU */}
         {mobileMenuOpen && (
           <div
             id="mobile-menu"
-            className="lg:hidden fixed inset-x-0 top-[72px] bottom-0 bg-white overflow-y-auto overscroll-contain shadow-2xl"
+            className="lg:hidden fixed inset-x-0 top-[84px] bottom-0 bg-white overflow-y-auto overscroll-contain shadow-2xl"
             role="dialog"
             aria-modal="true"
             aria-label="Main navigation"
           >
-            <nav className="p-4 pb-10 space-y-2">
+            <nav className="p-4 pb-10 space-y-1">
               {menuItems.map((item) => (
                 <div key={item.name}>
                   {!item.hasDropdown ? (
                     <Link
                       href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="block px-4 py-3 rounded-lg hover:bg-gray-50"
+                      className="block px-4 py-3 rounded-xl font-medium text-[#2d2d2d] hover:bg-[#1AB69D]/8 hover:text-[#1AB69D] transition-colors"
                     >
                       {item.name}
                     </Link>
@@ -175,18 +204,21 @@ export default function Header() {
                             mobileAccordion === item.name ? null : item.name
                           )
                         }
-                        className="w-full flex justify-between items-center px-4 py-3 rounded-lg hover:bg-gray-50"
+                        className={`w-full flex justify-between items-center px-4 py-3 rounded-xl font-medium transition-colors ${
+                          mobileAccordion === item.name
+                            ? 'bg-[#1AB69D]/10 text-[#1AB69D]'
+                            : 'text-[#2d2d2d] hover:bg-gray-50'
+                        }`}
                       >
                         {item.name}
                         <FaChevronDown
-                          className={`transition-transform ${
-                            mobileAccordion === item.name ? 'rotate-180' : ''
+                          className={`transition-transform duration-200 ${
+                            mobileAccordion === item.name ? 'rotate-180 text-[#1AB69D]' : ''
                           }`}
                         />
                       </button>
 
-                      {/* Show MobileCoursesSection for Diploma Courses, WSQ Courses, SRFAC Courses, Certificate Courses */}
-                      {['Diploma Courses', 'WSQ Courses', 'SRFAC Courses', 'Certificate Courses'].includes(item.name) &&
+                      {['Diploma Courses', 'WSQ Courses'].includes(item.name) &&
                         mobileAccordion === item.name && (
                           <MobileCoursesSection menuType={item.name} onLinkClick={() => setMobileMenuOpen(false)} />
                         )}
@@ -200,6 +232,16 @@ export default function Header() {
                   )}
                 </div>
               ))}
+
+              <div className="pt-3 px-4">
+                <Link
+                  href="https://onlineportal.edusphere.edu.sg/login"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block w-full text-center py-3 bg-[#1AB69D] text-white font-semibold rounded-full hover:bg-[#159b85] transition-colors"
+                >
+                  Student Portal
+                </Link>
+              </div>
             </nav>
           </div>
         )}
@@ -213,11 +255,9 @@ export default function Header() {
 function MegaMenu({
   onMouseEnter,
   onMouseLeave,
-  menuType,
 }: {
   onMouseEnter: () => void;
   onMouseLeave: () => void;
-  menuType: string;
 }) {
   const schoolIcons: { [key: string]: React.ReactNode } = {
     'School of Caregiving': <FaHeartbeat className="w-5 h-5" />,
@@ -228,32 +268,23 @@ function MegaMenu({
     'E-Learning Courses': <FaGraduationCap className="w-5 h-5" />,
   };
 
-  // Filter courseData based on menuType
-    let filteredSchools: typeof courseData = [];
-  if (menuType === 'Diploma Courses') {
-    filteredSchools = courseData.filter(
-      school => school.title.includes('Caregiving') ||
-        school.title.includes('Hospitality') ||
-        school.title.includes('IT') ||
-        school.title.includes('Engineering') ||
-        school.title.includes('Business') ||
-        school.title.includes('E-Learning')
-    );
-  } else if (menuType === 'WSQ Courses') {
-    filteredSchools = courseData.filter(school => school.title.includes('WSQ'));
-  } else if (menuType === 'SRFAC Courses') {
-    filteredSchools = courseData.filter(school => school.title.includes('SRFAC'));
-  } else if (menuType === 'Certificate Courses') {
-    filteredSchools = courseData.filter(school => school.title.includes('Certificate'));
-  }
+  const filteredSchools = courseData.filter(
+    school =>
+      school.title.includes('Caregiving') ||
+      school.title.includes('Hospitality') ||
+      school.title.includes('IT') ||
+      school.title.includes('Engineering') ||
+      school.title.includes('Business') ||
+      school.title.includes('E-Learning')
+  );
 
   return (
     <div
-      className="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-[95vw] max-w-[1100px]"
+      className="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-[95vw] max-w-[1100px]"
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <div className="bg-white shadow-lg rounded-lg border border-gray-100 max-h-[80vh] overflow-y-auto">
+      <div className="bg-white shadow-xl rounded-2xl border border-gray-100 max-h-[80vh] overflow-y-auto">
         <div className="grid grid-cols-3 gap-6 p-6 lg:gap-8 lg:p-8">
           {filteredSchools.length > 0 ? (
             filteredSchools.map((school, idx) => (
@@ -335,23 +366,23 @@ function WsqDropdown({
 
   return (
     <div
-      className="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-[360px]"
+      className="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-[360px]"
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <div className="bg-white shadow-lg rounded-lg border border-gray-100 max-h-[70vh] overflow-y-auto">
-        <div className="p-4">
-          <h3 className="text-base font-bold mb-2 text-[#1AB69D]">WSQ Courses</h3>
-          <div className="flex flex-col gap-2">
+      <div className="bg-white shadow-xl rounded-2xl border border-gray-100 max-h-[70vh] overflow-y-auto">
+        <div className="p-5">
+          <h3 className="text-xs font-bold uppercase tracking-widest text-[#1AB69D] mb-3 px-1">WSQ Courses</h3>
+          <div className="flex flex-col gap-0.5">
             {wsqList.length > 0 ? (
               wsqList.map((course, idx) => (
                 <Link
                   key={idx}
                   href={course.href || '/contact-us'}
-                  className="flex items-center gap-2 py-2 px-2 hover:bg-gray-50 rounded transition-colors"
+                  className="flex items-center gap-2 py-2 px-2 hover:bg-[#1AB69D]/6 rounded-lg transition-colors group"
                 >
-                  <span className="text-[#1AB69D]">›</span>
-                  <span className="text-sm text-gray-700 transition-colors leading-snug hover:text-[#1AB69D]">
+                  <span className="text-[#1AB69D] font-bold text-base leading-none">›</span>
+                  <span className="text-sm text-gray-700 group-hover:text-[#1AB69D] transition-colors leading-snug">
                     {course.title}
                   </span>
                 </Link>
@@ -379,20 +410,20 @@ function SimpleLinksDropdown({
 }) {
   return (
     <div
-      className="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-[320px]"
+      className="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-[320px]"
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <div className="bg-white shadow-lg rounded-lg border border-gray-100 overflow-hidden">
-        <div className="p-4 flex flex-col gap-2">
+      <div className="bg-white shadow-xl rounded-2xl border border-gray-100 overflow-hidden">
+        <div className="p-4 flex flex-col gap-0.5">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="flex items-center gap-2 py-2 px-2 hover:bg-gray-50 rounded transition-colors"
+              className="flex items-center gap-2 py-2 px-2 hover:bg-[#1AB69D]/6 rounded-lg transition-colors group"
             >
-              <span className="text-[#1AB69D]">›</span>
-              <span className="text-sm text-gray-700 leading-snug hover:text-[#1AB69D]">
+              <span className="text-[#1AB69D] font-bold text-base leading-none">›</span>
+              <span className="text-sm text-gray-700 group-hover:text-[#1AB69D] transition-colors leading-snug">
                 {link.label}
               </span>
             </Link>
@@ -475,79 +506,70 @@ function MobileCoursesSection({ menuType, onLinkClick }: { menuType: string; onL
     );
   }
 
-  // Filter courseData based on menuType
-  let filteredSchools: typeof courseData = [];
-  if (menuType === 'Diploma Courses') {
-    filteredSchools = courseData.filter(
-      school => school.title.includes('Caregiving') ||
-        school.title.includes('Hospitality') ||
-        school.title.includes('IT') ||
-        school.title.includes('Engineering') ||
-        school.title.includes('Business') ||
-        school.title.includes('E-Learning')
+  const filteredSchools =
+    menuType === 'Diploma Courses'
+      ? courseData.filter(
+          school =>
+            school.title.includes('Caregiving') ||
+            school.title.includes('Hospitality') ||
+            school.title.includes('IT') ||
+            school.title.includes('Engineering') ||
+            school.title.includes('Business') ||
+            school.title.includes('E-Learning')
+        )
+      : [];
+
+  const renderSchoolBlock = (school: typeof courseData[0], idx: number) => {
+    const isExpanded = expandedSchool === school.title;
+    return (
+      <div key={idx} className="border border-gray-100 rounded-xl overflow-hidden">
+        <button
+          onClick={() => setExpandedSchool(isExpanded ? null : school.title)}
+          className="w-full flex items-center justify-between gap-2 p-3 hover:bg-gray-50 transition-colors"
+        >
+          <div className="flex items-center gap-2">
+            <div style={{ color: school.color }}>{schoolIcons[school.title]}</div>
+            <h3 className="text-xs font-bold uppercase tracking-wider text-left" style={{ color: school.color }}>
+              {school.title.replace('School of ', '')}
+            </h3>
+          </div>
+          <FaChevronDown
+            className={`w-3 h-3 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}
+            style={{ color: school.color }}
+          />
+        </button>
+        {isExpanded && (
+          <div className="px-3 pb-3 pt-1 border-t border-gray-100 bg-gray-50/50">
+            <div className="space-y-1">
+              {school.courses.map((course: any, i: number) => (
+                <Link
+                  key={i}
+                  href={course.url || '/contact-us'}
+                  onClick={onLinkClick}
+                  className="flex items-start gap-2 py-2 px-2 hover:bg-white rounded-lg transition-colors"
+                >
+                  <span className="text-[#1AB69D] mt-0.5 text-sm font-bold">›</span>
+                  <span className="text-xs text-gray-700 leading-snug">{course.title}</span>
+                  {course.isNew && (
+                    <span className="ml-1 shrink-0 self-center animate-pulse px-1.5 py-0.5 text-[9px] font-bold rounded-full bg-[#EE4A62] text-white uppercase tracking-wide">
+                      New
+                    </span>
+                  )}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
     );
-  } else if (menuType === 'SRFAC Courses') {
-    filteredSchools = courseData.filter(school => school.title.includes('SRFAC'));
-  } else if (menuType === 'Certificate Courses') {
-    filteredSchools = courseData.filter(school => school.title.includes('Certificate'));
-  }
+  };
 
   return (
     <div className="mt-3 space-y-2">
       {filteredSchools.length > 0 ? (
-        filteredSchools.map((school, idx) => {
-          const isExpanded = expandedSchool === school.title;
-          return (
-            <div key={idx} className="border border-gray-100 rounded-lg overflow-hidden">
-              <button
-                onClick={() => setExpandedSchool(isExpanded ? null : school.title)}
-                className="w-full flex items-center justify-between gap-2 p-3 hover:bg-gray-50 transition-colors"
-              >
-                <div className="flex items-center gap-2">
-                  <div style={{ color: school.color }}>
-                    {schoolIcons[school.title]}
-                  </div>
-                  <h3
-                    className="text-xs font-bold uppercase tracking-wider text-left"
-                    style={{ color: school.color }}
-                  >
-                    {school.title.replace('School of ', '')}
-                  </h3>
-                </div>
-                <FaChevronDown
-                  className={`w-3 h-3 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
-                  style={{ color: school.color }}
-                />
-              </button>
-              {isExpanded && (
-                <div className="px-3 pb-3 pt-1 border-t border-gray-100 bg-gray-50/50">
-                  <div className="space-y-1">
-                    {school.courses.map((course: any, i: number) => (
-                      <Link
-                        key={i}
-                        href={course.url || '/contact-us'}
-                        onClick={onLinkClick}
-                        className="flex items-start gap-2 py-2 px-2 hover:bg-white rounded transition-colors"
-                      >
-                        <span className="text-[#1AB69D] mt-0.5 text-sm">›</span>
-                        <span className="text-xs text-gray-700 leading-snug">
-                          {course.title}
-                        </span>
-                        {course.isNew && (
-                          <span className="ml-1 shrink-0 self-center animate-pulse px-1.5 py-0.5 text-[9px] font-bold rounded-full bg-[#EE4A62] text-white uppercase tracking-wide">
-                            New
-                          </span>
-                        )}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          );
-        })
+        filteredSchools.map((school, idx) => renderSchoolBlock(school, idx))
       ) : (
-        <div className="col-span-3 text-center text-gray-500">No courses found.</div>
+        <div className="text-center text-gray-500 text-sm py-4">No courses found.</div>
       )}
     </div>
   );

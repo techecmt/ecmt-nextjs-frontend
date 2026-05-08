@@ -6,8 +6,8 @@ import { Users } from "lucide-react";
 
 const teamCategories = [
   {
-    id: "management",
-    label: "Management",
+    id: "Board Members",
+    label: "Board Members",
     members: [
       {
         name: "Mr. Aziz Aboobacker",
@@ -16,7 +16,7 @@ const teamCategories = [
       },
       {
         name: "Mr. Mohamed Tahir",
-        role: "Director / CEO",
+        role: "Board Member",
         image: "/about-contact-other/Tahirdp.webp",
       },
       {
@@ -29,13 +29,27 @@ const teamCategories = [
     ],
   },
   {
+    id: "management",
+    label: "Management",
+    members: [
+      
+      {
+        name: "Mr. Mohamed Tahir",
+        role: "Director / CEO",
+        image: "/about-contact-other/Tahirdp.webp",
+      }     
+      
+      
+    ],
+  },
+  {
     id: "quality",
     label: "Quality Assurance and Compliance",
     members: [
       {
-        name: "Mr. Syed Mustafa",
-        role: "Board Member",
-        image: "/about-contact-other/mustafa.webp",
+        name: "Ms. Serene Tan",
+        role: "QAC Manager",
+        image: "/about-contact-other/serene.jpeg",
       },
     ],
   },
@@ -73,7 +87,7 @@ const teamCategories = [
       {
         name: "Mr. Dej Escasa",
         role: "Training Manager",
-        image: "/about-contact-other/dej.jpg",
+        image: "/about-contact-other/dejdp.png",
       },
     ],
   },

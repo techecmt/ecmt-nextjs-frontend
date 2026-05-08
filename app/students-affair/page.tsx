@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import {
   FaGoogleDrive,
   FaFacebookF,
@@ -48,6 +49,18 @@ export default function StudentsAffairPage() {
             Celebrating milestones, building memories — stay connected with the
             Edusphere community.
           </p>
+        </div>
+      </section>
+
+      {/* Fee Protection Scheme */}
+      <section className="border-b border-gray-200 bg-white py-8">
+        <div className="mx-auto flex max-w-6xl justify-center px-4">
+          <Link
+            href="/fee-protection-scheme"
+            className="rounded-full bg-[#1AB69D]/10 px-5 py-2.5 text-sm font-semibold text-[#1AB69D] transition-colors hover:bg-[#1AB69D]/20"
+          >
+            Fee Protection Scheme
+          </Link>
         </div>
       </section>
 
