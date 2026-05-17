@@ -23,7 +23,9 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const zohoApiUrl = "https://www.zohoapis.com/crm/v8/Leads";
+  const zohoCrmBaseUrl =
+    process.env.ZOHO_CRM_BASE_URL?.trim() || "https://www.zohoapis.com";
+  const zohoApiUrl = `${zohoCrmBaseUrl}/crm/v8/Leads`;
 
   try {
     const accessToken = await getAccessToken();

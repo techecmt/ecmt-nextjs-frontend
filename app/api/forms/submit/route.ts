@@ -65,6 +65,28 @@ async function supabaseRequest<T>(
   return JSON.parse(raw) as T;
 }
 
+function collapseFormPayload(formData: FormData): {
+  payloadEntries: [string, string][];
+  valuesJson: Record<string, unknown>;
+} {
+  const payloadEntries: [string, string][] = [];
+  const valuesJson: Record<string, unknown> = {};
+  for (const [rawKey, rawVal] of formData.entries()) {
+    if (rawKey === "form_key") continue;
+    const val = String(rawVal);
+    payloadEntries.push([rawKey, val]);
+    const cur = valuesJson[rawKey];
+    if (cur === undefined) {
+      valuesJson[rawKey] = val;
+    } else if (Array.isArray(cur)) {
+      (cur as string[]).push(val);
+    } else {
+      valuesJson[rawKey] = [cur as string, val];
+    }
+  }
+  return { payloadEntries, valuesJson };
+}
+
 function toValueRecord(
   submissionId: number,
   formId: string,
@@ -100,11 +122,7 @@ export async function POST(request: Request) {
       return new NextResponse("Missing form_key", { status: 400 });
     }
 
-    const payloadEntries = Array.from(formData.entries())
-      .filter(([key]) => key !== "form_key")
-      .map(([key, value]) => [key, String(value)] as [string, string]);
-
-    const valuesJson = Object.fromEntries(payloadEntries);
+    const { payloadEntries, valuesJson } = collapseFormPayload(formData);
 
     const forms = await supabaseRequest<SupabaseForm[]>(
       `forms?select=id,form_key&form_key=eq.${encodeURIComponent(formKey)}&is_active=eq.true&limit=1`,
@@ -114,8 +132,14 @@ export async function POST(request: Request) {
     }
     const form = forms[0];
 
-    const submitterName = String(formData.get("participant_name") || "").trim() || null;
-    const submitterEmail = String(formData.get("participant_email") || "").trim() || null;
+    const firstName = String(formData.get("first_name") || "").trim();
+    const lastName = String(formData.get("last_name") || "").trim();
+    const submitterName =
+      `${firstName} ${lastName}`.trim() ||
+      String(formData.get("participant_name") || "").trim() ||
+      null;
+    const submitterEmail =
+      String(formData.get("email") || formData.get("participant_email") || "").trim() || null;
     const sourceUrl = request.headers.get("referer");
     const userAgent = request.headers.get("user-agent");
     const forwardedFor = request.headers.get("x-forwarded-for");
