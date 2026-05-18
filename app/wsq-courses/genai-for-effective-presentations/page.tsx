@@ -147,9 +147,7 @@ export default function GenAIPresentationsPage() {
 							<div className="mt-1 h-0.5 w-10 rounded" style={{ backgroundColor: '#1AB69D' }} />
 							<p className="mt-4 text-sm">By the end of this course, learners are able to:</p>
 							<ol className="mt-3 space-y-3 list-decimal pl-5 text-sm">
-								<li>Interpret the overall objectives of a presentation by incor-
-									porating relevant principles of content design for presenta-
-									tions.</li>
+								<li>Interpret the overall objectives of a presentation by incorporating relevant principles of content design for presentations.</li>
 								<li>Review the target audience for a presentation and determine the best ways to tailor the information disclosure to that audience.</li>
 								<li>Develop AI-generated information with structured topics for different communication purposes.</li>
 								<li>Construct AI-generated information through text-to-multimedia tools for audience engagement.</li>
