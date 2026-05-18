@@ -1,367 +1,354 @@
-import type { Metadata } from "next";
-import WSQContactForm from "../../components/wsq_contactform";
-import Image from "next/image";
-import { FaWhatsapp } from "react-icons/fa";
-import ContactForm from "../../components/contactform";
-import OpenCertsGuide from "@/app/components/OpenCertsGuide";
-import WsqRefundPolicy from "../../components/WsqRefundPolicy";
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import ContactForm from '@/app/components/contactform';
+import OpenCertsGuide from '@/app/components/OpenCertsGuide';
+import WsqRefundPolicy from '../../components/WsqRefundPolicy';
+import { FaClock, FaChalkboardTeacher, FaCheckCircle, FaCertificate } from 'react-icons/fa';
 
 export const metadata: Metadata = {
-    title: "Master Executive Presence in Stakeholder Management | WSQ Course | Edusphere",
-    description:
-        "Strengthen executive presence and stakeholder communication in this WSQ course focused on influence, clarity, and professional impact.",
+	title: 'Master Executive Presence in Stakeholder Management | WSQ Course | Edusphere',
+	description:
+		'Strengthen executive presence and stakeholder communication in this WSQ course focused on influence, clarity, and professional impact.',
 };
 
 export default function MasterExecutivePresenceInStakeholderManagement() {
-    return (
-        <main className="min-h-screen">
-            {/* Hero Section */}
-            <section className="relative bg-gradient-to-br from-[#1AB69D]/10 via-white to-[#EE4A62]/5 py-16 md:py-24 overflow-hidden">
-                <div className="absolute inset-0 bg-grid-pattern opacity-5" aria-hidden="true"></div>
+	return (
+		<main className="min-h-screen bg-gray-50">
+			{/* Hero */}
+			<section className="px-4 py-8 md:py-12">
+				<div className="mx-auto max-w-7xl">
+					<div className="relative overflow-hidden rounded-3xl bg-gray-900">
+						{/* Background */}
+						<div className="absolute inset-0">
+							<Image
+								src="/wsq-images/mepsm.jpg"
+								alt="Master Executive Presence in Stakeholder Management"
+								fill
+								priority
+								className="object-cover"
+								sizes="100vw"
+							/>
+							<div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/45 to-black/20" />
+						</div>
 
-                <div className="container mx-auto px-4 md:px-8 relative z-10">
-                    <div className="max-w-5xl mx-auto text-center space-y-6">
-                        <div className="flex justify-center">
-                            <span className="inline-flex items-center gap-2 px-4 py-2 bg-[#1AB69D]/10 text-[#1AB69D] rounded-full text-sm font-semibold">
-                                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
-                                </svg>
-                                <a href="https://www.myskillsfuture.gov.sg/content/portal/en/training-exchange/course-directory/course-detail.html?courseReferenceNumber=TGS-2025056021">WSQ Course - TGS-2025056021 </a>
-                            </span>
-                        </div>
+						<div className="relative grid grid-cols-1 gap-8 lg:grid-cols-12">
+							{/* Left content */}
+							<div className="col-span-7 p-6 sm:p-10 md:p-14">
+								<div className="mb-4 inline-flex items-center rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium text-white ring-1 ring-white/20 backdrop-blur">
+									TGS-2025056021
+								</div>
+								<h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white">
+									Master Executive Presence in Stakeholder Management
+								</h1>
+								<p className="mt-4 max-w-2xl text-base sm:text-lg text-white/85">
+									Build confidence, influence, and leadership skills to effectively manage stakeholder relationships and become a trusted leader.
+								</p>
 
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900">
-                            Master Executive Presence in <span className="text-[#EE4A62]">Stakeholder Management</span>
-                        </h1>
+								{/* Badges */}
+								<div className="mt-6 flex flex-wrap items-center gap-4">
+									<div className="rounded-2xl bg-white/90 px-4 py-3 text-left shadow-sm ring-1 ring-black/5 backdrop-blur">
+										<div style={{ color: '#1AB69D' }} className="font-semibold">Up to 70%</div>
+										<div style={{ color: '#202020' }} className="text-xs">Course Subsidy</div>
+									</div>
+									<div className="rounded-2xl bg-white/90 px-4 py-3 text-left shadow-sm ring-1 ring-black/5 backdrop-blur">
+										<div style={{ color: '#1AB69D' }} className="font-semibold">SkillsFuture</div>
+										<div style={{ color: '#202020' }} className="text-xs">Credits Eligible</div>
+									</div>
+								</div>
 
-                        <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-                            Build confidence, influence, and leadership skills to effectively manage stakeholder relationships and become a trusted leader
-                        </p>
+								{/* CTA */}
+								<div className="mt-6">
+									<div
+										className="w-full max-w-md rounded-2xl p-px shadow-2xl ring-1 ring-white/20"
+										style={{ background: 'linear-gradient(135deg, rgba(26, 182, 157, 0.95) 0%, rgba(49, 185, 121, 0.92) 55%, rgba(238, 74, 98, 0.86) 100%)' }}
+									>
+										<div className="rounded-2xl bg-black/35 p-5 text-white backdrop-blur-md">
+											<div className="flex flex-wrap items-center gap-2">
+												<span className="inline-flex items-center gap-1 rounded-full bg-orange-400/90 px-3 py-1 text-xs font-bold text-[#202020]">
+													🔥 Limited Intake
+												</span>
+												<span className="inline-flex rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-white/95 ring-1 ring-white/20">
+													16-Hour WSQ Course
+												</span>
+											</div>
 
-                        <div className="flex flex-wrap justify-center gap-4 pt-4">
-                            <a
-                                href="#contact"
-                                className="group bg-[#1AB69D] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#16917f] transition-all hover:shadow-lg hover:scale-105 active:scale-95 flex items-center gap-2"
-                            >
-                                Talk to Us
-                                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                                </svg>
-                            </a>
-                            <a
-                                href="https://form.jotform.com/252672445341052"
-                                className="group bg-white text-[#1AB69D] border-2 border-[#1AB69D] px-8 py-4 rounded-lg font-semibold hover:bg-[#1AB69D] hover:text-white transition-all hover:shadow-lg flex items-center gap-2"
-                            >
-                                Register Now
-                            </a>
-                        </div>
+											<p className="mt-3 text-sm leading-relaxed text-white/90">
+												Secure your place in the next available run and gain hands-on skills in executive presence, stakeholder influence, and leadership.
+											</p>
 
-                        <div className="flex justify-center gap-8 pt-8 text-sm text-gray-600">
-                            <a href="#overview" className="hover:text-[#1AB69D] transition-colors font-medium">Overview</a>
-                            <a href="#course-details" className="hover:text-[#1AB69D] transition-colors font-medium">Course Details</a>
-                            <a href="#entry-requirements" className="hover:text-[#1AB69D] transition-colors font-medium">Entry Requirements</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
+											<div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
+												<a
+													href="https://form.jotform.com/252672445341052"
+													className="inline-flex w-full items-center justify-center rounded-xl px-5 py-2.5 text-sm font-bold shadow-sm transition hover:brightness-105"
+													style={{ backgroundColor: '#1AB69D', color: '#ffffff' }}
+												>
+													Reserve Your Seat
+												</a>
+												<a
+													href="#register"
+													className="inline-flex w-full items-center justify-center rounded-xl border border-white/40 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/20"
+												>
+													View Full Details
+												</a>
+											</div>
 
-            {/* Course Overview */}
-            <section id="overview" className="py-12 md:py-16 bg-white">
-                <div className="container mx-auto px-4 md:px-8 max-w-6xl">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-3 text-gray-900">
-                        Course Overview
-                    </h2>
-                    <div className="flex justify-center mb-8">
-                        <div className="w-20 h-1 bg-[#1AB69D] rounded-full"></div>
-                    </div>
+											<p className="mt-3 text-xs text-white/80">
+												Need help choosing funding? Call{' '}
+												<a href="tel:+6582215143" className="font-semibold underline underline-offset-2">
+													+65 8221 5143
+												</a>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
-                    <div className="max-w-4xl mx-auto">
-                        <p className="text-gray-700 leading-relaxed text-justify mb-8">
-                            "Master Executive Presence in Stakeholder Management" is a powerful course created to help professionals become confident and effective leaders. It teaches how to manage relationships with different stakeholders, build trust, and communicate clearly. This course goes beyond basic management by focusing on advanced skills like influencing others, handling conflicts, and leading with impact—both online and in-person.
-                        </p>
+			<section id="about" className="px-4 py-10 md:py-12">
+				<div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 lg:grid-cols-12">
+					{/* Main */}
+					<div className="lg:col-span-8 space-y-6">
 
-                        <div className="bg-[#1AB69D]/5 border-l-4 border-[#1AB69D] p-6 rounded-r-lg">
-                            <h3 className="text-xl font-bold text-gray-900 mb-3">Course Objective</h3>
-                            <p className="text-gray-700 leading-relaxed">
-                                The main goal of this course is to help participants lead with confidence and build strong connections with stakeholders. It provides practical tools and insights to improve communication, align with company goals, and become a trusted and influential leader in any organization.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+						{/* Course Overview */}
+						<div className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm" style={{ color: '#202020' }}>
+							<h2 className="text-lg font-bold" style={{ color: '#202020' }}>Course Overview</h2>
+							<div className="mt-1 h-0.5 w-10 rounded" style={{ backgroundColor: '#1AB69D' }} />
+							<p className="mt-4 text-sm leading-relaxed">
+								Unlock the power of executive presence, influence, and leadership with our comprehensive course on Stakeholder Management. Designed for professionals aiming to elevate their leadership capabilities, this program provides essential tools and strategies to manage stakeholder relationships effectively. Learn to analyze stakeholder dynamics, align expectations, negotiate for mutual benefit, and resolve conflicts with authority. Gain practical insights into building trust, enhancing your communication, and cultivating charismatic leadership. This course equips you with the skills to project confidence and manage diverse stakeholder groups to drive organizational success. Perfect for leaders looking to refine their influence, negotiation and decision-making skills.
+							</p>
+						</div>
 
-            {/* Course Details */}
-            <section id="course-details" className="py-12 md:py-16 bg-gray-50">
-                <div className="container mx-auto px-4 md:px-8 max-w-6xl">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-3 text-gray-900">
-                        Course Details
-                    </h2>
-                    <div className="flex justify-center mb-8">
-                        <div className="w-20 h-1 bg-[#1AB69D] rounded-full"></div>
-                    </div>
+						{/* Learning Outcomes */}
+						<div className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm" style={{ color: '#202020' }}>
+							<h2 className="text-lg font-bold" style={{ color: '#202020' }}>Learning Outcomes</h2>
+							<div className="mt-1 h-0.5 w-10 rounded" style={{ backgroundColor: '#1AB69D' }} />
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                        <div className="bg-white rounded-xl shadow-sm border-2 border-[#1AB69D] p-6 text-center hover:shadow-lg transition-shadow">
-                            <div className="w-12 h-12 bg-[#1AB69D]/10 rounded-lg flex items-center justify-center mx-auto mb-3">
-                                <svg className="w-6 h-6 text-[#1AB69D]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                            </div>
-                            <h3 className="text-sm font-semibold text-gray-600 mb-2">Course Duration</h3>
-                            <p className="text-xl font-bold text-[#1AB69D]">16 Hours</p>
-                            <p className="text-xs text-gray-500 mt-1">Training: 15 Hours (2 Days)</p>
-                            <p className="text-xs text-gray-500">Assessment: 1 Hour</p>
-                        </div>
+							<ol className="mt-3 space-y-3 list-decimal pl-5 text-sm">
+								<li>Examine nonverbal communication strategies to project an authoritative and authentic executive presence in both in-person and virtual settings.</li>
+								<li>Critique body language practices to ensure that signals of authority remain approachable and authentic when managing diverse groups of stakeholders.</li>
+								<li>Integrate cognitive insights, narrative structures, and persuasive techniques to craft compelling messages for diverse audiences.</li>
+								<li>Develop actionable communication plans that set and align stakeholder expectations with overarching organizational goals.</li>
+								<li>Assess the psychological drivers and underlying factors that cultivate trust and credibility within professional relationships.</li>
+								<li>Formulate implementable strategies for maintaining and re-storing trust by integrating conflict resolution techniques and stakeholder feedback mechanisms.</li>
+								<li>Integrate negotiation techniques and influence strategies to align stakeholder interests with organizational objectives to secure mutually beneficial outcomes.</li>
+								<li>Analyze the components of charismatic leadership by leveraging on emotional literacy and proactive dispute management to enhance personal magnetism and leadership effectiveness.</li>
+							</ol>
+						</div>
 
-                        <div className="bg-white rounded-xl shadow-sm border-2 border-[#1AB69D] p-6 text-center hover:shadow-lg transition-shadow">
-                            <div className="w-12 h-12 bg-[#EE4A62]/10 rounded-lg flex items-center justify-center mx-auto mb-3">
-                                <svg className="w-6 h-6 text-[#EE4A62]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                                </svg>
-                            </div>
-                            <h3 className="text-sm font-semibold text-gray-600 mb-2">Mode of Training</h3>
-                            <p className="text-xl font-bold text-[#EE4A62]">Face to Face</p>
-                        </div>
+						{/* Entry Requirements */}
+						<div className="rounded-2xl border-2 border-[#1AB69D] bg-[#1AB69D]/5 p-6 md:p-8 shadow-sm">
+							<div className="flex items-center gap-3">
+								<span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#1AB69D] text-white text-base">
+									✓
+								</span>
+								<h2 className="text-lg font-bold" style={{ color: '#202020' }}>Minimum Entry Requirements</h2>
+							</div>
+							<div className="mt-2 ml-12 h-0.5 w-10 rounded" style={{ backgroundColor: '#1AB69D' }} />
+							<p className="mt-4 ml-12 text-sm" style={{ color: '#202020' }}>
+								Able to speak, listen, read and write English at a proficiency level not lower than the Employability Skills WSQ Level 4 Workplace Literacy (WPL).
+							</p>
+						</div>
 
-                        <div className="bg-white rounded-xl shadow-sm border-2 border-[#1AB69D] p-6 text-center hover:shadow-lg transition-shadow">
-                            <div className="w-12 h-12 bg-[#1AB69D]/10 rounded-lg flex items-center justify-center mx-auto mb-3">
-                                <svg className="w-6 h-6 text-[#1AB69D]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                                </svg>
-                            </div>
-                            <h3 className="text-sm font-semibold text-gray-600 mb-2">Trainer : Learner Ratio</h3>
-                            <p className="text-xl font-bold text-[#1AB69D]">1 : 24</p>
-                        </div>
+						{/* Other Details */}
+						<div className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm" style={{ color: '#202020' }}>
+							<h2 className="text-lg font-bold" style={{ color: '#202020' }}>Other Details</h2>
+							<div className="mt-1 h-0.5 w-10 rounded" style={{ backgroundColor: '#1AB69D' }} />
+							<div className="mt-4 space-y-4 text-sm">
+								<div>
+									<p className="font-semibold">Training Type</p>
+									<p>Training and Assessment</p>
+								</div>
+								<div>
+									<p className="font-semibold">Medium of Instruction</p>
+									<p>English</p>
+								</div>
+							</div>
+						</div>
 
-                        <div className="bg-white rounded-xl shadow-sm border-2 border-[#1AB69D] p-6 text-center hover:shadow-lg transition-shadow">
-                            <div className="w-12 h-12 bg-[#EE4A62]/10 rounded-lg flex items-center justify-center mx-auto mb-3">
-                                <svg className="w-6 h-6 text-[#EE4A62]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                            </div>
-                            <h3 className="text-sm font-semibold text-gray-600 mb-2">Course Fee</h3>
-                            <p className="text-xl font-bold text-[#EE4A62]">S$1000/-</p>
-                            <p className="text-xs text-gray-500 mt-1">NETT (Before Funding)</p>
-                        </div>
-                    </div>
+					</div>
 
-                    <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100 max-w-2xl mx-auto">
-                        <div className="flex items-start gap-4">
-                            <div className="w-16 h-16 bg-[#1AB69D]/10 rounded-xl flex items-center justify-center shrink-0">
-                                <svg className="w-8 h-8 text-[#1AB69D]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 className="text-lg font-bold text-gray-900 mb-2">WSQ Course</h3>
-                                <p className="text-gray-700 text-sm">Accreditation by SkillsFuture Singapore (SSG)</p>
-                                <a href="https://www.myskillsfuture.gov.sg" target="_blank" rel="noopener noreferrer" className="text-[#1AB69D] hover:text-[#16917f] text-sm font-medium inline-flex items-center gap-1 mt-2">
-                                    Visit www.myskillsfuture.gov.sg
-                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+					{/* Sidebar */}
+					<aside className="lg:col-span-4 space-y-5">
+						{/* Upcoming Batch Dates */}
+						<div className="relative rounded-2xl border-2 border-[#1AB69D] bg-gradient-to-br from-[#1AB69D]/10 to-emerald-50 p-6 shadow-md overflow-hidden">
+							<div className="absolute top-0 right-0 w-20 h-20 bg-[#1AB69D]/10 rounded-full -translate-y-1/2 translate-x-1/2" />
+							<div className="flex items-center gap-2 mb-4">
+								<span className="relative flex h-3 w-3">
+									<span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#EE4A62] opacity-75" />
+									<span className="relative inline-flex rounded-full h-3 w-3 bg-[#EE4A62]" />
+								</span>
+								<span className="text-sm font-bold uppercase tracking-wider text-[#EE4A62]">
+									Upcoming Batch
+								</span>
+							</div>
+							<table className="w-full text-sm">
+								<thead>
+									<tr className="border-b border-[#1AB69D]/30">
+										<th className="py-2 text-left font-semibold text-gray-700">Date</th>
+										<th className="py-2 text-left font-semibold text-gray-700">AM</th>
+										<th className="py-2 text-left font-semibold text-gray-700">PM</th>
+									</tr>
+								</thead>
+								<tbody className="divide-y divide-gray-200/60">
+									<tr>
+										<td className="py-2.5 font-semibold text-[#1AB69D]">TBA</td>
+										<td className="py-2.5 text-gray-800">9:00 AM – 1:00 PM</td>
+										<td className="py-2.5 text-gray-800">2:00 PM – 6:00 PM</td>
+									</tr>
+									<tr>
+										<td className="py-2.5 font-semibold text-[#1AB69D]">TBA</td>
+										<td className="py-2.5 text-gray-800">9:00 AM – 1:00 PM</td>
+										<td className="py-2.5 text-gray-800">2:00 PM – 5:00 PM</td>
+									</tr>
+								</tbody>
+							</table>
+							<a
+								href="https://form.jotform.com/252672445341052"
+								className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#1AB69D] px-5 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-[#16917f] active:scale-[0.98] transition-all"
+							>
+								Register for This Batch
+								<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+								</svg>
+							</a>
+						</div>
 
-            {/* OpenCerts Guide */}
-                        <section className="px-4 pb-10">
-                            <div className="mx-auto max-w-7xl">
-                                <OpenCertsGuide />
-                            </div>
-                        </section>
+						<div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6 shadow-sm">
+							<div className="mb-2 flex items-center gap-2 font-semibold text-sm" style={{ color: '#1AB69D' }}>
+								<FaClock className="shrink-0" />
+								COURSE DURATION
+							</div>
+							<p className="text-sm" style={{ color: '#202020' }}>
+								Training – 15 Hours (2 Days)<br />
+								Assessment – 01 Hour<br />
+								Total Duration – 16 Hours
+							</p>
+						</div>
 
-            {/* Funding Information */}
-            <section id="entry-requirements" className="py-12 md:py-16 bg-white">
-                <div className="container mx-auto px-4 md:px-8 max-w-6xl">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-3 text-gray-900">
-                        Funding Information
-                    </h2>
-                    <div className="flex justify-center mb-2">
-                        <div className="w-20 h-1 bg-[#1AB69D] rounded-full"></div>
-                    </div>
-                    <p className="text-center text-gray-600 mb-8">
-                        Funding Validity Period: <span className="font-semibold text-[#1AB69D]">24-Jun-2025 TO 23-Jun-2027</span>
-                    </p>
+						<div className="rounded-2xl border border-sky-200 bg-sky-50 p-6 shadow-sm">
+							<div className="mb-2 flex items-center gap-2 font-semibold text-sm" style={{ color: '#1AB69D' }}>
+								<FaChalkboardTeacher className="shrink-0" />
+								MODE OF TRAINING
+							</div>
+							<p className="text-sm" style={{ color: '#202020' }}>
+								FACE TO FACE<br />
+								Trainer : Learner Ratio<br />
+								1 Trainer : 24 Learners
+							</p>
+						</div>
 
-                    <div className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden mb-8">
-                        <div className="overflow-x-auto">
-                            <table className="w-full text-sm">
-                                <thead className="bg-[#1AB69D] text-white">
-                                    <tr>
-                                        <th className="px-4 py-4 text-left font-bold">
-                                            TGS-2025056021<br />
-                                            Master Executive Presence in Stakeholder Management<br />
-                                            <span className="font-normal text-xs">Funding Validity Period: 24-Jun-2025 TO 23-Jun-2027</span>
-                                        </th>
-                                        <th className="px-4 py-4 text-center font-bold">
-                                            Full Course Fee<br />
-                                            <span className="font-normal text-xs">(For Foreigners and those not eligible for subsidies)</span>
-                                        </th>
-                                        <th className="px-4 py-4 text-center font-bold">
-                                            SG Citizen<br />
-                                            (21-39 years old)<br />
-                                            or SG PR ≥ 21 yrs old<br />
-                                            <span className="font-normal text-xs">SkillsFuture Funding (Baseline) 50%</span>
-                                        </th>
-                                        <th className="px-4 py-4 text-center font-bold">
-                                            SG Citizen<br />
-                                            (Above 40 years old)<br />
-                                            <span className="font-normal text-xs">SkillsFuture Mid-Career Enhance Subsidy 70%</span>
-                                        </th>
-                                        <th className="px-4 py-4 text-center font-bold">
-                                            SME Sponsored<br />
-                                            <span className="font-normal text-xs">SkillsFuture Enhanced Training Support for SMEs 70%</span>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody className="divide-y divide-gray-200">
-                                    <tr className="hover:bg-gray-50 transition-colors">
-                                        <td className="px-4 py-3 font-semibold text-gray-900">Course Fees</td>
-                                        <td className="px-4 py-3 text-center text-gray-700">S$1000.00</td>
-                                        <td className="px-4 py-3 text-center text-gray-700">S$1000.00</td>
-                                        <td className="px-4 py-3 text-center text-gray-700">S$1000.00</td>
-                                        <td className="px-4 py-3 text-center text-gray-700">S$1000.00</td>
-                                    </tr>
-                                    <tr className="hover:bg-gray-50 transition-colors">
-                                        <td className="px-4 py-3 font-semibold text-gray-900">With GST (9%)</td>
-                                        <td className="px-4 py-3 text-center text-gray-700">S$1090.00</td>
-                                        <td className="px-4 py-3 text-center text-gray-700">S$1090.00</td>
-                                        <td className="px-4 py-3 text-center text-gray-700">S$1090.00</td>
-                                        <td className="px-4 py-3 text-center text-gray-700">S$1090.00</td>
-                                    </tr>
-                                    <tr className="hover:bg-gray-50 transition-colors">
-                                        <td className="px-4 py-3 font-semibold text-[#EE4A62]">SkillsFuture Funding</td>
-                                        <td className="px-4 py-3 text-center text-[#EE4A62] font-medium">-S$0.00</td>
-                                        <td className="px-4 py-3 text-center text-[#EE4A62] font-medium">-S$500.00</td>
-                                        <td className="px-4 py-3 text-center text-[#EE4A62] font-medium">-S$700.00</td>
-                                        <td className="px-4 py-3 text-center text-[#EE4A62] font-medium">-S$700.00</td>
-                                    </tr>
-                                    <tr className="bg-[#1AB69D]/5 font-bold">
-                                        <td className="px-4 py-4 text-gray-900 text-lg">Total Net Fee</td>
-                                        <td className="px-4 py-4 text-center text-[#1AB69D] text-lg">S$1090.00</td>
-                                        <td className="px-4 py-4 text-center text-[#1AB69D] text-lg">S$590.00</td>
-                                        <td className="px-4 py-4 text-center text-[#1AB69D] text-lg">S$390.00</td>
-                                        <td className="px-4 py-4 text-center text-[#1AB69D] text-lg">S$390.00</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+						<div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+							<div className="mb-2 flex items-center gap-2 font-semibold text-sm" style={{ color: '#1AB69D' }}>
+								<FaCheckCircle className="shrink-0" />
+								WSQ COURSE
+							</div>
+							<p className="text-sm" style={{ color: '#202020' }}>
+								Accreditation by SkillsFuture Singapore (SSG)<br />
+								Visit <a className="underline" href="https://www.myskillsfuture.gov.sg" target="_blank" style={{ color: '#1AB69D' }}>www.myskillsfuture.gov.sg</a>
+							</p>
+						</div>
 
-                    <div className="bg-[#EE4A62]/5 border-l-4 border-[#EE4A62] p-6 rounded-r-lg max-w-4xl mx-auto">
-                        <div className="flex items-start gap-3">
-                            <svg className="w-6 h-6 text-[#EE4A62] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-                            </svg>
-                            <p className="text-gray-700 leading-relaxed text-sm">
-                                All Singaporeans aged 25 and above can use their <span className="font-semibold">$500 SkillsFuture Credit</span> from the government to pay for a wide range of approved skills-related courses. Visit MySkillsFuture (at <a href="https://www.myskillsfuture.gov.sg" target="_blank" rel="noopener noreferrer" className="text-[#1AB69D] hover:underline font-medium">www.myskillsfuture.gov.sg</a>) to choose from the courses available on the website.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+						<div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+							<div className="mb-2 flex items-center gap-2 font-semibold text-sm" style={{ color: '#1AB69D' }}>
+								<FaCertificate className="shrink-0" />
+								CERTIFICATION TYPE
+							</div>
+							<p className="text-sm" style={{ color: '#202020' }}>
+								Statement of Attainment
+							</p>
+						</div>
+					</aside>
+				</div>
+			</section>
 
-            {/* Refund Policy */}
-            <WsqRefundPolicy />
+			{/* OpenCerts Guide */}
+			<section className="px-4 pb-10">
+				<div className="mx-auto max-w-7xl">
+					<OpenCertsGuide />
+				</div>
+			</section>
 
-            {/* Contact Section */}
-            <section id="contact" className="py-12 md:py-16 bg-gray-50">
-                <div className="container mx-auto px-4 md:px-8 max-w-6xl">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-3 text-gray-900">
-                        Talk to Us Directly
-                    </h2>
-                    <div className="flex justify-center mb-8">
-                        <div className="w-20 h-1 bg-[#1AB69D] rounded-full"></div>
-                    </div>
+			{/* Fees table */}
+			<section className="px-4 pb-16">
+				<div className="mx-auto max-w-7xl">
+					<h3 className="text-xl md:text-2xl font-bold" style={{ color: '#202020' }}>Course Fee</h3>
+					<div className="mt-4 overflow-x-auto rounded-2xl border border-gray-200 bg-white shadow-sm">
+						<table className="min-w-full divide-y divide-gray-200 text-sm">
+							<thead>
+								<tr>
+									<th className="px-4 py-3 text-left align-top" style={{ backgroundColor: '#E91E63', color: '#ffffff' }}>
+										<div className="font-semibold">TGS-2025056021<br />Master Executive Presence in Stakeholder Management</div>
+										<div className="mt-1 text-xs text-white/90">Funding Validity Period: 24–Jun–2025 to 23–Jun–2027</div>
+									</th>
+									<th className="px-4 py-3 text-left align-top" style={{ backgroundColor: '#E91E63', color: '#ffffff' }}>
+										<div className="font-semibold">Full Course Fee</div>
+										<div className="mt-1 text-xs text-white/90">For Foreigners and those not eligible for subsidies</div>
+									</th>
+									<th className="px-4 py-3 text-left align-top" style={{ backgroundColor: '#E91E63', color: '#ffffff' }}>
+										<div className="font-semibold">SG Citizen (21–39 yrs) or SG PR ≥ 21 yrs old</div>
+										<div className="mt-1 text-xs text-white/90">SkillsFuture Funding (Baseline) 50%</div>
+									</th>
+									<th className="px-4 py-3 text-left align-top" style={{ backgroundColor: '#E91E63', color: '#ffffff' }}>
+										<div className="font-semibold">SG Citizen (Above 40 yrs old)</div>
+										<div className="mt-1 text-xs text-white/90">SkillsFuture Mid-Career Enhanced Subsidy 70%</div>
+									</th>
+									<th className="px-4 py-3 text-left align-top" style={{ backgroundColor: '#E91E63', color: '#ffffff' }}>
+										<div className="font-semibold">SME Sponsored</div>
+										<div className="mt-1 text-xs text-white/90">SkillsFuture Enhanced Training Support for SMEs 70%</div>
+									</th>
+								</tr>
+							</thead>
+							<tbody className="divide-y divide-gray-100">
+								<tr style={{ color: '#202020' }}>
+									<td className="px-4 py-3 font-semibold">Course Fees</td>
+									<td className="px-4 py-3">S$1000.00</td>
+									<td className="px-4 py-3">S$1000.00</td>
+									<td className="px-4 py-3">S$1000.00</td>
+									<td className="px-4 py-3">S$1000.00</td>
+								</tr>
+								<tr style={{ color: '#202020' }}>
+									<td className="px-4 py-3 font-semibold">With GST (9%)</td>
+									<td className="px-4 py-3">S$1090.00</td>
+									<td className="px-4 py-3">S$1090.00</td>
+									<td className="px-4 py-3">S$1090.00</td>
+									<td className="px-4 py-3">S$1090.00</td>
+								</tr>
+								<tr style={{ color: '#202020' }}>
+									<td className="px-4 py-3 font-semibold">SkillsFuture Funding</td>
+									<td className="px-4 py-3">–S$0.00</td>
+									<td className="px-4 py-3">–S$500.00</td>
+									<td className="px-4 py-3">–S$700.00</td>
+									<td className="px-4 py-3">–S$700.00</td>
+								</tr>
+								<tr style={{ color: '#202020' }}>
+									<td className="px-4 py-3 font-semibold">Total Nett Fee</td>
+									<td className="px-4 py-3 font-semibold">S$1090.00</td>
+									<td className="px-4 py-3 font-semibold">S$590.00</td>
+									<td className="px-4 py-3 font-semibold">S$390.00</td>
+									<td className="px-4 py-3 font-semibold">S$390.00</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<p className="mt-3 text-sm" style={{ color: '#202020' }}>
+						All Singaporeans aged 25 and above can use their S$500 SkillsFuture Credit from the government to pay for a wide range of approved skills-related courses. Visit{' '}
+						<a className="underline" href="https://www.myskillsfuture.gov.sg" target="_blank" style={{ color: '#1AB69D' }}>MySkillsFuture</a> for details.
+					</p>
+				</div>
+			</section>
 
-                    <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                        <div className="space-y-6">
-                            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-                                <h3 className="text-xl font-bold text-gray-900 mb-4">Get in Touch For:</h3>
-                                <ul className="space-y-3">
-                                    {[
-                                        "Understanding the available subsidies",
-                                        "Clarify course details (Assessment, Schedule etc.)",
-                                        "Find out if this course suits your goals",
-                                        "Check if you are eligible for the course",
-                                    ].map((item, idx) => (
-                                        <li key={idx} className="flex items-start gap-3">
-                                            <svg className="w-5 h-5 text-[#1AB69D] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                                            </svg>
-                                            <span className="text-gray-700 text-sm">{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
+			{/* Refund Policy */}
+			<WsqRefundPolicy />
 
-                            <div className="grid gap-3">
-                                {[
-                                    {
-                                        href: "https://wa.me/6582215143",
-                                        label: "WhatsApp Us",
-                                        bg: "bg-[#25D366]",
-                                        hoverBg: "hover:bg-[#20BA5A]",
-                                        icon: "whatsapp",
-                                        external: true,
-                                    },
-                                    {
-                                        href: "tel:+6582215143",
-                                        label: "+65 8221 5143",
-                                        bg: "bg-[#1AB69D]",
-                                        hoverBg: "hover:bg-[#16917f]",
-                                        icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />,
-                                        external: false,
-                                    },
-                                    {
-                                        href: "https://maps.google.com/?q=7500A+Beach+Road+THE+PLAZA+Singapore+199591",
-                                        label: "Find Us on Google Maps",
-                                        bg: "bg-white",
-                                        hoverBg: "hover:bg-[#1AB69D]",
-                                        textColor: "text-[#1AB69D]",
-                                        hoverText: "hover:text-white",
-                                        border: "border-2 border-[#1AB69D]",
-                                        icon: <><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></>,
-                                        external: true,
-                                    },
-                                ].map((contact, idx) => (
-                                    <a
-                                        key={idx}
-                                        href={contact.href}
-                                        {...(contact.external && { target: "_blank", rel: "noopener noreferrer" })}
-                                        className={`flex items-center justify-center gap-3 ${contact.bg} ${contact.textColor || "text-white"} ${contact.border || ""} px-6 py-3 rounded-lg font-semibold ${contact.hoverBg} ${contact.hoverText || ""} transition-all hover:shadow-lg hover:scale-105 active:scale-95`}
-                                    >
-                                        {contact.icon === "whatsapp" ? (
-                                            <FaWhatsapp className="w-6 h-6" />
-                                        ) : (
-                                            <svg className="w-6 h-6" fill={idx === 0 ? "currentColor" : "none"} stroke={idx !== 0 ? "currentColor" : "none"} viewBox="0 0 24 24">
-                                                {contact.icon}
-                                            </svg>
-                                        )}
-                                        {contact.label}
-                                    </a>
-                                ))}
-                            </div>
-                        </div>
-
-                        <div className="relative h-[400px] md:h-full min-h-[350px] rounded-xl overflow-hidden shadow-lg group">
-                            <Image
-                                src="/wsq-images/callcenteryoungwomen.png"
-                                alt="Contact Us - Our friendly team is ready to help"
-                                fill
-                                className="object-cover transition-transform duration-300 group-hover:scale-105"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <ContactForm />
-        </main>
-    );
+			{/* Register form section */}
+			<section id="register" className="px-4 pb-20">
+				<div className="mx-auto max-w-7xl">
+					<ContactForm />
+				</div>
+			</section>
+		</main>
+	);
 }
