@@ -130,7 +130,6 @@ export default function FlexibleWorkPracticesPage() {
 						<div className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm" style={{ color: '#202020' }}>
 							<h2 className="text-lg font-bold" style={{ color: '#202020' }}>Learning Outcomes</h2>
 							<div className="mt-1 h-0.5 w-10 rounded" style={{ backgroundColor: '#1AB69D' }} />
-							<p className="mt-4 text-sm">By the end of this course, learners are able to:</p>
 							<ol className="mt-3 space-y-3 list-decimal pl-5 text-sm">
 								<li>Analyze the effectiveness of the workplace environment.</li>
 								<li>Apply best practices in office workspaces and layouts to enhance quality and efficiency in a flexible work setting.</li>

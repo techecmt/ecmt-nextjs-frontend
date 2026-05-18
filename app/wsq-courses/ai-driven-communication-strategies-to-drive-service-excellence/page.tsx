@@ -132,15 +132,13 @@ export default function AIDrivenCommunicationPage() {
 						<div className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm" style={{ color: '#202020' }}>
 							<h2 className="text-lg font-bold" style={{ color: '#202020' }}>Learning Outcomes</h2>
 							<div className="mt-1 h-0.5 w-10 rounded" style={{ backgroundColor: '#1AB69D' }} />
+							<p className="mt-4 text-sm">By the end of this course, learners are able to:</p>
 							<ol className="mt-3 space-y-3 list-decimal pl-5 text-sm">
-								<li>Examine nonverbal communication strategies to project an authoritative and authentic executive presence in both in-person and virtual settings.</li>
-								<li>Critique body language practices to ensure that signals of authority remain approachable and authentic when managing diverse groups of stakeholders.</li>
-								<li>Integrate cognitive insights, narrative structures, and persuasive techniques to craft compelling messages for diverse audiences.</li>
-								<li>Develop actionable communication plans that set and align stakeholder expectations with overarching organizational goals.</li>
-								<li>Assess the psychological drivers and underlying factors that cultivate trust and credibility within professional relationships.</li>
-								<li>Formulate implementable strategies for maintaining and re-storing trust by integrating conflict resolution techniques and stakeholder feedback mechanisms.</li>
-								<li>Integrate negotiation techniques and influence strategies to align stakeholder interests with organizational objectives to secure mutually beneficial outcomes.</li>
-								<li>Analyze the components of charismatic leadership by leveraging on emotional literacy and proactive dispute management to enhance personal magnetism and leadership effectiveness.</li>
+								<li>Identify the various types of customers, their needs and expectations, including those interacting through AI-driven channels.</li>
+								<li>Demonstrate the qualities and characteristics of a service professional by projecting a professional image and persona that positively impacts the organization, both in person and through AI-mediated interactions.</li>
+								<li>Provide a positive customer experience by going the extra mile, offering customized and personalized service that benefits both oneself and the organization to exceed customer expectations.</li>
+								<li>Apply the principles of effective communication to build rapport with customers and ensure that their needs are met efficiently.</li>
+								<li>Identify areas for enhancement in customer service and effectively communicate these insights to the relevant departments to drive improvements in the customer experience.</li>
 							</ol>
 						</div>
 
