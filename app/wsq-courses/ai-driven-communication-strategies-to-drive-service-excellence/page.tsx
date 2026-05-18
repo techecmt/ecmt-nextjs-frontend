@@ -1,16 +1,16 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import WsqContactForm from '../../components/wsq_contactform';
-import { FaWhatsapp } from "react-icons/fa";
 import ContactForm from '../../components/contactform';
 import WsqRefundPolicy from '../../components/WsqRefundPolicy';
 import OpenCertsGuide from '@/app/components/OpenCertsGuide';
+import { FaClock, FaChalkboardTeacher, FaCheckCircle, FaCertificate } from 'react-icons/fa';
 
 export const metadata: Metadata = {
-	title: "AI-Driven Communication Strategies to Drive Service Excellence | WSQ Course | Edusphere",
+	title: 'AI-Driven Communication Strategies to Drive Service Excellence | WSQ Course | Edusphere',
 	description:
-		"Take the WSQ course on AI-driven communication strategies to improve service excellence, customer engagement, and team performance.",
+		'Take the WSQ course on AI-driven communication strategies to improve service excellence, customer engagement, and team performance.',
 };
+
 // Brand Colors:
 // Primary: #1AB69D
 // Secondary: #EE4A62
@@ -38,7 +38,7 @@ export default function AIDrivenCommunicationPage() {
 
 						<div className="relative grid grid-cols-1 gap-8 lg:grid-cols-12">
 							{/* Left content */}
-							<div className="col-span-8 p-6 sm:p-10 md:p-14">
+							<div className="col-span-7 p-6 sm:p-10 md:p-14">
 								<div className="mb-4 inline-flex items-center rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium text-white ring-1 ring-white/20 backdrop-blur">
 									TGS-2025055862
 								</div>
@@ -63,32 +63,49 @@ export default function AIDrivenCommunicationPage() {
 
 								{/* CTA */}
 								<div className="mt-6">
-									<div className="w-full max-w-sm rounded-2xl p-1 shadow-lg" style={{ background: 'linear-gradient(135deg, #1AB69D 0%, #31B979 100%)' }}>
-										<div className="rounded-2xl bg-white/10 p-4 text-white backdrop-blur">
-											<div className="flex items-center gap-2 text-sm font-semibold">
-												<span className="text-orange-300">🔥</span>
-												Seats filling fast
+									<div
+										className="w-full max-w-md rounded-2xl p-px shadow-2xl ring-1 ring-white/20"
+										style={{ background: 'linear-gradient(135deg, rgba(26, 182, 157, 0.95) 0%, rgba(49, 185, 121, 0.92) 55%, rgba(238, 74, 98, 0.86) 100%)' }}
+									>
+										<div className="rounded-2xl bg-black/35 p-5 text-white backdrop-blur-md">
+											<div className="flex flex-wrap items-center gap-2">
+												<span className="inline-flex items-center gap-1 rounded-full bg-orange-400/90 px-3 py-1 text-xs font-bold text-[#202020]">
+													🔥 Limited Intake
+												</span>
+												<span className="inline-flex rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-white/95 ring-1 ring-white/20">
+													16-Hour WSQ Course
+												</span>
 											</div>
-											<div className="mt-3">
+
+											<p className="mt-3 text-sm leading-relaxed text-white/90">
+												Secure your place in the next available run and master AI-driven communication strategies for service excellence.
+											</p>
+
+											<div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
 												<a
 													href="https://form.jotform.com/252672445341052"
-													className="inline-flex w-full items-center justify-center rounded-xl px-5 py-2 text-sm font-semibold shadow-sm hover:opacity-90"
+													className="inline-flex w-full items-center justify-center rounded-xl px-5 py-2.5 text-sm font-bold shadow-sm transition hover:brightness-105"
 													style={{ backgroundColor: '#1AB69D', color: '#ffffff' }}
 												>
-													Register Now
+													Reserve Your Seat
+												</a>
+												<a
+													href="#register"
+													className="inline-flex w-full items-center justify-center rounded-xl border border-white/40 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/20"
+												>
+													View Full Details
 												</a>
 											</div>
+
+											<p className="mt-3 text-xs text-white/80">
+												Need help choosing funding? Call{' '}
+												<a href="tel:+6582215143" className="font-semibold underline underline-offset-2">
+													+65 8221 5143
+												</a>
+											</p>
 										</div>
 									</div>
 								</div>
-							</div>
-
-							{/* Right sidebar */}
-							<div className="col-span-4 flex flex-col items-end gap-4 p-6 sm:p-10 md:p-14">
-								<div className="inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-sm font-semibold shadow-sm ring-1 ring-black/5 backdrop-blur" style={{ color: '#EE4A62' }}>
-									✨ AI INTEGRATED CURRICULUM
-								</div>
-								{/* Placeholder or specific AI badges can go here if needed */}
 							</div>
 						</div>
 					</div>
@@ -98,95 +115,158 @@ export default function AIDrivenCommunicationPage() {
 			<section id="about" className="px-4 py-10 md:py-12">
 				<div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 lg:grid-cols-12">
 					{/* Main */}
-					<div className="lg:col-span-8 rounded-2xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm">
-						<h2 className="text-xl md:text-2xl font-bold mb-4" style={{ color: '#202020' }}>Course Overview</h2>
-						<p className="mb-6 text-gray-600">
-							The “AI-Driven Communication Strategies for Service Excellence” course is tailored for professionals in the service industry who aim to elevate their customer engagement skills through the integration of AI-driven communication techniques. With the evolving landscape of customer expectations, this course empowers participants to deliver exceptional service experiences, build stronger relationships, and drive service excellence both in person and through digital channels.
-						</p>
+					<div className="lg:col-span-8 space-y-6">
 
-						<h3 className="text-lg md:text-xl font-bold mb-3" style={{ color: '#202020' }}>Course Objective</h3>
-						<p className="mb-6 text-gray-600">
-							This course aims to equip learners with the essential skills and knowledge to leverage AI-driven tools and communication strategies in enhancing customer experiences. Participants will learn how to understand diverse customer needs, project a professional image, communicate effectively, and go the extra mile to exceed service expectations in both traditional and digital service environments.
-						</p>
+						{/* Course Overview */}
+						<div className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm" style={{ color: '#202020' }}>
+							<h2 className="text-lg font-bold" style={{ color: '#202020' }}>Course Overview</h2>
+							<div className="mt-1 h-0.5 w-10 rounded" style={{ backgroundColor: '#1AB69D' }} />
+							<p className="mt-4 text-sm leading-relaxed">
+								The &quot;AI-Driven Communication Strategies for Service Excellence&quot; training program is designed to equip professionals in the hospitality and tourism sectors with AI-Driven communication strategies to enhance customer service and improve guest experiences. As customer expectations continue to rise, the ability to engage meaningfully with customers effectively, resolve issues proactively, and offer personalized service is crucial to maintaining competitive advantage.
+							</p>
+						</div>
 
-						<h3 className="text-lg md:text-xl font-bold mb-3" style={{ color: '#202020' }}>Learning Outcomes</h3>
-						<p className="mb-3 font-medium" style={{ color: '#202020' }}>By the end of the course, participants will:</p>
-						<ul className="space-y-3 list-disc pl-5 text-gray-600">
-							<li>Identify different types of customers and understand their needs and expectations, including interactions through AI platforms.</li>
-							<li>Demonstrate professionalism and service excellence both face-to-face and via AI-assisted channels.</li>
-							<li>Deliver personalized and value-added service that exceeds customer expectations.</li>
-							<li>Use effective communication techniques to build rapport and meet customer needs efficiently.</li>
-							<li>Recognize areas of improvement in service delivery and communicate these effectively for continuous enhancement.</li>
-						</ul>
+						
+
+						{/* Learning Outcomes */}
+						<div className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm" style={{ color: '#202020' }}>
+							<h2 className="text-lg font-bold" style={{ color: '#202020' }}>Learning Outcomes</h2>
+							<div className="mt-1 h-0.5 w-10 rounded" style={{ backgroundColor: '#1AB69D' }} />
+							<ol className="mt-3 space-y-3 list-decimal pl-5 text-sm">
+								<li>Examine nonverbal communication strategies to project an authoritative and authentic executive presence in both in-person and virtual settings.</li>
+								<li>Critique body language practices to ensure that signals of authority remain approachable and authentic when managing diverse groups of stakeholders.</li>
+								<li>Integrate cognitive insights, narrative structures, and persuasive techniques to craft compelling messages for diverse audiences.</li>
+								<li>Develop actionable communication plans that set and align stakeholder expectations with overarching organizational goals.</li>
+								<li>Assess the psychological drivers and underlying factors that cultivate trust and credibility within professional relationships.</li>
+								<li>Formulate implementable strategies for maintaining and re-storing trust by integrating conflict resolution techniques and stakeholder feedback mechanisms.</li>
+								<li>Integrate negotiation techniques and influence strategies to align stakeholder interests with organizational objectives to secure mutually beneficial outcomes.</li>
+								<li>Analyze the components of charismatic leadership by leveraging on emotional literacy and proactive dispute management to enhance personal magnetism and leadership effectiveness.</li>
+							</ol>
+						</div>
+
+						{/* Entry Requirements */}
+						<div className="rounded-2xl border-2 border-[#1AB69D] bg-[#1AB69D]/5 p-6 md:p-8 shadow-sm">
+							<div className="flex items-center gap-3">
+								<span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#1AB69D] text-white text-base">
+									✓
+								</span>
+								<h2 className="text-lg font-bold" style={{ color: '#202020' }}>Minimum Entry Requirements</h2>
+							</div>
+							<div className="mt-2 ml-12 h-0.5 w-10 rounded" style={{ backgroundColor: '#1AB69D' }} />
+							<p className="mt-4 ml-12 text-sm" style={{ color: '#202020' }}>
+								Able to speak, listen, read and write English at a proficiency level not lower than the Employability Skills WSQ Level 4 Workplace Literacy (WPL).
+							</p>
+						</div>
+
+						{/* Other Details */}
+						<div className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm" style={{ color: '#202020' }}>
+							<h2 className="text-lg font-bold" style={{ color: '#202020' }}>Other Details</h2>
+							<div className="mt-1 h-0.5 w-10 rounded" style={{ backgroundColor: '#1AB69D' }} />
+							<div className="mt-4 space-y-4 text-sm">
+								<div>
+									<p className="font-semibold">Training Type</p>
+									<p>Training and Assessment</p>
+								</div>
+								<div>
+									<p className="font-semibold">Medium of Instruction</p>
+									<p>English</p>
+								</div>
+							</div>
+						</div>
+
 					</div>
 
 					{/* Sidebar */}
 					<aside className="lg:col-span-4 space-y-5">
+						{/* Upcoming Batch Dates */}
+						<div className="relative rounded-2xl border-2 border-[#1AB69D] bg-gradient-to-br from-[#1AB69D]/10 to-emerald-50 p-6 shadow-md overflow-hidden">
+							<div className="absolute top-0 right-0 w-20 h-20 bg-[#1AB69D]/10 rounded-full -translate-y-1/2 translate-x-1/2" />
+							<div className="flex items-center gap-2 mb-4">
+								<span className="relative flex h-3 w-3">
+									<span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#EE4A62] opacity-75" />
+									<span className="relative inline-flex rounded-full h-3 w-3 bg-[#EE4A62]" />
+								</span>
+								<span className="text-sm font-bold uppercase tracking-wider text-[#EE4A62]">
+									Upcoming Batch
+								</span>
+							</div>
+							<table className="w-full text-sm">
+								<thead>
+									<tr className="border-b border-[#1AB69D]/30">
+										<th className="py-2 text-left font-semibold text-gray-700">Date</th>
+										<th className="py-2 text-left font-semibold text-gray-700">AM</th>
+										<th className="py-2 text-left font-semibold text-gray-700">PM</th>
+									</tr>
+								</thead>
+								<tbody className="divide-y divide-gray-200/60">
+									<tr>
+										<td className="py-2.5 font-semibold text-[#1AB69D]">TBA</td>
+										<td className="py-2.5 text-gray-800">9:00 AM – 1:00 PM</td>
+										<td className="py-2.5 text-gray-800">2:00 PM – 6:00 PM</td>
+									</tr>
+									<tr>
+										<td className="py-2.5 font-semibold text-[#1AB69D]">TBA</td>
+										<td className="py-2.5 text-gray-800">9:00 AM – 1:00 PM</td>
+										<td className="py-2.5 text-gray-800">2:00 PM – 5:00 PM</td>
+									</tr>
+								</tbody>
+							</table>
+							<a
+								href="https://form.jotform.com/252672445341052"
+								className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#1AB69D] px-5 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-[#16917f] active:scale-[0.98] transition-all"
+							>
+								Register for This Batch
+								<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+								</svg>
+							</a>
+						</div>
+
 						<div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6 shadow-sm">
-							<div className="mb-2 font-semibold" style={{ color: '#1AB69D' }}>🕒 COURSE DURATION</div>
+							<div className="mb-2 flex items-center gap-2 font-semibold text-sm" style={{ color: '#1AB69D' }}>
+								<FaClock className="shrink-0" />
+								COURSE DURATION
+							</div>
 							<p className="text-sm" style={{ color: '#202020' }}>
 								Training – 15 Hours (2 Days)<br />
-								Assessment – 1 Hour<br />
+								Assessment – 01 Hour<br />
 								Total Duration – 16 Hours
 							</p>
 						</div>
+
 						<div className="rounded-2xl border border-sky-200 bg-sky-50 p-6 shadow-sm">
-							<div className="mb-2 font-semibold" style={{ color: '#1AB69D' }}>👩‍🏫 MODE OF TRAINING</div>
+							<div className="mb-2 flex items-center gap-2 font-semibold text-sm" style={{ color: '#1AB69D' }}>
+								<FaChalkboardTeacher className="shrink-0" />
+								MODE OF TRAINING
+							</div>
 							<p className="text-sm" style={{ color: '#202020' }}>
 								FACE TO FACE<br />
 								Trainer : Learner Ratio<br />
 								1 Trainer : 24 Learners
 							</p>
 						</div>
-						<div className="rounded-2xl border border-rose-200 bg-rose-50 p-6 shadow-sm">
-							<div className="mb-2 font-semibold" style={{ color: '#EE4A62' }}>💳 COURSE FEE</div>
-							<p className="text-sm" style={{ color: '#202020' }}>S$660/- NETT (BEFORE FUNDING)</p>
-						</div>
+
 						<div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-							<div className="mb-2 font-semibold" style={{ color: '#202020' }}>✅ WSQ COURSE</div>
+							<div className="mb-2 flex items-center gap-2 font-semibold text-sm" style={{ color: '#1AB69D' }}>
+								<FaCheckCircle className="shrink-0" />
+								WSQ COURSE
+							</div>
 							<p className="text-sm" style={{ color: '#202020' }}>
 								Accreditation by SkillsFuture Singapore (SSG)<br />
 								Visit <a className="underline" href="https://www.myskillsfuture.gov.sg" target="_blank" style={{ color: '#1AB69D' }}>www.myskillsfuture.gov.sg</a>
 							</p>
 						</div>
-					</aside>
-				</div>
-			</section>
 
-			{/* Who should attend */}
-			<section id="audience" className="px-4 pb-4">
-				<div className="mx-auto max-w-7xl rounded-2xl bg-gradient-to-br from-indigo-50 to-blue-50 p-6 md:p-8 border border-indigo-100">
-					<h3 className="text-xl md:text-2xl font-bold" style={{ color: '#202020' }}>Who Should Attend?</h3>
-					<p className="mt-4 text-gray-700">
-						This course is ideal for individuals working in the service sector who wish to improve their customer communication skills using modern, AI-enhanced approaches. It is suitable for professionals at various levels who are committed to delivering quality customer service and staying competitive in a tech-driven market.
-					</p>
-					
-					<h4 className="mt-6 text-lg font-semibold" style={{ color: '#202020' }}>Relevant Job Roles</h4>
-					<p className="mt-2 text-sm text-gray-600 mb-4">The AI-Driven Communication Strategies for Service Excellence is ideal for individuals who work as Service staff, or in Supervisor and Managerial roles, particularly:</p>
-					
-					<div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-						{['Frontline Service Staff', 'Customer Service Officers', 'Hospitality Executives', 'Retail Associates', 'Team Leaders', 'Supervisors', 'Department Managers', 'Service-oriented Roles'].map((role) => (
-							<div key={role} className="rounded-xl bg-white p-4 shadow-sm border border-gray-100 flex items-center gap-3">
-								<div className="text-xl text-indigo-500">👥</div>
-								<span className="font-medium text-gray-800 text-sm">{role}</span>
+						<div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+							<div className="mb-2 flex items-center gap-2 font-semibold text-sm" style={{ color: '#1AB69D' }}>
+								<FaCertificate className="shrink-0" />
+								CERTIFICATION TYPE
 							</div>
-						))}
-					</div>
-				</div>
-			</section>
-
-			{/* Entry requirements */}
-			<section id="entry" className="px-4 py-10">
-				<div className="mx-auto max-w-7xl rounded-2xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm">
-					<h3 className="text-xl md:text-2xl font-bold" style={{ color: '#202020' }}>Minimum Entry Requirement</h3>
-					<p className="mt-3 text-gray-700">
-						There are no strict prerequisites for this course. However, it is recommended for individuals with:
-					</p>
-					<ul className="mt-2 list-disc pl-5 text-gray-600 space-y-1">
-						<li>Basic proficiency in English (spoken and written)</li>
-						<li>Interest or experience in customer service or service-related roles</li>
-						<li>Openness to exploring digital and AI-driven communication tools</li>
-					</ul>
+							<p className="text-sm" style={{ color: '#202020' }}>
+								Statement of Attainment
+							</p>
+						</div>
+					</aside>
 				</div>
 			</section>
 
@@ -260,8 +340,8 @@ export default function AIDrivenCommunicationPage() {
 						</table>
 					</div>
 					<p className="mt-3 text-sm" style={{ color: '#202020' }}>
-						All Singaporeans aged 25 and above can use their S$500 SkillsFuture Credit from the government to pay for a wide range of approved skills-related courses. Visit
-						{' '}<a className="underline" href="https://www.myskillsfuture.gov.sg" target="_blank" style={{ color: '#1AB69D' }}>MySkillsFuture</a> for details.
+						All Singaporeans aged 25 and above can use their S$500 SkillsFuture Credit from the government to pay for a wide range of approved skills-related courses. Visit{' '}
+						<a className="underline" href="https://www.myskillsfuture.gov.sg" target="_blank" style={{ color: '#1AB69D' }}>MySkillsFuture</a> for details.
 					</p>
 				</div>
 			</section>
@@ -272,49 +352,7 @@ export default function AIDrivenCommunicationPage() {
 			{/* Register form section */}
 			<section id="register" className="px-4 pb-20">
 				<div className="mx-auto max-w-7xl">
-					<div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-						{/* Contact Info */}
-						<div className="lg:col-span-4 rounded-2xl bg-[#E91E63] text-white p-8 h-fit">
-							<h3 className="text-2xl font-bold mb-6">Talk to us directly</h3>
-							<div className="space-y-6">
-								<a href="https://wa.me/6582215143" target="_blank" className="flex items-center gap-4 hover:opacity-90 transition-opacity">
-									<FaWhatsapp className="text-2xl" />
-									<div>
-										<div className="font-semibold">Whatsapp Us</div>
-										<div className="text-sm opacity-90">Get instant answers</div>
-									</div>
-								</a>
-								<a href="tel:+6582215143" className="flex items-center gap-4 hover:opacity-90 transition-opacity">
-									<span className="text-2xl">📞</span>
-									<div>
-										<div className="font-semibold">+65 8221 5143</div>
-										<div className="text-sm opacity-90">Call our roadmap consultants</div>
-									</div>
-								</a>
-								<a href="https://maps.google.com" target="_blank" className="flex items-center gap-4 hover:opacity-90 transition-opacity">
-									<span className="text-2xl">📍</span>
-									<div>
-										<div className="font-semibold">Find us on Google Maps</div>
-										<div className="text-sm opacity-90">Visit our campus</div>
-									</div>
-								</a>
-							</div>
-							<div className="mt-8 pt-8 border-t border-white/20">
-								<h4 className="font-semibold mb-3">We can help you with:</h4>
-								<ul className="space-y-2 text-sm opacity-90">
-									<li>• Understanding the available subsidies</li>
-									<li>• Clarifying course details (Assessment, Schedule etc.)</li>
-									<li>• Finding out if this course suits your goals</li>
-									<li>• Checking if you are eligible for the course</li>
-								</ul>
-							</div>
-						</div>
-
-						{/* Form */}
-						<div className="lg:col-span-8">
-							<ContactForm />
-						</div>
-					</div>
+					<ContactForm />
 				</div>
 			</section>
 		</main>
