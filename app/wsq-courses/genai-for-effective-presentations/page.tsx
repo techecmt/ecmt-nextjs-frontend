@@ -102,7 +102,7 @@ export default function GenAIPresentationsPage() {
 												Need help choosing funding? Call
 												{' '}
 												<a href="tel:+6582215143" className="font-semibold underline underline-offset-2">
-												+65 8221 5143
+													+65 8221 5143
 												</a>
 											</p>
 										</div>
@@ -110,7 +110,7 @@ export default function GenAIPresentationsPage() {
 								</div>
 							</div>
 
-							
+
 						</div>
 					</div>
 				</div>
@@ -118,76 +118,78 @@ export default function GenAIPresentationsPage() {
 
 			<section id="about" className="px-4 py-10 md:py-12">
 				<div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 lg:grid-cols-12">
-				{/* Main */}
-				<div className="lg:col-span-8 space-y-6">
+					{/* Main */}
+					<div className="lg:col-span-8 space-y-6">
 
-					{/* Course Overview */}
-					<div className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm" style={{ color: '#202020' }}>
-						<h2 className="text-lg font-bold" style={{ color: '#202020' }}>Course Overview</h2>
-						<div className="mt-1 h-0.5 w-10 rounded" style={{ backgroundColor: '#1AB69D' }} />
-						<p className="mt-4 text-sm leading-relaxed">
-							&quot;GenAI for Effective Presentations&quot; empowers learners to leverage generative AI for creating impactful presentations. This course covers AI-driven content generation, automated slide design, and the creation of immersive experiences. Trainees will gain skills in using GenAI tools to automate tasks, personalize narratives, and enhance audience engagement. The syllabus includes modules on AI-powered brainstorming, data visualization, immersive storytelling and interactive element creation. Learn to transform static presentations into dynamic, engaging experiences using cutting-edge GenAI tools. Enhance your presentation skills and future-proof your communication strategy.
-						</p>
-					</div>
-
-					{/* Platforms & Tools Introduced */}
-					<div className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm" style={{ color: '#202020' }}>
-						<h2 className="text-lg font-bold" style={{ color: '#202020' }}>Platforms &amp; Tools Introduced</h2>
-						<div className="mt-1 h-0.5 w-10 rounded" style={{ backgroundColor: '#1AB69D' }} />
-						<div className="mt-5 flex flex-wrap items-center gap-4">
-							<img src="/wsq-images/chatgpt.png" alt="ChatGPT" className="h-8 object-contain" />
-							<img src="/wsq-images/gemini.png" alt="Gemini" className="h-8 object-contain" />
-							<img src="/wsq-images/gamma.png" alt="Gamma" className="h-8 object-contain" />
+						{/* Course Overview */}
+						<div className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm" style={{ color: '#202020' }}>
+							<h2 className="text-lg font-bold" style={{ color: '#202020' }}>Course Overview</h2>
+							<div className="mt-1 h-0.5 w-10 rounded" style={{ backgroundColor: '#1AB69D' }} />
+							<p className="mt-4 text-sm leading-relaxed">
+								&quot;GenAI for Effective Presentations&quot; empowers learners to leverage generative AI for creating impactful presentations. This course covers AI-driven content generation, automated slide design, and the creation of immersive experiences. Trainees will gain skills in using GenAI tools to automate tasks, personalize narratives, and enhance audience engagement. The syllabus includes modules on AI-powered brainstorming, data visualization, immersive storytelling and interactive element creation. Learn to transform static presentations into dynamic, engaging experiences using cutting-edge GenAI tools. Enhance your presentation skills and future-proof your communication strategy.
+							</p>
 						</div>
-					</div>
 
-					{/* Learning Outcomes */}
-					<div className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm" style={{ color: '#202020' }}>
-						<h2 className="text-lg font-bold" style={{ color: '#202020' }}>Learning Outcomes</h2>
-						<div className="mt-1 h-0.5 w-10 rounded" style={{ backgroundColor: '#1AB69D' }} />
-						<p className="mt-4 text-sm">By the end of this course, learners are able to:</p>
-						<ol className="mt-3 space-y-3 list-decimal pl-5 text-sm">
-							<li>Interpret the overall objectives of a presentation by understanding the core principles of presentation content design.</li>
-							<li>Review the target audience for a presentation and determine the best ways to tailor the information disclosure to that audience.</li>
-							<li>Develop AI-generated information with structured topics for different communication purposes.</li>
-							<li>Construct AI-generated information through text-to-multimedia tools for audience engagement.</li>
-							<li>Apply communication techniques to refine AI-generated presentation script for optimal engagement.</li>
-							<li>Integrate AI-generated content into desired presentation and collaterals.</li>
-							<li>Evaluate presentations based on iterative feedback and a deep understanding of audience needs.</li>
-						</ol>
-					</div>
-
-				{/* Entry Requirements */}
-				<div className="rounded-2xl border-2 border-[#1AB69D] bg-[#1AB69D]/5 p-6 md:p-8 shadow-sm">
-					<div className="flex items-center gap-3">
-						<span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#1AB69D] text-white text-base">
-							✓
-						</span>
-						<h2 className="text-lg font-bold" style={{ color: '#202020' }}>Minimum Entry Requirements</h2>
-					</div>
-					<div className="mt-2 ml-12 h-0.5 w-10 rounded" style={{ backgroundColor: '#1AB69D' }} />
-					<p className="mt-4 ml-12 text-sm" style={{ color: '#202020' }}>
-						Able to speak, listen, read and write English at a proficiency level not lower than the Employability Skills WSQ Level 4 Workplace Literacy (WPL).
-					</p>
-				</div>
-
-					{/* Other Details */}
-					<div className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm" style={{ color: '#202020' }}>
-						<h2 className="text-lg font-bold" style={{ color: '#202020' }}>Other Details</h2>
-						<div className="mt-1 h-0.5 w-10 rounded" style={{ backgroundColor: '#1AB69D' }} />
-						<div className="mt-4 space-y-4 text-sm">
-							<div>
-								<p className="font-semibold">Training Type</p>
-								<p>Training and Assessment</p>
-							</div>
-							<div>
-								<p className="font-semibold">Medium of Instruction</p>
-								<p>English</p>
+						{/* Platforms & Tools Introduced */}
+						<div className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm" style={{ color: '#202020' }}>
+							<h2 className="text-lg font-bold" style={{ color: '#202020' }}>Platforms &amp; Tools Introduced</h2>
+							<div className="mt-1 h-0.5 w-10 rounded" style={{ backgroundColor: '#1AB69D' }} />
+							<div className="mt-5 flex flex-wrap items-center gap-4">
+								<img src="/wsq-images/chatgpt.png" alt="ChatGPT" className="h-8 object-contain" />
+								<img src="/wsq-images/gemini.png" alt="Gemini" className="h-8 object-contain" />
+								<img src="/wsq-images/gamma.png" alt="Gamma" className="h-8 object-contain" />
 							</div>
 						</div>
-					</div>
 
-				</div>
+						{/* Learning Outcomes */}
+						<div className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm" style={{ color: '#202020' }}>
+							<h2 className="text-lg font-bold" style={{ color: '#202020' }}>Learning Outcomes</h2>
+							<div className="mt-1 h-0.5 w-10 rounded" style={{ backgroundColor: '#1AB69D' }} />
+							<p className="mt-4 text-sm">By the end of this course, learners are able to:</p>
+							<ol className="mt-3 space-y-3 list-decimal pl-5 text-sm">
+								<li>Interpret the overall objectives of a presentation by incor-
+									porating relevant principles of content design for presenta-
+									tions.</li>
+								<li>Review the target audience for a presentation and determine the best ways to tailor the information disclosure to that audience.</li>
+								<li>Develop AI-generated information with structured topics for different communication purposes.</li>
+								<li>Construct AI-generated information through text-to-multimedia tools for audience engagement.</li>
+								<li>Apply communication techniques to refine AI-generated presentation script for optimal engagement.</li>
+								<li>Integrate AI-generated content into desired presentation and collaterals.</li>
+								<li>Evaluate presentations based on iterative feedback and a deep understanding of audience needs.</li>
+							</ol>
+						</div>
+
+						{/* Entry Requirements */}
+						<div className="rounded-2xl border-2 border-[#1AB69D] bg-[#1AB69D]/5 p-6 md:p-8 shadow-sm">
+							<div className="flex items-center gap-3">
+								<span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#1AB69D] text-white text-base">
+									✓
+								</span>
+								<h2 className="text-lg font-bold" style={{ color: '#202020' }}>Minimum Entry Requirements</h2>
+							</div>
+							<div className="mt-2 ml-12 h-0.5 w-10 rounded" style={{ backgroundColor: '#1AB69D' }} />
+							<p className="mt-4 ml-12 text-sm" style={{ color: '#202020' }}>
+								Able to speak, listen, read and write English at a proficiency level not lower than the Employability Skills WSQ Level 4 Workplace Literacy (WPL).
+							</p>
+						</div>
+
+						{/* Other Details */}
+						<div className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm" style={{ color: '#202020' }}>
+							<h2 className="text-lg font-bold" style={{ color: '#202020' }}>Other Details</h2>
+							<div className="mt-1 h-0.5 w-10 rounded" style={{ backgroundColor: '#1AB69D' }} />
+							<div className="mt-4 space-y-4 text-sm">
+								<div>
+									<p className="font-semibold">Training Type</p>
+									<p>Training and Assessment</p>
+								</div>
+								<div>
+									<p className="font-semibold">Medium of Instruction</p>
+									<p>English</p>
+								</div>
+							</div>
+						</div>
+
+					</div>
 
 					{/* Sidebar */}
 					<aside className="lg:col-span-4 space-y-5">
@@ -235,55 +237,55 @@ export default function GenAIPresentationsPage() {
 							</a>
 						</div>
 
-					<div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6 shadow-sm">
-						<div className="mb-2 flex items-center gap-2 font-semibold text-sm" style={{ color: '#1AB69D' }}>
-							<FaClock className="shrink-0" />
-							COURSE DURATION
+						<div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6 shadow-sm">
+							<div className="mb-2 flex items-center gap-2 font-semibold text-sm" style={{ color: '#1AB69D' }}>
+								<FaClock className="shrink-0" />
+								COURSE DURATION
+							</div>
+							<p className="text-sm" style={{ color: '#202020' }}>
+								Training – 15 Hours (2 Days)<br />
+								Assessment – 01 Hour<br />
+								Total Duration – 16 Hours
+							</p>
 						</div>
-						<p className="text-sm" style={{ color: '#202020' }}>
-							Training – 15 Hours (2 Days)<br />
-							Assessment – 01 Hour<br />
-							Total Duration – 16 Hours
-						</p>
-					</div>
 
-					<div className="rounded-2xl border border-sky-200 bg-sky-50 p-6 shadow-sm">
-						<div className="mb-2 flex items-center gap-2 font-semibold text-sm" style={{ color: '#1AB69D' }}>
-							<FaChalkboardTeacher className="shrink-0" />
-							MODE OF TRAINING
+						<div className="rounded-2xl border border-sky-200 bg-sky-50 p-6 shadow-sm">
+							<div className="mb-2 flex items-center gap-2 font-semibold text-sm" style={{ color: '#1AB69D' }}>
+								<FaChalkboardTeacher className="shrink-0" />
+								MODE OF TRAINING
+							</div>
+							<p className="text-sm" style={{ color: '#202020' }}>
+								FACE TO FACE<br />
+								Trainer : Learner Ratio<br />
+								1 Trainer : 24 Learners
+							</p>
 						</div>
-						<p className="text-sm" style={{ color: '#202020' }}>
-							FACE TO FACE<br />
-							Trainer : Learner Ratio<br />
-							1 Trainer : 24 Learners
-						</p>
-					</div>
 
-					<div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-						<div className="mb-2 flex items-center gap-2 font-semibold text-sm" style={{ color: '#1AB69D' }}>
-							<FaCheckCircle className="shrink-0" />
-							WSQ COURSE
+						<div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+							<div className="mb-2 flex items-center gap-2 font-semibold text-sm" style={{ color: '#1AB69D' }}>
+								<FaCheckCircle className="shrink-0" />
+								WSQ COURSE
+							</div>
+							<p className="text-sm" style={{ color: '#202020' }}>
+								Accreditation by SkillsFuture Singapore (SSG)<br />
+								Visit <a className="underline" href="https://www.myskillsfuture.gov.sg" target="_blank" style={{ color: '#1AB69D' }}>www.myskillsfuture.gov.sg</a>
+							</p>
 						</div>
-						<p className="text-sm" style={{ color: '#202020' }}>
-							Accreditation by SkillsFuture Singapore (SSG)<br />
-							Visit <a className="underline" href="https://www.myskillsfuture.gov.sg" target="_blank" style={{ color: '#1AB69D' }}>www.myskillsfuture.gov.sg</a>
-						</p>
-					</div>
 
-					<div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-						<div className="mb-2 flex items-center gap-2 font-semibold text-sm" style={{ color: '#1AB69D' }}>
-							<FaCertificate className="shrink-0" />
-							CERTIFICATION TYPE
+						<div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+							<div className="mb-2 flex items-center gap-2 font-semibold text-sm" style={{ color: '#1AB69D' }}>
+								<FaCertificate className="shrink-0" />
+								CERTIFICATION TYPE
+							</div>
+							<p className="text-sm" style={{ color: '#202020' }}>
+								Statement of Attainment
+							</p>
 						</div>
-						<p className="text-sm" style={{ color: '#202020' }}>
-							Statement of Attainment
-						</p>
-					</div>
 					</aside>
 				</div>
 			</section>
 
-			
+
 
 			{/* OpenCerts Guide */}
 			<section className="px-4 pb-10">
