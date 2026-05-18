@@ -8,6 +8,9 @@ export default function WsqRefundPolicy() {
 				<p className="mt-3 text-gray-600 text-sm">
 					Edusphere College is committed to transparent fee policies. The following refund guidelines apply to all WSQ courses.
 				</p>
+				<p className="mt-3 text-gray-600 text-sm">
+					Any appeals will be reviewed on a case-by-case basis and are subject to management approval.
+				</p>
 
 				{/* Refund Table */}
 				<div className="mt-6 overflow-x-auto rounded-xl border border-gray-200">
@@ -57,13 +60,7 @@ export default function WsqRefundPolicy() {
 					</table>
 				</div>
 
-				<p className="mt-4 text-xs text-gray-500">
-					For more details on our refund and withdrawal policies, please refer to our{' '}
-					<a href="/terms-conditions" className="underline hover:text-gray-700" style={{ color: '#1AB69D' }}>
-						Terms &amp; Conditions
-					</a>{' '}
-					or contact our student services team.
-				</p>
+				
 			</div>
 		</section>
 	);
