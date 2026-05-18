@@ -8,19 +8,29 @@ import { SiTiktok } from 'react-icons/si';
 
 const contactCards = [
   {
-    title: "Diploma Courses",
-    phone: { display: "(+65) 9125 4523", href: "https://wa.me/6591254523" },
+    title: "Admin Support",
+    phone: { display: "(+65) 8138 5600", href: "https://wa.me/6581385600" },
     email: "admin@edusphere.edu.sg",
   },
   {
-    title: "WSQ Courses",
+    title: "WSQ Admin Support",
     phone: { display: "(+65) 8221 5143", href: "https://wa.me/6582215143" },
     email: "training@edusphere.edu.sg",
   },
   {
+    title: "Sales Support - Aiza ",
+    phone: { display: "(+65) 9125 4523", href: "https://wa.me/6591254523" },
+    email: "info@edusphere.edu.sg",
+  },
+  {
+    title: "Sales Support - Jona",
+    phone: { display: "(+65) 8070 6203", href: "https://wa.me/6580706203" },
+    email: "info@edusphere.edu.sg",
+  },
+  {
     title: "Management",
     phone: { display: "(+65) 8220 0095", href: "https://wa.me/6582200095" },
-    email: "info@edusphere.edu.sg",
+    email: "tahir@edusphere.edu.sg",
   },
 ];
 

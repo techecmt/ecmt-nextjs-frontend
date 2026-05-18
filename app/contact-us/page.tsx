@@ -55,36 +55,36 @@ export default function ContactPage() {
 		"contactPoint": [
 			{
 				"@type": "ContactPoint",
-				"telephone": "+65-9125-4523",
-				"contactType": "marketing",
-				"areaServed": "SG",
-				"availableLanguage": ["English"]
-			},
-			{
-				"@type": "ContactPoint",
 				"telephone": "+65-8138-5600",
-				"contactType": "administration support",
-				"areaServed": "SG",
-				"availableLanguage": ["English"]
-			},
-			{
-				"@type": "ContactPoint",
-				"telephone": "+65-8110-2783",
-				"contactType": "student accounts",
-				"areaServed": "SG",
-				"availableLanguage": ["English"]
-			},
-			{
-				"@type": "ContactPoint",
-				"telephone": "+65-8070-6203",
-				"contactType": "registration support and sales",
+				"contactType": "admin support",
 				"areaServed": "SG",
 				"availableLanguage": ["English"]
 			},
 			{
 				"@type": "ContactPoint",
 				"telephone": "+65-8221-5143",
-				"contactType": "examination and results",
+				"contactType": "WSQ admin support",
+				"areaServed": "SG",
+				"availableLanguage": ["English"]
+			},
+			{
+				"@type": "ContactPoint",
+				"telephone": "+65-9125-4523",
+				"contactType": "sales support",
+				"areaServed": "SG",
+				"availableLanguage": ["English"]
+			},
+			{
+				"@type": "ContactPoint",
+				"telephone": "+65-8070-6203",
+				"contactType": "sales support",
+				"areaServed": "SG",
+				"availableLanguage": ["English"]
+			},
+			{
+				"@type": "ContactPoint",
+				"telephone": "+65-8220-0095",
+				"contactType": "management",
 				"areaServed": "SG",
 				"availableLanguage": ["English"]
 			}
@@ -178,14 +178,14 @@ export default function ContactPage() {
 											<FiPhone className="text-[#1AB69D] shrink-0" size={18} />
 											<h3 className="font-semibold text-gray-900">Phone / WhatsApp</h3>
 										</div>
-										<div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-											{([
-												{ href: "https://wa.me/6591254523", number: "+65-9125-4523", label: "Marketing" },
-												{ href: "https://wa.me/6581385600", number: "+65-8138-5600", label: "All Admin Related" },
-												{ href: "https://wa.me/6581102783", number: "+65-8110-2783", label: "Student Accounts" },
-												{ href: "https://wa.me/6580706203", number: "+65-8070-6203", label: "Registration & Sales" },
-												{ href: "https://wa.me/6582215143", number: "+65-8221-5143", label: "Examination / Results" },
-											] as const).map((c) => (
+									<div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+										{([
+											{ href: "https://wa.me/6581385600", number: "+65-8138-5600", label: "Admin Support" },
+											{ href: "https://wa.me/6582215143", number: "+65-8221-5143", label: "WSQ Admin Support" },
+											{ href: "https://wa.me/6591254523", number: "+65-9125-4523", label: "Sales Support – Aiza" },
+											{ href: "https://wa.me/6580706203", number: "+65-8070-6203", label: "Sales Support – Jona" },
+											{ href: "https://wa.me/6582200095", number: "+65-8220-0095", label: "Management" },
+										] as const).map((c) => (
 												<a
 													key={c.number}
 													href={c.href}

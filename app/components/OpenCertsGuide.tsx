@@ -70,15 +70,15 @@ const steps = [
 export default function OpenCertsGuide() {
   return (
     <details className="group rounded-2xl border border-gray-200 bg-white shadow-sm">
-      <summary className="cursor-pointer list-none p-6 md:p-8 flex items-center justify-between gap-4">
+      <summary className="cursor-pointer list-none p-4 sm:p-6 md:p-8 flex items-center justify-between gap-3">
         <h3
-          className="text-xl md:text-2xl font-bold"
+          className="text-base sm:text-xl md:text-2xl font-bold leading-snug"
           style={{ color: "#202020" }}
         >
           Where can I find and download my digital certificates via OpenCerts?
         </h3>
         <svg
-          className="w-5 h-5 flex-shrink-0 text-gray-500 transition-transform duration-200 group-open:rotate-180"
+          className="w-5 h-5 shrink-0 text-gray-500 transition-transform duration-200 group-open:rotate-180"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -87,19 +87,19 @@ export default function OpenCertsGuide() {
         </svg>
       </summary>
 
-      <div className="px-6 md:px-8 pb-6 md:pb-8 space-y-6">
+      <div className="px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 md:pb-8 space-y-5">
         {steps.map((step) => (
           <div key={step.number} className="space-y-3">
-            <div className="flex gap-4 items-start">
-              <div className="flex-shrink-0 flex items-center justify-center w-9 h-9 rounded-full bg-[#1AB69D] text-white text-sm font-bold">
+            <div className="flex gap-3 items-start">
+              <div className="shrink-0 flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#1AB69D] text-white text-sm font-bold mt-0.5">
                 {step.number}
               </div>
-              <p className="text-sm md:text-base leading-relaxed pt-1" style={{ color: "#202020" }}>
+              <p className="text-sm sm:text-base leading-relaxed" style={{ color: "#202020" }}>
                 {step.title}
               </p>
             </div>
             {step.image && (
-              <div className="ml-13 relative w-full max-w-2xl rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+              <div className="relative w-full rounded-xl border border-gray-200 overflow-hidden shadow-sm">
                 <Image
                   src={step.image}
                   alt={step.imageAlt ?? ""}
