@@ -1,21 +1,21 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function SubmissionBanner({ success }: { success: boolean }) {
   const [visible, setVisible] = useState(true);
   const router = useRouter();
 
-  useEffect(() => {
-    const timer = setTimeout(() => dismiss(), 8000);
-    return () => clearTimeout(timer);
-  });
-
-  function dismiss() {
+  const dismiss = useCallback(() => {
     setVisible(false);
     router.replace("/forms/course-evaluation-form", { scroll: false });
-  }
+  }, [router]);
+
+  useEffect(() => {
+    const timer = setTimeout(dismiss, 8000);
+    return () => clearTimeout(timer);
+  }, [dismiss]);
 
   if (!visible) return null;
 

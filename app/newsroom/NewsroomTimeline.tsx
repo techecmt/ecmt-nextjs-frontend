@@ -38,6 +38,9 @@ export default function NewsroomTimeline({ events, siteUrl }: Props) {
   const [lightbox, setLightbox] = useState<LightboxState>(null);
   const [copied, setCopied] = useState(false);
   const [shareError, setShareError] = useState<string | null>(null);
+  const copyResetTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(
+    null
+  );
 
   const activeEvent =
     lightbox != null ? events[lightbox.eventIndex] : null;
@@ -88,6 +91,15 @@ export default function NewsroomTimeline({ events, siteUrl }: Props) {
     setShareError(null);
   }, [lightbox?.eventIndex, lightbox?.imageIndex]);
 
+  useEffect(() => {
+    return () => {
+      if (copyResetTimeoutRef.current != null) {
+        clearTimeout(copyResetTimeoutRef.current);
+        copyResetTimeoutRef.current = null;
+      }
+    };
+  }, []);
+
   // Touch swipe
   const touchStartX = useRef<number | null>(null);
   const onTouchStart = (e: React.TouchEvent) => {
@@ -118,7 +130,13 @@ export default function NewsroomTimeline({ events, siteUrl }: Props) {
     try {
       await navigator.clipboard.writeText(imageUrl);
       setCopied(true);
-      setTimeout(() => setCopied(false), 2200);
+      if (copyResetTimeoutRef.current != null) {
+        clearTimeout(copyResetTimeoutRef.current);
+      }
+      copyResetTimeoutRef.current = setTimeout(() => {
+        setCopied(false);
+        copyResetTimeoutRef.current = null;
+      }, 2200);
     } catch {
       setShareError("Could not copy link");
     }

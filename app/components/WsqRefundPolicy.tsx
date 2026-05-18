@@ -34,7 +34,7 @@ export default function WsqRefundPolicy() {
 									More than 14 days
 								</td>
 								<td className="px-6 py-4" style={{ color: '#202020' }}>
-									100% of course fees refunded (minus admin fee)
+									100% of course fees refunded
 								</td>
 							</tr>
 							<tr className="bg-gray-50/50 hover:bg-gray-50 transition-colors">
@@ -55,23 +55,6 @@ export default function WsqRefundPolicy() {
 							</tr>
 						</tbody>
 					</table>
-				</div>
-
-				{/* Admin Fees */}
-				<div className="mt-6 rounded-xl bg-amber-50 border border-amber-200 p-5">
-					<h4 className="font-semibold text-amber-800 flex items-center gap-2">
-						<span>💰</span> Admin Fees (non-refundable)
-					</h4>
-					<ul className="mt-3 space-y-2 text-sm text-amber-900">
-						<li className="flex items-center gap-2">
-							<span className="inline-block w-2 h-2 rounded-full bg-amber-500"></span>
-							<strong>$15.00</strong> for regular courses
-						</li>
-						<li className="flex items-center gap-2">
-							<span className="inline-block w-2 h-2 rounded-full bg-amber-500"></span>
-							<strong>$55.00</strong> for diploma-level and above
-						</li>
-					</ul>
 				</div>
 
 				<p className="mt-4 text-xs text-gray-500">
