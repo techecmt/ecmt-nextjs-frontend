@@ -194,12 +194,12 @@ export default function MasterExecutivePresenceInStakeholderManagement() {
 								</thead>
 								<tbody className="divide-y divide-gray-200/60">
 									<tr>
-										<td className="py-2.5 font-semibold text-[#1AB69D]">TBA</td>
+										<td className="py-2.5 font-semibold text-[#1AB69D]">25-May</td>
 										<td className="py-2.5 text-gray-800">9:00 AM – 1:00 PM</td>
 										<td className="py-2.5 text-gray-800">2:00 PM – 6:00 PM</td>
 									</tr>
 									<tr>
-										<td className="py-2.5 font-semibold text-[#1AB69D]">TBA</td>
+										<td className="py-2.5 font-semibold text-[#1AB69D]">26-May</td>
 										<td className="py-2.5 text-gray-800">9:00 AM – 1:00 PM</td>
 										<td className="py-2.5 text-gray-800">2:00 PM – 5:00 PM</td>
 									</tr>
