@@ -154,23 +154,23 @@ const teachersData: Teacher[] = [
       {
         name: "Diploma in Hotel & Tourism Management",
         modules: [
-          "DHTM1 – M1: Customer Relationship Management",
-          "DHTM2 – M2: Room Division Management",
-          "DHTM3 – M3: Food & Beverage Management",
-          "DHTM4 – M4: Effective Business Communication",
-          "DHTM5 – M5: Entrepreneurship in Hospitality",
-          "DHTM6 – M6: Waste Management for Hotels & Restaurants"
+          "DHM - CRM: Customer Relationship Management",
+          "DHM - RDM: Room Division Management",
+          "DHM - F&B: Food and Beverage Management",
+          "DHM - EBC: Effective Business Communication",
+          "DHM - EH: Entrepreneurship in Hospitality",
+          "DHM - WMHR: Waste Management for Hotels and Restaurants"
         ]
       },
       {
         name: "Diploma in Hotel & Tourism Management (E-Learning)",
         modules: [
-          "DHTM1 – M1: Customer Relationship Management",
-          "DHTM2 – M2: Room Division Management",
-          "DHTM3 – M3: Food & Beverage Management",
-          "DHTM4 – M4: Effective Business Communication",
-          "DHTM5 – M5: Entrepreneurship in Hospitality",
-          "DHTM6 – M6: Waste Management for Hotels & Restaurants"
+          "DHM - CRM: Customer Relationship Management",
+          "DHM - RDM: Room Division Management",
+          "DHM - F&B: Food and Beverage Management",
+          "DHM - EBC: Effective Business Communication",
+          "DHM - EH: Entrepreneurship in Hospitality",
+          "DHM - WMHR: Waste Management for Hotels and Restaurants"
         ]
       },
       {
@@ -305,23 +305,23 @@ const teachersData: Teacher[] = [
       {
         name: "Diploma in Hotel & Tourism Management (E-Learning)",
         modules: [
-          "DHTM1 – M1: Customer Relationship Management",
-          "DHTM2 – M2: Room Division Management",
-          "DHTM3 – M3: Food & Beverage Management",
-          "DHTM4 – M4: Effective Business Communication",
-          "DHTM5 – M5: Entrepreneurship in Hospitality",
-          "DHTM6 – M6: Waste Management for Hotels & Restaurants"
+          "DHM - CRM: Customer Relationship Management",
+          "DHM - RDM: Room Division Management",
+          "DHM - F&B: Food and Beverage Management",
+          "DHM - EBC: Effective Business Communication",
+          "DHM - EH: Entrepreneurship in Hospitality",
+          "DHM - WMHR: Waste Management for Hotels and Restaurants"
         ]
       },
       {
         name: "Diploma in Hotel & Tourism Management",
         modules: [
-          "DHTM1 – M1: Customer Relationship Management",
-          "DHTM2 – M2: Room Division Management",
-          "DHTM3 – M3: Food & Beverage Management",
-          "DHTM4 – M4: Effective Business Communication",
-          "DHTM5 – M5: Entrepreneurship in Hospitality",
-          "DHTM6 – M6: Waste Management for Hotels & Restaurants"
+          "DHM - CRM: Customer Relationship Management",
+          "DHM - RDM: Room Division Management",
+          "DHM - F&B: Food and Beverage Management",
+          "DHM - EBC: Effective Business Communication",
+          "DHM - EH: Entrepreneurship in Hospitality",
+          "DHM - WMHR: Waste Management for Hotels and Restaurants"
         ]
       },
       {
@@ -370,12 +370,12 @@ const teachersData: Teacher[] = [
       {
         name: "Diploma in Hotel & Tourism Management",
         modules: [
-          "DHTM1 – M1: Customer Relationship Management",
-          "DHTM2 – M2: Room Division Management",
-          "DHTM3 – M3: Food & Beverage Management",
-          "DHTM4 – M4: Effective Business Communication",
-          "DHTM5 – M5: Entrepreneurship in Hospitality",
-          "DHTM6 – M6: Waste Management for Hotels & Restaurants"
+          "DHM - CRM: Customer Relationship Management",
+          "DHM - RDM: Room Division Management",
+          "DHM - F&B: Food and Beverage Management",
+          "DHM - EBC: Effective Business Communication",
+          "DHM - EH: Entrepreneurship in Hospitality",
+          "DHM - WMHR: Waste Management for Hotels and Restaurants"
         ]
       },
       {
@@ -449,12 +449,12 @@ const teachersData: Teacher[] = [
       {
         name: "Diploma in Hotel & Tourism Management (E-Learning)",
         modules: [
-          "DHTM1 – M1: Customer Relationship Management",
-          "DHTM2 – M2: Room Division Management",
-          "DHTM3 – M3: Food & Beverage Management",
-          "DHTM4 – M4: Effective Business Communication",
-          "DHTM5 – M5: Entrepreneurship in Hospitality",
-          "DHTM6 – M6: Waste Management for Hotels & Restaurants"
+          "DHM - CRM: Customer Relationship Management",
+          "DHM - RDM: Room Division Management",
+          "DHM - F&B: Food and Beverage Management",
+          "DHM - EBC: Effective Business Communication",
+          "DHM - EH: Entrepreneurship in Hospitality",
+          "DHM - WMHR: Waste Management for Hotels and Restaurants"
         ]
       }
     ]
@@ -476,12 +476,12 @@ const teachersData: Teacher[] = [
       {
         name: "Diploma in Hotel & Tourism Management",
         modules: [
-          "DHTM1 – M1: Customer Relationship Management",
-          "DHTM2 – M2: Room Division Management",
-          "DHTM3 – M3: Food & Beverage Management",
-          "DHTM4 – M4: Effective Business Communication",
-          "DHTM5 – M5: Entrepreneurship in Hospitality",
-          "DHTM6 – M6: Waste Management for Hotels & Restaurants"
+          "DHM - CRM: Customer Relationship Management",
+          "DHM - RDM: Room Division Management",
+          "DHM - F&B: Food and Beverage Management",
+          "DHM - EBC: Effective Business Communication",
+          "DHM - EH: Entrepreneurship in Hospitality",
+          "DHM - WMHR: Waste Management for Hotels and Restaurants"
         ]
       },
       {
@@ -516,12 +516,12 @@ const teachersData: Teacher[] = [
       {
         name: "Diploma in Hotel & Tourism Management (E-Learning)",
         modules: [
-          "DHTM1 – M1: Customer Relationship Management",
-          "DHTM2 – M2: Room Division Management",
-          "DHTM3 – M3: Food & Beverage Management",
-          "DHTM4 – M4: Effective Business Communication",
-          "DHTM5 – M5: Entrepreneurship in Hospitality",
-          "DHTM6 – M6: Waste Management for Hotels & Restaurants"
+          "DHM - CRM: Customer Relationship Management",
+          "DHM - RDM: Room Division Management",
+          "DHM - F&B: Food and Beverage Management",
+          "DHM - EBC: Effective Business Communication",
+          "DHM - EH: Entrepreneurship in Hospitality",
+          "DHM - WMHR: Waste Management for Hotels and Restaurants"
         ]
       },
       {
@@ -557,23 +557,23 @@ const teachersData: Teacher[] = [
       {
         name: "Diploma in Hotel & Tourism Management",
         modules: [
-          "DHTM1 – M1: Customer Relationship Management",
-          "DHTM2 – M2: Room Division Management",
-          "DHTM3 – M3: Food & Beverage Management",
-          "DHTM4 – M4: Effective Business Communication",
-          "DHTM5 – M5: Entrepreneurship in Hospitality",
-          "DHTM6 – M6: Waste Management for Hotels & Restaurants"
+          "DHM - CRM: Customer Relationship Management",
+          "DHM - RDM: Room Division Management",
+          "DHM - F&B: Food and Beverage Management",
+          "DHM - EBC: Effective Business Communication",
+          "DHM - EH: Entrepreneurship in Hospitality",
+          "DHM - WMHR: Waste Management for Hotels and Restaurants"
         ]
       },
       {
         name: "Diploma in Hotel & Tourism Management (E-Learning)",
         modules: [
-          "DHTM1 – M1: Customer Relationship Management",
-          "DHTM2 – M2: Room Division Management",
-          "DHTM3 – M3: Food & Beverage Management",
-          "DHTM4 – M4: Effective Business Communication",
-          "DHTM5 – M5: Entrepreneurship in Hospitality",
-          "DHTM6 – M6: Waste Management for Hotels & Restaurants"
+          "DHM - CRM: Customer Relationship Management",
+          "DHM - RDM: Room Division Management",
+          "DHM - F&B: Food and Beverage Management",
+          "DHM - EBC: Effective Business Communication",
+          "DHM - EH: Entrepreneurship in Hospitality",
+          "DHM - WMHR: Waste Management for Hotels and Restaurants"
         ]
       },
       {
@@ -653,23 +653,23 @@ const teachersData: Teacher[] = [
       {
         name: "Diploma in Hotel & Tourism Management",
         modules: [
-          "DHTM1 – M1: Customer Relationship Management",
-          "DHTM2 – M2: Room Division Management",
-          "DHTM3 – M3: Food & Beverage Management",
-          "DHTM4 – M4: Effective Business Communication",
-          "DHTM5 – M5: Entrepreneurship in Hospitality",
-          "DHTM6 – M6: Waste Management for Hotels & Restaurants"
+          "DHM - CRM: Customer Relationship Management",
+          "DHM - RDM: Room Division Management",
+          "DHM - F&B: Food and Beverage Management",
+          "DHM - EBC: Effective Business Communication",
+          "DHM - EH: Entrepreneurship in Hospitality",
+          "DHM - WMHR: Waste Management for Hotels and Restaurants"
         ]
       },
       {
         name: "Diploma in Hotel & Tourism Management (E-Learning)",
         modules: [
-          "DHTM1 – M1: Customer Relationship Management",
-          "DHTM2 – M2: Room Division Management",
-          "DHTM3 – M3: Food & Beverage Management",
-          "DHTM4 – M4: Effective Business Communication",
-          "DHTM5 – M5: Entrepreneurship in Hospitality",
-          "DHTM6 – M6: Waste Management for Hotels & Restaurants"
+          "DHM - CRM: Customer Relationship Management",
+          "DHM - RDM: Room Division Management",
+          "DHM - F&B: Food and Beverage Management",
+          "DHM - EBC: Effective Business Communication",
+          "DHM - EH: Entrepreneurship in Hospitality",
+          "DHM - WMHR: Waste Management for Hotels and Restaurants"
         ]
       },
       {

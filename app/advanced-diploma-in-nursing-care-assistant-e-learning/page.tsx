@@ -201,6 +201,12 @@ export default function AdvancedDiplomaInNursingCareAssistantELearning() {
                                 Entry Qualification:
                             </h3>
                             <ul className="space-y-3 text-gray-700 text-sm">
+                            <li className="flex items-start gap-3">
+                                    <svg className="w-5 h-5 text-[#EE4A62] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                    </svg>
+                                    <span>Minimum Age Requirement : 21 years old</span>
+                                </li>
                                 <li className="flex items-start gap-3">
                                     <svg className="w-5 h-5 text-[#EE4A62] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -260,7 +266,31 @@ export default function AdvancedDiplomaInNursingCareAssistantELearning() {
                                 <p><span className="font-semibold">Weekday:</span> Wed & Fri (7PM to 9PM)</p>
                             </div>
                         </div>
-                    </div>
+                    
+
+                        {/* Graduation Requirements */}
+                        <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-100 md:col-span-2">
+                            <h3 className="text-xl font-bold text-[#1AB69D] mb-4">
+                                Graduation Requirements:
+                            </h3>
+                            <div className="space-y-4">
+                                <p className="text-gray-700 text-sm leading-relaxed">
+                                    Students are required to pass all modules.
+                                </p>
+                                <p className="text-gray-700 text-sm leading-relaxed">
+                                    To qualify for graduation, students should achieve the following minimum attendance rate for every module:
+                                </p>
+                                <ul className="space-y-3 text-gray-700 text-sm">
+                                    <li className="flex items-start gap-3">
+                                        <svg className="w-5 h-5 text-[#EE4A62] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                        </svg>
+                                        <span>75% attendance rate for non-Student&apos;s Pass holders.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+</div>
                 </div>
             </section>
 
@@ -390,18 +420,6 @@ export default function AdvancedDiplomaInNursingCareAssistantELearning() {
                                 </table>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Graduation Requirements */}
-            <section className="py-12 bg-gray-50">
-                <div className="container mx-auto px-4 md:px-8">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-gray-900">Graduation Requirements</h2>
-                    <div className="max-w-3xl mx-auto">
-                        <p className="text-gray-700 text-base leading-relaxed text-justify">
-                            Upon successful completion of all required modules as detailed in the Course Outline, and fulfilling all associated attendance and assessment requirements, the student will be graduated successfully.
-                        </p>
                     </div>
                 </div>
             </section>
