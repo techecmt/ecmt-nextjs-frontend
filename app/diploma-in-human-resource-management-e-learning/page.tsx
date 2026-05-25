@@ -176,7 +176,7 @@ export default function DiplomaInHumanResourceManagementELearning() {
                     {/* Overview Cards */}
                     <div className="grid md:grid-cols-3 gap-6 mb-12">
                         <div className="bg-white rounded-xl shadow-sm border-2 border-[#1AB69D] p-6 text-center hover:shadow-lg transition-shadow">
-                            <h3 className="text-sm font-semibold text-gray-600 mb-2">Study Modes</h3>
+                            <h3 className="text-sm font-semibold text-gray-600 mb-2">Study Mode</h3>
                             <p className="text-2xl font-bold text-[#1AB69D]">Part Time</p>
                         </div>
                         <div className="bg-white rounded-xl shadow-sm border-2 border-[#1AB69D] p-6 text-center hover:shadow-lg transition-shadow">
@@ -287,22 +287,20 @@ export default function DiplomaInHumanResourceManagementELearning() {
                             <h3 className="text-xl font-bold text-[#1AB69D] mb-4">
                                 Graduation Requirements:
                             </h3>
-                            <div className="space-y-4">
-                                <p className="text-gray-700 text-sm leading-relaxed">
-                                    Students are required to pass all modules.
-                                </p>
-                                <p className="text-gray-700 text-sm leading-relaxed">
-                                    To qualify for graduation, students should achieve the following minimum attendance rate for every module:
-                                </p>
-                                <ul className="space-y-3 text-gray-700 text-sm">
+                                                            <ul className="space-y-3 text-gray-700 text-sm">
                                     <li className="flex items-start gap-3">
                                         <svg className="w-5 h-5 text-[#EE4A62] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                                         </svg>
-                                        <span>75% attendance rate for non-Student&apos;s Pass holders.</span>
+                                        <span>Students are required to pass all modules.</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <svg className="w-5 h-5 text-[#EE4A62] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                                        </svg>
+                                        <span>In Every Module 75% class attendance is required.</span>
                                     </li>
                                 </ul>
-                            </div>
                         </div>
 </div>
                 </div>
@@ -365,7 +363,7 @@ export default function DiplomaInHumanResourceManagementELearning() {
               <div className="space-y-2 text-sm text-gray-700 max-w-xl">
                 <div className="flex items-start justify-between gap-4">
                   <span>Registration Fee (With GST)</span>
-                  <span className="font-bold text-gray-900">:&nbsp;&nbsp;S$ 109.00</span>
+                  <span className="font-bold text-gray-900">:&nbsp;&nbsp;S$ 54.50</span>
                 </div>
                 <div className="italic text-gray-500 mb-1">Non-Refundable</div>
                 <div className="border-t border-gray-800 my-2"></div>
@@ -390,6 +388,11 @@ export default function DiplomaInHumanResourceManagementELearning() {
                   <span>Net Course Fee Payable</span>
                   <span className="font-bold text-gray-900">:&nbsp;&nbsp;S$ 2180.00</span>
                 </div>
+                <p className="text-xs text-[#EE4A62] font-semibold italic mt-3">
+                  <span className="bg-[#FFF5F6] px-2 py-0.5 rounded">
+                    Note: Payable by monthly installments over 8 months.
+                  </span>
+                </p>
               </div>
             </div>
                         {/* Refund Policy */}

@@ -139,7 +139,7 @@ export default function CertificateInNursingAidInSingapore() {
                     {/* Overview Cards */}
                     <div className="grid md:grid-cols-3 gap-6 mb-12 mt-12">
                         <div className="bg-white rounded-xl shadow-sm border-2 border-[#1AB69D] p-6 text-center hover:shadow-lg transition-shadow">
-                            <h3 className="text-sm font-semibold text-gray-600 mb-2">Study Modes</h3>
+                            <h3 className="text-sm font-semibold text-gray-600 mb-2">Study Mode</h3>
                             <p className="text-2xl font-bold text-[#1AB69D]">Part Time</p>
                         </div>
                         <div className="bg-white rounded-xl shadow-sm border-2 border-[#1AB69D] p-6 text-center hover:shadow-lg transition-shadow">

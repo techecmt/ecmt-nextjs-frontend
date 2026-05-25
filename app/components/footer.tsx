@@ -23,7 +23,7 @@ const contactCards = [
     email: "info@edusphere.edu.sg",
   },
   {
-    title: "Sales Support - Jona",
+    title: "Sales Support",
     phone: { display: "(+65) 8070 6203", href: "https://wa.me/6580706203" },
     email: "info@edusphere.edu.sg",
   },
