@@ -268,23 +268,23 @@ function MegaMenu({
   onMouseEnter: () => void;
   onMouseLeave: () => void;
 }) {
-  const schoolIcons: { [key: string]: React.ReactNode } = {
-    'School of Caregiving': <FaHeartbeat className="w-5 h-5" />,
-    'School of Hospitality': <FaHotel className="w-5 h-5" />,
-    'School of IT': <FaLaptopCode className="w-5 h-5" />,
-    'School of Engineering': <FaTools className="w-5 h-5" />,
-    'School of Business': <FaBriefcase className="w-5 h-5" />,
+  const categoryIcons: { [key: string]: React.ReactNode } = {
+    'Caregiving Courses': <FaHeartbeat className="w-5 h-5" />,
+    'Hospitality Courses': <FaHotel className="w-5 h-5" />,
+    'IT Courses': <FaLaptopCode className="w-5 h-5" />,
+    'Engineering Courses': <FaTools className="w-5 h-5" />,
+    'Business Courses': <FaBriefcase className="w-5 h-5" />,
     'E-Learning Courses': <FaGraduationCap className="w-5 h-5" />,
   };
 
-  const filteredSchools = courseData.filter(
-    school =>
-      school.title.includes('Caregiving') ||
-      school.title.includes('Hospitality') ||
-      school.title.includes('IT') ||
-      school.title.includes('Engineering') ||
-      school.title.includes('Business') ||
-      school.title.includes('E-Learning')
+  const filteredCategories = courseData.filter(
+    category =>
+      category.title.includes('Caregiving') ||
+      category.title.includes('Hospitality') ||
+      category.title.includes('IT') ||
+      category.title.includes('Engineering') ||
+      category.title.includes('Business') ||
+      category.title.includes('E-Learning')
   );
 
   return (
@@ -295,12 +295,12 @@ function MegaMenu({
     >
       <div className="bg-white shadow-xl rounded-2xl border border-gray-100 max-h-[80vh] overflow-y-auto">
         <div className="grid grid-cols-3 gap-6 p-6 lg:gap-8 lg:p-8">
-          {filteredSchools.length > 0 ? (
-            filteredSchools.map((school, idx) => (
+          {filteredCategories.length > 0 ? (
+            filteredCategories.map((category, idx) => (
               <CourseSection
                 key={idx}
-                school={school}
-                icon={schoolIcons[school.title] ?? null}
+                category={category}
+                icon={categoryIcons[category.title] ?? null}
               />
             ))
           ) : (
@@ -315,26 +315,26 @@ function MegaMenu({
 /* ================= COURSE SECTIONS ================= */
 
 function CourseSection({
-  school,
+  category,
   icon,
 }: {
-  school: any;
+  category: any;
   icon: React.ReactNode | null;
 }) {
   return (
     <div>
-      <div className="mb-4 pb-3 border-b-2" style={{ borderColor: school.color }}>
+      <div className="mb-4 pb-3 border-b-2" style={{ borderColor: category.color }}>
         <div className="flex items-center gap-3">
-          <div style={{ color: school.color }}>
+          <div style={{ color: category.color }}>
             {icon}
           </div>
-          <h3 className="text-sm font-bold uppercase tracking-wider" style={{ color: school.color }}>
-            {school.title.replace('School of ', '')}
+          <h3 className="text-sm font-bold uppercase tracking-wider" style={{ color: category.color }}>
+            {category.title}
           </h3>
         </div>
       </div>
       <div className="space-y-2">
-        {school.courses.map((course: any, idx: number) => (
+        {category.courses.map((course: any, idx: number) => (
           <CourseCard key={idx} {...course} />
         ))}
       </div>
@@ -611,14 +611,14 @@ function SimpleLinksMobileList({ links, onLinkClick }: { links: { label: string;
 /* ================= MOBILE COURSES ================= */
 
 function MobileCoursesSection({ menuType, onLinkClick }: { menuType: string; onLinkClick: () => void }) {
-  const [expandedSchool, setExpandedSchool] = React.useState<string | null>(null);
+  const [expandedCategory, setExpandedCategory] = React.useState<string | null>(null);
 
-  const schoolIcons: { [key: string]: React.ReactNode } = {
-    'School of Caregiving': <FaHeartbeat className="w-4 h-4" />,
-    'School of Hospitality': <FaHotel className="w-4 h-4" />,
-    'School of IT': <FaLaptopCode className="w-4 h-4" />,
-    'School of Engineering': <FaTools className="w-4 h-4" />,
-    'School of Business': <FaBriefcase className="w-4 h-4" />,
+  const categoryIcons: { [key: string]: React.ReactNode } = {
+    'Caregiving Courses': <FaHeartbeat className="w-4 h-4" />,
+    'Hospitality Courses': <FaHotel className="w-4 h-4" />,
+    'IT Courses': <FaLaptopCode className="w-4 h-4" />,
+    'Engineering Courses': <FaTools className="w-4 h-4" />,
+    'Business Courses': <FaBriefcase className="w-4 h-4" />,
     'E-Learning Courses': <FaGraduationCap className="w-4 h-4" />,
   };
 
@@ -654,42 +654,42 @@ function MobileCoursesSection({ menuType, onLinkClick }: { menuType: string; onL
     );
   }
 
-  const filteredSchools =
+  const filteredCategories =
     menuType === 'Diploma Courses'
       ? courseData.filter(
-          school =>
-            school.title.includes('Caregiving') ||
-            school.title.includes('Hospitality') ||
-            school.title.includes('IT') ||
-            school.title.includes('Engineering') ||
-            school.title.includes('Business') ||
-            school.title.includes('E-Learning')
+          category =>
+            category.title.includes('Caregiving') ||
+            category.title.includes('Hospitality') ||
+            category.title.includes('IT') ||
+            category.title.includes('Engineering') ||
+            category.title.includes('Business') ||
+            category.title.includes('E-Learning')
         )
       : [];
 
-  const renderSchoolBlock = (school: typeof courseData[0], idx: number) => {
-    const isExpanded = expandedSchool === school.title;
+  const renderCategoryBlock = (category: typeof courseData[0], idx: number) => {
+    const isExpanded = expandedCategory === category.title;
     return (
       <div key={idx} className="border border-gray-100 rounded-xl overflow-hidden">
         <button
-          onClick={() => setExpandedSchool(isExpanded ? null : school.title)}
+          onClick={() => setExpandedCategory(isExpanded ? null : category.title)}
           className="w-full flex items-center justify-between gap-2 p-3 hover:bg-gray-50 transition-colors"
         >
           <div className="flex items-center gap-2">
-            <div style={{ color: school.color }}>{schoolIcons[school.title]}</div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-left" style={{ color: school.color }}>
-              {school.title.replace('School of ', '')}
+            <div style={{ color: category.color }}>{categoryIcons[category.title]}</div>
+            <h3 className="text-xs font-bold uppercase tracking-wider text-left" style={{ color: category.color }}>
+              {category.title}
             </h3>
           </div>
           <FaChevronDown
             className={`w-3 h-3 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}
-            style={{ color: school.color }}
+            style={{ color: category.color }}
           />
         </button>
         {isExpanded && (
           <div className="px-3 pb-3 pt-1 border-t border-gray-100 bg-gray-50/50">
             <div className="space-y-1">
-              {school.courses.map((course: any, i: number) => (
+              {category.courses.map((course: any, i: number) => (
                 <Link
                   key={i}
                   href={course.url || '/contact-us'}
@@ -714,8 +714,8 @@ function MobileCoursesSection({ menuType, onLinkClick }: { menuType: string; onL
 
   return (
     <div className="mt-3 space-y-2">
-      {filteredSchools.length > 0 ? (
-        filteredSchools.map((school, idx) => renderSchoolBlock(school, idx))
+      {filteredCategories.length > 0 ? (
+        filteredCategories.map((category, idx) => renderCategoryBlock(category, idx))
       ) : (
         <div className="text-center text-gray-500 text-sm py-4">No courses found.</div>
       )}

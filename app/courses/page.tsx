@@ -28,41 +28,41 @@ export const metadata: Metadata = {
 
 const diplomaCourses = courseData
   .filter(
-    (s) =>
-      !s.title.includes("E-Learning") && !s.title.includes("SRFAC")
+    (category) =>
+      !category.title.includes("E-Learning") && !category.title.includes("SRFAC")
   )
-  .flatMap((s) =>
-    s.courses
+  .flatMap((category) =>
+    category.courses
       .filter((c) => c.title.startsWith("Diploma"))
-      .map((c) => ({ ...c, school: s.title, color: s.color }))
+      .map((c) => ({ ...c, category: category.title, color: category.color }))
   );
 
 const advancedDiplomaCourses = courseData
   .filter(
-    (s) =>
-      !s.title.includes("E-Learning") && !s.title.includes("SRFAC")
+    (category) =>
+      !category.title.includes("E-Learning") && !category.title.includes("SRFAC")
   )
-  .flatMap((s) =>
-    s.courses
+  .flatMap((category) =>
+    category.courses
       .filter((c) => c.title.startsWith("Advanced Diploma"))
-      .map((c) => ({ ...c, school: s.title, color: s.color }))
+      .map((c) => ({ ...c, category: category.title, color: category.color }))
   );
 
 const eLearningCourses = courseData
-  .filter((s) => s.title.includes("E-Learning"))
-  .flatMap((s) =>
-    s.courses.map((c) => ({ ...c, school: s.title, color: s.color }))
+  .filter((category) => category.title.includes("E-Learning"))
+  .flatMap((category) =>
+    category.courses.map((c) => ({ ...c, category: category.title, color: category.color }))
   );
 
 const certificateCourses = courseData
-  .flatMap((s) =>
-    s.courses
+  .flatMap((category) =>
+    category.courses
       .filter(
         (c) =>
           c.title.includes("Certificate") ||
           c.title.includes("CPR")
       )
-      .map((c) => ({ ...c, school: s.title, color: s.color }))
+      .map((c) => ({ ...c, category: category.title, color: category.color }))
   );
 
 type Section = {

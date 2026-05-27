@@ -28,7 +28,7 @@ export default function AboutCollegeReg() {
             </p>
 
             <h3 className="text-2xl font-semibold mt-4 mb-2 font-spartan text-[#202020]">Vision</h3>
-            <p className="text-base mb-4 font-poppins text-[#202020]">Become a vocational school of choice, maximizing the potential and quality of life of every student and staff.</p>
+            <p className="text-base mb-4 font-poppins text-[#202020]">Become a vocational college of choice, maximizing the potential and quality of life of every student and staff.</p>
 
             <h3 className="text-2xl font-semibold mt-4 mb-2 font-spartan text-[#202020]">Mission</h3>
             <p className="text-base mb-4 font-poppins text-[#202020]">To provide a quality education leading to meaning, dignity and independent life.</p>

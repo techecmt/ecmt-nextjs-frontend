@@ -19,8 +19,8 @@ const courseTabs: CourseType[] = [
 // Extract face-to-face diploma courses
 const faceToFaceDiplomas =
   courseData
-    .filter((school) => school.title !== "E-Learning Courses")
-    .flatMap((school) => school.courses)
+    .filter((category) => category.title !== "E-Learning Courses")
+    .flatMap((category) => category.courses)
     .filter(
       (course) =>
         course.title.toLowerCase().includes("diploma") ||
@@ -31,7 +31,7 @@ const faceToFaceDiplomas =
 // Extract e-learning diploma courses
 const elearningDiplomas =
   courseData
-    .find((school) => school.title === "E-Learning Courses")
+    .find((category) => category.title === "E-Learning Courses")
     ?.courses.map((course) => course.title) || [];
 
 const courseOptions: {

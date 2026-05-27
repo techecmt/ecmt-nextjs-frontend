@@ -3,36 +3,36 @@
 import { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { courseData, School, Course } from "../data/courses";
+import { courseData, CourseCategory, Course } from "../data/courses";
 
 const CUSTOM_ORDER = [
-	"School of Caregiving",
-	"School of Hospitality",
-	"School of Engineering",
-	"School of Business",
-	"School of IT",
+	"Caregiving Courses",
+	"Hospitality Courses",
+	"Engineering Courses",
+	"Business Courses",
+	"IT Courses",
 	"E-Learning Courses",
 ];
 
 export default function CourseList() {
-	const [activeSchool, setActiveSchool] = useState<string>("All Schools");
+	const [activeCategory, setActiveCategory] = useState<string>("All Courses");
 
-	const sortedSchools = useMemo(() => {
-		const schoolsCopy = [...courseData];
-		schoolsCopy.sort((a, b) => {
+	const sortedCategories = useMemo(() => {
+		const categoriesCopy = [...courseData];
+		categoriesCopy.sort((a, b) => {
 			const ai = CUSTOM_ORDER.indexOf(a.title);
 			const bi = CUSTOM_ORDER.indexOf(b.title);
 			return (ai === -1 ? CUSTOM_ORDER.length : ai) - (bi === -1 ? CUSTOM_ORDER.length : bi);
 		});
-		return schoolsCopy;
+		return categoriesCopy;
 	}, []);
 
-	const visibleSchools: School[] = useMemo(() => {
-		if (activeSchool === "All Schools") {
-			return sortedSchools;
+	const visibleCategories: CourseCategory[] = useMemo(() => {
+		if (activeCategory === "All Courses") {
+			return sortedCategories;
 		}
-		return sortedSchools.filter((s) => s.title === activeSchool);
-	}, [activeSchool, sortedSchools]);
+		return sortedCategories.filter((category) => category.title === activeCategory);
+	}, [activeCategory, sortedCategories]);
 
 	return (
 		<section className="py-12 md:py-16 bg-white">
@@ -43,37 +43,37 @@ export default function CourseList() {
 							Our Courses
 						</p>
 						<h2 className="text-2xl md:text-3xl font-semibold uppercase text-[#202020] font-spartan">
-							Browse Courses by School
+							Browse Courses by Category
 						</h2>
 						<p className="text-sm md:text-base text-gray-600 mt-2 max-w-xl">
-							Select a school to view its programmes, or browse all courses in
+							Select a course category to view its programmes, or browse all courses in
 							alphabetical order.
 						</p>
 					</div>
 
 				</header>
 
-				{/* School filter pills */}
+				{/* Course category filter pills */}
 				<div className="flex flex-wrap gap-2 md:gap-3 mb-8">
 					<FilterPill
-						label="All Schools"
-						active={activeSchool === "All Schools"}
-						onClick={() => setActiveSchool("All Schools")}
+						label="All Courses"
+						active={activeCategory === "All Courses"}
+						onClick={() => setActiveCategory("All Courses")}
 					/>
-					{sortedSchools.map((school) => (
+					{sortedCategories.map((category) => (
 						<FilterPill
-							key={school.title}
-							label={school.title}
-							active={activeSchool === school.title}
-							onClick={() => setActiveSchool(school.title)}
+							key={category.title}
+							label={category.title}
+							active={activeCategory === category.title}
+							onClick={() => setActiveCategory(category.title)}
 						/>
 					))}
 				</div>
 
-				{/* Courses grouped by school */}
+				{/* Courses grouped by category */}
 				<div className="space-y-10 md:space-y-12">
-					{visibleSchools.map((school) => (
-						<SchoolSection key={school.title} school={school} />
+					{visibleCategories.map((category) => (
+						<CategorySection key={category.title} category={category} />
 					))}
 				</div>
 			</div>
@@ -105,27 +105,27 @@ function FilterPill({
 	);
 }
 
-function SchoolSection({ school }: { school: School }) {
+function CategorySection({ category }: { category: CourseCategory }) {
 	return (
 		<section>
 			<div className="flex items-center gap-3 mb-4 md:mb-6">
 				<div
 					className="w-1 h-8 rounded-full"
-					style={{ backgroundColor: school.color }}
+					style={{ backgroundColor: category.color }}
 				/>
 				<div>
 					<h2 className="text-lg md:text-xl font-semibold text-[#202020] font-poppins">
-						{school.title}
+						{category.title}
 					</h2>
 					<p className="text-xs md:text-sm text-gray-600">
-						{school.courses.length} programme
-						{school.courses.length > 1 ? "s" : ""}
+						{category.courses.length} programme
+						{category.courses.length > 1 ? "s" : ""}
 					</p>
 				</div>
 			</div>
 
 			<div className="grid gap-4 md:gap-5 md:grid-cols-2 lg:grid-cols-3">
-				{school.courses.map((course) => (
+				{category.courses.map((course) => (
 					<CourseCard key={course.title} course={course} />
 				))}
 			</div>

@@ -8,15 +8,15 @@ export type Course = {
   url?: string;
 };
 
-export type School = {
+export type CourseCategory = {
   title: string;
   color: string;
   courses: Course[];
 };
 
-export const courseData: School[] = [
+export const courseData: CourseCategory[] = [
   {
-    title: "School of Caregiving",
+    title: "Caregiving Courses",
     color: "#1AB69D",
     courses: [
       {
@@ -50,7 +50,7 @@ export const courseData: School[] = [
     ],
   },
   {
-    title: "School of Hospitality",
+    title: "Hospitality Courses",
     color: "#1AB69D",
     courses: [
       {
@@ -70,7 +70,7 @@ export const courseData: School[] = [
     ],
   },
   {
-    title: "School of IT",
+    title: "IT Courses",
     color: "#1AB69D",
     courses: [
             {
@@ -83,7 +83,7 @@ export const courseData: School[] = [
     ],
   },
   {
-    title: "School of Engineering",
+    title: "Engineering Courses",
     color: "#1AB69D",
     courses: [
       {
@@ -132,7 +132,7 @@ export const courseData: School[] = [
     ],
   },
   {
-    title: "School of Business",
+    title: "Business Courses",
     color: "#1AB69D",
     courses: [
       {

@@ -163,7 +163,7 @@ export default function AboutUs() {
             <div className="grid grid-cols-2 gap-4">
               {[
                 { value: "2019", label: "Year Established",    sub: "Over 5 years of excellence",       bg: "bg-[#d81f26]", text: "text-white" },
-                { value: "5+",   label: "Schools & Faculties", sub: "Engineering, IT, Business & more", bg: "bg-white",      text: "text-gray-900" },
+                { value: "5+",   label: "Courses & Faculties", sub: "Engineering, IT, Business & more", bg: "bg-white",      text: "text-gray-900" },
                 { value: "20+",  label: "Courses Offered",     sub: "Diploma, WSQ & Certificate",       bg: "bg-white",      text: "text-gray-900" },
                 { value: "100%", label: "Student Focus",       sub: "Personalised learning journeys",   bg: "bg-[#1AB69D]", text: "text-white" },
               ].map((stat) => (

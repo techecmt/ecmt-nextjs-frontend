@@ -61,7 +61,7 @@ const COURSES: HotelCourse[] = [
 const FAQ_DATA = [
 	{
 		question: "What is a hotel management course and who is it for?",
-		answer: "A hotel management course teaches operational, administrative, and leadership skills needed in the hospitality and hotel industry. It is ideal for school leavers looking to enter the hospitality sector, working adults wanting to upskill, and career switchers interested in hotel operations, front office management, or guest services.",
+		answer: "A hotel management course teaches operational, administrative, and leadership skills needed in the hospitality and hotel industry. It is ideal for recent graduates looking to enter the hospitality sector, working adults wanting to upskill, and career switchers interested in hotel operations, front office management, or guest services.",
 	},
 	{
 		question: "What are the entry requirements for hotel management courses at Edusphere?",

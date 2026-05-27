@@ -105,7 +105,7 @@ const interviewSections: InterviewSection[] = [
 			{
 				question: "11. How do you organise your daily housekeeping routine?",
 				answer:
-					"I start with the most time-sensitive tasks such as preparing breakfast and getting the children ready for school. After that, I do laundry, sweep and mop floors, clean bathrooms, and tidy bedrooms. In the afternoon, I prepare ingredients for dinner. I keep a weekly schedule for deeper tasks like cleaning windows, fans, and wardrobes.",
+					"I start with the most time-sensitive tasks such as preparing breakfast and getting the children ready for class. After that, I do laundry, sweep and mop floors, clean bathrooms, and tidy bedrooms. In the afternoon, I prepare ingredients for dinner. I keep a weekly schedule for deeper tasks like cleaning windows, fans, and wardrobes.",
 			},
 			{
 				question: "12. How do you handle laundry for different types of fabrics?",
@@ -213,9 +213,9 @@ const interviewSections: InterviewSection[] = [
 					"I stay calm and try to identify the cause — whether the child is hungry, tired, uncomfortable, or seeking attention. I use soothing techniques such as gentle rocking, singing, or distracting the child with toys or activities. If the crying persists and I suspect the child is unwell, I inform the parents right away.",
 			},
 			{
-				question: "31. Can you help children with their homework or school preparation?",
+				question: "31. Can you help children with their homework or class preparation?",
 				answer:
-					"I can assist with basic homework tasks, help children pack their school bags, prepare their uniforms, and ensure they follow a daily routine. For subjects I am less familiar with, I will supervise and encourage the child to complete their work. I communicate with the parents about any difficulties the child may face.",
+					"I can assist with basic homework tasks, help children pack their bags, prepare their uniforms, and ensure they follow a daily routine. For subjects I am less familiar with, I will supervise and encourage the child to complete their work. I communicate with the parents about any difficulties the child may face.",
 			},
 			{
 				question: "32. How do you ensure the safety of young children at home?",
@@ -248,9 +248,9 @@ const interviewSections: InterviewSection[] = [
 					"I would first ensure the person is safe and call 995 (Singapore's emergency ambulance number) immediately. I would stay calm, provide basic first aid if I know how (such as CPR or stopping bleeding), and keep the person comfortable until help arrives. I would also contact the employer or family members right away.",
 			},
 			{
-				question: "38. Are you comfortable accompanying children to school or elderly persons to medical appointments?",
+				question: "38. Are you comfortable accompanying children to classes or elderly persons to medical appointments?",
 				answer:
-					"Yes, I am comfortable accompanying family members outside the home. I am familiar with Singapore's public transport system — MRT, buses, and ride-hailing apps like Grab. I ensure children arrive at school safely and on time, and I assist elderly members during medical appointments by helping them communicate with medical staff if needed.",
+					"Yes, I am comfortable accompanying family members outside the home. I am familiar with Singapore's public transport system — MRT, buses, and ride-hailing apps like Grab. I ensure children arrive safely and on time, and I assist elderly members during medical appointments by helping them communicate with medical staff if needed.",
 			},
 			{
 				question: "39. How do you engage and stimulate young children during the day?",
