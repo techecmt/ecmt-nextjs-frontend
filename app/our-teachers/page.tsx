@@ -22,7 +22,7 @@ const teachersData: Teacher[] = [
       "Bachelor of Mechanical Engineering",
       "Anna University, India"
     ],
-    deployedMode: "Part Time",
+    deployedMode: "Full Time",
     courses: [
       {
         name: "Advanced Diploma in Mechanical & Electrical (M&E) Engineering",
