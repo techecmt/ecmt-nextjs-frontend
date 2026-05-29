@@ -28,7 +28,7 @@ export default function Page() {
 							wishes to register on the course again. ECMT’s refund policy shall apply.
 						</li>
 						<li>
-							Deferment application made during the term will incur an administrative fee of $50 before GST.
+							Deferment application made during the term will incur an administrative fee of $100 before GST.
 						</li>
 						<li>
 							Approval for deferment is at the sole discretion of : Edusphere College of Management and Technology (ECMT).
@@ -349,7 +349,7 @@ export default function Page() {
 							Refund During <span className="text-rose-600">Cooling-off Period</span>
 						</h2>
 						<p className="mt-6 text-gray-700">
-							ECMT shall provide the Student with a cooling-off period of seven (7) working days after the date that the
+							ECMT shall provide the Student with a cooling-off period of seven (10) working days after the date that the
 							Contract has been signed by both parties.
 						</p>
 						<p className="mt-4 text-gray-700">

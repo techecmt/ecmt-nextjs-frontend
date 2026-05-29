@@ -318,12 +318,12 @@ export default function AdvancedDiplomaInMechanicalAndElectricalEngineering() {
                                 </thead>
                                 <tbody className="divide-y divide-gray-200 text-gray-900">
                                     {[
-                                        { code: "AME01", title: "Building Automation Technology", hours: 24, mode: "Written Exam 100%" },
-                                        { code: "AME02", title: "Energy Management System", hours: 24, mode: "Written Exam 100%" },
-                                        { code: "AME03", title: "Smart Building Management", hours: 24, mode: "Written Exam 100%" },
-                                        { code: "AME04", title: "Advanced Facilities Management Solutions", hours: 24, mode: "Written Exam 100%" },
-                                        { code: "AME05", title: "Artificial Intelligence and Machine Learning in M&E", hours: 24, mode: "Written Exam 100%" },
-                                        { code: "AME06", title: "Project", hours: 24, mode: "Assignment 100%" },
+                                        { code: "ADME01", title: "Building Automation Technology", hours: 24, mode: "Written Exam 100%" },
+                                        { code: "ADME02", title: "Energy Management System", hours: 24, mode: "Written Exam 100%" },
+                                        { code: "ADME03", title: "Smart Building Management", hours: 24, mode: "Written Exam 100%" },
+                                        { code: "ADME04", title: "Advanced Facilities Management Solutions", hours: 24, mode: "Written Exam 100%" },
+                                        { code: "ADME05", title: "Artificial Intelligence and Machine Learning in M&E", hours: 24, mode: "Written Exam 100%" },
+                                        { code: "ADME06", title: "Project", hours: 24, mode: "Assignment 100%" },
                                     ].map((module, idx) => (
                                         <tr key={idx} className="hover:bg-gray-50 transition-colors">
                                             <td className="px-4 py-4 font-semibold text-[#1AB69D]">{module.code}</td>
