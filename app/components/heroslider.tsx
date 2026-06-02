@@ -36,6 +36,16 @@ const heroSlides: HeroSlide[] = [
     primaryCta: { label: "View Diploma Courses", href: "/#courses" },
     secondaryCta: { label: "Contact Us", href: "/contact-us" },
   },
+  {
+    image: "/herosections/autocad_hero.png",
+    alt: "Professional using AutoCAD for architectural drafting and BIM modelling",
+    eyebrow: "Certificate Programme",
+    title: "Specialised Certificate in AutoCAD & BIM Applications",
+    description:
+      "Master 2D AutoCAD drafting and Revit BIM fundamentals for civil and MEP projects through practical, part-time training.",
+    primaryCta: { label: "Learn More", href: "/certificate-courses-in-singapore/certificate-autocad-bim/" },
+    secondaryCta: { label: "Contact Us", href: "/contact-us" },
+  },
 ];
 
 const AUTOPLAY_MS = 5000;
