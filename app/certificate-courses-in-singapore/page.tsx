@@ -3,6 +3,9 @@ import Image from "next/image";
 import Script from "next/script";
 import Link from "next/link";
 import { courseData } from "../data/courses";
+import {
+	certificateCourses as CERTIFICATE_COURSES,
+} from "../data/certificate-courses";
 
 export const metadata: Metadata = {
 	title: "Certificate Courses in Singapore | Edusphere College - Professional Training",
@@ -16,59 +19,6 @@ export const metadata: Metadata = {
 		images: ["/certificate_courses/Certificate-in-Foundation-Skills.png"]
 	}
 };
-
-type CertificateCourse = {
-	title: string;
-	subtitle?: string;
-	cta: string;
-	ctaurl: string;
-	image: string;
-};
-
-const CERTIFICATE_COURSES: CertificateCourse[] = [
-    {
-        title: "Certificate in NG (Nasogastric) Tube Feeding",
-        cta: "Register Now",
-		ctaurl: "https://form.jotform.com/253087866785072",
-        image: "/certificate_courses/Certificate in NG (NASOGASTRIC) tube feeding.png",
-    },
-    {
-        title: "Certificate in Physical and Massage Therapy",
-        cta: "Register Now",
-		ctaurl: "https://form.jotform.com/253087866785072",
-        image: "/certificate_courses/Certificate in Physical and Massage Therapy.png",
-    },
-     {
-        title: "Certificate in Autocad",
-        cta: "Register Now",
-		ctaurl: "https://form.jotform.com/253087866785072",	
-        image: "/certificate_courses/Certificate in Autocad.png",
-    },
-    {
-        title: "Certificate in Air Conditioning",
-        cta: "Register Now",
-		ctaurl: "https://form.jotform.com/253087866785072",
-        image: "/certificate_courses/Certificate in Air Conditioning.png",
-    },
-    {
-        title: "Certificate in Cafe & Restaurant Management",
-        cta: "Register Now",
-		ctaurl: "https://form.jotform.com/253087866785072",
-        image: "/certificate_courses/Certificate in Cafe _Restaurant Management.png",
-    },
-    {
-        title: "Certificate in Foundation Skills",
-        cta: "Register Now",
-		ctaurl: "https://form.jotform.com/253087866785072",
-        image: "/certificate_courses/Certificate-in-Foundation-Skills.png",
-    },
-    {
-        title: "Professional Certificate in Mechanical and Electrical Engg",
-        cta: "Register Now",	
-		ctaurl: "https://form.jotform.com/253087866785072",
-        image: "/certificate_courses/Certificate-in-Foundation-Skills.png",
-    },
-];
 
 const SRFAC_SCHOOL = courseData.find((s) => s.title.includes("SRFAC"));
 const SRFAC_COURSES_FROM_DATA = SRFAC_SCHOOL?.courses ?? [];
@@ -203,7 +153,37 @@ export default function CertificateCoursesInSingapore() {
 					</div>
 
 					<div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-						{CERTIFICATE_COURSES.map((course) => (
+						{CERTIFICATE_COURSES.map((course) => {
+							const isInternal = course.ctaurl.startsWith("/");
+
+							const cta = (
+								<span className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#1AB69D] px-4 py-2 text-xs md:text-sm font-semibold text-white shadow-sm hover:bg-[#16917f] hover:shadow-md active:scale-95 transition-all">
+									{course.cta}
+									<svg
+										className="h-4 w-4"
+										viewBox="0 0 24 24"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M13 7L18 12L13 17"
+											stroke="currentColor"
+											strokeWidth="2"
+											strokeLinecap="round"
+											strokeLinejoin="round"
+										/>
+										<path
+											d="M6 12H18"
+											stroke="currentColor"
+											strokeWidth="2"
+											strokeLinecap="round"
+											strokeLinejoin="round"
+										/>
+									</svg>
+								</span>
+							);
+
+							return (
 							<article
 								key={course.title}
 								className="group bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden flex flex-col hover:shadow-xl hover:border-[#1AB69D]/60 transition-all duration-200"
@@ -230,37 +210,25 @@ export default function CertificateCoursesInSingapore() {
 									)}
 
 									<div className="pt-1">
-										<a
-											href={course.ctaurl}
-											className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#1AB69D] px-4 py-2 text-xs md:text-sm font-semibold text-white shadow-sm hover:bg-[#16917f] hover:shadow-md active:scale-95 transition-all"
-										>
-											{course.cta}
-											<svg
-												className="h-4 w-4"
-												viewBox="0 0 24 24"
-												fill="none"
-												xmlns="http://www.w3.org/2000/svg"
+										{isInternal ? (
+											<Link href={course.ctaurl} className="inline-block">
+												{cta}
+											</Link>
+										) : (
+											<a
+												href={course.ctaurl}
+												target="_blank"
+												rel="noopener noreferrer"
+												className="inline-block"
 											>
-												<path
-													d="M13 7L18 12L13 17"
-													stroke="currentColor"
-													strokeWidth="2"
-													strokeLinecap="round"
-													strokeLinejoin="round"
-												/>
-												<path
-													d="M6 12H18"
-													stroke="currentColor"
-													strokeWidth="2"
-													strokeLinecap="round"
-													strokeLinejoin="round"
-												/>
-											</svg>
-										</a>
+												{cta}
+											</a>
+										)}
 									</div>
 								</div>
 							</article>
-						))}
+							);
+						})}
 					</div>
 				</div>
 			</section>

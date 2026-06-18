@@ -34,13 +34,6 @@ export const courseData: CourseCategory[] = [
         url: "/advanced-diploma-nursing-aide",
       },
       {
-        title: "International Certificate in Nursing Aid",
-        mode: "Part Time",
-        duration: "12 Weeks",
-        image: "/homepage/dipcaregiving.webp",
-        url: "/certificate-in-nursing-aid-in-singapore",
-      },
-      {
         title: "CPR + AED Training",
         mode: "Classroom",
         duration: "4 Hours",
@@ -248,4 +241,17 @@ export const courseData: CourseCategory[] = [
     // Add more courses here as needed
   ],
 },
+  {
+    title: "Certificate Courses",
+    color: "#8B5CF6",
+    courses: [
+      {
+        title: "International Certificate in Nursing Aide",
+        mode: "Part Time",
+        duration: "12 Weeks",
+        image: "/homepage/icna.webp",
+        url: "/certificate-in-nursing-aid-in-singapore",
+      },
+    ],
+  },
 ];

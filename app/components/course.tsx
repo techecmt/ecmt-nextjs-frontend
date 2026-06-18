@@ -11,6 +11,7 @@ const CUSTOM_ORDER = [
 	"Engineering Courses",
 	"Business Courses",
 	"IT Courses",
+	"Certificate Courses",
 	"E-Learning Courses",
 ];
 

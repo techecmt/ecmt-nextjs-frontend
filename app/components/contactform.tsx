@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { courseData } from "../data/courses";
+import { certificateCourseTitles } from "../data/certificate-courses";
 
 type CourseType =
   | "Diploma Courses"
@@ -51,17 +52,7 @@ const courseOptions: {
     "AI-Driven Communication Strategies to Drive Service Excellence",
   ],
   SRFAC: ["Cardiopulmonary Resuscitation (CPR) + AED Training"],
-  "Certificate Course": [
-    "Certificate in NG (NASOGASTRIC) tube feeding",
-    "Certificate in Physical and Massage Therapy",
-    "Certificate in Foundation Skills",
-    "Certificate in Autocad",
-    "Certificate in Air Conditioning",
-    "Certificate in Cafe & Restaurant Management",
-    "Professional Certificate in Mechanical and Electrical Engg",
-    "Certificate in Logistics and Supply Chain Management",
-    "Certificate In Caregiving For The Infant and Early Child",
-  ],
+  "Certificate Course": certificateCourseTitles,
 };
 
 const countryCodes = [
