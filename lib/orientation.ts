@@ -26,12 +26,16 @@ export type OrientationSession = {
   document_key: string;
   student_name: string;
   course: string;
+  course_start_date: string | null;
   nric_last4: string;
   total_pages: number | null;
   max_page_reached: number;
   reached_last_page: boolean;
   active_seconds: number;
   required_seconds: number;
+  quiz_answers: Record<string, string>;
+  quiz_score: number;
+  quiz_passed: boolean;
   started_at: string;
   last_seen_at: string;
   completed_at: string | null;
@@ -80,6 +84,7 @@ export async function createOrientationSession(input: {
   id: string;
   studentName: string;
   course: string;
+  courseStartDate: string;
   nricLast4: string;
   totalPages: number | null;
   userAgent: string | null;
@@ -94,6 +99,7 @@ export async function createOrientationSession(input: {
         document_key: ORIENTATION_DOCUMENT_KEY,
         student_name: input.studentName,
         course: input.course,
+        course_start_date: input.courseStartDate,
         nric_last4: input.nricLast4,
         total_pages: input.totalPages,
         required_seconds: ORIENTATION_REQUIRED_SECONDS,
@@ -138,6 +144,8 @@ type CompleteRow = {
   reached_last_page: boolean;
   active_seconds: number;
   required_seconds: number;
+  quiz_score: number;
+  quiz_passed: boolean;
 };
 
 export async function completeOrientationSession(input: {
@@ -146,8 +154,15 @@ export async function completeOrientationSession(input: {
   maxPage: number;
   totalPages: number | null;
   reachedLastPage: boolean;
+  quizAnswers: {
+    attendanceRequired: string;
+    installmentDue: string;
+    passingMark: string;
+  };
 }): Promise<CompleteRow | null> {
-  const rows = await supabaseRest<CompleteRow[]>("rpc/complete_orientation_session", {
+  const rows = await supabaseRest<CompleteRow[]>(
+    "rpc/complete_orientation_with_quiz",
+    {
     method: "POST",
     body: JSON.stringify({
       p_id: input.sessionId,
@@ -155,8 +170,12 @@ export async function completeOrientationSession(input: {
       p_max_page: input.maxPage,
       p_total_pages: input.totalPages,
       p_reached_last_page: input.reachedLastPage,
+      p_attendance_answer: input.quizAnswers.attendanceRequired,
+      p_installment_answer: input.quizAnswers.installmentDue,
+      p_passing_mark_answer: input.quizAnswers.passingMark,
     }),
-  });
+    },
+  );
   return rows?.[0] ?? null;
 }
 

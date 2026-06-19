@@ -31,6 +31,20 @@ function formatDateTime(value: string | null) {
   }
 }
 
+function formatDateOnly(value: string | null) {
+  if (!value) return "—";
+  try {
+    return new Date(value).toLocaleDateString("en-SG", {
+      timeZone: "Asia/Singapore",
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    });
+  } catch {
+    return value;
+  }
+}
+
 function formatDuration(totalSeconds: number) {
   const m = Math.floor(totalSeconds / 60);
   const s = totalSeconds % 60;
@@ -194,13 +208,15 @@ export default async function OrientationResponsesPage({
 
         <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[860px] text-left text-sm">
+            <table className="w-full min-w-[980px] text-left text-sm">
               <thead className="bg-gray-50 text-xs uppercase tracking-wide text-gray-500">
                 <tr>
                   <th className="px-4 py-3 font-semibold">Name</th>
                   <th className="px-4 py-3 font-semibold">Course</th>
-                  <th className="px-4 py-3 font-semibold">NRIC</th>
+                  <th className="px-4 py-3 font-semibold">Course Start Date</th>
+                  <th className="px-4 py-3 font-semibold">NRIC/FIN/Passport</th>
                   <th className="px-4 py-3 font-semibold">Status</th>
+                  <th className="px-4 py-3 font-semibold">Quiz</th>
                   <th className="px-4 py-3 font-semibold">Pages</th>
                   <th className="px-4 py-3 font-semibold">Reading time</th>
                   <th className="px-4 py-3 font-semibold">Started</th>
@@ -219,6 +235,9 @@ export default async function OrientationResponsesPage({
                       </td>
                       <td className="px-4 py-3 text-gray-600">{s.course}</td>
                       <td className="px-4 py-3 text-gray-600">
+                        {formatDateOnly(s.course_start_date)}
+                      </td>
+                      <td className="px-4 py-3 text-gray-600">
                         ••••{s.nric_last4}
                       </td>
                       <td className="px-4 py-3">
@@ -229,6 +248,17 @@ export default async function OrientationResponsesPage({
                         ) : (
                           <span className="inline-flex items-center gap-1.5 rounded-full bg-[#EE4A62]/10 px-2.5 py-1 text-xs font-semibold text-[#EE4A62]">
                             {s.reached_last_page ? "Reached end" : "In progress"}
+                          </span>
+                        )}
+                      </td>
+                      <td className="px-4 py-3">
+                        {s.quiz_passed ? (
+                          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#1AB69D]/10 px-2.5 py-1 text-xs font-semibold text-[#1AB69D]">
+                            Passed ({s.quiz_score}/3)
+                          </span>
+                        ) : (
+                          <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-2.5 py-1 text-xs font-semibold text-amber-700">
+                            Pending / Failed ({s.quiz_score}/3)
                           </span>
                         )}
                       </td>

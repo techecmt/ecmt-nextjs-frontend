@@ -80,21 +80,14 @@ export default function Header() {
       <div className="container mx-auto flex items-center justify-between px-4 md:px-8 h-[84px]">
 
         {/* LOGO — click to go Home */}
-        <Link href="/" aria-label="Go to homepage" className="relative h-[84px] w-[240px] md:w-[290px] flex items-center shrink-0">
+        <Link href="/" aria-label="Go to homepage" className="flex h-[84px] items-center shrink-0">
           <Image
             src="/brand/Logo_png_high.png"
             alt="Edusphere College Logo"
-            width={290}
-            height={290}
+            width={1024}
+            height={211}
             priority
-            className="
-              absolute
-              top-1/2 -translate-y-1/2
-              left-0
-              object-contain
-              w-[200px] h-[200px]
-              md:w-[250px] md:h-[250px]
-            "
+            className="h-12 w-auto object-contain md:h-14"
           />
         </Link>
 

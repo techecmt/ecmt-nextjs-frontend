@@ -23,6 +23,11 @@ export async function POST(request: Request) {
     maxPage?: number;
     totalPages?: number;
     reachedLastPage?: boolean;
+    quizAnswers?: {
+      attendanceRequired?: string;
+      installmentDue?: string;
+      passingMark?: string;
+    };
   };
   try {
     body = await request.json();
@@ -31,10 +36,21 @@ export async function POST(request: Request) {
   }
 
   const sessionId = String(body.sessionId ?? "");
+  const attendanceRequired = String(
+    body.quizAnswers?.attendanceRequired ?? "",
+  ).trim();
+  const installmentDue = String(body.quizAnswers?.installmentDue ?? "").trim();
+  const passingMark = String(body.quizAnswers?.passingMark ?? "").trim();
+
   if (!UUID_RE.test(sessionId)) {
     return NextResponse.json({ error: "Invalid session." }, { status: 400 });
   }
-
+  if (!attendanceRequired || !installmentDue || !passingMark) {
+    return NextResponse.json(
+      { error: "Please answer all quiz questions before submitting." },
+      { status: 400 },
+    );
+  }
   try {
     const result = await completeOrientationSession({
       sessionId,
@@ -43,6 +59,11 @@ export async function POST(request: Request) {
       totalPages:
         body.totalPages == null ? null : toInt(body.totalPages, 1) || null,
       reachedLastPage: Boolean(body.reachedLastPage),
+      quizAnswers: {
+        attendanceRequired,
+        installmentDue,
+        passingMark,
+      },
     });
 
     if (!result) {
@@ -50,12 +71,14 @@ export async function POST(request: Request) {
     }
 
     if (!result.is_completed) {
+      const quizFailed = !result.quiz_passed;
       return NextResponse.json(
         {
           ok: false,
           ...result,
-          error:
-            "Reading requirements not met yet. Please reach the last page and spend the minimum time.",
+          error: quizFailed
+            ? "Some quiz answers are incorrect. Please choose the correct answers to continue."
+            : "Reading requirements not met yet. Please reach the last page and spend the minimum time.",
         },
         { status: 409 },
       );

@@ -14,6 +14,7 @@ type ActiveSession = {
   requiredSeconds: number;
   studentName: string;
   course: string;
+  courseStartDate: string;
   createdAt: number;
 };
 
@@ -32,6 +33,7 @@ export default function OrientationGate({
 
   const [name, setName] = useState("");
   const [course, setCourse] = useState("");
+  const [courseStartDate, setCourseStartDate] = useState("");
   const [nric, setNric] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
@@ -78,8 +80,14 @@ export default function OrientationGate({
       setError("Please select your course.");
       return;
     }
-    if (!/^\d{4}$/.test(nric)) {
-      setError("Please enter the last 4 digits of your NRIC.");
+    if (!courseStartDate) {
+      setError("Please select your course start date.");
+      return;
+    }
+    if (!/^[A-Z0-9]{4}$/.test(nric)) {
+      setError(
+        "Please enter the last 4 characters of your NRIC / FIN / Passport No.",
+      );
       return;
     }
 
@@ -91,6 +99,7 @@ export default function OrientationGate({
         body: JSON.stringify({
           studentName: trimmedName,
           course,
+          courseStartDate,
           nricLast4: nric,
         }),
       });
@@ -104,6 +113,7 @@ export default function OrientationGate({
         requiredSeconds: data.requiredSeconds,
         studentName: trimmedName,
         course,
+        courseStartDate,
         createdAt: Date.now(),
       };
       try {
@@ -128,6 +138,7 @@ export default function OrientationGate({
     setSession(null);
     setName("");
     setCourse("");
+    setCourseStartDate("");
     setNric("");
   };
 
@@ -144,11 +155,21 @@ export default function OrientationGate({
       <div>
         <div className="mb-4 flex flex-wrap items-center justify-between gap-2 rounded-xl border border-gray-100 bg-white px-4 py-3 text-sm shadow-sm">
           <span className="text-gray-700">
-            Reading as{" "}
+            Welcome, {" "}
             <span className="font-semibold text-gray-900">
               {session.studentName}
             </span>{" "}
-            <span className="text-gray-400">·</span> {session.course}
+            <span className="text-gray-400">-</span> Student of {session.course}{" "}
+            <span className="text-gray-400">-</span> Start Date:{" "}
+            <span className="font-medium text-gray-800">
+              {session.courseStartDate
+                ? new Date(session.courseStartDate).toLocaleDateString("en-SG", {
+                    day: "2-digit",
+                    month: "short",
+                    year: "numeric",
+                  })
+                : "N/A"}
+            </span>
           </span>
           <button
             type="button"
@@ -224,22 +245,39 @@ export default function OrientationGate({
 
           <div>
             <label className="mb-1.5 block text-sm font-semibold text-gray-800">
-              Last 4 digits of NRIC <span className="text-[#EE4A62]">*</span>
+              Course Start Date <span className="text-[#EE4A62]">*</span>
+            </label>
+            <input
+              type="date"
+              value={courseStartDate}
+              onChange={(e) => setCourseStartDate(e.target.value)}
+              required
+              className="w-full rounded-lg border-2 border-gray-200 px-4 py-2.5 text-gray-800 outline-none transition-colors focus:border-[#1AB69D] focus:ring-2 focus:ring-[#1AB69D]/20"
+            />
+          </div>
+
+          <div>
+            <label className="mb-1.5 block text-sm font-semibold text-gray-800">
+              Last 4 characters of NRIC/ FIN/Passport No.{" "}
+              <span className="text-[#EE4A62]">*</span>
             </label>
             <input
               type="text"
-              inputMode="numeric"
+              inputMode="text"
               value={nric}
               onChange={(e) =>
-                setNric(e.target.value.replace(/\D/g, "").slice(0, 4))
+                setNric(
+                  e.target.value.replace(/[^a-zA-Z0-9]/g, "").toUpperCase().slice(0, 4),
+                )
               }
               required
               maxLength={4}
               className="w-full rounded-lg border-2 border-gray-200 px-4 py-2.5 tracking-[0.4em] text-gray-800 outline-none transition-colors focus:border-[#1AB69D] focus:ring-2 focus:ring-[#1AB69D]/20"
-              placeholder="1234"
+              placeholder="567A"
             />
             <p className="mt-1 text-xs text-gray-400">
-              Used only to identify your submission.
+              e.g. for XXXXX567A, enter 567A. Used only to identify your
+              submission.
             </p>
           </div>
 

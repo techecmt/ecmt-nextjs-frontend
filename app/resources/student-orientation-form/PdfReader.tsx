@@ -12,6 +12,26 @@ type PdfReaderProps = {
 
 type LoadState = "loading" | "ready" | "error";
 
+type QuizAnswers = {
+  attendanceRequired: string;
+  installmentDue: string;
+  passingMark: string;
+};
+
+const QUIZ_DEFAULTS: QuizAnswers = {
+  attendanceRequired: "",
+  installmentDue: "",
+  passingMark: "",
+};
+
+const QUIZ_CORRECT: QuizAnswers = {
+  attendanceRequired: "75",
+  installmentDue: "Before the 10th of every Month",
+  passingMark: "50",
+};
+
+type QuizKey = keyof QuizAnswers;
+
 const HEARTBEAT_MS = 10000;
 
 function formatDuration(totalSeconds: number) {
@@ -40,9 +60,11 @@ export default function PdfReader({
   const [completing, setCompleting] = useState(false);
   const [completed, setCompleted] = useState(false);
   const [confirmError, setConfirmError] = useState("");
+  const [showQuizModal, setShowQuizModal] = useState(false);
+  const [quizAnswers, setQuizAnswers] = useState<QuizAnswers>(QUIZ_DEFAULTS);
+  const [quizError, setQuizError] = useState("");
+  const [attemptedSubmit, setAttemptedSubmit] = useState(false);
 
-  // Mutable refs mirror the latest values for use inside intervals / observers
-  // and for the unload beacon (avoids stale closures).
   const activeSecondsRef = useRef(0);
   const maxPageRef = useRef(1);
   const reachedLastPageRef = useRef(false);
@@ -51,6 +73,46 @@ export default function PdfReader({
 
   const meetsTime = activeSeconds >= requiredSeconds;
   const canConfirm = reachedLastPage && meetsTime && !completed;
+
+  const isCorrectAnswer = useCallback(
+    (key: QuizKey, value: string) => value === QUIZ_CORRECT[key],
+    [],
+  );
+
+  const isAnswerCorrect = useCallback(
+    (key: QuizKey) => isCorrectAnswer(key, quizAnswers[key]),
+    [isCorrectAnswer, quizAnswers],
+  );
+
+  const optionClassName = useCallback(
+    (key: QuizKey, value: string) => {
+      const selected = quizAnswers[key] === value;
+      const correct = value === QUIZ_CORRECT[key];
+
+      if (!attemptedSubmit) {
+        return `flex items-center gap-2 rounded-lg border px-3 py-2 text-sm transition-all duration-300 ${
+          selected
+            ? "border-[#1AB69D] bg-[#1AB69D]/10 text-gray-800 shadow-sm"
+            : "border-gray-200 text-gray-700 hover:border-[#1AB69D]/40"
+        }`;
+      }
+
+      if (selected && !correct) {
+        return "flex items-center gap-2 rounded-lg border border-[#EE4A62] bg-[#EE4A62]/10 px-3 py-2 text-sm text-gray-800 shadow-sm animate-pulse";
+      }
+
+      if (correct) {
+        return `flex items-center gap-2 rounded-lg border px-3 py-2 text-sm transition-all duration-300 ${
+          selected
+            ? "border-[#1AB69D] bg-[#1AB69D]/15 text-gray-800 shadow-sm ring-2 ring-[#1AB69D]/35"
+            : "border-[#1AB69D]/50 bg-[#1AB69D]/5 text-gray-700"
+        }`;
+      }
+
+      return "flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-600";
+    },
+    [attemptedSubmit, quizAnswers],
+  );
 
   const buildProgressPayload = useCallback(
     () => ({
@@ -85,13 +147,12 @@ export default function PdfReader({
           keepalive: true,
         });
       } catch {
-        // best-effort; the next heartbeat will retry
+        // best-effort; heartbeat will retry
       }
     },
     [buildProgressPayload],
   );
 
-  // Load + render the PDF (lazily, page by page).
   useEffect(() => {
     let cancelled = false;
     let observer: IntersectionObserver | null = null;
@@ -122,8 +183,10 @@ export default function PdfReader({
         const available = Math.min(container.clientWidth - 4, 900);
         const targetWidth = Math.max(280, available);
         const scale = targetWidth / baseViewport.width;
-        const dpr = Math.min(typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1, 2);
-        const aspect = baseViewport.height / baseViewport.width;
+        const dpr = Math.min(
+          typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1,
+          2,
+        );
 
         const renderPage = async (pageNumber: number) => {
           if (rendered.has(pageNumber) || rendering.has(pageNumber)) return;
@@ -153,12 +216,20 @@ export default function PdfReader({
             if (spinner) spinner.remove();
             holder.appendChild(canvas);
             rendered.add(pageNumber);
+          } catch (err) {
+            // Renders are aborted when the document is destroyed on unmount
+            // (e.g. React Strict Mode's double-mount in dev), which rejects
+            // with RenderingCancelledException. That's expected — ignore it
+            // and only surface genuine render failures.
+            const name = (err as { name?: string } | null)?.name;
+            if (!cancelled && name !== "RenderingCancelledException") {
+              console.error(`PDF render error (page ${pageNumber}):`, err);
+            }
           } finally {
             rendering.delete(pageNumber);
           }
         };
 
-        // Create placeholders with the correct aspect ratio.
         container.innerHTML = "";
         for (let i = 1; i <= total; i++) {
           const holder = document.createElement("div");
@@ -186,15 +257,11 @@ export default function PdfReader({
           container.appendChild(holder);
         }
 
-        // Bottom sentinel — only intersects once the student scrolls past the
-        // very end of the document.
         const sentinel = document.createElement("div");
         sentinel.dataset.sentinel = "true";
         sentinel.style.height = "8px";
         sentinel.style.width = "100%";
         container.appendChild(sentinel);
-
-        void aspect; // aspect captured for clarity; layout uses aspectRatio above
 
         observer = new IntersectionObserver(
           (entries) => {
@@ -212,7 +279,6 @@ export default function PdfReader({
               if (!pageNumber) continue;
               if (entry.isIntersecting) {
                 void renderPage(pageNumber);
-                // Pre-render the next page for smoother scrolling.
                 if (pageNumber + 1 <= total) void renderPage(pageNumber + 1);
                 if (pageNumber > maxPageRef.current) {
                   maxPageRef.current = pageNumber;
@@ -252,10 +318,8 @@ export default function PdfReader({
         // ignore
       }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pdfUrl]);
+  }, [flushProgress, pdfUrl]);
 
-  // Active-time counter — only advances while the tab is visible and focused.
   useEffect(() => {
     if (loadState !== "ready" || completed) return;
 
@@ -273,7 +337,6 @@ export default function PdfReader({
     return () => window.clearInterval(interval);
   }, [loadState, completed]);
 
-  // Periodic heartbeat + flush on tab hide / unload.
   useEffect(() => {
     if (loadState !== "ready") return;
 
@@ -296,24 +359,41 @@ export default function PdfReader({
     };
   }, [loadState, flushProgress]);
 
-  const handleConfirm = async () => {
+  const handleFinalSubmit = async () => {
     if (!canConfirm || completing) return;
-    setCompleting(true);
+    setAttemptedSubmit(true);
+    const wrongKeys: QuizKey[] = (Object.keys(QUIZ_CORRECT) as QuizKey[]).filter(
+      (key) => !isAnswerCorrect(key),
+    );
+
+    if (wrongKeys.length > 0) {
+      setQuizError(
+        "Please choose the correct answers in highlighted questions. Hints are shown below each question.",
+      );
+      return;
+    }
+
+    setQuizError("");
     setConfirmError("");
+    setCompleting(true);
     try {
       const res = await fetch("/api/orientation/complete/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(buildProgressPayload()),
+        body: JSON.stringify({
+          ...buildProgressPayload(),
+          quizAnswers,
+        }),
       });
       const data = await res.json();
       if (res.ok && data.is_completed) {
         completedRef.current = true;
         setCompleted(true);
+        setShowQuizModal(false);
         onCompleted?.();
       } else {
         setConfirmError(
-          data.error || "Could not confirm. Please make sure you've read the full document.",
+          data.error || "Could not confirm. Please review the quiz and try again.",
         );
       }
     } catch {
@@ -328,66 +408,30 @@ export default function PdfReader({
 
   return (
     <div className="w-full">
-      {/* Sticky progress / status bar */}
-      <div className="sticky top-0 z-20 -mx-4 mb-4 border-b border-gray-200 bg-white/95 px-4 py-3 backdrop-blur md:mx-0 md:rounded-xl md:border md:px-5">
-        <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
-            <span className="font-semibold text-gray-900">
-              {numPages > 0 ? `Page ${maxPage} of ${numPages}` : "Loading…"}
-            </span>
-            <span className="flex items-center gap-1.5 text-gray-600">
-              <span
-                className={`inline-block h-2.5 w-2.5 rounded-full ${
-                  reachedLastPage ? "bg-[#1AB69D]" : "bg-gray-300"
-                }`}
-              />
-              {reachedLastPage ? "Reached the last page" : "Scroll to the last page"}
-            </span>
-            <span className="flex items-center gap-1.5 text-gray-600">
-              <span
-                className={`inline-block h-2.5 w-2.5 rounded-full ${
-                  meetsTime ? "bg-[#1AB69D]" : "bg-gray-300"
-                }`}
-              />
-              {meetsTime
-                ? "Minimum reading time met"
-                : `Time left: ${formatDuration(remainingTime)}`}
-            </span>
-          </div>
-
-          <button
-            type="button"
-            onClick={handleConfirm}
-            disabled={!canConfirm || completing}
-            className={`inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold transition-all ${
-              completed
-                ? "bg-[#1AB69D] text-white"
-                : canConfirm
-                  ? "bg-[#1AB69D] text-white hover:bg-[#16917f] active:scale-95"
-                  : "cursor-not-allowed bg-gray-200 text-gray-500"
-            }`}
-            aria-disabled={!canConfirm || completing}
-          >
-            {completed ? (
-              <>
-                <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    fillRule="evenodd"
-                    d="M16.704 5.29a1 1 0 010 1.42l-7.5 7.5a1 1 0 01-1.42 0l-3.5-3.5a1 1 0 111.42-1.42l2.79 2.79 6.79-6.79a1 1 0 011.42 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                Confirmed
-              </>
-            ) : completing ? (
-              "Saving…"
-            ) : (
-              "I've read this document"
-            )}
-          </button>
+      <div className="sticky top-0 z-20 mb-4 border border-gray-200 bg-white/95 px-3 py-3 shadow-sm backdrop-blur sm:px-4 md:rounded-xl md:px-5">
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm">
+          <span className="font-semibold text-gray-900">
+            {numPages > 0 ? `Page ${maxPage} of ${numPages}` : "Loading…"}
+          </span>
+          <span className="flex items-center gap-1.5 text-gray-600">
+            <span
+              className={`inline-block h-2.5 w-2.5 rounded-full ${
+                reachedLastPage ? "bg-[#1AB69D]" : "bg-gray-300"
+              }`}
+            />
+            {reachedLastPage ? "Reached last page" : "Scroll to the last page"}
+          </span>
+          <span className="flex items-center gap-1.5 text-gray-600">
+            <span
+              className={`inline-block h-2.5 w-2.5 rounded-full ${
+                meetsTime ? "bg-[#1AB69D]" : "bg-gray-300"
+              }`}
+            />
+            {meetsTime
+              ? "Minimum reading time met"
+              : `Time left: ${formatDuration(remainingTime)}`}
+          </span>
         </div>
-
-        {/* Time progress bar */}
         {!completed && (
           <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-gray-100">
             <div
@@ -396,24 +440,7 @@ export default function PdfReader({
             />
           </div>
         )}
-
-        {confirmError && (
-          <p className="mt-2 text-sm text-[#EE4A62]">{confirmError}</p>
-        )}
-        {completed && (
-          <p className="mt-2 text-sm text-[#1AB69D]">
-            Thank you, {studentName.split(" ")[0] || "there"} — your confirmation has been
-            recorded.
-          </p>
-        )}
       </div>
-
-      {!completed && !canConfirm && loadState === "ready" && (
-        <p className="mb-3 text-center text-xs text-gray-500">
-          The confirmation button unlocks once you reach the last page and spend at least{" "}
-          {formatDuration(requiredSeconds)} reading.
-        </p>
-      )}
 
       {loadState === "error" && (
         <div className="rounded-xl border border-[#EE4A62]/30 bg-[#EE4A62]/5 p-6 text-center text-[#EE4A62]">
@@ -427,12 +454,216 @@ export default function PdfReader({
         </div>
       )}
 
-      {/* PDF pages get injected here */}
       <div
         ref={containerRef}
         className="mx-auto w-full max-w-[900px]"
         aria-label="Orientation document"
       />
+
+      <div className="mx-auto mt-5 w-full max-w-[900px] rounded-xl border border-gray-100 bg-white p-4 shadow-sm sm:p-5">
+        {!completed && (
+          <p className="text-xs text-gray-500 sm:text-sm">
+            Please complete both checks before submitting:
+            <span className="font-medium text-gray-700"> reach the last page</span> and
+            <span className="font-medium text-gray-700">
+              {" "}
+              spend at least {formatDuration(requiredSeconds)}
+            </span>
+            .
+          </p>
+        )}
+
+        <button
+          type="button"
+          onClick={() => {
+            if (!canConfirm || completing) return;
+            setShowQuizModal(true);
+            setAttemptedSubmit(false);
+            setQuizError("");
+            setConfirmError("");
+          }}
+          disabled={!canConfirm || completing || completed}
+          className={`mt-3 w-full rounded-lg px-5 py-3 text-sm font-semibold transition-all sm:text-base ${
+            completed
+              ? "bg-[#1AB69D] text-white"
+              : canConfirm
+                ? "bg-[#1AB69D] text-white hover:bg-[#16917f] active:scale-[0.99]"
+                : "cursor-not-allowed bg-gray-200 text-gray-500"
+          }`}
+        >
+          {completed ? "Confirmed" : "I've read this document"}
+        </button>
+
+        {confirmError && <p className="mt-2 text-sm text-[#EE4A62]">{confirmError}</p>}
+        {completed && (
+          <p className="mt-2 text-sm text-[#1AB69D]">
+            Thank you, {studentName.split(" ")[0] || "there"} — your confirmation has
+            been recorded.
+          </p>
+        )}
+      </div>
+
+      {showQuizModal && (
+        <div className="fixed inset-0 z-40 flex items-end justify-center bg-black/45 p-0 sm:items-center sm:p-4">
+          <div className="max-h-[92vh] w-full overflow-y-auto rounded-t-2xl bg-white p-4 shadow-xl sm:max-w-2xl sm:rounded-2xl sm:p-6">
+            <div className="mb-4">
+              <h3 className="text-lg font-bold text-gray-900 sm:text-xl">
+                Final Confirmation Quiz
+              </h3>
+              <p className="mt-1 text-xs text-gray-500 sm:text-sm">
+                Please answer all three questions correctly before you can submit.
+              </p>
+            </div>
+
+            <div className="mb-4 rounded-lg border border-amber-200 bg-amber-50 p-3 text-xs text-amber-800 sm:text-sm">
+              <span
+                className="mr-1 inline-flex h-4 w-4 items-center justify-center rounded-full bg-amber-200 text-[10px] font-bold text-amber-900"
+                title="Tip: Wrong answers are highlighted in red. Correct options glow in green."
+              >
+                i
+              </span>
+              Select the correct option for each question. If you choose a wrong
+              answer, we will show you the correct one.
+            </div>
+
+            <div className="space-y-5">
+              <div>
+                <p className="text-sm font-semibold text-gray-800">
+                  1. What is the minimum attendance required?
+                </p>
+                <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-3">
+                  {["30", "50", "75"].map((value) => (
+                    <label
+                      key={value}
+                      className={optionClassName("attendanceRequired", value)}
+                    >
+                      <input
+                        type="radio"
+                        name="attendanceRequired"
+                        checked={quizAnswers.attendanceRequired === value}
+                        onChange={() => {
+                          setQuizError("");
+                          setConfirmError("");
+                          setQuizAnswers((prev) => ({
+                            ...prev,
+                            attendanceRequired: value,
+                          }));
+                        }}
+                      />
+                      {value}
+                    </label>
+                  ))}
+                </div>
+                {attemptedSubmit && !isAnswerCorrect("attendanceRequired") && (
+                  <p className="mt-2 text-xs font-medium text-[#EE4A62] sm:text-sm">
+                    Correct answer: <span className="font-bold">75</span>
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <p className="text-sm font-semibold text-gray-800">
+                  2. When should a student pay the course fee installment?
+                </p>
+                <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2">
+                  {[
+                    "Before the 10th of every Month",
+                    "After the Exam",
+                  ].map((value) => (
+                    <label
+                      key={value}
+                      className={optionClassName("installmentDue", value)}
+                    >
+                      <input
+                        type="radio"
+                        name="installmentDue"
+                        checked={quizAnswers.installmentDue === value}
+                        onChange={() => {
+                          setQuizError("");
+                          setConfirmError("");
+                          setQuizAnswers((prev) => ({
+                            ...prev,
+                            installmentDue: value,
+                          }));
+                        }}
+                      />
+                      {value}
+                    </label>
+                  ))}
+                </div>
+                {attemptedSubmit && !isAnswerCorrect("installmentDue") && (
+                  <p className="mt-2 text-xs font-medium text-[#EE4A62] sm:text-sm">
+                    Correct answer:{" "}
+                    <span className="font-bold">
+                      Before the 10th of every Month
+                    </span>
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <p className="text-sm font-semibold text-gray-800">
+                  3. Minimum passing mark in examination
+                </p>
+                <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-3">
+                  {["50", "75", "100"].map((value) => (
+                    <label
+                      key={value}
+                      className={optionClassName("passingMark", value)}
+                    >
+                      <input
+                        type="radio"
+                        name="passingMark"
+                        checked={quizAnswers.passingMark === value}
+                        onChange={() => {
+                          setQuizError("");
+                          setConfirmError("");
+                          setQuizAnswers((prev) => ({
+                            ...prev,
+                            passingMark: value,
+                          }));
+                        }}
+                      />
+                      {value}
+                    </label>
+                  ))}
+                </div>
+                {attemptedSubmit && !isAnswerCorrect("passingMark") && (
+                  <p className="mt-2 text-xs font-medium text-[#EE4A62] sm:text-sm">
+                    Correct answer: <span className="font-bold">50</span>
+                  </p>
+                )}
+              </div>
+            </div>
+
+            {quizError && <p className="mt-4 text-sm text-[#EE4A62]">{quizError}</p>}
+            {confirmError && (
+              <p className="mt-2 text-sm text-[#EE4A62]">{confirmError}</p>
+            )}
+
+            <div className="mt-5 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
+              <button
+                type="button"
+                onClick={() => {
+                  if (completing) return;
+                  setShowQuizModal(false);
+                }}
+                className="rounded-lg border border-gray-300 px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={handleFinalSubmit}
+                disabled={completing}
+                className="rounded-lg bg-[#1AB69D] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#16917f] disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                {completing ? "Submitting..." : "Submit & Confirm"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

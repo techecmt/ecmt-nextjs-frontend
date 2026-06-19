@@ -18,6 +18,7 @@ export async function POST(request: Request) {
   let body: {
     studentName?: string;
     course?: string;
+    courseStartDate?: string;
     nricLast4?: string;
     totalPages?: number;
   };
@@ -29,7 +30,10 @@ export async function POST(request: Request) {
 
   const studentName = String(body.studentName ?? "").trim();
   const course = String(body.course ?? "").trim();
-  const nricLast4 = String(body.nricLast4 ?? "").trim();
+  const courseStartDate = String(body.courseStartDate ?? "").trim();
+  const nricLast4 = String(body.nricLast4 ?? "")
+    .trim()
+    .toUpperCase();
   const totalPages =
     typeof body.totalPages === "number" && Number.isFinite(body.totalPages)
       ? Math.max(1, Math.round(body.totalPages))
@@ -47,9 +51,18 @@ export async function POST(request: Request) {
       { status: 400 },
     );
   }
-  if (!/^\d{4}$/.test(nricLast4)) {
+  if (!courseStartDate || Number.isNaN(Date.parse(courseStartDate))) {
     return NextResponse.json(
-      { error: "Please enter the last 4 digits of your NRIC." },
+      { error: "Please select a valid course start date." },
+      { status: 400 },
+    );
+  }
+  if (!/^[A-Z0-9]{4}$/.test(nricLast4)) {
+    return NextResponse.json(
+      {
+        error:
+          "Please enter the last 4 characters of your NRIC / FIN / Passport No.",
+      },
       { status: 400 },
     );
   }
@@ -65,6 +78,7 @@ export async function POST(request: Request) {
       id: sessionId,
       studentName,
       course,
+      courseStartDate,
       nricLast4,
       totalPages,
       userAgent,
