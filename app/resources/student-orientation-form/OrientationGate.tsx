@@ -183,7 +183,6 @@ export default function OrientationGate({
         <PdfReader
           pdfUrl={pdfUrl}
           sessionId={session.sessionId}
-          requiredSeconds={session.requiredSeconds}
           studentName={session.studentName}
         />
       </div>

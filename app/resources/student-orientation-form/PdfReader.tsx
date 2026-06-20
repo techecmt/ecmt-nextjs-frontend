@@ -5,7 +5,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 type PdfReaderProps = {
   pdfUrl: string;
   sessionId: string;
-  requiredSeconds: number;
   studentName: string;
   onCompleted?: () => void;
 };
@@ -34,17 +33,9 @@ type QuizKey = keyof QuizAnswers;
 
 const HEARTBEAT_MS = 10000;
 
-function formatDuration(totalSeconds: number) {
-  const m = Math.floor(totalSeconds / 60);
-  const s = totalSeconds % 60;
-  if (m <= 0) return `${s}s`;
-  return `${m}m ${String(s).padStart(2, "0")}s`;
-}
-
 export default function PdfReader({
   pdfUrl,
   sessionId,
-  requiredSeconds,
   studentName,
   onCompleted,
 }: PdfReaderProps) {
@@ -71,8 +62,7 @@ export default function PdfReader({
   const numPagesRef = useRef(0);
   const completedRef = useRef(false);
 
-  const meetsTime = activeSeconds >= requiredSeconds;
-  const canConfirm = reachedLastPage && meetsTime && !completed;
+  const canConfirm = reachedLastPage && !completed;
 
   const isCorrectAnswer = useCallback(
     (key: QuizKey, value: string) => value === QUIZ_CORRECT[key],
@@ -403,8 +393,8 @@ export default function PdfReader({
     }
   };
 
-  const timePct = Math.min(100, Math.round((activeSeconds / requiredSeconds) * 100));
-  const remainingTime = Math.max(0, requiredSeconds - activeSeconds);
+  const pagePct =
+    numPages > 0 ? Math.min(100, Math.round((maxPage / numPages) * 100)) : 0;
 
   return (
     <div className="w-full">
@@ -421,22 +411,15 @@ export default function PdfReader({
             />
             {reachedLastPage ? "Reached last page" : "Scroll to the last page"}
           </span>
-          <span className="flex items-center gap-1.5 text-gray-600">
-            <span
-              className={`inline-block h-2.5 w-2.5 rounded-full ${
-                meetsTime ? "bg-[#1AB69D]" : "bg-gray-300"
-              }`}
-            />
-            {meetsTime
-              ? "Minimum reading time met"
-              : `Time left: ${formatDuration(remainingTime)}`}
+          <span className="text-gray-600">
+            {numPages > 0 ? `Progress: ${pagePct}%` : "Preparing document..."}
           </span>
         </div>
         {!completed && (
           <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-gray-100">
             <div
               className="h-full rounded-full bg-[#1AB69D] transition-all duration-500"
-              style={{ width: `${timePct}%` }}
+              style={{ width: `${pagePct}%` }}
             />
           </div>
         )}
@@ -463,13 +446,7 @@ export default function PdfReader({
       <div className="mx-auto mt-5 w-full max-w-[900px] rounded-xl border border-gray-100 bg-white p-4 shadow-sm sm:p-5">
         {!completed && (
           <p className="text-xs text-gray-500 sm:text-sm">
-            Please complete both checks before submitting:
-            <span className="font-medium text-gray-700"> reach the last page</span> and
-            <span className="font-medium text-gray-700">
-              {" "}
-              spend at least {formatDuration(requiredSeconds)}
-            </span>
-            .
+            Please reach the last page before submitting.
           </p>
         )}
 

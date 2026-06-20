@@ -78,7 +78,7 @@ export async function POST(request: Request) {
           ...result,
           error: quizFailed
             ? "Some quiz answers are incorrect. Please choose the correct answers to continue."
-            : "Reading requirements not met yet. Please reach the last page and spend the minimum time.",
+            : "Reading requirements not met yet. Please reach the last page.",
         },
         { status: 409 },
       );
