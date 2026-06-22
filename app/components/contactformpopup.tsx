@@ -83,6 +83,18 @@ const countryCodes = [
   { code: "other", country: "Other" },
 ];
 
+function formatMonthInputValue(date: Date) {
+  const yyyy = date.getFullYear();
+  const mm = String(date.getMonth() + 1).padStart(2, "0");
+  return `${yyyy}-${mm}`;
+}
+
+function addMonthsClampedToFirstDay(date: Date, monthsToAdd: number) {
+  const d = new Date(date.getFullYear(), date.getMonth(), 1);
+  d.setMonth(d.getMonth() + monthsToAdd);
+  return d;
+}
+
 interface ContactFormPopupProps {
   isOpen: boolean;
   onClose: () => void;
@@ -210,6 +222,9 @@ export default function ContactFormPopup({ isOpen, onClose }: ContactFormPopupPr
       });
     }
   };
+
+  const minStartMonth = formatMonthInputValue(new Date());
+  const maxStartMonth = formatMonthInputValue(addMonthsClampedToFirstDay(new Date(), 2));
 
   return (
     <div
@@ -448,8 +463,8 @@ export default function ContactFormPopup({ isOpen, onClose }: ContactFormPopupPr
                   type="month"
                   name="startDate"
                   required
-                  min="2026-02"
-                  max="2026-05"
+                  min={minStartMonth}
+                  max={maxStartMonth}
                   value={formData.startDate}
                   onChange={handleChange}
                   onClick={(e) => {
