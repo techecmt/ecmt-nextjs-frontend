@@ -124,7 +124,7 @@ export default function ContactForm() {
     try {
       const finalCountryCode = isCustomCode ? customCountryCode : formData.countryCode;
       
-      const response = await fetch("/api/zoho", {
+      const response = await fetch("/api/leads", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
