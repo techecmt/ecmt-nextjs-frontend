@@ -10,6 +10,15 @@ export const metadata: Metadata = {
 
 const blogPosts = [
 	{
+		title: "50 Engineering Manager Interview Questions & Answers in Singapore (2026)",
+		description:
+			"Prepare for your Engineering Manager interview in Singapore with 50 essential questions and answers covering team leadership, project delivery, technical decision-making, stakeholder management, and people development.",
+		slug: "engineering-manager-interview-questions",
+		image: "/homepage/adec-hero.jpg",
+		date: "30 Jun, 2026",
+		category: "Interview Preparation",
+	},
+	{
 		title: "60 Accountant Interview Questions & Answers in Singapore (2026)",
 		description:
 			"Prepare for your accounting interview in Singapore with 60 essential questions and answers covering financial reporting, taxation, auditing, GST, SFRS, and more.",
