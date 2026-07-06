@@ -131,7 +131,7 @@ export default function Footer() {
 
             <div className="mt-3 space-y-1 text-xs text-gray-500">
               <p><span className="font-medium text-gray-700">PEI Reg No:201940174R</span> </p>
-              <p><span className="font-medium text-gray-700">Valid:</span> 28 Aug 2022 – 27 Aug 2026</p>
+              <p><span className="font-medium text-gray-700">Valid:</span> 28 August 2026 to 27 August 2032</p>
             </div>
 
             {/* Social Links */}

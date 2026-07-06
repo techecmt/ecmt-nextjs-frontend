@@ -292,7 +292,7 @@ export default function FAQPage() {
 									<a href="mailto:training@edusphere.edu.sg" className="text-[#1AB69D] font-semibold hover:underline"> training@edusphere.edu.sg</a>
 								</p>
 								<p>
-									PEI Reg No: 201940174R · Validity: 28 Aug 2022 – 27 Aug 2026
+									PEI Reg No: 201940174R · Validity: 28 August 2026 to 27 August 2032
 								</p>
 							</div>
 						</div>
