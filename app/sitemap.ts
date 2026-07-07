@@ -65,11 +65,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       return acc;
     }
 
+    const priority =
+      route === "/"
+        ? 1
+        : route === "/wsq-courses/"
+          ? 0.95
+          : 0.8;
+
     acc.set(`${SITE_URL}${route}`, {
       url: `${SITE_URL}${route}`,
       lastModified: statSync(filePath).mtime,
       changeFrequency: route === "/" ? "weekly" : "monthly",
-      priority: route === "/" ? 1 : 0.8,
+      priority,
     });
 
     return acc;
