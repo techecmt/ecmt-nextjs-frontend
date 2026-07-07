@@ -94,18 +94,29 @@ export default function CoursesPage() {
     wsqCourses.length +
     certificateCourses.length;
 
+  // Merge all course groups, then de-duplicate by URL so the ItemList
+  // carousel never contains two items pointing to the same page (Google
+  // requires each carousel item URL to be unique).
+  const schemaCourses = Array.from(
+    new Map(
+      [
+        ...diplomaCourses,
+        ...advancedDiplomaCourses,
+        ...eLearningCourses,
+        ...certificateCourses,
+      ]
+        .filter((c) => c.url)
+        .map((c) => [c.url, c])
+    ).values()
+  );
+
   const coursesSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "Private Diploma Courses in Singapore at Edusphere College",
     "description": "Complete list of private diploma, advanced diploma, WSQ, certificate, and e-learning courses offered by Edusphere College Singapore.",
-    "numberOfItems": totalCourses,
-    "itemListElement": [
-      ...diplomaCourses,
-      ...advancedDiplomaCourses,
-      ...eLearningCourses,
-      ...certificateCourses,
-    ].map((c, i) => {
+    "numberOfItems": schemaCourses.length,
+    "itemListElement": schemaCourses.map((c, i) => {
       const courseUrl = c.url
         ? `https://edusphere.edu.sg${c.url}`
         : "https://edusphere.edu.sg/courses";
