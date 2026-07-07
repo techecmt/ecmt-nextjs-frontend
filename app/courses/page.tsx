@@ -105,19 +105,51 @@ export default function CoursesPage() {
       ...advancedDiplomaCourses,
       ...eLearningCourses,
       ...certificateCourses,
-    ].map((c, i) => ({
-      "@type": "ListItem",
-      "position": i + 1,
-      "item": {
-        "@type": "Course",
-        "name": c.title,
-        "url": c.url ? `https://edusphere.edu.sg${c.url}` : "https://edusphere.edu.sg/courses",
-        "provider": {
-          "@type": "EducationalOrganization",
-          "name": "Edusphere College of Management and Technology",
+    ].map((c, i) => {
+      const courseUrl = c.url
+        ? `https://edusphere.edu.sg${c.url}`
+        : "https://edusphere.edu.sg/courses";
+      return {
+        "@type": "ListItem",
+        "position": i + 1,
+        "item": {
+          "@type": "Course",
+          "name": c.title,
+          "description": `${c.title} — a ${c.mode ?? "part-time"} programme (${c.duration}) offered by Edusphere College of Management and Technology in Singapore.`,
+          "url": courseUrl,
+          "provider": {
+            "@type": "EducationalOrganization",
+            "name": "Edusphere College of Management and Technology",
+            "url": "https://edusphere.edu.sg",
+          },
+          "offers": {
+            "@type": "Offer",
+            "category": "Paid",
+            "priceCurrency": "SGD",
+            "url": courseUrl,
+            "availability": "https://schema.org/InStock",
+          },
+          "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": c.mode?.toLowerCase().includes("class")
+              ? "Onsite"
+              : "Blended",
+            "courseWorkload": c.duration,
+            "location": {
+              "@type": "Place",
+              "name": "Edusphere College of Management and Technology",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "7500A Beach Road, #05-312 THE PLAZA",
+                "addressLocality": "Singapore",
+                "postalCode": "199591",
+                "addressCountry": "SG",
+              },
+            },
+          },
         },
-      },
-    })),
+      };
+    }),
   };
 
   const breadcrumbSchema = {
