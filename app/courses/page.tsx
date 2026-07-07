@@ -3,21 +3,28 @@ import Image from "next/image";
 import Link from "next/link";
 import { courseData } from "../data/courses";
 import { wsqCourses } from "../data/wsq-courses";
+import ContactForm from "../components/contactform";
 
 export const metadata: Metadata = {
-  title: "All Courses | Diplomas, WSQ & Certificates | Edusphere College Singapore",
+  title: "Private Diploma Courses in Singapore | Edusphere College",
   description:
-    "Browse 20+ diploma, advanced diploma, WSQ, certificate, and e-learning courses at Edusphere College Singapore. SkillsFuture eligible. Part-time & online options available.",
+    "Enrol in private diploma courses in Singapore at Edusphere College. Part-time diplomas, advanced diplomas & WSQ programmes in Engineering, IT, Business & more. SkillsFuture eligible.",
   keywords:
-    "diploma courses singapore, advanced diploma singapore, WSQ courses, e-learning courses, part-time diploma, Edusphere College courses, SkillsFuture courses",
+    "private diploma courses in singapore, private diploma singapore, diploma courses singapore, advanced diploma singapore, part-time diploma singapore, WSQ courses, Edusphere College courses, SkillsFuture courses",
   openGraph: {
-    title: "All Courses | Diplomas, WSQ & Certificates | Edusphere College",
+    title: "Private Diploma Courses in Singapore | Edusphere College",
     description:
-      "Explore 20+ career-ready programmes — diplomas, advanced diplomas, WSQ short courses, and certificates at Edusphere College Singapore.",
+      "Explore private diploma courses in Singapore — part-time diplomas, advanced diplomas, WSQ short courses & certificates at Edusphere College. SkillsFuture eligible.",
     url: "https://edusphere.edu.sg/courses",
     siteName: "Edusphere College of Management and Technology",
     locale: "en_SG",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Private Diploma Courses in Singapore | Edusphere College",
+    description:
+      "Part-time private diploma courses in Singapore — Engineering, IT, Business, Hospitality & more. SkillsFuture eligible.",
   },
   alternates: {
     canonical: "https://edusphere.edu.sg/courses",
@@ -90,8 +97,8 @@ export default function CoursesPage() {
   const coursesSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "All Courses at Edusphere College",
-    "description": "Complete list of diploma, advanced diploma, WSQ, certificate, and e-learning courses offered by Edusphere College Singapore.",
+    "name": "Private Diploma Courses in Singapore at Edusphere College",
+    "description": "Complete list of private diploma, advanced diploma, WSQ, certificate, and e-learning courses offered by Edusphere College Singapore.",
     "numberOfItems": totalCourses,
     "itemListElement": [
       ...diplomaCourses,
@@ -113,11 +120,77 @@ export default function CoursesPage() {
     })),
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://edusphere.edu.sg",
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Private Diploma Courses in Singapore",
+        "item": "https://edusphere.edu.sg/courses",
+      },
+    ],
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a private diploma in Singapore?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A private diploma in Singapore is a post-secondary qualification awarded by a private education institution such as Edusphere College. These diplomas are often offered on a part-time or e-learning basis, making them ideal for working adults who want to upskill or change careers while continuing to work.",
+        },
+      },
+      {
+        "@type": "Question",
+        "name": "Are private diploma courses at Edusphere College recognised?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Edusphere College of Management and Technology is a registered private education institution in Singapore, and many of our courses are SkillsFuture eligible. Our diploma programmes are designed to be industry-aligned and career-focused.",
+        },
+      },
+      {
+        "@type": "Question",
+        "name": "Can I study a private diploma in Singapore part-time?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Most of our private diploma courses are available part-time, with evening classes and flexible e-learning options so you can balance your studies with work and family commitments.",
+        },
+      },
+      {
+        "@type": "Question",
+        "name": "How much do private diploma courses in Singapore cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Course fees vary by programme. Many WSQ short courses are SkillsFuture-funded with up to 70% subsidy for eligible Singaporeans. Contact our admissions team for the latest fees and funding options for your chosen diploma.",
+        },
+      },
+    ],
+  };
+
   return (
     <main className="min-h-screen bg-gray-50">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(coursesSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       {/* Hero */}
@@ -130,17 +203,35 @@ export default function CoursesPage() {
               {totalCourses}+ Programmes Available
             </span>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-900">
-              Find the Right Course for{" "}
-              <span className="text-[#1AB69D]">Your Career</span>
+              Private Diploma Courses in{" "}
+              <span className="text-[#1AB69D]">Singapore</span>
             </h1>
             <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-2xl">
-              From part-time diplomas and advanced diplomas to SkillsFuture-funded
-              WSQ short courses and e-learning — discover career-ready qualifications
-              at Edusphere College Singapore.
+              Explore industry-aligned private diploma courses in Singapore at
+              Edusphere College. From part-time diplomas and advanced diplomas to
+              SkillsFuture-funded WSQ short courses and e-learning — find a
+              career-ready qualification built around your schedule.
+            </p>
+            <p className="text-sm md:text-base text-gray-500 leading-relaxed max-w-2xl">
+              As a registered private education institution, our diplomas are
+              designed for working adults who want recognised, practical
+              qualifications without pausing their careers.
             </p>
 
-            {/* Stats row */}
-            
+            <div className="flex flex-wrap items-center gap-3 pt-1">
+              <a
+                href="#enquire"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#1AB69D] px-6 py-3 text-sm font-bold text-white shadow-lg hover:bg-[#149985] transition"
+              >
+                Enquire Now
+              </a>
+              <a
+                href="#diploma"
+                className="inline-flex items-center gap-2 rounded-xl border-2 border-gray-300 px-6 py-3 text-sm font-bold text-gray-700 hover:border-[#1AB69D] hover:text-[#1AB69D] transition"
+              >
+                Browse Diplomas
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -171,7 +262,7 @@ export default function CoursesPage() {
       <CourseSection
         id="diploma"
         title="Diploma Courses"
-        subtitle="Industry-aligned part-time diploma programmes designed for working professionals in Singapore."
+        subtitle="Industry-aligned private diploma courses in Singapore — part-time programmes designed for working professionals."
         accent="#1AB69D"
         courses={diplomaCourses}
       />
@@ -256,6 +347,11 @@ export default function CoursesPage() {
         courses={certificateCourses}
         bg="bg-gray-50"
       />
+
+      {/* Enquiry Form */}
+      <div id="enquire" className="scroll-mt-[120px]">
+        <ContactForm />
+      </div>
 
       {/* Bottom CTA */}
       <section className="py-16 md:py-20 bg-gradient-to-br from-[#1AB69D] to-[#169d88]">

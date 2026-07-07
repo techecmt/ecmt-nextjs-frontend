@@ -36,7 +36,7 @@ const contactCards = [
 
 const quickLinks = [
   { label: "Home", href: "/" },
-  { label: "Courses", href: "/courses" },
+  { label: "Private Diploma Courses", href: "/courses" },
   { label: "WSQ Courses", href: "/wsq-courses" },
   { label: "Certificate Courses", href: "/certificate-courses-in-singapore" },
   { label: "About Us", href: "/about-us" },

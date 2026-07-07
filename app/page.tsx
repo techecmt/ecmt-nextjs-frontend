@@ -9,10 +9,10 @@ import HeroSlider from "./components/heroslider";
 
 export const metadata: Metadata = {
   title: "Edusphere College of Management and Technology | Singapore",
-  description: "Enroll in private diploma programs and WSQ courses at Edusphere College. We offer part-time diplomas in Engineering, IT, Business, Hospitality, Caregiving & more in Singapore.",
+  description: "Edusphere College is a registered private education institution in Singapore offering part-time diploma, advanced diploma and WSQ courses in Engineering, IT, Business, Hospitality & Caregiving.",
   openGraph: {
     title: "Edusphere College of Management and Technology | Singapore",
-    description: "Enroll in private diploma programs and WSQ courses at Edusphere College. We offer part-time diplomas in Engineering, IT, Business, Hospitality, Caregiving & more.",
+    description: "Edusphere College is a registered private education institution in Singapore offering part-time diploma, advanced diploma and WSQ courses across Engineering, IT, Business, Hospitality & Caregiving.",
     url: "https://edusphere.edu.sg",
     siteName: "Edusphere College of Management and Technology",
     locale: "en_SG",

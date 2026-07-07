@@ -52,6 +52,13 @@ export default function CourseList() {
 						</p>
 					</div>
 
+					<Link
+						href="/courses"
+						className="inline-flex items-center gap-2 self-start md:self-auto rounded-full border-2 border-[#1AB69D] px-5 py-2.5 text-sm font-semibold text-[#1AB69D] hover:bg-[#1AB69D] hover:text-white transition-colors whitespace-nowrap"
+					>
+						View All Private Diploma Courses in Singapore
+						<span aria-hidden="true">&rarr;</span>
+					</Link>
 				</header>
 
 				{/* Course category filter pills */}
