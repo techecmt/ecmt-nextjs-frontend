@@ -7,11 +7,9 @@ import {
   ChevronRight,
   X,
   Share2,
-  Download,
   Copy,
   Check,
   Facebook,
-  Instagram,
   MessageCircle,
   Twitter,
   CalendarDays,
@@ -35,6 +33,24 @@ type LightboxState = {
 
 export default function NewsroomTimeline({ events, siteUrl }: Props) {
   const grouped = useMemo(() => groupEventsByYearMonth(events), [events]);
+
+  // Side (left/right) is based on the *rendered* order across year → month
+  // groups, not the flat events index, so the zig-zag never breaks when
+  // events span multiple months.
+  const sideById = useMemo(() => {
+    const map = new Map<string, "left" | "right">();
+    let i = 0;
+    for (const months of Object.values(grouped)) {
+      for (const monthEvents of Object.values(months)) {
+        for (const ev of monthEvents) {
+          map.set(ev.id, i % 2 === 0 ? "left" : "right");
+          i += 1;
+        }
+      }
+    }
+    return map;
+  }, [grouped]);
+
   const [lightbox, setLightbox] = useState<LightboxState>(null);
   const [copied, setCopied] = useState(false);
   const [shareError, setShareError] = useState<string | null>(null);
@@ -68,20 +84,58 @@ export default function NewsroomTimeline({ events, siteUrl }: Props) {
     });
   }, [events]);
 
-  // Lock scroll + keyboard nav when lightbox open
+  const dialogRef = useRef<HTMLDivElement | null>(null);
+
+  // Lock scroll + keyboard nav + focus trap when lightbox open
   useEffect(() => {
     if (!lightbox) return;
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+
+    // Remember what was focused so we can restore it on close.
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    // Move focus into the dialog.
+    dialogRef.current?.focus();
+
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") closeLightbox();
-      else if (e.key === "ArrowRight") next();
-      else if (e.key === "ArrowLeft") prev();
+      if (e.key === "Escape") {
+        closeLightbox();
+        return;
+      }
+      if (e.key === "ArrowRight") {
+        next();
+        return;
+      }
+      if (e.key === "ArrowLeft") {
+        prev();
+        return;
+      }
+      // Trap Tab focus within the dialog.
+      if (e.key === "Tab") {
+        const root = dialogRef.current;
+        if (!root) return;
+        const focusable = root.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        const active = document.activeElement;
+        if (e.shiftKey && (active === first || active === root)) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && active === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     };
     window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = prevOverflow;
       window.removeEventListener("keydown", onKey);
+      // Restore focus to the thumbnail that opened the lightbox.
+      previouslyFocused?.focus?.();
     };
   }, [lightbox, closeLightbox, next, prev]);
 
@@ -162,15 +216,15 @@ export default function NewsroomTimeline({ events, siteUrl }: Props) {
         {/* Vertical timeline rail */}
         <div
           aria-hidden
-          className="pointer-events-none absolute left-4 sm:left-6 md:left-1/2 top-0 bottom-0 w-px md:-translate-x-1/2 bg-linear-to-b from-emerald-300/60 via-emerald-200 to-transparent"
+          className="pointer-events-none absolute left-4 sm:left-6 lg:left-1/2 top-0 bottom-0 w-px lg:-translate-x-1/2 bg-linear-to-b from-emerald-300/60 via-emerald-200 to-transparent"
         />
 
         <div className="space-y-16 md:space-y-24">
           {Object.entries(grouped).map(([year, months]) => (
             <section key={year} aria-label={`Events in ${year}`}>
               {/* Year marker */}
-              <div className="relative mb-10 md:mb-14 flex md:justify-center">
-                <div className="ml-12 md:ml-0 inline-flex items-center gap-2 rounded-full bg-linear-to-r from-emerald-500 to-teal-500 px-5 py-2 text-white shadow-lg shadow-emerald-500/20">
+              <div className="relative mb-10 md:mb-14 flex lg:justify-center">
+                <div className="ml-12 lg:ml-0 inline-flex items-center gap-2 rounded-full bg-linear-to-r from-emerald-500 to-teal-500 px-5 py-2 text-white shadow-lg shadow-emerald-500/20">
                   <span className="text-base md:text-lg font-bold tracking-wide">
                     {year}
                   </span>
@@ -179,8 +233,8 @@ export default function NewsroomTimeline({ events, siteUrl }: Props) {
 
               {Object.entries(months).map(([month, monthEvents]) => (
                 <div key={month} className="mb-12 md:mb-16">
-                  <div className="relative mb-8 flex md:justify-center">
-                    <h3 className="ml-12 md:ml-0 text-sm md:text-base font-semibold uppercase tracking-[0.2em] text-emerald-700">
+                  <div className="relative mb-8 flex lg:justify-center">
+                    <h3 className="ml-12 lg:ml-0 text-sm md:text-base font-semibold uppercase tracking-[0.2em] text-emerald-700">
                       {month}
                     </h3>
                   </div>
@@ -188,10 +242,7 @@ export default function NewsroomTimeline({ events, siteUrl }: Props) {
                   <ul className="space-y-12 md:space-y-16">
                     {monthEvents.map((ev) => {
                       const eventIndex = events.findIndex((e) => e.id === ev.id);
-                      const side =
-                        (eventIndex % 2 === 0 ? "left" : "right") as
-                          | "left"
-                          | "right";
+                      const side = sideById.get(ev.id) ?? "left";
                       return (
                         <TimelineItem
                           key={ev.id}
@@ -214,10 +265,12 @@ export default function NewsroomTimeline({ events, siteUrl }: Props) {
       {/* Lightbox */}
       {lightbox && activeEvent && activeImage && (
         <div
+          ref={dialogRef}
           role="dialog"
           aria-modal="true"
           aria-label={`${activeEvent.title} – image ${lightbox.imageIndex + 1} of ${activeEvent.images.length}`}
-          className="fixed inset-0 z-100 flex items-center justify-center bg-black/90 backdrop-blur-sm animate-in fade-in duration-200"
+          tabIndex={-1}
+          className="fixed inset-0 z-100 flex items-center justify-center bg-black/90 backdrop-blur-sm animate-in fade-in duration-200 outline-none"
           onClick={closeLightbox}
         >
           <button
@@ -336,19 +389,19 @@ function TimelineItem({
 
   const sideClasses =
     side === "left"
-      ? "md:pr-[calc(50%+2rem)]"
-      : "md:pl-[calc(50%+2rem)] md:text-left";
+      ? "lg:pr-[calc(50%+2rem)]"
+      : "lg:pl-[calc(50%+2rem)] lg:text-left";
 
   return (
     <li
       ref={ref}
       id={event.id}
-      className={`relative pl-12 md:pl-0 ${sideClasses} scroll-mt-24`}
+      className={`relative pl-12 lg:pl-0 ${sideClasses} scroll-mt-24`}
     >
       {/* Dot on rail */}
       <span
         aria-hidden
-        className={`absolute left-4 sm:left-6 md:left-1/2 top-3 -translate-x-1/2 flex h-4 w-4 items-center justify-center`}
+        className={`absolute left-4 sm:left-6 lg:left-1/2 top-3 -translate-x-1/2 flex h-4 w-4 items-center justify-center`}
       >
         <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60 animate-ping" />
         <span className="relative inline-flex h-3 w-3 rounded-full bg-linear-to-br from-emerald-500 to-teal-500 ring-4 ring-white" />
@@ -495,8 +548,6 @@ function ShareBar({
   const tw = `https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(text)}`;
   const wa = `https://wa.me/?text=${encodeURIComponent(`${text} ${imageUrl}`)}`;
 
-  const downloadName = image.split("/").pop() ?? "photo.jpg";
-
   return (
     <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
       <ShareBtn href={fb} label="Share on Facebook" color="hover:bg-[#1877F2]/80">
@@ -508,40 +559,22 @@ function ShareBar({
       <ShareBtn href={wa} label="Share on WhatsApp" color="hover:bg-[#25D366]/80">
         <MessageCircle className="h-4 w-4" />
       </ShareBtn>
-      {/* Instagram – use native share sheet (Instagram doesn't allow direct web sharing) */}
-      <button
-        type="button"
-        onClick={onNativeShare}
-        aria-label="Share to Instagram via your device"
-        title="Share to Instagram (uses your device's share sheet)"
-        className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/15 text-white transition hover:bg-linear-to-br hover:from-[#F58529] hover:via-[#DD2A7B] hover:to-[#8134AF]"
-      >
-        <Instagram className="h-4 w-4" />
-      </button>
+      {/* Native share sheet (WhatsApp, Instagram, etc. on the user's device) */}
       <button
         type="button"
         onClick={onNativeShare}
         aria-label="Share"
         title="Share"
-        className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/15 text-white transition hover:bg-white/25"
+        className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/15 text-white transition hover:bg-white/25"
       >
         <Share2 className="h-4 w-4" />
       </button>
-      <a
-        href={image}
-        download={downloadName}
-        aria-label="Download photo"
-        title="Download"
-        className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/15 text-white transition hover:bg-white/25"
-      >
-        <Download className="h-4 w-4" />
-      </a>
       <button
         type="button"
         onClick={onCopy}
         aria-label="Copy image link"
         title={copied ? "Link copied" : "Copy image link"}
-        className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/15 text-white transition hover:bg-white/25"
+        className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/15 text-white transition hover:bg-white/25"
       >
         {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
       </button>
@@ -568,7 +601,7 @@ function ShareBtn({
       rel="noopener noreferrer"
       aria-label={label}
       title={label}
-      className={`inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/15 text-white transition ${color}`}
+      className={`inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/15 text-white transition ${color}`}
     >
       {children}
     </a>
