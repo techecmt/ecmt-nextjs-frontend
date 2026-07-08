@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "../../components/contactform";
+import RelatedArticles from "../../components/RelatedArticles";
 
 export const metadata: Metadata = {
 	title:
@@ -365,6 +366,8 @@ export default function WhatsNextAfterDcePage() {
 					</article>
 				</div>
 			</section>
+
+			<RelatedArticles currentSlug="whats-next-after-dce" />
 
 			<ContactForm />
 		</main>

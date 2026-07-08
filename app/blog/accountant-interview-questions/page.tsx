@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "../../components/contactform";
+import RelatedArticles from "../../components/RelatedArticles";
 import { courseData } from "../../data/courses";
 
 export const metadata: Metadata = {
@@ -682,6 +683,8 @@ export default function AccountantInterviewQuestions() {
 					</article>
 				</div>
 			</section>
+
+			<RelatedArticles currentSlug="accountant-interview-questions" />
 
 			<ContactForm />
 		</main>

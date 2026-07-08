@@ -164,6 +164,13 @@ export const courseData: CourseCategory[] = [
         image: "/homepage/dbfa-cover.jpg",
         url: "/diploma-in-business-finance-and-accounting",
       },
+      {
+        title: "Diploma in Information Technology",
+        mode: "Part Time",
+        duration: "08 Months",
+        image: "/homepage/computerapptransport.webp",
+        url: "/diploma-in-information-technology",
+      },
     ],
   },
   {

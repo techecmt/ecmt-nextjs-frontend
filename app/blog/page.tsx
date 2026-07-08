@@ -1,51 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { blogPosts } from "../data/blog-posts";
 
 export const metadata: Metadata = {
 	title: "Education Blog | Edusphere College Singapore",
 	description:
 		"Read Edusphere insights on diploma programmes, career guidance, interview preparation, and practical learning tips in Singapore.",
 };
-
-const blogPosts = [
-	{
-		title: "50 Engineering Manager Interview Questions & Answers in Singapore (2026)",
-		description:
-			"Prepare for your Engineering Manager interview in Singapore with 50 essential questions and answers covering team leadership, project delivery, technical decision-making, stakeholder management, and people development.",
-		slug: "engineering-manager-interview-questions",
-		image: "/homepage/adec-hero.jpg",
-		date: "30 Jun, 2026",
-		category: "Interview Preparation",
-	},
-	{
-		title: "60 Accountant Interview Questions & Answers in Singapore (2026)",
-		description:
-			"Prepare for your accounting interview in Singapore with 60 essential questions and answers covering financial reporting, taxation, auditing, GST, SFRS, and more.",
-		slug: "accountant-interview-questions",
-		image: "/homepage/dbfa-cover.jpg",
-		date: "31 Mar, 2026",
-		category: "Interview Preparation",
-	},
-	{
-		title: "50 Maid Interview Questions & Answers in Singapore (2026)",
-		description:
-			"Prepare for your maid or domestic helper interview in Singapore with 50 essential questions and answers covering caregiving, housekeeping, childcare, eldercare, cooking, and employment regulations.",
-		slug: "maid-interview-questions",
-		image: "/homepage/addipcaregiving.jpg",
-		date: "05 Apr, 2026",
-		category: "Interview Preparation",
-	},
-	{
-		title: "50 Waiter & Waitress Interview Questions & Answers in Singapore (2026)",
-		description:
-			"Ace your waiter or waitress interview in Singapore with 50 essential questions and answers covering customer service, F&B knowledge, restaurant operations, and career growth tips.",
-		slug: "waiter-waitress-interview-questions-and-answers",
-		image: "/homepage/addipcaregiving.jpg",
-		date: "05 Apr, 2026",
-		category: "Interview Preparation",
-	},
-];
 
 export default function BlogPage() {
 	return (

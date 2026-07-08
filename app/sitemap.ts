@@ -1,8 +1,36 @@
 import type { MetadataRoute } from "next";
+import { execFileSync } from "node:child_process";
 import { readdirSync, statSync } from "node:fs";
 import { join, relative, sep } from "node:path";
 
 const APP_DIR = join(process.cwd(), "app");
+
+/**
+ * Last-modified date for a page.
+ *
+ * File mtime is unreliable for `lastmod`: a fresh checkout/deploy stamps every
+ * file with the same timestamp, so Google sees "everything changed at once" and
+ * learns to ignore the signal. The real last commit that touched the file is a
+ * far more trustworthy signal for crawl scheduling. Falls back to mtime when git
+ * history isn't available (e.g. a non-git deploy or a shallow clone that doesn't
+ * reach the file's last commit).
+ */
+function getLastModified(filePath: string): Date {
+  try {
+    const iso = execFileSync(
+      "git",
+      ["log", "-1", "--format=%cI", "--", filePath],
+      { cwd: process.cwd(), encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] },
+    ).trim();
+    if (iso) {
+      const date = new Date(iso);
+      if (!Number.isNaN(date.getTime())) return date;
+    }
+  } catch {
+    // git unavailable / shallow history – fall through to mtime.
+  }
+  return statSync(filePath).mtime;
+}
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://edusphere.edu.sg").replace(/\/+$/, "");
 const PAGE_FILE_PATTERN = /^page\.(tsx|ts|jsx|js|mdx)$/;
 
@@ -74,7 +102,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     acc.set(`${SITE_URL}${route}`, {
       url: `${SITE_URL}${route}`,
-      lastModified: statSync(filePath).mtime,
+      lastModified: getLastModified(filePath),
       changeFrequency: route === "/" ? "weekly" : "monthly",
       priority,
     });
