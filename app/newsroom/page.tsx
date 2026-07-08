@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { newsEvents } from "./events";
+import { getNewsroomEvents } from "./events.server";
 import NewsroomTimeline from "./NewsroomTimeline";
 
 const SITE_URL = "https://edusphere.edu.sg";
@@ -18,7 +18,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function NewsroomPage() {
+export default async function NewsroomPage() {
+  const events = await getNewsroomEvents();
+
   return (
     <main className="min-h-screen bg-linear-to-b from-emerald-50/40 via-white to-white">
       {/* Hero */}
@@ -45,7 +47,19 @@ export default function NewsroomPage() {
       </section>
 
       <section className="container mx-auto px-4 md:px-8 pb-20 md:pb-28">
-        <NewsroomTimeline events={newsEvents} siteUrl={SITE_URL} />
+        {events.length > 0 ? (
+          <NewsroomTimeline events={events} siteUrl={SITE_URL} />
+        ) : (
+          <div className="mx-auto max-w-3xl rounded-2xl border border-emerald-100 bg-white p-8 text-center shadow-sm">
+            <h2 className="text-2xl font-bold text-gray-900">
+              No published events yet
+            </h2>
+            <p className="mt-3 text-gray-600 leading-relaxed">
+              This newsroom shows only published events from the CMS database.
+              Once a post is published and visible by policy, it will appear here.
+            </p>
+          </div>
+        )}
       </section>
     </main>
   );

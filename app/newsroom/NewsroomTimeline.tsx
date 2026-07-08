@@ -391,31 +391,39 @@ function TimelineItem({
 
         {/* Gallery */}
         <div className="px-5 sm:px-6 md:px-7 pb-6">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3">
-            {event.images.slice(0, 8).map((img, i) => (
-              <GalleryThumb
-                key={img}
-                src={img}
-                index={i}
-                eventTitle={event.title}
-                onClick={() => onOpen(i)}
-                overlayCount={
-                  i === 7 && event.images.length > 8
-                    ? event.images.length - 8
-                    : 0
-                }
-              />
-            ))}
-          </div>
+          {event.images.length > 0 ? (
+            <>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3">
+                {event.images.slice(0, 8).map((img, i) => (
+                  <GalleryThumb
+                    key={img}
+                    src={img}
+                    index={i}
+                    eventTitle={event.title}
+                    onClick={() => onOpen(i)}
+                    overlayCount={
+                      i === 7 && event.images.length > 8
+                        ? event.images.length - 8
+                        : 0
+                    }
+                  />
+                ))}
+              </div>
 
-          {event.images.length > 8 && (
-            <button
-              type="button"
-              onClick={() => onOpen(0)}
-              className="mt-4 w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-linear-to-r from-emerald-500 to-teal-500 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-emerald-500/20 transition hover:shadow-lg hover:shadow-emerald-500/30 active:scale-[0.98]"
-            >
-              View all {event.images.length} photos
-            </button>
+              {event.images.length > 8 && (
+                <button
+                  type="button"
+                  onClick={() => onOpen(0)}
+                  className="mt-4 w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-linear-to-r from-emerald-500 to-teal-500 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-emerald-500/20 transition hover:shadow-lg hover:shadow-emerald-500/30 active:scale-[0.98]"
+                >
+                  View all {event.images.length} photos
+                </button>
+              )}
+            </>
+          ) : (
+            <p className="text-sm text-gray-500 italic">
+              Photos will be added soon.
+            </p>
           )}
         </div>
       </article>
