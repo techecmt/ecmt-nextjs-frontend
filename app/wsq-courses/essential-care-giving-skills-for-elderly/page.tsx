@@ -168,7 +168,7 @@ export default function EssentialCareGivingPage() {
 						<div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
 							<div className="mb-2 font-semibold" style={{ color: '#202020' }}>✅ WSQ COURSE</div>
 							<p className="text-sm" style={{ color: '#202020' }}>
-								Accreditation by SkillsFuture Singapore (SSG)<br />
+								Accreditation by Skills and Workforce Development Agency (SWDA)<br />
 								Visit <a className="underline" href="https://www.myskillsfuture.gov.sg" target="_blank" style={{ color: '#1AB69D' }}>www.myskillsfuture.gov.sg</a>
 							</p>
 						</div>

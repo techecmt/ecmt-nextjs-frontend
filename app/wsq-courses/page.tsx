@@ -319,7 +319,7 @@ export default function WSQCoursesPage() {
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
                 The Singapore Workforce Skills Qualifications (WSQ) framework is a national
-                credential system administered by SkillsFuture Singapore (SSG). WSQ courses in
+                credential system administered by Skills and Workforce Development Agency (SWDA). WSQ courses in
                 Singapore help workers and employers build job-ready skills through modular,
                 industry-relevant training that leads to a{' '}
                 <strong>Statement of Attainment (SOA)</strong> when competency is demonstrated.
