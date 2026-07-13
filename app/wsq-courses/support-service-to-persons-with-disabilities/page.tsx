@@ -148,9 +148,9 @@ export default function SupportServiceDisabilitiesPage() {
                   🕒 COURSE DURATION
                 </div>
                 <p className="text-sm" style={{ color: "#202020" }}>
-                  Training – 15 Hours (2 Days)
+                  Training – 11 Hours (1.5 Days)
                   <br />Assessment – 1 Hour
-                  <br />Total – 16 Hours
+                  <br />Total – 12 Hours
                 </p>
               </div>
               <div className="rounded-2xl border border-sky-200 bg-sky-50 p-6 shadow-sm">
@@ -163,12 +163,7 @@ export default function SupportServiceDisabilitiesPage() {
                   <br />1 Trainer : 24 Learners
                 </p>
               </div>
-              <div className="rounded-2xl border border-rose-200 bg-rose-50 p-6 shadow-sm">
-                <div className="mb-2 font-semibold" style={{ color: "#EE4A62" }}>
-                  💳 COURSE FEE
-                </div>
-                <p className="text-sm" style={{ color: "#202020" }}>S$520/- NETT (BEFORE FUNDING)</p>
-              </div>
+              
               <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
                 <div className="mb-2 font-semibold" style={{ color: "#202020" }}>
                   ✅ WSQ COURSE
@@ -246,6 +241,7 @@ export default function SupportServiceDisabilitiesPage() {
             <li>A basic understanding of caregiving or support work in community or healthcare settings.</li>
             <li>Experience in roles related to eldercare, disability services, or personal care assistance.</li>
             <li>An interest in providing respectful and safe support to persons with disabilities.</li>
+            <li>Able to read, write, and speak English at WPL Level 4</li>
           </ul>
         </div>
       </section>
