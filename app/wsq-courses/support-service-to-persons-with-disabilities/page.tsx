@@ -269,7 +269,7 @@ export default function SupportServiceDisabilitiesPage() {
                 <tr>
                   <th className="px-4 py-3 text-left align-top" style={{ backgroundColor: "#E91E63", color: "#ffffff" }}>
                     <div className="font-semibold">TGS-2024050928 &mdash; Support Service to Persons with Disabilities</div>
-                    <div className="mt-1 text-xs text-white/90">Funding Validity Period: 11–Jul–2024 to 10–Jul–2026</div>
+                    <div className="mt-1 text-xs text-white/90">Course Validity Period: 13–Nov–2024 to 12–Nov–2026</div>
                   </th>
                   <th className="px-4 py-3 text-left align-top" style={{ backgroundColor: "#E91E63", color: "#ffffff" }}>
                     <div className="font-semibold">Full Course Fee</div>
@@ -292,31 +292,31 @@ export default function SupportServiceDisabilitiesPage() {
               <tbody className="divide-y divide-gray-100" style={{ color: "#202020" }}>
                 <tr>
                   <td className="px-4 py-3 font-semibold">Course Fee</td>
-                  <td className="px-4 py-3">S$520.00</td>
-                  <td className="px-4 py-3">S$520.00</td>
-                  <td className="px-4 py-3">S$520.00</td>
-                  <td className="px-4 py-3">S$520.00</td>
+                  <td className="px-4 py-3">S$315.00</td>
+                  <td className="px-4 py-3">S$315.00</td>
+                  <td className="px-4 py-3">S$315.00</td>
+                  <td className="px-4 py-3">S$315.00</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-semibold">With GST (9%)</td>
-                  <td className="px-4 py-3">S$46.80</td>
-                  <td className="px-4 py-3">S$46.80</td>
-                  <td className="px-4 py-3">S$46.80</td>
-                  <td className="px-4 py-3">S$46.80</td>
+                  <td className="px-4 py-3">S$28.35</td>
+                  <td className="px-4 py-3">S$28.35</td>
+                  <td className="px-4 py-3">S$28.35</td>
+                  <td className="px-4 py-3">S$28.35</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-semibold">SkillsFuture Funding</td>
                   <td className="px-4 py-3">S$0.00</td>
-                  <td className="px-4 py-3">S$260.00</td>
-                  <td className="px-4 py-3">S$364.00</td>
-                  <td className="px-4 py-3">S$364.00</td>
+                  <td className="px-4 py-3">S$157.50</td>
+                  <td className="px-4 py-3">S$220.50</td>
+                  <td className="px-4 py-3">S$220.50</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-semibold">Nett Fee Payable</td>
-                  <td className="px-4 py-3 font-semibold">S$566.80</td>
-                  <td className="px-4 py-3 font-semibold">S$306.80</td>
-                  <td className="px-4 py-3 font-semibold">S$202.80</td>
-                  <td className="px-4 py-3 font-semibold">S$202.80</td>
+                  <td className="px-4 py-3 font-semibold">S$343.35</td>
+                  <td className="px-4 py-3 font-semibold">S$185.85</td>
+                  <td className="px-4 py-3 font-semibold">S$122.85</td>
+                  <td className="px-4 py-3 font-semibold">S$122.85</td>
                 </tr>
               </tbody>
             </table>
