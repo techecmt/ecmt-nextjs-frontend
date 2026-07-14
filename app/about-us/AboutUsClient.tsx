@@ -79,12 +79,7 @@ const teamCategories = [
     id: "academic",
     label: "Academic & Curriculum Management",
     members: [
-      {
-        name: "Ms. Rajeswarry A/P Gunasundram",
-        role: "Academic Manager",
-        image: "/about-contact-other/rajes.png",
-      },
-      {
+            {
         name: "Mr. Dej Escasa",
         role: "Training Manager",
         image: "/about-contact-other/dejdp.png",
