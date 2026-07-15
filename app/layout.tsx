@@ -5,6 +5,7 @@ import "./globals.css";
 import Header from "./components/Header";
 import ConditionalFooter from "./components/ConditionalFooter";
 import SalesIQWidget from "./components/SalesIQWidget";
+import EcmtChatWidget from "./components/EcmtChatWidget";
 
 const GTM_ID = "GTM-MFXJHXRD";
 
@@ -51,6 +52,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
         <SalesIQWidget />
+        <EcmtChatWidget />
         <Header />
         <main className="pt-[72px]">{children}</main>
         <ConditionalFooter />
