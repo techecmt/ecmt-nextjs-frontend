@@ -183,7 +183,7 @@ export default function ContactPage() {
 											{ href: "https://wa.me/6581385600", number: "+65-8138-5600", label: "Admin Support" },
 											{ href: "https://wa.me/6582215143", number: "+65-8221-5143", label: "WSQ Admin Support" },
 											{ href: "https://wa.me/6591254523", number: "+65-9125-4523", label: "Sales Support – Aiza" },
-											{ href: "https://wa.me/6580706203", number: "+65-8070-6203", label: "Sales Support – Jona" },
+											{ href: "https://wa.me/6580706203", number: "+65-8070-6203", label: "Sales Support – Camille" },
 											{ href: "https://wa.me/6582200095", number: "+65-8220-0095", label: "Management" },
 										] as const).map((c) => (
 												<a

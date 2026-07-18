@@ -144,7 +144,7 @@ export const batchScheduleData: BatchSchedule[] = [
 	},
 	{
 		courseName:
-			"Advanced Diploma in Engineering Coordinator (Building Services & Fire Safety)",
+			"Advanced Diploma in Project Coordinator (Building Services & Fire Safety)",
 		may2026: { startDate: "03-May-2026", endDate: "03-May-2027" },
 		jun2026: { startDate: "28-Jun-2026", endDate: "28-Jun-2027" },
 		jul2026: { startDate: "23-Aug-2026", endDate: "23-Aug-2027" },

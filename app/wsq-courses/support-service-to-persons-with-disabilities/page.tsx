@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { CalendarDays } from "lucide-react";
 import WsqContactForm from "../../components/wsq_contactform";
 import { FaWhatsapp } from "react-icons/fa";
 import ContactForm from "../../components/contactform";
@@ -70,33 +71,72 @@ export default function SupportServiceDisabilitiesPage() {
                   </div>
                 </div>
 
-                {/* CTA */}
-                <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                  <a
-                    href="https://form.jotform.com/252672445341052"
-                    className="inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm font-semibold text-white shadow-lg"
-                    style={{ backgroundColor: "#1AB69D" }}
+                {/* Registration CTA */}
+                <div className="mt-8 w-full max-w-md">
+                  <div
+                    className="rounded-2xl p-1 shadow-2xl ring-1 ring-white/25"
+                    style={{ background: "linear-gradient(135deg, #1AB69D 0%, #31B979 50%, #EE4A62 100%)" }}
                   >
-                    Register Now
-                  </a>
-                  <a
-                    href="#contact"
-                    className="inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm font-semibold text-white/90 ring-1 ring-white/40"
-                  >
-                    Talk to us
-                  </a>
+                    <div className="rounded-2xl bg-gray-950/90 p-5 backdrop-blur-md">
+                      <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#1AB69D]">
+                        <span className="relative flex h-2 w-2">
+                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#1AB69D] opacity-75" />
+                          <span className="relative inline-flex h-2 w-2 rounded-full bg-[#1AB69D]" />
+                        </span>
+                        Enrolment Open
+                      </div>
+
+                      <div className="mt-4 flex items-center gap-3 rounded-xl bg-white/10 p-3 ring-1 ring-white/15">
+                        <div
+                          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
+                          style={{ backgroundColor: "rgba(26, 182, 157, 0.2)" }}
+                        >
+                          <CalendarDays className="h-5 w-5 text-[#1AB69D]" />
+                        </div>
+                        <div>
+                          <div className="text-xs font-medium text-white/70">Next Batch Starts</div>
+                          <div className="text-lg font-bold text-white">09-Aug-2026</div>
+                        </div>
+                      </div>
+
+                      <a
+                        href="https://form.jotform.com/252672445341052"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-base font-bold text-white shadow-lg transition-all hover:scale-[1.02] hover:shadow-xl active:scale-[0.98]"
+                        style={{ backgroundColor: "#1AB69D" }}
+                      >
+                        Register Now
+                        <svg
+                          className="h-5 w-5 transition-transform group-hover:translate-x-1"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        </svg>
+                      </a>
+
+                      <a
+                        href="#contact"
+                        className="mt-3 inline-flex w-full items-center justify-center rounded-xl px-6 py-2.5 text-sm font-semibold text-white/90 ring-1 ring-white/25 transition-colors hover:bg-white/10"
+                      >
+                        Talk to us
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               {/* Right sidebar */}
-              <div className="col-span-4 flex flex-col gap-4 p-6 sm:p-10 md:p-14">
+              <div className="col-span-4 flex flex-col items-end justify-end gap-4 p-6 sm:p-10 md:p-14">
                 <div
                   className="inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-sm font-semibold shadow-sm ring-1 ring-black/5 backdrop-blur"
                   style={{ color: "#EE4A62" }}
                 >
                   💙 PERSON-CENTRED CARE
                 </div>
-                <div className="rounded-2xl bg-white/90 p-6 shadow-sm ring-1 ring-black/5 backdrop-blur">
+                <div className="w-full max-w-sm rounded-2xl bg-white/90 p-6 shadow-sm ring-1 ring-black/5 backdrop-blur">
                   <p className="text-sm text-gray-700">
                     Learn to apply trauma-informed communication, safe handling, and inclusive service practices tailored to varying disabilities.
                   </p>

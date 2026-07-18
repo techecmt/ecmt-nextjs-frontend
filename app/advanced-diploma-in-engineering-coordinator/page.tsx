@@ -4,11 +4,11 @@ import BrochureButton from "../components/brochurebutton";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-	title: "Advanced Diploma in Engineering Coordinator (Building Services & Fire Safety) | Edusphere Singapore",
-	description: "Advanced Diploma in Engineering Coordinator at Edusphere College. 12-month part-time course covering Building Electrical Systems, Fire Safety, Air-conditioning, and Intelligent Buildings.",
-	keywords: "engineering coordinator diploma singapore, building services course singapore, fire safety management course, mechanical ventilation course, advanced diploma engineering singapore",
+	title: "Advanced Diploma in Project Coordinator (Building Services & Fire Safety) | Edusphere Singapore",
+	description: "Advanced Diploma in Project Coordinator at Edusphere College. 12-month part-time course covering Building Electrical Systems, Fire Safety, Air-conditioning, and Intelligent Buildings.",
+	keywords: "Project Coordinator diploma singapore, building services course singapore, fire safety management course, mechanical ventilation course, advanced diploma engineering singapore",
 	openGraph: {
-		title: "Advanced Diploma in Engineering Coordinator (Building Services & Fire Safety) | Edusphere Singapore",
+		title: "Advanced Diploma in Project Coordinator (Building Services & Fire Safety) | Edusphere Singapore",
 		description: "Part-time Advanced Diploma covering Engineering Coordination, Building Services, Fire Safety Management & Intelligent Buildings. 12 months, 186 hours.",
 		url: "https://edusphere.edu.sg/advanced-diploma-in-engineering-coordinator",
 		siteName: "Edusphere College of Management and Technology",
@@ -24,7 +24,7 @@ export default function AdvancedDiplomaInEngineeringCoordinator() {
 	const courseSchema = {
 		"@context": "https://schema.org",
 		"@type": "Course",
-		"name": "Advanced Diploma in Engineering Coordinator (Building Services & Fire Safety)",
+		"name": "Advanced Diploma in Project Coordinator (Building Services & Fire Safety)",
 		"description": "Advanced Diploma preparing learners to coordinate and manage engineering systems within modern buildings and infrastructure projects, covering building services, fire safety management, and intelligent building technologies.",
 		"provider": {
 			"@type": "EducationalOrganization",
@@ -48,7 +48,7 @@ export default function AdvancedDiplomaInEngineeringCoordinator() {
 			"Fire Safety Management",
 			"Intelligent & Green Buildings"
 		],
-		"educationalCredentialAwarded": "Advanced Diploma in Engineering Coordinator (Building Services & Fire Safety)",
+		"educationalCredentialAwarded": "Advanced Diploma in Project Coordinator (Building Services & Fire Safety)",
 		"timeToComplete": "P12M",
 		"totalTime": "PT168H",
 		"courseMode": "Part Time",
@@ -77,7 +77,7 @@ export default function AdvancedDiplomaInEngineeringCoordinator() {
 				<div className="absolute inset-0">
 					<Image
 						src="/homepage/adec-hero.jpg"
-						alt="Engineering coordinator building services background"
+						alt="Project Coordinator building services background"
 						fill
 						className="object-cover opacity-100"
 						priority
@@ -103,11 +103,11 @@ export default function AdvancedDiplomaInEngineeringCoordinator() {
 							</div>
 
 							<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900">
-								Advanced Diploma in <span className="text-[#EE4A62]">Engineering Coordinator (Building Services &amp; Fire Safety)</span>
+								Advanced Diploma in <span className="text-[#EE4A62]">Project Coordinator (Building Services &amp; Fire Safety)</span>
 							</h1>
 
 							<p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-								The Advanced Diploma in Engineering Coordinator (Building Services &amp; Fire Safety) prepares learners to coordinate and manage engineering systems within modern buildings and infrastructure projects.
+								The Advanced Diploma in Project Coordinator (Building Services &amp; Fire Safety) prepares learners to coordinate and manage engineering systems within modern buildings and infrastructure projects.
 							</p>
 
 							{/* Quick Stats */}
@@ -169,7 +169,7 @@ export default function AdvancedDiplomaInEngineeringCoordinator() {
 
 <div className="mb-8 space-y-4">
 					<p className="text-gray-900 leading-relaxed text-justify max-w-4xl mx-auto">
-						The Advanced Diploma in Engineering Coordinator (Building Services &amp; Fire Safety) prepares learners to coordinate and manage engineering systems within modern buildings and infrastructure projects.
+						The Advanced Diploma in Project Coordinator (Building Services &amp; Fire Safety) prepares learners to coordinate and manage engineering systems within modern buildings and infrastructure projects.
 					</p>
 					<p className="text-gray-900 leading-relaxed text-justify max-w-4xl mx-auto">
 						The programme covers key building services including mechanical ventilation, electrical systems, plumbing services, fire safety management, and intelligent building technologies. Learners will develop knowledge in engineering coordination, project documentation, system integration, and safety compliance.
@@ -269,7 +269,7 @@ export default function AdvancedDiplomaInEngineeringCoordinator() {
 								Certification:
 							</h3>
 							<p className="text-gray-700 text-sm">
-								&apos;Advanced Diploma in Engineering Coordinator (Building Services &amp; Fire Safety)&apos; will be awarded by Edusphere College of Management and Technology Pte Ltd
+								&apos;Advanced Diploma in Project Coordinator (Building Services &amp; Fire Safety)&apos; will be awarded by Edusphere College of Management and Technology Pte Ltd
 							</p>
 						</div>
 					
@@ -308,7 +308,7 @@ export default function AdvancedDiplomaInEngineeringCoordinator() {
 						<div className="w-20 h-1 bg-[#1AB69D] rounded-full"></div>
 					</div>
 					<p className="text-gray-700 text-center max-w-4xl mx-auto leading-relaxed">
-						Engineering Coordinator, Building Services Engineer, Facilities Manager, Fire Safety Manager, M&amp;E Coordinator, Project Engineer, Technical Officer, Building Systems Technician, Sustainability Engineer and more.
+						Project Coordinator, Building Services Engineer, Facilities Manager, Fire Safety Manager, M&amp;E Coordinator, Project Engineer, Technical Officer, Building Systems Technician, Sustainability Engineer and more.
 					</p>
 				</div>
 			</section>

@@ -108,7 +108,7 @@ export const courseData: CourseCategory[] = [
         url: "/advanced-diploma-in-mechanical-and-electrical-engineering",
       },
       {
-        title: "Advanced Diploma in Engineering Coordinator (Building Services & Fire Safety)",
+        title: "Advanced Diploma in Project Coordinator (Building Services & Fire Safety)",
         mode: "Part Time",
         duration: "12 Months",
         isNew: true,

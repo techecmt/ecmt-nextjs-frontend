@@ -791,7 +791,7 @@ export default function EngineeringManagerInterviewQuestions() {
 								{(() => {
 									const allCourses = courseData.flatMap((s) => s.courses);
 									const priority = [
-										"Advanced Diploma in Engineering Coordinator (Building Services & Fire Safety)",
+										"Advanced Diploma in Project Coordinator (Building Services & Fire Safety)",
 										"Advanced Diploma in Mechanical and Electrical (M&E) Engineering",
 										"Advanced Diploma in Civil Engineering",
 									];

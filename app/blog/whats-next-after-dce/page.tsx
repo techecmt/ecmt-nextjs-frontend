@@ -8,9 +8,9 @@ export const metadata: Metadata = {
 	title:
 		"You Have Your Civil Engineering Diploma. Here's the One Course That Turns It Into a Career | Edusphere",
 	description:
-		"Explore why the Advanced Diploma in Engineering Coordinator (Building Services & Fire Safety) is a strong next step after a Diploma in Civil Engineering in Singapore.",
+		"Explore why the Advanced Diploma in Project Coordinator (Building Services & Fire Safety) is a strong next step after a Diploma in Civil Engineering in Singapore.",
 	keywords:
-		"diploma in civil engineering what next, advanced diploma engineering coordinator singapore, building services and fire safety course, part-time engineering diploma singapore, edusphere engineering programmes",
+		"diploma in civil engineering what next, advanced diploma Project Coordinator singapore, building services and fire safety course, part-time engineering diploma singapore, edusphere engineering programmes",
 	openGraph: {
 		title:
 			"You Have Your Civil Engineering Diploma. Here's the One Course That Turns It Into a Career",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 				url: "https://edusphere.edu.sg/herosections/adec_hero.png",
 				width: 1200,
 				height: 630,
-				alt: "Advanced Diploma in Engineering Coordinator programme",
+				alt: "Advanced Diploma in Project Coordinator programme",
 			},
 		],
 	},
@@ -47,7 +47,7 @@ const modules = [
 ];
 
 const jobRoles = [
-	"Engineering Coordinator",
+	"Project Coordinator",
 	"Building Services Engineer",
 	"Facilities Manager",
 	"Fire Safety Manager",
@@ -65,7 +65,7 @@ export default function WhatsNextAfterDcePage() {
 		headline:
 			"You Have Your Civil Engineering Diploma. Here's the One Course That Turns It Into a Career",
 		description:
-			"A practical career guide for civil engineering diploma holders in Singapore exploring the Advanced Diploma in Engineering Coordinator (Building Services & Fire Safety).",
+			"A practical career guide for civil engineering diploma holders in Singapore exploring the Advanced Diploma in Project Coordinator (Building Services & Fire Safety).",
 		image: "https://edusphere.edu.sg/herosections/adec_hero.png",
 		author: {
 			"@type": "Organization",
@@ -89,7 +89,7 @@ export default function WhatsNextAfterDcePage() {
 		},
 		articleSection: "Career Progression",
 		keywords:
-			"diploma in civil engineering, engineering coordinator singapore, building services course, fire safety management, green buildings",
+			"diploma in civil engineering, Project Coordinator singapore, building services course, fire safety management, green buildings",
 		inLanguage: "en-SG",
 	};
 
@@ -137,7 +137,7 @@ export default function WhatsNextAfterDcePage() {
 						<div className="relative w-full h-[260px] sm:h-[360px] md:h-[440px] rounded-2xl overflow-hidden shadow-lg">
 							<Image
 								src="/herosections/adec_hero.png"
-								alt="Advanced Diploma in Engineering Coordinator programme"
+								alt="Advanced Diploma in Project Coordinator programme"
 								fill
 								className="object-cover"
 								priority
@@ -291,7 +291,7 @@ export default function WhatsNextAfterDcePage() {
 							</p>
 							<p className="leading-relaxed">
 								When you compare that monthly outlay with the long-term earning
-								potential of moving into Engineering Coordinator, Facilities
+								potential of moving into Project Coordinator, Facilities
 								Management, or M&amp;E project-track roles, this is less an
 								expense and more an upgrade investment.
 							</p>

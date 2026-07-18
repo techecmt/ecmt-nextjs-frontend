@@ -20,7 +20,7 @@ const heroSlides: HeroSlide[] = [
     image: "/herosections/adec_hero.png",
     alt: "Students in a classroom at Edusphere College",
     eyebrow: "Admissions Open",
-    title: "Advanced Diploma in Engineering Coordinator (Building Services & Fire Safety)",
+    title: "Advanced Diploma in Project Coordinator (Building Services & Fire Safety)",
     description:
       "prepares learners to coordinate and manage engineering systems within modern buildings and infrastructure projects.",
     primaryCta: { label: "Learn More", href: "/advanced-diploma-in-engineering-coordinator/" },
