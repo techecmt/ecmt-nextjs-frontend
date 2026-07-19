@@ -24,6 +24,11 @@ export const metadata: Metadata = {
     "Edusphere College Singapore offers diploma, advanced diploma, certificate, and WSQ courses across business, IT, engineering, hospitality, and healthcare.",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
