@@ -15,6 +15,54 @@ export type BlogPost = {
  */
 export const blogPosts: BlogPost[] = [
 	{
+		title:
+			"50 Supply Chain Management Interview Questions & Answers in Singapore (2026)",
+		description:
+			"Prepare for your supply chain interview in Singapore with 50 essential questions and answers covering SCM fundamentals, demand planning, S&OP, procurement, logistics, Incoterms, inventory control and KPIs.",
+		slug: "supply-chain-management-interview-questions",
+		image: "/blogimages/supply-chain-management-interview-questions.jpg",
+		date: "28 Jul, 2026",
+		category: "Interview Preparation",
+	},
+	{
+		title:
+			"40 Logistics Executive Interview Questions & Answers in Singapore (2026)",
+		description:
+			"Prepare for your logistics executive or coordinator interview in Singapore with 40 questions covering Incoterms 2020, freight modes, TradeNet declarations, shipping documents, warehousing and transport operations.",
+		slug: "logistics-executive-interview-questions",
+		image: "/blogimages/logistics-executive-interview-questions.jpg",
+		date: "28 Jul, 2026",
+		category: "Interview Preparation",
+	},
+	{
+		title: "40 Procurement Interview Questions & Answers in Singapore (2026)",
+		description:
+			"Prepare for your procurement, purchasing or buyer interview in Singapore with 40 questions covering strategic sourcing, RFQ and tendering, negotiation, contracts, supplier performance and procurement ethics.",
+		slug: "procurement-interview-questions",
+		image: "/blogimages/procurement-interview-questions.jpg",
+		date: "28 Jul, 2026",
+		category: "Interview Preparation",
+	},
+	{
+		title: "20 Supply Chain KPIs Every Candidate Should Know (With Formulas)",
+		description:
+			"The 20 supply chain KPIs interviewers ask you to define — OTIF, fill rate, perfect order, inventory turnover, DIO, forecast accuracy, cash-to-cash cycle and more, each with its formula and what it tells you.",
+		slug: "supply-chain-kpis",
+		image: "/blogimages/supply-chain-kpis.jpg",
+		date: "28 Jul, 2026",
+		category: "Career Guidance",
+	},
+	{
+		title:
+			"Inventory Management Techniques Explained: JIT, EOQ, Safety Stock & ABC Analysis",
+		description:
+			"A practical guide to inventory management techniques — JIT vs JIC, EOQ, safety stock, reorder point, ABC analysis, FIFO and FEFO, MTS vs MTO and cycle counting — with worked examples and interview answers.",
+		slug: "inventory-management-techniques",
+		image: "/blogimages/inventory-management-techniques.jpg",
+		date: "28 Jul, 2026",
+		category: "Career Guidance",
+	},
+	{
 		title: "50 Engineering Manager Interview Questions & Answers in Singapore (2026)",
 		description:
 			"Prepare for your Engineering Manager interview in Singapore with 50 essential questions and answers covering team leadership, project delivery, technical decision-making, stakeholder management, and people development.",
