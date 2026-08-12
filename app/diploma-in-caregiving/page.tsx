@@ -305,8 +305,8 @@ export default function DiplomaInCaregiving() {
                     { code: 'DC02', title: 'Effective Communication and Interpersonal Skills', hours: 24 },
                     { code: 'DC03', title: 'Psychosocial Health and Nutrition', hours: 24 },
                     { code: 'DC04', title: 'New Born & Infant Care', hours: 24 },
-                    { code: 'DC05', title: 'Ageing Process & Promotion of Physical Health', hours: 24 },
-                    { code: 'DC06', title: 'Prevention and Management of Falls', hours: 24 },
+                    { code: 'DC05', title: 'Prevention and Management of Falls', hours: 24 },
+                    { code: 'DC06', title: 'Ageing Process & Promotion of Physical Health', hours: 24 },
                   ].map((module, idx) => (
                     <tr key={idx} className="hover:bg-gray-50 transition-colors">
                       <td className="px-4 py-4 font-semibold text-[#1AB69D]">{module.code}</td>
