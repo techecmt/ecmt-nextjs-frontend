@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaBars, FaTimes, FaChevronDown, FaChevronRight } from 'react-icons/fa';
+import { ArrowUpRight, PhoneCall } from 'lucide-react';
 import { 
   FaHeartbeat, 
   FaHotel, 
@@ -165,12 +166,35 @@ export default function Header() {
             </div>
           ))}
 
+          <Link
+            href="/request-a-callback"
+            className="group relative ml-3 inline-flex rounded-full bg-[linear-gradient(120deg,#7c3aed,#1AB69D,#22d3ee)] p-[1.5px] shadow-[0_10px_28px_-18px_rgba(124,58,237,0.9)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_34px_-18px_rgba(26,182,157,0.9)]"
+          >
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 rounded-full bg-[linear-gradient(120deg,#7c3aed,#1AB69D,#22d3ee)] opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-55"
+            />
+            <span className="relative inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#0e8f7d] transition-colors duration-300 group-hover:bg-[#f6fffd]">
+              <PhoneCall className="h-3.5 w-3.5" aria-hidden="true" />
+              Request a callback
+            </span>
+          </Link>
+
           {/* CTA Button */}
           <Link
             href="https://onlineportal.edusphere.edu.sg/login"
-            className="ml-3 px-5 py-2 bg-[#1AB69D] text-white text-sm font-semibold rounded-full hover:bg-[#159b85] transition-colors duration-200 shadow-sm hover:shadow-md"
+            className="group relative ml-2 inline-flex items-center gap-1.5 overflow-hidden rounded-full px-5 py-2 text-sm font-semibold text-white shadow-[0_10px_28px_-18px_rgba(21,156,133,0.95)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_36px_-18px_rgba(124,58,237,0.95)]"
           >
-            Student Portal
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 bg-[linear-gradient(120deg,#1AB69D,#14b8a6,#7c3aed)]"
+            />
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 bg-[radial-gradient(circle_at_12%_20%,rgba(255,255,255,0.35),transparent_45%),radial-gradient(circle_at_90%_80%,rgba(236,72,153,0.38),transparent_44%)] opacity-70 transition-opacity duration-300 group-hover:opacity-100"
+            />
+            <span className="relative">Student Portal</span>
+            <ArrowUpRight className="relative h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
           </Link>
         </nav>
 
@@ -235,13 +259,35 @@ export default function Header() {
                 </div>
               ))}
 
-              <div className="pt-3 px-4">
+              <div className="space-y-2 pt-3 px-4">
+                <Link
+                  href="/request-a-callback"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="group relative block w-full overflow-hidden rounded-full bg-[linear-gradient(120deg,#7c3aed,#1AB69D,#22d3ee)] p-[1.5px] text-center shadow-[0_12px_30px_-20px_rgba(124,58,237,0.95)] transition-transform duration-300 hover:-translate-y-0.5"
+                >
+                  <span className="pointer-events-none absolute inset-0 rounded-full bg-[linear-gradient(120deg,#7c3aed,#1AB69D,#22d3ee)] opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-50" />
+                  <span className="relative flex items-center justify-center gap-2 rounded-full bg-white px-4 py-3 font-semibold text-[#0e8f7d]">
+                    <PhoneCall className="h-4 w-4" aria-hidden="true" />
+                    Request a callback
+                  </span>
+                </Link>
                 <Link
                   href="https://onlineportal.edusphere.edu.sg/login"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block w-full text-center py-3 bg-[#1AB69D] text-white font-semibold rounded-full hover:bg-[#159b85] transition-colors"
+                  className="group relative block w-full overflow-hidden rounded-full px-4 py-3 text-center font-semibold text-white shadow-[0_12px_30px_-20px_rgba(21,156,133,0.95)] transition-transform duration-300 hover:-translate-y-0.5"
                 >
-                  Student Portal
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-[linear-gradient(120deg,#1AB69D,#14b8a6,#7c3aed)]"
+                  />
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-[radial-gradient(circle_at_12%_20%,rgba(255,255,255,0.35),transparent_45%),radial-gradient(circle_at_90%_80%,rgba(236,72,153,0.38),transparent_44%)] opacity-80"
+                  />
+                  <span className="relative flex items-center justify-center gap-2">
+                    Student Portal
+                    <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+                  </span>
                 </Link>
               </div>
             </nav>

@@ -45,6 +45,7 @@ const quickLinks = [
   { label: "Blog", href: "/blog" },
   { label: "Careers", href: "/careers" },
   { label: "Contact Us", href: "/contact-us" },
+  { label: "Request a Callback", href: "/request-a-callback" },
   { label: "FAQ", href: "/faq" },
   { label: "Student Resources", href: "/essential-resources-and-support-for-students" },
 ];
