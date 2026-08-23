@@ -176,7 +176,7 @@ export default function Header() {
             />
             <span className="relative inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#0e8f7d] transition-colors duration-300 group-hover:bg-[#f6fffd]">
               <PhoneCall className="h-3.5 w-3.5" aria-hidden="true" />
-              Request a callback
+              Callback / appointment
             </span>
           </Link>
 
@@ -268,7 +268,7 @@ export default function Header() {
                   <span className="pointer-events-none absolute inset-0 rounded-full bg-[linear-gradient(120deg,#7c3aed,#1AB69D,#22d3ee)] opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-50" />
                   <span className="relative flex items-center justify-center gap-2 rounded-full bg-white px-4 py-3 font-semibold text-[#0e8f7d]">
                     <PhoneCall className="h-4 w-4" aria-hidden="true" />
-                    Request a callback
+                    Callback / appointment
                   </span>
                 </Link>
                 <Link

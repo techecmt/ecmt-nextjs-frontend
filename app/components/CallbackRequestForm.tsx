@@ -20,7 +20,31 @@ const COURSE_OPTIONS = Array.from(
   ]),
 ).sort((left, right) => left.localeCompare(right));
 
+const APPOINTMENT_SLOTS = Array.from({ length: 29 }, (_, index) => {
+  const totalMinutes = 9 * 60 + index * 30;
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+  return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
+});
+const CAMPUS_LAST_SLOT = "17:30";
+
+function slotsForMode(mode: AppointmentMode) {
+  if (mode !== "campus") return APPOINTMENT_SLOTS;
+  return APPOINTMENT_SLOTS.filter((slot) => slot <= CAMPUS_LAST_SLOT);
+}
+
+const APPOINTMENT_MODES = [
+  { value: "phone", label: "Phone counselling", hint: "A counsellor will call you" },
+  { value: "video", label: "Video call", hint: "Meet online at the booked time" },
+  { value: "campus", label: "Campus visit", hint: "Visit Edusphere for a face-to-face session" },
+] as const;
+
+type AppointmentMode = (typeof APPOINTMENT_MODES)[number]["value"];
+
 type FormData = {
+  requestType: "appointment";
+  appointmentMode: AppointmentMode;
+  durationMinutes: number;
   fullName: string;
   email: string;
   phone: string;
@@ -44,6 +68,9 @@ function singaporeDate() {
 
 function initialFormData(): FormData {
   return {
+    requestType: "appointment",
+    appointmentMode: "phone",
+    durationMinutes: 30,
     fullName: "",
     email: "",
     phone: "",
@@ -75,6 +102,19 @@ export default function CallbackRequestForm() {
     setFormData((current) => ({ ...current, [field]: value }));
   }
 
+  function selectAppointmentMode(mode: AppointmentMode) {
+    const availableSlots = slotsForMode(mode);
+    setFormData((current) => ({
+      ...current,
+      appointmentMode: mode,
+      preferredTime: availableSlots.includes(current.preferredTime)
+        ? current.preferredTime
+        : availableSlots[availableSlots.length - 1] ?? "09:00",
+    }));
+  }
+
+  const availableSlots = slotsForMode(formData.appointmentMode);
+
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setIsSubmitting(true);
@@ -97,13 +137,13 @@ export default function CallbackRequestForm() {
       const result = (await response.json()) as { error?: string };
 
       if (!response.ok) {
-        throw new Error(result.error || "Unable to submit your callback request.");
+        throw new Error(result.error || "Unable to submit your request.");
       }
 
       setFormData(initialFormData());
       setMessage({
         type: "success",
-        text: "Thank you. A student counsellor will contact you at your preferred time.",
+        text: "Thank you. Your appointment request has been received. A student counsellor will confirm the slot with you.",
       });
     } catch (error) {
       setMessage({
@@ -111,7 +151,7 @@ export default function CallbackRequestForm() {
         text:
           error instanceof Error
             ? error.message
-            : "Unable to submit your callback request. Please try again.",
+            : "Unable to submit your request. Please try again.",
       });
     } finally {
       setIsSubmitting(false);
@@ -120,6 +160,32 @@ export default function CallbackRequestForm() {
 
   return (
     <form className="space-y-5" onSubmit={handleSubmit}>
+      <fieldset>
+        <legend className="mb-2 block text-sm font-semibold text-gray-800">
+          How would you like to meet? <span className="text-[#EE4A62]">*</span>
+        </legend>
+        <div className="grid gap-3 sm:grid-cols-3">
+          {APPOINTMENT_MODES.map((mode) => {
+            const selected = formData.appointmentMode === mode.value;
+            return (
+              <button
+                key={mode.value}
+                type="button"
+                onClick={() => selectAppointmentMode(mode.value)}
+                className={`rounded-2xl border px-3.5 py-3 text-left transition ${
+                  selected
+                    ? "border-[#1AB69D] bg-[#effbf8] shadow-sm"
+                    : "border-gray-200 bg-white hover:border-gray-300"
+                }`}
+              >
+                <span className="block text-sm font-semibold text-gray-900">{mode.label}</span>
+                <span className="mt-1 block text-xs leading-5 text-gray-500">{mode.hint}</span>
+              </button>
+            );
+          })}
+        </div>
+      </fieldset>
+
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Full name" htmlFor="callback-full-name">
           <input
@@ -179,7 +245,7 @@ export default function CallbackRequestForm() {
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
-        <Field label="Best date for a callback" htmlFor="callback-date">
+        <Field label="Appointment date" htmlFor="callback-date">
           <input
             id="callback-date"
             type="date"
@@ -190,17 +256,44 @@ export default function CallbackRequestForm() {
             className={inputClassName}
           />
         </Field>
-        <Field label="Best time for a callback" htmlFor="callback-time">
-          <input
+        <Field
+          label="Available time slot"
+          htmlFor="callback-time"
+          hint={
+            formData.appointmentMode === "campus"
+              ? "Campus visits are available from 9:00 am to 5:30 pm."
+              : undefined
+          }
+        >
+          <select
             id="callback-time"
-            type="time"
             required
             value={formData.preferredTime}
             onChange={(event) => updateField("preferredTime", event.target.value)}
             className={inputClassName}
-          />
+          >
+            {availableSlots.map((slot) => (
+              <option key={slot} value={slot}>
+                {formatSlotLabel(slot)}
+              </option>
+            ))}
+          </select>
         </Field>
       </div>
+
+      <Field label="Session length" htmlFor="callback-duration">
+        <select
+          id="callback-duration"
+          required
+          value={String(formData.durationMinutes)}
+          onChange={(event) => updateField("durationMinutes", Number(event.target.value))}
+          className={inputClassName}
+        >
+          <option value="30">30 minutes</option>
+          <option value="45">45 minutes</option>
+          <option value="60">60 minutes</option>
+        </select>
+      </Field>
 
       <div className="hidden" aria-hidden="true">
         <label htmlFor="callback-website">Website</label>
@@ -231,7 +324,7 @@ export default function CallbackRequestForm() {
         disabled={isSubmitting}
         className="w-full rounded-xl bg-[#1AB69D] px-5 py-3.5 font-semibold text-white transition hover:bg-[#169d88] focus:outline-none focus:ring-4 focus:ring-[#1AB69D]/30 disabled:cursor-not-allowed disabled:opacity-60"
       >
-        {isSubmitting ? "Submitting request…" : "Request a callback"}
+        {isSubmitting ? "Submitting request…" : "Book appointment"}
       </button>
       <p className="text-center text-xs leading-5 text-gray-500">
         By submitting, you agree that an Edusphere student counsellor may contact
@@ -244,13 +337,22 @@ export default function CallbackRequestForm() {
 const inputClassName =
   "w-full rounded-xl border border-gray-300 bg-white px-3.5 py-3 text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-[#1AB69D] focus:ring-4 focus:ring-[#1AB69D]/15";
 
+function formatSlotLabel(slot: string) {
+  const [hours, minutes] = slot.split(":").map(Number);
+  const suffix = hours >= 12 ? "pm" : "am";
+  const hour12 = hours % 12 || 12;
+  return `${hour12}:${String(minutes).padStart(2, "0")} ${suffix}`;
+}
+
 function Field({
   label,
   htmlFor,
+  hint,
   children,
 }: {
   label: string;
   htmlFor: string;
+  hint?: string;
   children: React.ReactNode;
 }) {
   return (
@@ -259,6 +361,7 @@ function Field({
         {label} <span className="text-[#EE4A62]">*</span>
       </label>
       {children}
+      {hint ? <p className="mt-1.5 text-xs leading-5 text-gray-500">{hint}</p> : null}
     </div>
   );
 }
