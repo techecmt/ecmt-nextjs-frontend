@@ -16,6 +16,16 @@ export type BlogPost = {
 export const blogPosts: BlogPost[] = [
 	{
 		title:
+			"Construction Management: The Job, the Software, and How to Qualify for It",
+		description:
+			"What construction management actually involves day to day, the construction project management software teams use, the career ladder from site supervisor to construction manager, and the part-time diploma routes into it in Singapore.",
+		slug: "construction-management",
+		image: "/blogimages/construction-management.jpg",
+		date: "24 Aug, 2026",
+		category: "Career Guidance",
+	},
+	{
+		title:
 			"50 Supply Chain Management Interview Questions & Answers in Singapore (2026)",
 		description:
 			"Prepare for your supply chain interview in Singapore with 50 essential questions and answers covering SCM fundamentals, demand planning, S&OP, procurement, logistics, Incoterms, inventory control and KPIs.",

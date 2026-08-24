@@ -21,6 +21,7 @@ deliberately excluded.
 | `procurement-interview-questions.jpg` | Dylan Gillis | [KdeqA3aTnBY](https://unsplash.com/photos/KdeqA3aTnBY) — people around a table in a meeting |
 | `supply-chain-kpis.jpg` | Luke Chesser | [JKUTrJ4vK00](https://unsplash.com/photos/JKUTrJ4vK00) — analytics dashboard on a laptop |
 | `inventory-management-techniques.jpg` | CHUTTERSNAP | [BNBA1h-NgdY](https://unsplash.com/photos/BNBA1h-NgdY) — warehouse pallet racking |
+| `construction-management.jpg` | Shivendu Shukla | [3yoTPuYR9ZY](https://unsplash.com/photos/3yoTPuYR9ZY) — silhouetted construction site with tower crane at sunset |
 
 Images were downloaded and self-hosted rather than hot-linked, so the pages do
 not depend on an external CDN and Next.js can optimise them. Each was fetched at
