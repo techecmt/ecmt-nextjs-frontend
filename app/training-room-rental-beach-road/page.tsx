@@ -17,6 +17,7 @@ import {
   MonitorPlay,
   Phone,
   Presentation,
+  Ruler,
   ShieldCheck,
   Sun,
   Table2,
@@ -27,14 +28,14 @@ import {
 export const metadata: Metadata = {
   title: "Training Room for Rent at Beach Road | Edusphere College Singapore",
   description:
-    "Bright, classroom-style training room for rent at 7500A Beach Road, The Plaza. Up to 46 pax, projector, screen and high-speed Wi-Fi from $350 + GST per full day.",
+    "Three bright, classroom-style training rooms for rent at 7500A Beach Road, The Plaza. Seating 19, 29 and 47 pax, with projector, screen and high-speed Wi-Fi from $250 + GST per full day.",
   alternates: {
     canonical: "https://edusphere.edu.sg/training-room-rental-beach-road",
   },
   openGraph: {
     title: "Training Room for Rent at Beach Road | Edusphere College",
     description:
-      "Up to 46 pax, classroom-style, projector & screen, high-speed Wi-Fi. $350 + GST per full day at The Plaza, Beach Road.",
+      "Three classroom-style rooms seating 19, 29 and 47 pax. Projector & screen, high-speed Wi-Fi. From $250 + GST per full day at The Plaza, Beach Road.",
     url: "https://edusphere.edu.sg/training-room-rental-beach-road",
     images: ["/facilities/classroom-2.jpg"],
   },
@@ -46,12 +47,42 @@ const PHONE_TEL = "+6582200095";
 const EMAIL = "tahir@edusphere.edu.sg";
 
 const highlights = [
-  { icon: Users, label: "Up to 46 pax" },
+  { icon: Users, label: "3 rooms, up to 47 pax" },
   { icon: Presentation, label: "Classroom style" },
   { icon: MonitorPlay, label: "Projector & screen" },
   { icon: Wifi, label: "High-speed Wi-Fi" },
   { icon: AirVent, label: "Air-conditioned" },
   { icon: Coffee, label: "Pantry & reception" },
+];
+
+const classrooms = [
+  {
+    name: "Classroom 1",
+    size: "28.5 sqm",
+    capacity: 19,
+    price: 250,
+    image: "/facilities/classroom-1.jpg",
+    description:
+      "Our smallest room — well suited to small-group workshops, interviews, briefings and committee meetings.",
+  },
+  {
+    name: "Classroom 2",
+    size: "71.28 sqm",
+    capacity: 47,
+    price: 400,
+    image: "/facilities/classroom-2.jpg",
+    description:
+      "The main training room, with large windows and a city view. Ideal for full-day seminars, courses and town halls.",
+  },
+  {
+    name: "Classroom 3",
+    size: "43.5 sqm",
+    capacity: 29,
+    price: 350,
+    image: "/facilities/classroom-3.jpg",
+    description:
+      "A mid-sized room for classes, certification runs and mid-week training sessions.",
+  },
 ];
 
 const roomFeatures = [
@@ -68,7 +99,7 @@ const included = [
   { icon: Wifi, label: "High-speed Wi-Fi" },
   { icon: Coffee, label: "Pantry area" },
   { icon: ConciergeBell, label: "Reception area" },
-  { icon: Fan, label: "2 portable air-coolers" },
+  
 ];
 
 const airconHours = [
@@ -98,13 +129,15 @@ export default function TrainingRoomRentalBeachRoad() {
     "@type": "Product",
     name: "Training Room Rental at Beach Road, The Plaza",
     description:
-      "Classroom-style training room for rent in Singapore seating up to 46 pax, with projector, screen, high-speed Wi-Fi, pantry and reception area.",
+      "Three classroom-style training rooms for rent in Singapore seating 19, 29 and 47 pax, with projector, screen, high-speed Wi-Fi, pantry and reception area.",
     image: "https://edusphere.edu.sg/facilities/classroom-2.jpg",
     brand: { "@type": "Organization", name: "Edusphere College" },
     offers: {
-      "@type": "Offer",
-      price: "350",
+      "@type": "AggregateOffer",
+      lowPrice: "250",
+      highPrice: "400",
       priceCurrency: "SGD",
+      offerCount: 3,
       availability: "https://schema.org/InStock",
       url: "https://edusphere.edu.sg/training-room-rental-beach-road",
     },
@@ -130,14 +163,15 @@ export default function TrainingRoomRentalBeachRoad() {
               <span className="block text-[#1AB69D]">for rent</span>
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-8 text-gray-600">
-              A professional, comfortable space for your training sessions,
-              workshops, seminars and meetings — right at The Plaza,
-              7500A Beach Road.
+              Three professional, comfortable rooms for your training sessions,
+              workshops, seminars and meetings — seating 19, 29 and 47 pax at
+              The Plaza, 7500A Beach Road.
             </p>
 
             <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
               <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-bold text-gray-900">$350</span>
+                <span className="text-sm font-medium text-gray-500">from</span>
+                <span className="text-4xl font-bold text-gray-900">$250</span>
                 <span className="text-sm font-medium text-gray-500">
                   + GST / full day
                 </span>
@@ -168,7 +202,7 @@ export default function TrainingRoomRentalBeachRoad() {
             </div>
 
             <p className="mt-4 text-sm text-gray-500">
-              Bright. Spacious. Productive. — seats up to 46 pax.
+              Bright. Spacious. Productive. — three rooms, up to 47 pax.
             </p>
           </div>
 
@@ -185,9 +219,9 @@ export default function TrainingRoomRentalBeachRoad() {
             </div>
             <div className="absolute -bottom-5 left-6 rounded-2xl bg-white px-5 py-3 shadow-xl ring-1 ring-gray-100 sm:left-8">
               <p className="text-xs font-semibold uppercase tracking-widest text-gray-400">
-                Capacity
+                Three rooms
               </p>
-              <p className="text-xl font-bold text-gray-900">Up to 46 pax</p>
+              <p className="text-xl font-bold text-gray-900">19 · 29 · 47 pax</p>
             </div>
           </div>
         </div>
@@ -223,7 +257,7 @@ export default function TrainingRoomRentalBeachRoad() {
               Bright. Spacious. Productive.
             </h2>
             <p className="mt-5 text-lg leading-8 text-gray-600">
-              Our training room at The Plaza offers a professional and
+              Our three training rooms at The Plaza offer a professional and
               comfortable environment for your training, workshops, seminars
               and meetings.
             </p>
@@ -251,6 +285,79 @@ export default function TrainingRoomRentalBeachRoad() {
         </div>
       </section>
 
+      {/* ── The three training rooms ────────────────────────── */}
+      <section className="bg-gray-50 py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#1AB69D]">
+              Choose your room
+            </p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Three training rooms
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-gray-600">
+              From small-group workshops to full-day seminars — pick the room
+              that fits your group, or book more than one for breakout sessions.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {classrooms.map((room) => (
+              <article
+                key={room.name}
+                className="flex flex-col overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-100 transition hover:shadow-xl"
+              >
+                <div className="relative h-56 w-full">
+                  <Image
+                    src={room.image}
+                    alt={`${room.name} at Beach Road, set up in classroom style`}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                  <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-sm font-bold text-gray-900 shadow-sm">
+                    <Users className="h-4 w-4 text-[#1AB69D]" />
+                    Max {room.capacity} pax
+                  </span>
+                </div>
+
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="text-xl font-bold text-gray-900">
+                    {room.name}
+                  </h3>
+                  <p className="mt-1.5 flex items-center gap-1.5 text-sm font-medium text-gray-500">
+                    <Ruler className="h-4 w-4 text-[#1AB69D]" />
+                    {room.size}
+                  </p>
+                  <p className="mt-4 flex items-baseline gap-1.5">
+                    <span className="text-3xl font-bold text-gray-900">
+                      ${room.price}
+                    </span>
+                    <span className="text-sm font-medium text-gray-500">
+                      + GST / full day
+                    </span>
+                  </p>
+                  <p className="mt-4 flex-1 leading-7 text-gray-600">
+                    {room.description}
+                  </p>
+                  <a
+                    href={`${WHATSAPP_URL}?text=${encodeURIComponent(
+                      `Hi, I would like to check availability for ${room.name} (max ${room.capacity} pax) at Beach Road.`
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#1AB69D] transition hover:text-[#159683]"
+                  >
+                    Enquire about {room.name}
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Rates ───────────────────────────────────────────── */}
       <section className="bg-linear-to-b from-white via-[#effbf8] to-white py-16 lg:py-24">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
@@ -268,12 +375,26 @@ export default function TrainingRoomRentalBeachRoad() {
               <p className="text-sm font-semibold uppercase tracking-widest text-white/80">
                 Full day rental
               </p>
-              <p className="mt-4 flex items-baseline gap-2">
-                <span className="text-5xl font-bold">$350</span>
-                <span className="text-lg font-medium text-white/85">+ GST</span>
-              </p>
-              <div className="mt-6 space-y-2 text-sm text-white/90">
-                <p className="font-semibold">9:00am – 6:00pm</p>
+              <ul className="mt-6 space-y-4">
+                {classrooms.map((room) => (
+                  <li
+                    key={room.name}
+                    className="flex items-baseline justify-between gap-4 border-b border-white/20 pb-4 last:border-0 last:pb-0"
+                  >
+                    <span className="text-sm font-medium text-white/90">
+                      {room.name}
+                      <span className="block text-xs text-white/70">
+                        Max {room.capacity} pax · {room.size}
+                      </span>
+                    </span>
+                    <span className="shrink-0 text-3xl font-bold">
+                      ${room.price}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-6 space-y-1 text-sm text-white/90">
+                <p className="font-semibold">+ GST · 9:00am – 6:00pm</p>
                 <p>Monday to Friday</p>
               </div>
             </div>
@@ -537,8 +658,14 @@ export default function TrainingRoomRentalBeachRoad() {
             <div className="rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 sm:p-8">
               <h3 className="text-lg font-bold text-white">At a glance</h3>
               <dl className="mt-6 space-y-5 text-sm">
-                <Spec label="Capacity" value="Up to 46 pax, classroom style" />
-                <Spec label="Rate" value="$350 + GST per full day" />
+                <Spec
+                  label="Rooms"
+                  value="Classroom 1 — 19 pax · Classroom 2 — 47 pax · Classroom 3 — 29 pax"
+                />
+                <Spec
+                  label="Rates"
+                  value="$250 / $400 / $350 + GST per full day"
+                />
                 <Spec label="Hours" value="9:00am – 6:00pm, Mon – Fri" />
                 <Spec label="Deposit" value="$200 refundable, per booking" />
                 <Spec
