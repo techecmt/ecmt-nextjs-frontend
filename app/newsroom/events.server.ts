@@ -3,6 +3,7 @@ import "server-only";
 import type { NewsEvent } from "./events";
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const NEWSROOM_REVALIDATE_SECONDS = 60;
 const SUPABASE_KEY =
   process.env.SUPABASE_SERVICE_ROLE_KEY ??
   process.env.SUPABASE_SECRET_KEY ??
@@ -40,8 +41,8 @@ async function supabaseRest<T>(path: string): Promise<T> {
 
   const response = await fetch(`${SUPABASE_URL}/rest/v1/${path}`, {
     headers: supabaseHeaders(),
-    // Keep newsroom fairly fresh without forcing full dynamic rendering.
-    next: { revalidate: 300 },
+    // Keep newsroom fresh shortly after CMS publishes while staying cache-friendly.
+    next: { revalidate: NEWSROOM_REVALIDATE_SECONDS },
   });
 
   if (!response.ok) {
