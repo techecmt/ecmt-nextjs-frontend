@@ -6,12 +6,10 @@ import {
   AirVent,
   ArrowRight,
   Bus,
-  Car,
   ChevronRight,
   Coffee,
   ConciergeBell,
   Users,
-  Fan,
   Mail,
   MapPin,
   MonitorPlay,
@@ -19,7 +17,6 @@ import {
   Presentation,
   Ruler,
   ShieldCheck,
-  Sun,
   Table2,
   TrainFront,
   Wifi,
@@ -99,13 +96,6 @@ const included = [
   { icon: Wifi, label: "High-speed Wi-Fi" },
   { icon: Coffee, label: "Pantry area" },
   { icon: ConciergeBell, label: "Reception area" },
-  
-];
-
-const airconHours = [
-  { day: "Mon – Fri", hours: "approx. 8:00am – 7:00pm" },
-  { day: "Saturday", hours: "approx. 8:00am – 1:00pm" },
-  { day: "Sun & Public Holiday", hours: "No central air-conditioning" },
 ];
 
 const gettingHere = [
@@ -454,37 +444,6 @@ export default function TrainingRoomRentalBeachRoad() {
             </div>
           ))}
         </div>
-
-        <div className="mx-auto mt-10 max-w-5xl rounded-3xl border border-amber-100 bg-amber-50/70 p-6 sm:p-8">
-          <div className="flex items-start gap-3">
-            <Sun className="mt-0.5 h-5 w-5 shrink-0 text-amber-500" />
-            <div>
-              <h3 className="font-semibold text-gray-900">
-                About the air-conditioning
-              </h3>
-              <p className="mt-2 text-sm leading-6 text-gray-600">
-                The Plaza&apos;s central air-conditioning operating hours are
-                determined by the building management. Two portable air-coolers
-                are provided for use when the central air-conditioning is off.
-              </p>
-              <dl className="mt-5 grid gap-3 sm:grid-cols-3">
-                {airconHours.map(({ day, hours }) => (
-                  <div
-                    key={day}
-                    className="rounded-2xl bg-white/80 px-4 py-3 ring-1 ring-amber-100"
-                  >
-                    <dt className="text-xs font-semibold uppercase tracking-wide text-gray-400">
-                      {day}
-                    </dt>
-                    <dd className="mt-1 text-sm font-medium text-gray-700">
-                      {hours}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* ── Pantry & reception ──────────────────────────────── */}
@@ -547,23 +506,6 @@ export default function TrainingRoomRentalBeachRoad() {
             </ul>
           </div>
 
-          <div className="flex">
-            <div className="w-full rounded-3xl border border-gray-100 bg-white p-8 shadow-lg sm:p-10">
-              <div className="flex items-center gap-3">
-                <span className="rounded-xl bg-[#1AB69D]/10 p-3 text-[#1AB69D]">
-                  <Car className="h-6 w-6" />
-                </span>
-                <h3 className="text-xl font-bold text-gray-900">For drivers</h3>
-              </div>
-              <p className="mt-5 leading-7 text-gray-600">
-                The Sultan Gate URA carpark nearby may be a more economical
-                parking option for you and your participants.
-              </p>
-              <p className="mt-4 inline-flex rounded-full bg-[#1AB69D]/10 px-4 py-1.5 text-sm font-semibold text-[#159683]">
-                No ERP charges outside the CBD
-              </p>
-            </div>
-          </div>
         </div>
       </section>
 
