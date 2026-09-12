@@ -336,12 +336,12 @@ export default function AdvancedDiplomaInEngineeringCoordinator() {
 								</thead>
 								<tbody className="divide-y divide-gray-200 text-gray-900">
 									{[
-										{ code: "ADEC01", title: "Engineering Coordination & Project Management", hours: 31 },
-										{ code: "ADEC02", title: "Air-conditioning & Mechanical Ventilation", hours: 31 },
-										{ code: "ADEC03", title: "Water, Sanitary & Gas Services", hours: 31 },
-										{ code: "ADEC04", title: "Building Electrical Systems & Design", hours: 31 },
-										{ code: "ADEC05", title: "Fire Safety Management", hours: 31 },
-										{ code: "ADEC06", title: "Intelligent & Green Buildings", hours: 31 },
+										{ code: "ADPC01", title: "Engineering Coordination & Project Management", hours: 31 },
+										{ code: "ADPC02", title: "Air-conditioning & Mechanical Ventilation", hours: 31 },
+										{ code: "ADPC03", title: "Water, Sanitary & Gas Services", hours: 31 },
+										{ code: "ADPC04", title: "Building Electrical Systems & Design", hours: 31 },
+										{ code: "ADPC05", title: "Fire Safety Management", hours: 31 },
+										{ code: "ADPC06", title: "Intelligent & Green Buildings", hours: 31 },
 									].map((module, idx) => (
 										<tr key={idx} className="hover:bg-gray-50 transition-colors">
 											<td className="px-4 py-4 font-semibold text-[#1AB69D]">{module.code}</td>
