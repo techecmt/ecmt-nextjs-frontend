@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "../../components/contactform";
 import RelatedArticles from "../../components/RelatedArticles";
+import ArticleToc from "../../components/ArticleToc";
 
 export const metadata: Metadata = {
 	title:
@@ -502,6 +503,7 @@ export default function ConstructionManagementPage() {
 			<section className="py-12 md:py-16 bg-white">
 				<div className="container mx-auto px-4 md:px-8 max-w-5xl">
 					<article className="space-y-14 text-gray-800">
+						<ArticleToc />
 						{/* Intro */}
 						<div className="space-y-4">
 							<p className="text-lg leading-relaxed">
@@ -677,7 +679,11 @@ export default function ConstructionManagementPage() {
 								the function does not.
 							</p>
 
-							<div className="overflow-x-auto rounded-2xl border border-gray-200">
+							<p className="mb-2 flex items-center gap-1.5 text-xs font-medium text-gray-500 sm:hidden">
+									<svg className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7l-4 5 4 5m8-10l4 5-4 5M4 12h16" /></svg>
+									Swipe to view the full table
+								</p>
+								<div className="overflow-x-auto rounded-2xl border border-gray-200">
 								<table className="min-w-[720px] w-full text-left text-[15px]">
 									<thead className="bg-gray-900 text-white">
 										<tr>
@@ -808,7 +814,11 @@ export default function ConstructionManagementPage() {
 								years tend to struggle as managers.
 							</p>
 
-							<div className="overflow-x-auto rounded-2xl border border-gray-200">
+							<p className="mb-2 flex items-center gap-1.5 text-xs font-medium text-gray-500 sm:hidden">
+									<svg className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7l-4 5 4 5m8-10l4 5-4 5M4 12h16" /></svg>
+									Swipe to view the full table
+								</p>
+								<div className="overflow-x-auto rounded-2xl border border-gray-200">
 								<table className="min-w-[760px] w-full text-left text-[15px]">
 									<thead className="bg-gray-900 text-white">
 										<tr>

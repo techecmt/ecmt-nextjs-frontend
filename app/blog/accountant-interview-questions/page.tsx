@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "../../components/contactform";
 import RelatedArticles from "../../components/RelatedArticles";
+import ArticleToc from "../../components/ArticleToc";
 import { courseData } from "../../data/courses";
 
 export const metadata: Metadata = {
@@ -480,6 +481,7 @@ export default function AccountantInterviewQuestions() {
 			<section className="py-12 md:py-16 bg-white">
 				<div className="container mx-auto px-4 md:px-8 max-w-5xl">
 					<article className="space-y-12 text-gray-800">
+						<ArticleToc />
 						{/* Introduction */}
 						<div className="space-y-4">
 							<p className="text-lg leading-relaxed">

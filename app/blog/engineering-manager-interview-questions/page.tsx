@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "../../components/contactform";
 import RelatedArticles from "../../components/RelatedArticles";
+import ArticleToc from "../../components/ArticleToc";
 import { courseData } from "../../data/courses";
 
 export const metadata: Metadata = {
@@ -523,6 +524,7 @@ export default function EngineeringManagerInterviewQuestions() {
 			<section className="py-12 md:py-16 bg-white">
 				<div className="container mx-auto px-4 md:px-8 max-w-5xl">
 					<article className="space-y-14 text-gray-800">
+						<ArticleToc />
 						{/* What Is an Engineering Manager */}
 						<div className="space-y-4">
 							<h2 className="text-2xl md:text-3xl font-bold text-gray-900">

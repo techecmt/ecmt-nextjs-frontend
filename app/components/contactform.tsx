@@ -342,7 +342,7 @@ export default function ContactForm() {
                     required
                     value={formData.phone}
                     onChange={handleChange}
-                    className="flex-1 px-4 py-2.5 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1AB69D]/30 focus:border-[#1AB69D] outline-none transition-all duration-300 text-gray-600 placeholder:text-gray-400 hover:border-gray-400 hover:shadow-sm"
+                    className="flex-1 min-w-0 px-4 py-2.5 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1AB69D]/30 focus:border-[#1AB69D] outline-none transition-all duration-300 text-gray-600 placeholder:text-gray-400 hover:border-gray-400 hover:shadow-sm"
                     placeholder="📱 Enter phone number"
                   />
                 </div>
