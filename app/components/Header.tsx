@@ -67,9 +67,23 @@ export default function Header() {
   }, [mobileMenuOpen]);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 8);
+    // Coalesce to one read + at most one state update per frame; the raw
+    // scroll event fires far more often than the shadow can actually change.
+    let frame: number | null = null;
+
+    const handleScroll = () => {
+      if (frame !== null) return;
+      frame = requestAnimationFrame(() => {
+        frame = null;
+        setScrolled(window.scrollY > 8);
+      });
+    };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (frame !== null) cancelAnimationFrame(frame);
+    };
   }, []);
 
   return (

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Header from "./components/Header";
 import AboutCollegeReg from "./components/aboutcollege_reg";
 import CourseList from "./components/course";
 import ContactForm from "./components/contactform";
@@ -94,7 +93,6 @@ export default function Home() {
         }}
       />
       
-      <Header />
       <HeroSlider />
       <AboutCollegeReg />
       <section id="courses">

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { startTransition, useEffect, useMemo, useState } from "react";
 
 type HeroSlide = {
   image: string;
@@ -56,12 +56,41 @@ export default function HeroSlider() {
   const [isPaused, setIsPaused] = useState(false);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
+  // Autoplay is a background animation, so its re-render is marked non-urgent:
+  // a tap landing on the same frame as a tick interrupts the slide render
+  // instead of queueing behind it.
   useEffect(() => {
     if (isPaused || slides.length <= 1) return;
-    const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % slides.length);
-    }, AUTOPLAY_MS);
-    return () => clearInterval(timer);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let timer: ReturnType<typeof setInterval> | undefined;
+
+    const start = () => {
+      if (timer) return;
+      timer = setInterval(() => {
+        startTransition(() =>
+          setActiveIndex((prev) => (prev + 1) % slides.length)
+        );
+      }, AUTOPLAY_MS);
+    };
+
+    const stop = () => {
+      if (!timer) return;
+      clearInterval(timer);
+      timer = undefined;
+    };
+
+    // No point animating — or burning render time — on a backgrounded tab.
+    const onVisibilityChange = () =>
+      document.hidden ? stop() : start();
+
+    if (!document.hidden) start();
+    document.addEventListener("visibilitychange", onVisibilityChange);
+
+    return () => {
+      stop();
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+    };
   }, [isPaused, slides.length]);
 
   const goTo = (index: number) => setActiveIndex(index);

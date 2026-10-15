@@ -74,7 +74,7 @@ export default function EcmtChatWidget() {
     <Script
       id="ecmt-crm-chat-widget"
       src="https://ecmt-crm.vercel.app/widget.js"
-      strategy="afterInteractive"
+      strategy="lazyOnload"
       data-widget-key="e6789d0ad1d758bc6b381fc78bf7a6aa35ca"
       data-position="right"
       onLoad={injectWidgetHostFixes}
