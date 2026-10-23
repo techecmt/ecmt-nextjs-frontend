@@ -2,11 +2,20 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { startTransition, useEffect, useMemo, useState } from "react";
+import {
+  startTransition,
+  useEffect,
+  useMemo,
+  useState,
+  useSyncExternalStore,
+} from "react";
 
 type HeroSlide = {
   image: string;
   alt: string;
+  // Plays over the image while the slide is active; the image stays as its poster.
+  video?: { youtubeId: string; title: string };
+  durationMs?: number;
   eyebrow?: string;
   title: string;
   description: string;
@@ -46,9 +55,38 @@ const heroSlides: HeroSlide[] = [
     primaryCta: { label: "Learn More", href: "/certificate-courses-in-singapore/certificate-autocad-bim/" },
     secondaryCta: { label: "Contact Us", href: "/contact-us" },
   },
+  {
+    image: "/herosections/graduation_2026_hero.jpg",
+    alt: "Graduands celebrating at the Edusphere College graduation ceremony 2026",
+    video: {
+      youtubeId: "NveGnjEdhjY",
+      title: "Edusphere College Graduation Ceremony 2026 - Part 2",
+    },
+    durationMs: 14000,
+    eyebrow: "Class of 2026",
+    title: "Graduation Ceremony 2026 - Part 2",
+    description:
+      "Celebrating our graduands as they step into the next chapter of their careers.",
+    primaryCta: { label: "View Our Courses", href: "/#courses" },
+    secondaryCta: { label: "Contact Us", href: "/contact-us" },
+  },
 ];
 
 const AUTOPLAY_MS = 5000;
+
+const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
+
+const subscribeToReducedMotion = (onChange: () => void) => {
+  const query = window.matchMedia(REDUCED_MOTION_QUERY);
+  query.addEventListener("change", onChange);
+  return () => query.removeEventListener("change", onChange);
+};
+
+const getReducedMotion = () => window.matchMedia(REDUCED_MOTION_QUERY).matches;
+
+// The server can't know the preference, so it renders the no-motion markup and
+// React swaps in the real value right after hydration.
+const getReducedMotionOnServer = () => true;
 
 export default function HeroSlider() {
   const slides = useMemo(() => heroSlides, []);
@@ -56,27 +94,35 @@ export default function HeroSlider() {
   const [isPaused, setIsPaused] = useState(false);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
+  // Video slides fall back to their poster image when motion is reduced.
+  const prefersReducedMotion = useSyncExternalStore(
+    subscribeToReducedMotion,
+    getReducedMotion,
+    getReducedMotionOnServer
+  );
+
   // Autoplay is a background animation, so its re-render is marked non-urgent:
   // a tap landing on the same frame as a tick interrupts the slide render
   // instead of queueing behind it.
   useEffect(() => {
     if (isPaused || slides.length <= 1) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (prefersReducedMotion) return;
 
-    let timer: ReturnType<typeof setInterval> | undefined;
+    let timer: ReturnType<typeof setTimeout> | undefined;
 
     const start = () => {
       if (timer) return;
-      timer = setInterval(() => {
+      timer = setTimeout(() => {
+        timer = undefined;
         startTransition(() =>
           setActiveIndex((prev) => (prev + 1) % slides.length)
         );
-      }, AUTOPLAY_MS);
+      }, slides[activeIndex].durationMs ?? AUTOPLAY_MS);
     };
 
     const stop = () => {
       if (!timer) return;
-      clearInterval(timer);
+      clearTimeout(timer);
       timer = undefined;
     };
 
@@ -91,7 +137,7 @@ export default function HeroSlider() {
       stop();
       document.removeEventListener("visibilitychange", onVisibilityChange);
     };
-  }, [isPaused, slides.length]);
+  }, [isPaused, slides, activeIndex, prefersReducedMotion]);
 
   const goTo = (index: number) => setActiveIndex(index);
   const goNext = () => setActiveIndex((prev) => (prev + 1) % slides.length);
@@ -138,6 +184,20 @@ export default function HeroSlider() {
                 sizes="100vw"
                 className="object-cover"
               />
+              {slide.video && isActive && !prefersReducedMotion && (
+                <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${slide.video.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${slide.video.youtubeId}&controls=0&showinfo=0&modestbranding=1&rel=0&disablekb=1&iv_load_policy=3&fs=0&playsinline=1`}
+                    title={slide.video.title}
+                    allow="autoplay; encrypted-media; picture-in-picture"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    tabIndex={-1}
+                    className="pointer-events-none absolute left-1/2 top-1/2 aspect-video h-auto min-h-full w-auto min-w-full -translate-x-1/2 -translate-y-1/2"
+                    style={{ border: 0 }}
+                  />
+                </div>
+              )}
+
               <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/45 to-black/20" />
               <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
 
