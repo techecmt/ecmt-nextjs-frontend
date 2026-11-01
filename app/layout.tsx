@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import Header from "./components/Header";
-import ConditionalFooter from "./components/ConditionalFooter";
+import SiteChrome from "./components/SiteChrome";
 import EcmtChatWidget from "./components/EcmtChatWidget";
 
 const GTM_ID = "GTM-MFXJHXRD";
@@ -56,9 +55,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
         <EcmtChatWidget />
-        <Header />
-        <main className="pt-[72px]">{children}</main>
-        <ConditionalFooter />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );

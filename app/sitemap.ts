@@ -70,6 +70,12 @@ function getPublicRouteFromPageFile(filePath: string): string | null {
     return null;
   }
 
+  // Campaign landing pages are noindex (see app/lp/layout.tsx). Listing them in
+  // the sitemap would invite the crawl we are trying to avoid.
+  if (segments.length > 0 && segments[0] === "lp") {
+    return null;
+  }
+
   if (segments.some((segment) => /^\[.*\]$/.test(segment))) {
     return null;
   }

@@ -4,7 +4,7 @@ import Script from "next/script";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
-const HIDDEN_PATHS = ["/students-affair"];
+const HIDDEN_PATHS = ["/students-affair", "/lp"];
 const WIDGET_HOST_FIXES_ID = "ecmt-chat-widget-host-fixes";
 
 // The external widget injects fixed-position UI. On small screens its expanded

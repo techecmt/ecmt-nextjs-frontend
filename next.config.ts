@@ -17,6 +17,18 @@ const supabaseRemotePattern = supabaseHostname
 
 const nextConfig: NextConfig = {
   trailingSlash: true,
+  async headers() {
+    return [
+      {
+        // Backstop for the noindex in app/lp/layout.tsx, and it covers non-HTML
+        // responses that cannot carry a meta tag. Note that /lp is deliberately
+        // NOT disallowed in robots.ts: a crawler has to be able to fetch the
+        // page to see this header at all.
+        source: "/lp/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
+    ];
+  },
   async redirects() {
     return [
       {
