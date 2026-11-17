@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   startTransition,
+  useCallback,
   useEffect,
   useMemo,
   useState,
@@ -94,6 +95,18 @@ export default function HeroSlider() {
   const [isPaused, setIsPaused] = useState(false);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
+  // Every slide sits in the viewport at opacity-0, so a browser would fetch all
+  // four hero images during the initial load and starve the LCP image of
+  // bandwidth. Only the slides in here get an <Image>; the first slide is the
+  // only one the server renders, and the rest are mounted a slide ahead of use.
+  const [mountedImages, setMountedImages] = useState<readonly number[]>([0]);
+
+  const mountImage = useCallback((index: number) => {
+    setMountedImages((prev) =>
+      prev.includes(index) ? prev : [...prev, index]
+    );
+  }, []);
+
   // Video slides fall back to their poster image when motion is reduced.
   const prefersReducedMotion = useSyncExternalStore(
     subscribeToReducedMotion,
@@ -139,6 +152,38 @@ export default function HeroSlider() {
     };
   }, [isPaused, slides, activeIndex, prefersReducedMotion]);
 
+  // Warm the next slide one step ahead so an advance never waits on a fetch.
+  // The first warm-up is deferred to idle time to keep the LCP image alone on
+  // the critical path.
+  useEffect(() => {
+    if (slides.length <= 1) return;
+
+    const next = (activeIndex + 1) % slides.length;
+    const warmNext = () => {
+      mountImage(activeIndex);
+      mountImage(next);
+    };
+
+    if (activeIndex !== 0) {
+      warmNext();
+      return;
+    }
+
+    const idleScheduler =
+      typeof window.requestIdleCallback === "function"
+        ? {
+            schedule: () => window.requestIdleCallback(warmNext, { timeout: 2500 }),
+            cancel: (handle: number) => window.cancelIdleCallback(handle),
+          }
+        : {
+            schedule: () => window.setTimeout(warmNext, 1500),
+            cancel: (handle: number) => window.clearTimeout(handle),
+          };
+
+    const handle = idleScheduler.schedule();
+    return () => idleScheduler.cancel(handle);
+  }, [activeIndex, slides.length, mountImage]);
+
   const goTo = (index: number) => setActiveIndex(index);
   const goNext = () => setActiveIndex((prev) => (prev + 1) % slides.length);
   const goPrev = () =>
@@ -176,14 +221,17 @@ export default function HeroSlider() {
               }`}
               aria-hidden={!isActive}
             >
-              <Image
-                src={slide.image}
-                alt={slide.alt}
-                fill
-                priority={index === 0}
-                sizes="100vw"
-                className="object-cover"
-              />
+              {mountedImages.includes(index) && (
+                <Image
+                  src={slide.image}
+                  alt={slide.alt}
+                  fill
+                  priority={index === 0}
+                  loading={index === 0 ? undefined : "eager"}
+                  sizes="100vw"
+                  className="object-cover"
+                />
+              )}
               {slide.video && isActive && !prefersReducedMotion && (
                 <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
                   <iframe

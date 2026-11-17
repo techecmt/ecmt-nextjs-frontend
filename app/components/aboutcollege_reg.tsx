@@ -14,8 +14,8 @@ export default function AboutCollegeReg() {
                 alt="Edusphere College Registration Certificate"
                 width={520}
                 height={720}
+                sizes="(min-width: 768px) 448px, calc(100vw - 48px)"
                 className="w-full h-auto object-cover"
-                priority
               />
             </div>
           </div>

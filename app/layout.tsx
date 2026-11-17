@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import SiteChrome from "./components/SiteChrome";
-import EcmtChatWidget from "./components/EcmtChatWidget";
 
 const GTM_ID = "GTM-MFXJHXRD";
 
@@ -54,7 +53,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        <EcmtChatWidget />
         <SiteChrome>{children}</SiteChrome>
       </body>
     </html>

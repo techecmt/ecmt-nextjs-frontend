@@ -99,9 +99,9 @@ export default function Header() {
           <Image
             src="/brand/Logo_png_high.png"
             alt="Edusphere College Logo"
-            width={1024}
-            height={211}
-            priority
+            width={272}
+            height={56}
+            loading="eager"
             className="h-12 w-auto object-contain md:h-14"
           />
         </Link>
