@@ -16,8 +16,18 @@ export function onOpenLeadForm(handler: (detail: OpenFormDetail) => void) {
   return () => window.removeEventListener(OPEN_EVENT, listener);
 }
 
-export function trackEvent(event: string, payload: Record<string, unknown> = {}) {
+/**
+ * dataLayer events used by GTM (GTM-MFXJHXRD):
+ *   lp_form_open     { placement, course_code }
+ *   lp_form_step     { step, step_name, course_code }
+ *   generate_lead    { course_code }
+ *   whatsapp_click   { location: hero | sticky | final | float | form_success }
+ */
+export type LpEvent = "lp_form_open" | "lp_form_step" | "generate_lead" | "whatsapp_click";
+
+export function trackEvent(event: LpEvent, payload: Record<string, unknown> = {}) {
   if (typeof window === "undefined") return;
-  const dataLayer = (window as unknown as { dataLayer?: unknown[] }).dataLayer;
-  dataLayer?.push({ event, campaign: CAMPAIGN_TITLE, ...payload });
+  const w = window as unknown as { dataLayer?: unknown[] };
+  w.dataLayer = w.dataLayer || [];
+  w.dataLayer.push({ event, campaign: CAMPAIGN_TITLE, ...payload });
 }

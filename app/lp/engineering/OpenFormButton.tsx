@@ -1,7 +1,8 @@
 "use client";
 
-import { openLeadForm, trackEvent } from "./events";
+import { openLeadForm } from "./events";
 
+/** Opens the lead form. `lp_form_open` is tracked by the modal when it opens. */
 export default function OpenFormButton({
   courseId,
   placement,
@@ -17,10 +18,7 @@ export default function OpenFormButton({
     <button
       type="button"
       className={className}
-      onClick={() => {
-        trackEvent("lp_cta_click", { placement, course_id: courseId ?? null });
-        openLeadForm({ courseId, placement });
-      }}
+      onClick={() => openLeadForm({ courseId, placement })}
     >
       {children}
     </button>

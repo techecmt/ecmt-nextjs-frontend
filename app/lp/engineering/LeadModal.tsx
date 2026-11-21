@@ -2,69 +2,88 @@
 
 import * as React from "react";
 import {
+  COLLEGE,
   CONTACT,
   COURSES,
   GST_NOTE,
-  OFFER,
+  OPENING_SOON,
+  REGISTRATION_FEE,
+  REGISTRATION_OFFER,
   REGISTRATION_URL,
   findCourse,
-  formatMoney,
   monthlyLabel,
-  whatsappLink,
   type Course,
+  type IntakeLabels,
 } from "./campaign";
-import { onOpenLeadForm, trackEvent } from "./events";
-import { getOfferStatus } from "./offer";
+import { onOpenLeadForm, trackEvent, type OpenFormDetail } from "./events";
 import { WhatsAppIcon } from "./icons";
-import { OfferClock, WhileOfferActive } from "./OfferTimer";
+import { isOfferActive } from "./OfferNotice";
+import WhatsAppLink from "./WhatsAppLink";
 
 const COUNTRY_CODES = [
   "+65", "+60", "+91", "+62", "+63", "+95", "+880", "+94", "+977", "+86", "+84", "+66",
 ];
 
-const AGE_BANDS = ["16 – 17", "18 – 20", "21 – 24", "25 – 29", "30 – 39", "40 and above"];
+const AGE_BANDS = ["16–17", "18–20", "21–24", "25–29", "30–39", "40 and above"];
 
-// Labels must match mapQualificationForCrm in app/api/leads/route.ts.
-const QUALIFICATIONS = [
-  "GCE 'O' Level / SSC / 10th Std / SPM",
-  "GCE 'A' Level / 12th Std / STPM",
-  "Certificate / ITE / Polytechnic Diploma",
-  "Bachelor's Degree or higher",
-  "Other / Mature candidate (working experience)",
+// What the visitor sees -> the label the CRM mapping in app/api/leads/route.ts
+// (mapQualificationForCrm) already understands. Unknown labels are stored as
+// "other" with the text, which is what we want for the last two.
+const QUALIFICATIONS: { label: string; crm: string }[] = [
+  { label: "SSC / SPM / 10th Std / 'O' Level / any secondary", crm: "GCE 'O' Level / SSC / 10th Std / SPM" },
+  { label: "No certificate, but 30+ with 8+ years of work", crm: "Other / Mature candidate (working experience)" },
+  { label: "Diploma or higher", crm: "Diploma or higher" },
+  { label: "Other / not sure", crm: "Other / not sure" },
 ];
+const NO_CERT_LABEL = QUALIFICATIONS[1].label;
 
 const PASS_STATUSES = [
   "Work Permit",
+  "Work Permit (domestic worker)",
   "S Pass",
   "Employment Pass",
   "Singapore Citizen",
   "Singapore PR",
   "Dependant Pass / LTVP",
-  "Student Pass",
   "Other",
 ];
 
-const STEP_TITLES = ["Course", "Start date", "Eligibility", "Contact"];
+const STEP_TITLES = [
+  "Which course do you like?",
+  "When do you want to start?",
+  "Can you join? (3 quick questions)",
+  "How can we reach you?",
+];
+const STEP_NAMES = ["course", "start", "eligibility", "contact"];
 
-function startWindows(course: Course | null) {
-  const intake = course?.nextIntake;
+/**
+ * Leads are only POSTed in production. In development, or with ?lp_test=1 on
+ * any environment, the submit is mocked so test runs never reach the CRM.
+ */
+function isMockSubmit() {
+  if (process.env.NODE_ENV !== "production") return true;
+  return new URLSearchParams(window.location.search).get("lp_test") === "1";
+}
+
+function startWindows(course: Course | null, intakes: IntakeLabels) {
+  const intake = course ? intakes[course.id] : null;
   return [
     {
       value: "next-intake",
-      label: intake ? `Join the ${intake} intake` : "Join the next intake",
-      hint: "I want a seat in the coming batch",
+      label: intake ? `The next class: ${intake}` : "The next class",
+      hint: intake ? "I want a seat in this class" : `Date: ${OPENING_SOON.toLowerCase()}`,
       startDate: intake ?? "Next intake",
     },
     {
       value: "next-3-months",
-      label: "Within the next 3 months",
-      hint: "Tell me about upcoming intakes",
+      label: "In the next 3 months",
+      hint: "Tell me the dates",
       startDate: "Within 3 months",
     },
     {
       value: "exploring",
-      label: "Still comparing options",
-      hint: "I'd like details and fees first",
+      label: "I am not sure yet",
+      hint: "I want to know more first",
       startDate: "Still deciding",
     },
   ];
@@ -114,7 +133,18 @@ function readUtm() {
   return utm;
 }
 
-export default function LeadModal() {
+/** Lowest age in a band such as "21–24" or "40 and above". */
+const bandFloor = (band: string) => Number.parseInt(band, 10);
+
+export default function LeadModal({
+  intakes,
+  initialOpen = null,
+  onInitialOpenHandled,
+}: {
+  intakes: IntakeLabels;
+  initialOpen?: OpenFormDetail | null;
+  onInitialOpenHandled?: () => void;
+}) {
   const dialogRef = React.useRef<HTMLDialogElement>(null);
   const bodyRef = React.useRef<HTMLDivElement>(null);
   const [step, setStep] = React.useState(0);
@@ -124,33 +154,50 @@ export default function LeadModal() {
   const [submitted, setSubmitted] = React.useState(false);
 
   const course = findCourse(form.courseId);
-  const windows = startWindows(course);
+  const windows = startWindows(course, intakes);
 
   const close = React.useCallback(() => dialogRef.current?.close(), []);
 
-  React.useEffect(
-    () =>
-      onOpenLeadForm(({ courseId, placement }) => {
-        const dialog = dialogRef.current;
-        if (!dialog || dialog.open) return;
-        const preset = findCourse(courseId);
-        if (!submitted) {
-          setForm((current) => ({
-            ...current,
-            courseId: preset?.id ?? current.courseId,
-            // A new course invalidates the chosen intake.
-            startWindow: preset && preset.id !== current.courseId ? "" : current.startWindow,
-          }));
-          // Skip the course step when the visitor already picked one.
-          setStep((current) => (preset ? Math.max(current, 1) : current));
-          setError(null);
-        }
-        dialog.showModal();
-        document.documentElement.style.overflow = "hidden";
-        trackEvent("lp_modal_open", { placement, course_id: preset?.id ?? null });
-      }),
-    [submitted],
+  const open = React.useCallback(
+    ({ courseId, placement }: OpenFormDetail) => {
+      const dialog = dialogRef.current;
+      if (!dialog || dialog.open) return;
+      const preset = findCourse(courseId);
+      let firstStep = 0;
+      if (!submitted) {
+        setForm((current) => ({
+          ...current,
+          courseId: preset?.id ?? current.courseId,
+          // A new course invalidates the chosen start.
+          startWindow: preset && preset.id !== current.courseId ? "" : current.startWindow,
+        }));
+        // "Check if I can join" on a course skips the course question.
+        firstStep = preset ? Math.max(step, 1) : step;
+        setStep(firstStep);
+        setError(null);
+      }
+      dialog.showModal();
+      document.documentElement.style.overflow = "hidden";
+      trackEvent("lp_form_open", { placement, course_code: preset?.code ?? null });
+      if (!submitted) {
+        trackEvent("lp_form_step", {
+          step: firstStep + 1,
+          step_name: STEP_NAMES[firstStep],
+          course_code: preset?.code ?? course?.code ?? null,
+        });
+      }
+    },
+    [submitted, step, course],
   );
+
+  React.useEffect(() => onOpenLeadForm(open), [open]);
+
+  // An open request that arrived while this module was still loading.
+  React.useEffect(() => {
+    if (!initialOpen) return;
+    open(initialOpen);
+    onInitialOpenHandled?.();
+  }, [initialOpen, open, onInitialOpenHandled]);
 
   React.useEffect(() => {
     const dialog = dialogRef.current;
@@ -174,22 +221,19 @@ export default function LeadModal() {
   const stepValid = [
     Boolean(course),
     Boolean(form.startWindow),
-    Boolean(form.age && form.qualification && form.workPass && form.nationality.trim()),
+    Boolean(form.age && form.qualification && form.workPass),
     Boolean(
       form.name.trim() &&
         form.phone.trim().length >= 7 &&
         /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim()) &&
+        form.nationality.trim() &&
         form.consent,
     ),
   ];
 
-  function advance(from: number) {
-    trackEvent("lp_form_step_complete", {
-      step: from + 1,
-      step_name: STEP_TITLES[from],
-      course_id: form.courseId || null,
-    });
-    setStep(from + 1);
+  function goTo(next: number, courseCode = course?.code ?? null) {
+    trackEvent("lp_form_step", { step: next + 1, step_name: STEP_NAMES[next], course_code: courseCode });
+    setStep(next);
   }
 
   function chooseCourse(id: string) {
@@ -198,18 +242,17 @@ export default function LeadModal() {
       courseId: id,
       startWindow: id === current.courseId ? current.startWindow : "",
     }));
-    trackEvent("lp_course_select", { course_id: id, placement: "modal" });
-    advance(0);
+    goTo(1, findCourse(id)?.code ?? null);
   }
 
   function chooseStartWindow(value: string) {
     update("startWindow", value);
-    advance(1);
+    goTo(2);
   }
 
   function goNext() {
     if (!stepValid[step]) return;
-    advance(step);
+    goTo(step + 1);
   }
 
   function handleKeyDown(event: React.KeyboardEvent<HTMLFormElement>) {
@@ -230,56 +273,70 @@ export default function LeadModal() {
     setError(null);
 
     const chosen = windows.find((option) => option.value === form.startWindow);
-    const offer = getOfferStatus();
-    const offerNote = offer.active
-      ? `Free registration (S$${OFFER.registrationFee}) offer ACTIVE — visitor's 24h window ends ${offer.expiresAtIso}`
-      : `Free registration offer EXPIRED at ${offer.expiresAtIso}`;
+    const qualification = QUALIFICATIONS.find((item) => item.label === form.qualification);
+    const offerNote = isOfferActive()
+      ? `Registration fee S$${REGISTRATION_FEE} waiver ACTIVE for the ${REGISTRATION_OFFER.intakeLabel} intake (ends ${REGISTRATION_OFFER.endsOn}).`
+      : "No registration-fee offer running.";
 
+    const payload = {
+      name: form.name.trim(),
+      email: form.email.trim(),
+      countryCode: form.countryCode,
+      phone: form.phone.trim(),
+      course: course.title,
+      courseType: course.level,
+      nationality: form.nationality.trim(),
+      startDate: chosen?.startDate ?? "Next intake",
+      startWindow: chosen?.label ?? form.startWindow,
+      age: form.age,
+      qualification: qualification?.crm ?? form.qualification,
+      workPass: form.workPass,
+      message: `Engineering LP enquiry (${course.code}). Start: ${chosen?.label ?? "-"}. Qualification (as picked): ${form.qualification}. ${offerNote}`,
+      formSource: "lp_engineering_modal",
+      pageUrl: window.location.href,
+      utm: readUtm(),
+    };
+
+    const mock = isMockSubmit();
     try {
-      const response = await fetch("/api/leads/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: form.name.trim(),
-          email: form.email.trim(),
-          countryCode: form.countryCode,
-          phone: form.phone.trim(),
-          course: course.title,
-          courseType: course.level,
-          nationality: form.nationality.trim(),
-          startDate: chosen?.startDate ?? "Next intake",
-          startWindow: chosen?.label ?? form.startWindow,
-          age: form.age,
-          qualification: form.qualification,
-          workPass: form.workPass,
-          message: `Engineering campaign enquiry (${course.code}) — ${chosen?.label ?? ""}. ${offerNote}`,
-          formSource: "lp_engineering_modal",
-          pageUrl: window.location.href,
-          utm: readUtm(),
-        }),
-      });
-
-      const result = (await response.json().catch(() => ({}))) as { error?: string };
-      if (!response.ok) {
-        throw new Error(result.error || "We could not save your details.");
+      if (mock) {
+        console.info("[lp/engineering] Mock submit, nothing was sent:", payload);
+        await new Promise((resolve) => setTimeout(resolve, 600));
+      } else {
+        const response = await fetch("/api/leads/", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        const result = (await response.json().catch(() => ({}))) as { error?: string };
+        if (!response.ok) {
+          throw new Error(result.error || "We could not save your details.");
+        }
       }
 
-      trackEvent("lp_lead_submit", {
-        course_id: course.id,
-        course: course.title,
-        start_window: form.startWindow,
-        pass_status: form.workPass,
-        offer_active: offer.active,
-      });
+      trackEvent("generate_lead", { course_code: course.code, test_lead: mock });
       setSubmitted(true);
     } catch (submitError) {
       setError(
         submitError instanceof Error
-          ? `${submitError.message} Please try again, or WhatsApp us directly.`
-          : "Something went wrong. Please WhatsApp us directly.",
+          ? `${submitError.message} Please try again, or WhatsApp us.`
+          : "Something went wrong. Please WhatsApp us.",
       );
     } finally {
       setIsSubmitting(false);
+    }
+  }
+
+  // Gentle, non-blocking hints on the eligibility step.
+  const hints: string[] = [];
+  if (course && form.age && bandFloor(form.age) < course.minAge) {
+    hints.push(`${course.code} is for age ${course.minAge} and above. A counsellor can help you pick another course.`);
+  }
+  if (course && form.qualification === NO_CERT_LABEL) {
+    if (form.age && bandFloor(form.age) < 30) {
+      hints.push("Joining without a certificate is for age 30 and above. A counsellor will check your options.");
+    } else if (!course.entry.matureNoCertificate) {
+      hints.push(`For ${course.code}, you also need a work-related certificate. A counsellor will check with you.`);
     }
   }
 
@@ -291,62 +348,48 @@ export default function LeadModal() {
         // Clicks on the backdrop land on the <dialog> element itself.
         if (event.target === dialogRef.current) close();
       }}
-      className="m-0 h-[100dvh] max-h-none w-full max-w-none bg-transparent p-0 backdrop:bg-gray-950/55 backdrop:backdrop-blur-[2px] sm:m-auto sm:h-auto sm:max-h-[min(92dvh,760px)] sm:max-w-[480px] sm:rounded-3xl"
+      className="m-0 h-[100dvh] max-h-none w-full max-w-none bg-transparent p-0 backdrop:bg-gray-950/55 sm:m-auto sm:h-auto sm:max-h-[min(92dvh,780px)] sm:max-w-[480px] sm:rounded-3xl"
     >
       <div className="flex h-full max-h-[inherit] flex-col overflow-hidden bg-white sm:rounded-3xl sm:shadow-2xl">
         {/* Header */}
         <div className="shrink-0 border-b border-gray-100 px-5 pb-4 pt-5 sm:px-7">
           <div className="flex items-start justify-between gap-4">
             <div className="min-w-0">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#1AB69D]">
-                {submitted ? "Application received" : `Step ${step + 1} of ${STEP_TITLES.length}`}
+              <p className="text-sm font-semibold text-[#0F7A69]">
+                {submitted ? "Sent" : `Step ${step + 1} of ${STEP_TITLES.length}`}
               </p>
-              <h2 id="lead-modal-title" className="mt-1 text-lg font-semibold leading-snug text-gray-900">
-                {submitted
-                  ? "We'll be in touch shortly"
-                  : course
-                    ? `Apply: ${course.shortTitle} (${course.code})`
-                    : "Claim your free registration"}
+              <h2 id="lead-modal-title" className="mt-1 text-xl font-semibold leading-snug text-gray-900">
+                {submitted ? "Thank you!" : STEP_TITLES[step]}
               </h2>
+              {!submitted && course && step > 0 ? (
+                <p className="mt-1 text-sm text-gray-600">
+                  {course.shortTitle} ({course.code})
+                </p>
+              ) : null}
             </div>
             <button
               type="button"
               onClick={close}
               aria-label="Close"
-              className="-mr-2 -mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-gray-400 transition hover:bg-gray-100 hover:text-gray-700"
+              className="-mr-2 -mt-1 flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-gray-600 transition hover:bg-gray-100 hover:text-gray-900"
             >
-              <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
+              <svg className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
 
           {!submitted ? (
-            <>
-              <div className="mt-4 flex gap-1.5" aria-hidden="true">
-                {STEP_TITLES.map((title, index) => (
-                  <div
-                    key={title}
-                    className={`h-1 flex-1 rounded-full transition-colors ${
-                      index <= step ? "bg-[#1AB69D]" : "bg-gray-200"
-                    }`}
-                  />
-                ))}
-              </div>
-              <WhileOfferActive
-                expired={
-                  <p className="mt-3 text-xs text-gray-500">
-                    The 24-hour free registration offer has ended — ask us if it can still apply.
-                  </p>
-                }
-              >
-                <p className="mt-3 flex items-center gap-2 text-xs text-gray-600">
-                  <span className="inline-flex h-1.5 w-1.5 rounded-full bg-[#EE4A62]" aria-hidden="true" />
-                  Free registration (save S${OFFER.registrationFee}) ends in{" "}
-                  <OfferClock className="font-semibold text-gray-900" />
-                </p>
-              </WhileOfferActive>
-            </>
+            <div className="mt-4 flex gap-1.5" aria-hidden="true">
+              {STEP_TITLES.map((title, index) => (
+                <div
+                  key={title}
+                  className={`h-1.5 flex-1 rounded-full transition-colors ${
+                    index <= step ? "bg-[#0F7A69]" : "bg-gray-200"
+                  }`}
+                />
+              ))}
+            </div>
           ) : null}
         </div>
 
@@ -363,10 +406,8 @@ export default function LeadModal() {
             >
               {step === 0 ? (
                 <fieldset>
-                  <legend className="text-base font-semibold text-gray-900">
-                    Which course are you interested in?
-                  </legend>
-                  <div className="mt-4 space-y-2.5">
+                  <legend className="sr-only">{STEP_TITLES[0]}</legend>
+                  <div className="space-y-3">
                     {COURSES.map((item) => (
                       <OptionButton
                         key={item.id}
@@ -374,27 +415,24 @@ export default function LeadModal() {
                         onClick={() => chooseCourse(item.id)}
                         title={
                           <>
-                            <span className="mr-2 text-[#1AB69D]">{item.code}</span>
+                            <span className="mr-2 text-[#0F7A69]">{item.code}</span>
                             {item.shortTitle}
                           </>
                         }
-                        hint={`${item.level} · ${item.durationMonths} months · ${monthlyLabel(item)}/mo`}
+                        hint={`${item.durationMonths} months · ${monthlyLabel(item)} a month`}
                       />
                     ))}
                   </div>
-                  <p className="mt-3 text-xs text-gray-400">{GST_NOTE}</p>
+                  <p className="mt-3 text-sm text-gray-600">{GST_NOTE}</p>
                 </fieldset>
               ) : null}
 
               {step === 1 ? (
                 <fieldset>
-                  <legend className="text-base font-semibold text-gray-900">
-                    When would you like to start?
+                  <legend className="text-base text-gray-700">
+                    Classes are on Saturday or Sunday.
                   </legend>
-                  <p className="mt-1 text-sm text-gray-500">
-                    Classes are on weekends, 4 hours a week.
-                  </p>
-                  <div className="mt-4 space-y-2.5">
+                  <div className="mt-4 space-y-3">
                     {windows.map((option) => (
                       <OptionButton
                         key={option.value}
@@ -410,62 +448,48 @@ export default function LeadModal() {
 
               {step === 2 ? (
                 <div className="space-y-5">
-                  <div>
-                    <h3 className="text-base font-semibold text-gray-900">Check your eligibility</h3>
-                    <p className="mt-1 text-sm text-gray-500">
-                      {course
-                        ? `Minimum age for ${course.code} is ${course.minAge}.`
-                        : "So your counsellor can confirm entry requirements."}
-                    </p>
-                  </div>
-
-                  <Field label="Your age" htmlFor="eng-age">
+                  <Field label="1. Your age" htmlFor="eng-age">
                     <select id="eng-age" value={form.age} onChange={(e) => update("age", e.target.value)} className={inputClass}>
-                      <option value="">Select your age range</option>
+                      <option value="">Choose your age</option>
                       {AGE_BANDS.map((band) => (
                         <option key={band} value={band}>{band}</option>
                       ))}
                     </select>
                   </Field>
 
-                  <Field label="Highest qualification" htmlFor="eng-qualification">
+                  <Field label="2. Your school certificate" htmlFor="eng-qualification">
                     <select id="eng-qualification" value={form.qualification} onChange={(e) => update("qualification", e.target.value)} className={inputClass}>
-                      <option value="">Select your qualification</option>
+                      <option value="">Choose one</option>
                       {QUALIFICATIONS.map((item) => (
-                        <option key={item} value={item}>{item}</option>
+                        <option key={item.label} value={item.label}>{item.label}</option>
                       ))}
                     </select>
                   </Field>
 
-                  <Field label="Your pass / residency status" htmlFor="eng-pass">
+                  <Field label="3. Your pass" htmlFor="eng-pass">
                     <select id="eng-pass" value={form.workPass} onChange={(e) => update("workPass", e.target.value)} className={inputClass}>
-                      <option value="">Select your status</option>
+                      <option value="">Choose your pass</option>
                       {PASS_STATUSES.map((item) => (
                         <option key={item} value={item}>{item}</option>
                       ))}
                     </select>
                   </Field>
 
-                  <Field label="Nationality" htmlFor="eng-nationality">
-                    <input
-                      id="eng-nationality"
-                      value={form.nationality}
-                      onChange={(e) => update("nationality", e.target.value)}
-                      className={inputClass}
-                      placeholder="e.g. Indian, Bangladeshi, Singaporean"
-                    />
-                  </Field>
+                  {hints.length ? (
+                    <div aria-live="polite" className="space-y-2 rounded-2xl bg-amber-50 p-4 text-base leading-6 text-amber-950 ring-1 ring-amber-200">
+                      {hints.map((hint) => (
+                        <p key={hint}>{hint}</p>
+                      ))}
+                    </div>
+                  ) : null}
                 </div>
               ) : null}
 
               {step === 3 ? (
                 <div className="space-y-5">
-                  <div>
-                    <h3 className="text-base font-semibold text-gray-900">Where should we reach you?</h3>
-                    <p className="mt-1 text-sm text-gray-500">
-                      One call to confirm your intake and the free registration.
-                    </p>
-                  </div>
+                  <p className="text-base text-gray-700">
+                    A counsellor will WhatsApp you. No pressure.
+                  </p>
 
                   <Field label="Full name" htmlFor="eng-name">
                     <input
@@ -474,7 +498,7 @@ export default function LeadModal() {
                       value={form.name}
                       onChange={(e) => update("name", e.target.value)}
                       className={inputClass}
-                      placeholder="As printed on your passport"
+                      placeholder="Name on your passport"
                     />
                   </Field>
 
@@ -484,7 +508,7 @@ export default function LeadModal() {
                         aria-label="Country code"
                         value={form.countryCode}
                         onChange={(e) => update("countryCode", e.target.value)}
-                        className={`${fieldBase} w-[88px] shrink-0 px-2.5`}
+                        className={`${fieldBase} w-[92px] shrink-0 px-2.5`}
                       >
                         {COUNTRY_CODES.map((code) => (
                           <option key={code} value={code}>{code}</option>
@@ -503,7 +527,7 @@ export default function LeadModal() {
                     </div>
                   </Field>
 
-                  <Field label="Email address" htmlFor="eng-email">
+                  <Field label="Email" htmlFor="eng-email">
                     <input
                       id="eng-email"
                       type="email"
@@ -515,21 +539,41 @@ export default function LeadModal() {
                     />
                   </Field>
 
-                  <label className="flex cursor-pointer items-start gap-3 rounded-2xl bg-gray-50 p-3.5 ring-1 ring-gray-200">
+                  <Field label="Nationality" htmlFor="eng-nationality">
                     <input
-                      type="checkbox"
-                      checked={form.consent}
-                      onChange={(e) => update("consent", e.target.checked)}
-                      className="mt-0.5 h-4 w-4 shrink-0 accent-[#1AB69D]"
+                      id="eng-nationality"
+                      value={form.nationality}
+                      onChange={(e) => update("nationality", e.target.value)}
+                      className={inputClass}
+                      placeholder="e.g. Indian, Bangladeshi, Filipino"
                     />
-                    <span className="text-xs leading-5 text-gray-600">
-                      I agree to be contacted by an Edusphere College counsellor by phone, WhatsApp
-                      or email about this course.
-                    </span>
-                  </label>
+                  </Field>
+
+                  <div className="rounded-2xl bg-gray-50 p-4 ring-1 ring-gray-200">
+                    <label className="flex cursor-pointer items-start gap-3">
+                      <input
+                        type="checkbox"
+                        checked={form.consent}
+                        onChange={(e) => update("consent", e.target.checked)}
+                        className="mt-1 h-5 w-5 shrink-0 accent-[#0F7A69]"
+                      />
+                      <span className="text-base leading-6 text-gray-800">
+                        I agree that Edusphere College can contact me by phone, WhatsApp or email
+                        about this course.
+                      </span>
+                    </label>
+                    <a
+                      href={COLLEGE.privacyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="ml-8 mt-1 inline-flex min-h-[44px] items-center text-base font-semibold text-[#0F7A69] underline underline-offset-4"
+                    >
+                      Read our Privacy Policy
+                    </a>
+                  </div>
 
                   {error ? (
-                    <p aria-live="polite" className="rounded-xl bg-red-50 px-4 py-3 text-sm text-red-800">
+                    <p aria-live="polite" className="rounded-xl bg-red-50 px-4 py-3 text-base text-red-800">
                       {error}
                     </p>
                   ) : null}
@@ -552,7 +596,7 @@ export default function LeadModal() {
                   <button
                     type="button"
                     onClick={() => setStep((current) => Math.max(0, current - 1))}
-                    className="rounded-xl border border-gray-200 px-4 py-3.5 text-sm font-semibold text-gray-600 transition hover:bg-gray-50"
+                    className="min-h-[52px] rounded-xl border border-gray-300 px-5 text-base font-semibold text-gray-800 transition hover:bg-gray-50"
                   >
                     Back
                   </button>
@@ -561,25 +605,25 @@ export default function LeadModal() {
                       type="button"
                       onClick={goNext}
                       disabled={!stepValid[2]}
-                      className="flex-1 rounded-xl bg-gray-900 px-5 py-3.5 text-base font-semibold text-white transition hover:bg-gray-800 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400"
+                      className="min-h-[52px] flex-1 rounded-xl bg-gray-900 px-5 text-base font-semibold text-white transition hover:bg-gray-800 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-600"
                     >
-                      Continue
+                      Next
                     </button>
                   ) : null}
                   {step === 3 ? (
                     <button
                       type="submit"
                       disabled={!stepValid[3] || isSubmitting}
-                      className="flex-1 rounded-xl bg-[#EE4A62] px-5 py-3.5 text-base font-semibold text-white transition hover:bg-[#d93d54] disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400"
+                      className="min-h-[52px] flex-1 rounded-xl bg-[#C8304A] px-4 text-base font-semibold text-white transition hover:bg-[#B42A42] disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-600"
                     >
-                      {isSubmitting ? "Sending…" : "Claim free registration"}
+                      {isSubmitting ? "Sending…" : "Send, a counsellor will WhatsApp you"}
                     </button>
                   ) : null}
                 </div>
               ) : null}
 
-              <p className="mt-5 text-center text-[11px] leading-5 text-gray-400">
-                Your details go only to our admissions team. No spam, no sharing.
+              <p className="mt-5 text-center text-sm leading-6 text-gray-600">
+                Your details go only to our admissions team.
               </p>
             </form>
           )}
@@ -591,47 +635,40 @@ export default function LeadModal() {
 
 function SuccessPanel({ course, name }: { course: Course; name: string }) {
   const firstName = name.trim().split(/\s+/)[0] || "there";
-  const waText = `Hi, I'm ${name.trim()}. I just applied online for the ${course.title} (${course.code}). Please confirm my intake and the free registration offer.`;
+  const waText = `Hi, I'm ${name.trim()}. I just sent my details for the ${course.title} (${course.code}). Can you tell me the next class date and fees?`;
 
   return (
     <div className="px-5 py-8 text-center sm:px-7">
-      <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#1AB69D]/10">
-        <svg className="h-7 w-7 text-[#1AB69D]" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" aria-hidden="true">
+      <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#E7F6F2]">
+        <svg className="h-7 w-7 text-[#0F7A69]" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
         </svg>
       </div>
       <h3 className="mt-4 text-2xl font-semibold text-gray-900">Thank you, {firstName}</h3>
-      <p className="mx-auto mt-2 max-w-sm text-sm leading-6 text-gray-600">
-        Your application for the <strong className="font-semibold text-gray-800">{course.code}</strong>{" "}
-        has been received. A counsellor will contact you within 1 working day.
+      <p className="mx-auto mt-2 max-w-sm text-base leading-7 text-gray-700">
+        We got your details for <strong className="font-semibold text-gray-900">{course.code}</strong>.
+        <br />
+        A counsellor will WhatsApp you soon.
       </p>
-      <WhileOfferActive>
-        <p className="mx-auto mt-4 max-w-sm rounded-xl bg-[#effbf8] px-4 py-3 text-xs leading-5 text-[#0f6b5c]">
-          Your free registration (S${formatMoney(OFFER.registrationFee)}) is locked in with this
-          application.
-        </p>
-      </WhileOfferActive>
-      <a
-        href={whatsappLink(waText)}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={() => trackEvent("lp_whatsapp_click", { placement: "success_panel", course_id: course.id })}
-        className="mt-6 flex w-full items-center justify-center gap-2.5 rounded-xl bg-[#25D366] px-5 py-4 text-base font-semibold text-white transition hover:bg-[#1da851]"
+      <WhatsAppLink
+        location="form_success"
+        text={waText}
+        className="mt-6 flex min-h-[56px] w-full items-center justify-center gap-2.5 rounded-xl bg-[#1E7F4F] px-5 text-base font-semibold text-white transition hover:bg-[#186A41]"
       >
         <WhatsAppIcon className="h-5 w-5" />
-        Get a faster reply on WhatsApp
-      </a>
-      <p className="mt-4 text-xs leading-5 text-gray-500">
+        Chat with us now on WhatsApp
+      </WhatsAppLink>
+      <p className="mt-4 text-sm leading-6 text-gray-600">
         {CONTACT.label} · {CONTACT.phone}
         <br />
-        Prefer to finish online?{" "}
+        Want to finish online?{" "}
         <a
           href={REGISTRATION_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-semibold text-[#1AB69D] underline underline-offset-2"
+          className="font-semibold text-[#0F7A69] underline underline-offset-2"
         >
-          Complete the registration form
+          Fill in the registration form
         </a>
       </p>
     </div>
@@ -654,18 +691,18 @@ function OptionButton({
       type="button"
       onClick={onClick}
       aria-pressed={selected}
-      className={`group flex w-full items-center justify-between gap-3 rounded-2xl border px-4 py-3.5 text-left transition ${
+      className={`group flex min-h-[64px] w-full items-center justify-between gap-3 rounded-2xl border px-4 py-3 text-left transition ${
         selected
-          ? "border-[#1AB69D] bg-[#effbf8]"
-          : "border-gray-200 bg-white hover:border-gray-300 hover:bg-gray-50"
+          ? "border-[#0F7A69] bg-[#E7F6F2]"
+          : "border-gray-300 bg-white hover:border-gray-400 hover:bg-gray-50"
       }`}
     >
       <span className="min-w-0">
-        <span className="block text-sm font-semibold text-gray-900">{title}</span>
-        <span className="mt-0.5 block text-xs text-gray-500">{hint}</span>
+        <span className="block text-base font-semibold text-gray-900">{title}</span>
+        <span className="mt-0.5 block text-sm text-gray-600">{hint}</span>
       </span>
       <svg
-        className="h-5 w-5 shrink-0 text-gray-300 transition group-hover:translate-x-0.5 group-hover:text-[#1AB69D]"
+        className="h-5 w-5 shrink-0 text-gray-500 transition group-hover:translate-x-0.5 group-hover:text-[#0F7A69]"
         fill="none"
         stroke="currentColor"
         strokeWidth={2}
@@ -680,7 +717,7 @@ function OptionButton({
 
 // Width is deliberately left out of fieldBase: the phone row sets its own.
 const fieldBase =
-  "rounded-xl border border-gray-300 bg-white px-3.5 py-3 text-base text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-[#1AB69D] focus:ring-4 focus:ring-[#1AB69D]/15";
+  "min-h-[52px] rounded-xl border border-gray-400 bg-white px-3.5 py-3 text-base text-gray-900 outline-none transition placeholder:text-gray-500 focus:border-[#0F7A69] focus:ring-4 focus:ring-[#0F7A69]/15";
 
 const inputClass = `${fieldBase} w-full`;
 
@@ -695,8 +732,8 @@ function Field({
 }) {
   return (
     <div>
-      <label htmlFor={htmlFor} className="mb-2 block text-sm font-medium text-gray-800">
-        {label} <span className="text-[#EE4A62]">*</span>
+      <label htmlFor={htmlFor} className="mb-2 block text-base font-medium text-gray-900">
+        {label}
       </label>
       {children}
     </div>

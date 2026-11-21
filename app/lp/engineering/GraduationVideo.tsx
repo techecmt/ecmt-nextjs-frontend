@@ -26,7 +26,7 @@ export default function GraduationVideo() {
       style={{ containerType: "size" }}
     >
       <Image
-        src="/herosections/graduation_2026_hero.jpg"
+        src="/lp_images/engineering/graduation-2026.webp"
         alt="Edusphere College graduands celebrating at the 2026 graduation ceremony"
         fill
         sizes="(min-width: 1024px) 66vw, 100vw"
@@ -50,7 +50,7 @@ export default function GraduationVideo() {
           />
         </div>
       )}
-      <figcaption className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/70 to-transparent px-5 pt-16 pb-5 text-sm font-medium text-white">
+      <figcaption className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/70 to-transparent px-5 pt-16 pb-5 text-base font-medium text-white">
         Graduation ceremony 2026
       </figcaption>
     </figure>
