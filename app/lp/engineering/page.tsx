@@ -102,6 +102,8 @@ const PRIMARY_CTA =
 const WA_CTA =
   "inline-flex min-h-[56px] items-center justify-center gap-2 rounded-xl bg-[#1E7F4F] px-6 text-base font-semibold text-white transition hover:bg-[#186A41]";
 const ICON = "h-8 w-8 text-[#0F7A69]";
+const SOFT_BAND =
+  "relative isolate overflow-hidden bg-[#e7f4f1] before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.95),transparent_42%)]";
 
 export default function EngineeringLandingPage() {
   const today = singaporeToday();
@@ -109,7 +111,8 @@ export default function EngineeringLandingPage() {
   const earliest = earliestIntakeLabel(today);
 
   return (
-    <div className={`${poppins.className} bg-white pb-28 text-gray-900`}>
+    <div className={`${poppins.className} relative bg-[#f4faf8] pb-28 text-gray-900`}>
+      <PageBackdrop />
       {/* Sticky top bar (replaces the per-visitor countdown ribbon) */}
       <div className="sticky top-0 z-30 bg-gray-950 text-white">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-1.5">
@@ -135,7 +138,7 @@ export default function EngineeringLandingPage() {
       </div>
 
       {/* Header */}
-      <header className="border-b border-gray-100">
+      <header className="border-b border-[#0F7A69]/10 bg-white/75 backdrop-blur-md">
         <div className="mx-auto max-w-6xl px-4 py-2">
           <Image
             src="/brand/logo.png"
@@ -150,7 +153,9 @@ export default function EngineeringLandingPage() {
       </header>
 
       {/* Hero */}
-      <section className="mx-auto grid max-w-6xl gap-8 px-4 pb-10 pt-4 sm:pt-10 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-12 lg:pb-16">
+      <section className="relative overflow-hidden">
+        <HeroMarks />
+        <div className="relative mx-auto grid max-w-6xl gap-8 px-4 pb-10 pt-4 sm:pt-10 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-12 lg:pb-16">
         <div>
           <p className="inline-flex items-center gap-2 rounded-full bg-[#E7F6F2] px-3 py-1 text-sm font-medium text-[#0E6E5F]">
             Part-time · Weekends · Beach Road, Singapore
@@ -207,7 +212,7 @@ export default function EngineeringLandingPage() {
         </div>
 
         <figure className="relative">
-          <div className="relative aspect-[16/10] overflow-hidden rounded-3xl bg-gray-100 lg:aspect-[4/3]">
+          <div className="relative aspect-[16/10] overflow-hidden rounded-3xl bg-gray-100 shadow-[0_24px_50px_-28px_rgba(15,40,35,0.65)] ring-1 ring-black/5 lg:aspect-[4/3]">
             <Image
               src="/lp_images/engineering/hero.webp"
               alt="Engineers in safety helmets at a building site in Singapore"
@@ -227,11 +232,12 @@ export default function EngineeringLandingPage() {
             </figcaption>
           </DevOnly>
         </figure>
+        </div>
       </section>
       <div id="hero-end" aria-hidden="true" />
 
       {/* Stat strip */}
-      <section aria-label="At a glance" className="border-y border-gray-100 bg-gray-50">
+      <section aria-label="At a glance" className="border-y border-[#0F7A69]/10 bg-white/70 backdrop-blur-sm">
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-px px-4 py-2 sm:grid-cols-4">
           <Stat value="1 day" label="a week" />
           <Stat value="4 hrs" label="per class" />
@@ -266,7 +272,7 @@ export default function EngineeringLandingPage() {
       </section>
 
       {/* Small time. Big step. */}
-      <section className="bg-gray-50 py-14 sm:py-20">
+      <section className={`${SOFT_BAND} py-14 sm:py-20`}>
         <div className="mx-auto max-w-6xl px-4">
           <SectionHeading title="Small time. Big step." body="Built for people who work 6 days a week." />
           <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -351,7 +357,7 @@ export default function EngineeringLandingPage() {
       </section>
 
       {/* Course picker */}
-      <section id="courses" className="scroll-mt-20 bg-gray-50 py-14 sm:py-20">
+      <section id="courses" className={`${SOFT_BAND} scroll-mt-20 py-14 sm:py-20`}>
         <div className="mx-auto max-w-6xl px-4">
           <SectionHeading
             title="Choose your course"
@@ -407,7 +413,7 @@ export default function EngineeringLandingPage() {
       </section>
 
       {/* Fees */}
-      <section id="fees" className="scroll-mt-20 bg-gray-50 py-14 sm:py-20">
+      <section id="fees" className={`${SOFT_BAND} scroll-mt-20 py-14 sm:py-20`}>
         <div className="mx-auto max-w-4xl px-4">
           <SectionHeading title="Clear fees. Pay monthly." body="The price includes GST. No exam fees. No book fees." />
 
@@ -511,7 +517,7 @@ export default function EngineeringLandingPage() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="bg-gray-50 py-14 sm:py-20">
+      <section id="faq" className={`${SOFT_BAND} py-14 sm:py-20`}>
         <div className="mx-auto max-w-3xl px-4">
           <SectionHeading title="Questions people ask" />
           <div className="mt-8 divide-y divide-gray-200 rounded-3xl border border-gray-200 bg-white">
@@ -573,7 +579,10 @@ export default function EngineeringLandingPage() {
       {/* Final CTA */}
       <section className="py-14 sm:py-20">
         <div className="mx-auto max-w-6xl px-4">
-          <div className="rounded-[32px] border border-gray-200 bg-gradient-to-br from-white to-[#F3FBF8] px-5 py-10 text-center sm:px-12 sm:py-14">
+          <div className="relative overflow-hidden rounded-[32px] border border-[#0F7A69]/15 bg-gradient-to-br from-white via-white to-[#e7f7f3] px-5 py-10 text-center shadow-[0_24px_60px_-32px_rgba(15,122,105,0.55)] sm:px-12 sm:py-14">
+            <div aria-hidden="true" className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full bg-[#b7efe4] blur-2xl" />
+            <div aria-hidden="true" className="pointer-events-none absolute -bottom-20 -left-10 h-48 w-48 rounded-full bg-[#f8d0d8] blur-2xl" />
+            <div className="relative">
             <h2 className="text-3xl font-bold tracking-tight [text-wrap:balance] sm:text-4xl">
               {earliest ? `Next class starts ${earliest}. Save your seat.` : "Save your seat for the next class."}
             </h2>
@@ -591,12 +600,13 @@ export default function EngineeringLandingPage() {
                 Ask on WhatsApp
               </WhatsAppLink>
             </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Legal footer (the global footer is not rendered on /lp pages) */}
-      <footer className="border-t border-gray-200 py-8">
+      <footer className="border-t border-[#0F7A69]/10 bg-white/70 py-8">
         <div className="mx-auto max-w-4xl space-y-2 px-4 text-center text-sm leading-6 text-gray-700">
           <p>
             <strong className="font-semibold text-gray-900">{COLLEGE.legalName}</strong> · PEI Reg No{" "}
@@ -618,6 +628,31 @@ export default function EngineeringLandingPage() {
 
       <StickyBar />
       <LeadModalLoader intakes={intakes} />
+    </div>
+  );
+}
+
+function PageBackdrop() {
+  return (
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(15,122,105,0.22)_1px,transparent_1.15px)] [background-size:26px_26px] opacity-35 [mask-image:linear-gradient(to_bottom,#000_0%,#000_16%,transparent_32%,transparent_64%,#000_80%,#000_100%)]" />
+      <div className="absolute -top-28 right-[-6%] h-[440px] w-[440px] rounded-full bg-[#b7efe4] blur-3xl" />
+      <div className="absolute top-[18%] -left-32 h-[380px] w-[380px] rounded-full bg-[#f8d3db] opacity-80 blur-3xl" />
+      <div className="absolute top-[47%] right-[-8%] h-[360px] w-[360px] rounded-full bg-[#c9f3ea] blur-3xl" />
+      <div className="absolute bottom-16 left-[6%] h-[300px] w-[300px] rounded-full bg-[#f6e7c8] opacity-80 blur-3xl" />
+    </div>
+  );
+}
+
+function HeroMarks() {
+  return (
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+      <svg className="absolute -top-24 -right-16 hidden h-[440px] w-[440px] text-[#0F7A69]/[0.12] lg:block" viewBox="0 0 200 200" fill="none">
+        <circle cx="100" cy="100" r="78" stroke="currentColor" strokeWidth="1" />
+        <circle cx="100" cy="100" r="46" stroke="currentColor" strokeWidth="1" />
+        <path d="M100 10v180M10 100h180" stroke="currentColor" strokeWidth="1" />
+        <path d="M36 36l128 128M164 36L36 164" stroke="currentColor" strokeWidth="0.6" />
+      </svg>
     </div>
   );
 }
@@ -651,7 +686,7 @@ function Stat({ value, label }: { value: string; label: string }) {
 
 function AudienceCard({ icon, title, children }: { icon: React.ReactNode; title: string; children: React.ReactNode }) {
   return (
-    <li className="rounded-3xl border border-gray-200 bg-white p-6">
+    <li className="rounded-3xl border border-white/80 bg-white p-6 shadow-[0_16px_40px_-28px_rgba(15,122,105,0.65)]">
       <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#E7F6F2]">{icon}</span>
       <h3 className="mt-4 text-xl font-semibold leading-snug">{title}</h3>
       <p className="mt-2 text-base leading-7 text-gray-700">{children}</p>
@@ -661,7 +696,7 @@ function AudienceCard({ icon, title, children }: { icon: React.ReactNode; title:
 
 function Block({ icon, title, children }: { icon: React.ReactNode; title: string; children: React.ReactNode }) {
   return (
-    <li className="rounded-3xl border border-gray-200 bg-white p-6">
+    <li className="rounded-3xl border border-white/80 bg-white p-6 shadow-[0_16px_40px_-28px_rgba(15,122,105,0.65)]">
       {icon}
       <h3 className="mt-4 text-lg font-semibold leading-snug">{title}</h3>
       <p className="mt-2 text-base leading-7 text-gray-700">{children}</p>
@@ -671,7 +706,7 @@ function Block({ icon, title, children }: { icon: React.ReactNode; title: string
 
 function EntryBox({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="rounded-3xl border-2 border-[#0F7A69]/30 bg-white p-6 text-base leading-7 text-gray-900">
+    <div className="rounded-3xl border-2 border-[#0F7A69]/25 bg-white p-6 text-base leading-7 text-gray-900 shadow-[0_16px_40px_-28px_rgba(15,122,105,0.7)]">
       <p className="flex items-center gap-2 text-lg font-semibold">
         <CircleCheck className="h-7 w-7 shrink-0 text-[#15803D]" aria-hidden="true" />
         {title}
